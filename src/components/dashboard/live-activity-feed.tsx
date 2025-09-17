@@ -1,53 +1,66 @@
-
 "use client";
 
-import React, { useEffect, useRef } from 'react';
 import { useTranslations } from 'next-intl';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Terminal } from 'lucide-react';
+import { activities } from '@/app/lib/mock-data';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { BotMessageSquare, AlertTriangle, Info } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { formatDistanceToNow } from 'date-fns';
 
-interface LiveActivityFeedProps {
-  logs: string[];
-  title?: string;
-  className?: string;
-  isLoading?: boolean;
-}
-
-export function LiveActivityFeed({ logs, title, className, isLoading = false }: LiveActivityFeedProps) {
+export function LiveActivityFeed() {
   const t = useTranslations('LiveActivityFeed');
-  const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // This could be enhanced to scroll to bottom, but for now we keep it simple.
-  }, [logs]);
-  
-  const cardTitle = title || t('title');
+  const getIcon = (type: string) => {
+    switch (type) {
+      case 'tweet_response':
+        return <BotMessageSquare className="h-5 w-5 text-blue-500" />;
+      case 'error':
+        return <AlertTriangle className="h-5 w-5 text-red-500" />;
+      case 'system_event':
+        return <Info className="h-5 w-5 text-gray-500" />;
+      default:
+        return null;
+    }
+  };
 
   return (
-    <Card className={className}>
+    <Card>
       <CardHeader>
-        <CardTitle className="font-headline text-lg">{cardTitle}</CardTitle>
+        <CardTitle className="font-headline text-lg">{t('title')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[450px]" ref={scrollAreaRef}>
-          <div className="space-y-2 font-code text-xs text-muted-foreground">
-            {isLoading ? (
-              <div className="flex h-[400px] items-center justify-center text-center">
-                <p>{t('loading')}</p>
-              </div>
-            ) : logs.length > 0 ? (
-              logs.map((log, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  <Terminal className="mt-0.5 h-3 w-3 shrink-0" />
-                  <p className="flex-1">{log}</p>
+        <ScrollArea className="h-[450px]">
+          <div className="space-y-6">
+            {activities.map((activity) => (
+              <div key={activity.id} className="flex items-start gap-4">
+                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-muted">
+                  {getIcon(activity.type)}
                 </div>
-              ))
-            ) : (
-              <div className="flex h-[400px] items-center justify-center text-center">
-                <p>{t('waiting')}<br/>{t('waitingInstruction')}</p>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm font-medium">
+                      {activity.type.replace('_', ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      {formatDistanceToNow(activity.timestamp, { addSuffix: true })}
+                    </p>
+                  </div>
+                  <p className="text-sm text-muted-foreground">{activity.description}</p>
+                  {activity.user && (
+                    <div className="mt-2 flex items-center gap-2">
+                       <Avatar className="h-6 w-6">
+                        <AvatarImage src={activity.user.avatarUrl} alt={activity.user.name} />
+                        <AvatarFallback>{activity.user.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                      <span className="text-xs font-medium">{activity.user.name}</span>
+                    </div>
+                  )}
+                </div>
               </div>
-            )}
+            ))}
           </div>
         </ScrollArea>
       </CardContent>

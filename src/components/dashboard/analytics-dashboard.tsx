@@ -1,65 +1,43 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { metrics, latencyData as initialLatencyData } from '@/app/lib/mock-data';
+import { metrics, latencyData } from '@/app/lib/mock-data';
 import { MetricCard } from './metric-card';
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart';
-import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { Area, AreaChart, CartesianGrid, XAxis } from 'recharts';
 import type { ChartConfig } from '@/components/ui/chart';
-import { useMemo, useState, useEffect } from 'react';
-import type { LatencyData, Metric } from '@/app/lib/types';
+import { useMemo } from 'react';
 import { useTranslations } from 'next-intl';
 
 export function AnalyticsDashboard() {
   const t = useTranslations('Analytics');
-  const [latencyData, setLatencyData] = useState<LatencyData[]>(initialLatencyData);
 
   const chartConfig = {
     latency: {
-      label: t('latencyLabel'),
+      label: 'Latency',
       color: 'hsl(var(--accent))',
     },
   } satisfies ChartConfig;
 
-  const translatedMetrics: Metric[] = useMemo(() => [
-    { ...metrics[0], label: t('metrics.avgResponseTime') },
-    { ...metrics[1], label: t('metrics.engagementRate') },
-    { ...metrics[2], label: t('metrics.tweetsPerDay') },
-    { ...metrics[3], label: t('metrics.errorRate') },
+  const translatedMetrics = useMemo(() => [
+    { ...metrics[0], title: t('metrics.avgResponseTime') },
+    { ...metrics[1], title: t('metrics.engagementRate') },
+    { ...metrics[2], title: t('metrics.tweetsPerDay') },
+    { ...metrics[3], title: t('metrics.errorRate') },
   ], [t]);
 
   const motion = useMemo(() => {
     try {
       return require("framer-motion").motion;
     } catch (e) {
+      // Return a div if framer-motion is not available
       return (props: any) => <div {...props} />;
     }
   }, []);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setLatencyData(prevData => {
-        const now = new Date();
-        const newTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-        const newLatency = 1000 + Math.floor(Math.random() * 400) - 200;
-        
-        const newDataPoint: LatencyData = {
-            time: newTime,
-            latency: newLatency
-        };
-
-        const updatedData = [...prevData.slice(1), newDataPoint];
-        return updatedData;
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
 
   return (
     <Card>
@@ -90,7 +68,6 @@ export function AnalyticsDashboard() {
                 margin={{
                   left: 12,
                   right: 12,
-                  top: 12,
                 }}
               >
                 <CartesianGrid vertical={false} />
@@ -99,31 +76,19 @@ export function AnalyticsDashboard() {
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
-                  tickFormatter={(value) => value}
-                />
-                 <YAxis
-                  tickLine={false}
-                  axisLine={false}
-                  tickMargin={8}
-                  domain={[800, 1600]}
+                  tickFormatter={(value) => value.slice(0, 5)}
                 />
                 <ChartTooltip
                   cursor={false}
                   content={<ChartTooltipContent indicator="dot" />}
                 />
-                <defs>
-                    <linearGradient id="fillLatency" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="5%" stopColor="var(--color-latency)" stopOpacity={0.8}/>
-                        <stop offset="95%" stopColor="var(--color-latency)" stopOpacity={0.1}/>
-                    </linearGradient>
-                </defs>
                 <Area
                   dataKey="latency"
                   type="natural"
-                  fill="url(#fillLatency)"
+                  fill="var(--color-latency)"
+                  fillOpacity={0.4}
                   stroke="var(--color-latency)"
                   stackId="a"
-                  isAnimationActive={false}
                 />
               </AreaChart>
             </ChartContainer>

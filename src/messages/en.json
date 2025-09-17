@@ -1,7 +1,7 @@
 {
   "Dashboard": {
     "title": "Management Dashboard",
-    "welcomeMessage": "Welcome!"
+    "welcomeMessage": "Welcome! Monitor and control your AI agent from here."
   },
   "Navigation": {
     "dashboard": "Dashboard",
@@ -21,18 +21,7 @@
   "ControlPanel": {
     "title": "Control Panel",
     "emergencyStop": "Emergency Stop",
-    "pauseAgent": "Pause Agent",
-    "startAgent": "Start Agent",
-    "sendTestNotification": "Send Test Notification",
-    "notifications": {
-      "success": "Success",
-      "error": "Error",
-      "agentNotRunning": "Agent Not Running",
-      "agentNotRunningDesc": "Emergency stop is only available for a running agent.",
-      "emergencyStopActivated": "Emergency Stop Activated",
-      "notificationSent": "Notification Sent",
-      "notificationFailed": "Notification Failed"
-    }
+    "pauseAgent": "Pause Agent"
   },
   "AgentStatusCard": {
     "title": "Agent Status",
@@ -43,83 +32,18 @@
     "notAvailable": "N/A"
   },
   "LiveActivityFeed": {
-    "title": "Live Activity",
-    "loading": "Loading logs...",
-    "waiting": "Waiting for agent activity...",
-    "waitingInstruction": "Press 'Start Agent' to begin."
+    "title": "Live Activity Feed",
+    "description": "A real-time stream of agent actions and system events."
   },
   "Analytics": {
     "title": "Smart Analytics",
     "description": "Key performance metrics and trends",
     "responseLatency": "Response Latency (ms)",
-    "latencyLabel": "Latency (ms)",
     "metrics": {
       "avgResponseTime": "Avg. Response Time",
       "engagementRate": "Engagement Rate",
       "tweetsPerDay": "Tweets per Day",
       "errorRate": "Error Rate"
-    }
-  },
-  "VisualEditor": {
-    "title": "Flow Editor",
-    "description": "Visualize your agent's workflow. Click a node to edit it, or select and press Backspace to delete.",
-    "addFilter": "Add Filter",
-    "addAIStep": "Add AI Step",
-    "saveFlow": "Save Flow",
-    "restoreFlow": "Restore Flow",
-    "editNode": "Edit Node",
-    "label": "Label",
-    "done": "Done",
-    "clickToEdit": "Click a node to edit",
-    "initialNodes": {
-        "trigger": "Tweet Detection",
-        "filter": "Content Filter",
-        "aiResponse": "AI Response Generator"
-    },
-    "newNode": {
-        "filter": "New Filter Node",
-        "ai": "New AI Node"
-    },
-    "notifications": {
-      "flowSaved": "Flow Saved",
-      "flowSavedDesc": "Your workflow layout has been saved.",
-      "saveFailed": "Save Failed",
-      "saveFailedDesc": "Could not save the flow.",
-      "flowRestored": "Flow Restored",
-      "flowRestoredDesc": "Your saved workflow has been loaded.",
-      "noSavedFlow": "No Saved Flow",
-      "noSavedFlowDesc": "No saved workflow found to restore.",
-      "restoreFailed": "Restore Failed",
-      "restoreFailedDesc": "Could not restore the flow."
-    }
-  },
-  "AIOptimization": {
-    "title": "AI-Powered Optimization",
-    "description": "Leverage AI to analyze agent performance and get optimization suggestions.",
-    "form": {
-      "responseRate": "Response Rate",
-      "errorRate": "Error Rate",
-      "engagementRate": "Engagement Rate",
-      "avgResponseTime": "Avg. Response Time",
-      "dailyCost": "Daily Cost",
-      "agentConfig": "Agent Configuration",
-      "agentConfigPlaceholder": "Paste your agent's JSON config here.",
-      "analyzeButton": "Analyze Performance",
-      "analyzingButton": "Analyzing..."
-    },
-    "insightReport": {
-      "title": "Insight Report",
-      "performance": "Performance",
-      "analyzingData": "AI is analyzing the data...",
-      "insightsAppearHere": "Your AI-powered insights will appear here."
-    },
-    "suggestion": {
-      "impact": "Impact"
-    },
-    "notifications": {
-      "analysisComplete": "Analysis Complete",
-      "analysisCompleteDesc": "AI-powered optimization insights are ready.",
-      "analysisFailed": "Analysis Failed"
     }
   },
   "Statuses": {

@@ -4,7 +4,8 @@ import {
   DollarSign,
   Clock,
 } from 'lucide-react';
-import type { Metric, AgentStatus, LatencyData } from './types';
+import type { Metric, AgentStatus, Activity, LatencyData } from './types';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export const agentStatus: AgentStatus = 'active';
 export const agentUptime = '99.98%';
@@ -38,6 +39,44 @@ export const metrics: Metric[] = [
     value: '1.2s',
     change: -8.0,
     icon: Clock,
+  },
+];
+
+export const activities: Activity[] = [
+  {
+    id: '1',
+    type: 'tweet_response',
+    timestamp: new Date(Date.now() - 1000 * 60 * 2),
+    description: 'Responded to tweet from @user1: "Great point!"',
+    user: { name: 'user1', avatarUrl: PlaceHolderImages.find(img => img.id === 'user-avatar-1')?.imageUrl || '' },
+  },
+  {
+    id: '2',
+    type: 'error',
+    timestamp: new Date(Date.now() - 1000 * 60 * 5),
+    description: 'Failed to generate response. OpenAI API Error: Rate limit exceeded.',
+  },
+  {
+    id: '3',
+    type: 'system_event',
+    timestamp: new Date(Date.now() - 1000 * 60 * 10),
+    description: 'Agent restarted successfully.',
+  },
+  {
+    id: '4',
+    type: 'tweet_response',
+    timestamp: new Date(Date.now() - 1000 * 60 * 15),
+    description:
+      'Responded to tweet from @user2: "I disagree, here is why..."',
+    user: { name: 'user2', avatarUrl: PlaceHolderImages.find(img => img.id === 'user-avatar-2')?.imageUrl || '' },
+  },
+    {
+    id: '5',
+    type: 'tweet_response',
+    timestamp: new Date(Date.now() - 1000 * 60 * 25),
+    description:
+      'Responded to tweet from @user3: "Interesting perspective, thanks for sharing!"',
+    user: { name: 'user3', avatarUrl: PlaceHolderImages.find(img => img.id === 'user-avatar-3')?.imageUrl || '' },
   },
 ];
 

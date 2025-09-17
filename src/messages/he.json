@@ -1,7 +1,7 @@
 {
   "Dashboard": {
-    "title": "דשבורד ניהול",
-    "welcomeMessage": "ברוך הבא!"
+    "title": "לוח בקרה וניהול",
+    "welcomeMessage": "ברוך הבא! מכאן תוכל לנטר ולשלוט בסוכן ה-AI שלך."
   },
   "Navigation": {
     "dashboard": "דשבורד",
@@ -21,18 +21,7 @@
   "ControlPanel": {
     "title": "לוח בקרה",
     "emergencyStop": "עצירת חירום",
-    "pauseAgent": "השהיית סוכן",
-    "startAgent": "הפעלת סוכן",
-    "sendTestNotification": "שלח התראת ניסיון",
-    "notifications": {
-      "success": "הצלחה",
-      "error": "שגיאה",
-      "agentNotRunning": "הסוכן אינו פעיל",
-      "agentNotRunningDesc": "עצירת חירום זמינה רק עבור סוכן פעיל.",
-      "emergencyStopActivated": "עצירת חירום הופעלה",
-      "notificationSent": "התראה נשלחה",
-      "notificationFailed": "שליחת התראה נכשלה"
-    }
+    "pauseAgent": "השהיית סוכן"
   },
   "AgentStatusCard": {
     "title": "סטטוס סוכן",
@@ -43,83 +32,18 @@
     "notAvailable": "לא זמין"
   },
   "LiveActivityFeed": {
-    "title": "פעילות חיה",
-    "loading": "טוען לוגים...",
-    "waiting": "ממתין לפעילות הסוכן...",
-    "waitingInstruction": "לחץ על 'הפעלת סוכן' כדי להתחיל."
+    "title": "פיד פעילות חיה",
+    "description": "זרם בזמן אמת של פעולות הסוכן ואירועי מערכת."
   },
   "Analytics": {
     "title": "אנליטיקות חכמות",
     "description": "מדדי ביצועים מרכזיים ומגמות",
     "responseLatency": "זמן תגובה (ms)",
-    "latencyLabel": "זמן תגובה (ms)",
     "metrics": {
       "avgResponseTime": "זמן תגובה ממוצע",
       "engagementRate": "שיעור מעורבות",
       "tweetsPerDay": "ציוצים ליום",
       "errorRate": "שיעור שגיאות"
-    }
-  },
-  "VisualEditor": {
-    "title": "עורך זרימה",
-    "description": "הצג ובנה את זרימת העבודה של הסוכן שלך. לחץ על צומת לעריכה, או בחר ומחק.",
-    "addFilter": "הוסף פילטר",
-    "addAIStep": "הוסף שלב AI",
-    "saveFlow": "שמור זרימה",
-    "restoreFlow": "שחזר זרימה",
-    "editNode": "ערוך צומת",
-    "label": "תווית",
-    "done": "סיום",
-    "clickToEdit": "לחץ על צומת לעריכה",
-    "initialNodes": {
-        "trigger": "זיהוי ציוץ",
-        "filter": "פילטר תוכן",
-        "aiResponse": "מחולל תגובות AI"
-    },
-    "newNode": {
-        "filter": "פילטר חדש",
-        "ai": "צומת AI חדש"
-    },
-    "notifications": {
-      "flowSaved": "הזרימה נשמרה",
-      "flowSavedDesc": "פריסת זרימת העבודה שלך נשמרה.",
-      "saveFailed": "שמירה נכשלה",
-      "saveFailedDesc": "לא ניתן היה לשמור את הזרימה.",
-      "flowRestored": "הזרימה שוחזרה",
-      "flowRestoredDesc": "זרימת העבודה השמורה שלך נטענה.",
-      "noSavedFlow": "אין זרימה שמורה",
-      "noSavedFlowDesc": "לא נמצאה זרימת עבודה שמורה לשחזור.",
-      "restoreFailed": "שחזור נכשל",
-      "restoreFailedDesc": "לא ניתן היה לשחזר את הזרימה."
-    }
-  },
-  "AIOptimization": {
-    "title": "אופטימיזציה מבוססת AI",
-    "description": "נתח ביצועי סוכן וקבל המלצות לאופטימיזציה בעזרת AI.",
-    "form": {
-      "responseRate": "שיעור תגובה",
-      "errorRate": "שיעור שגיאות",
-      "engagementRate": "שיעור מעורבות",
-      "avgResponseTime": "זמן תגובה ממוצע",
-      "dailyCost": "עלות יומית",
-      "agentConfig": "תצורת סוכן",
-      "agentConfigPlaceholder": "הדבק כאן את תצורת ה-JSON של הסוכן שלך.",
-      "analyzeButton": "נתח ביצועים",
-      "analyzingButton": "מנתח..."
-    },
-    "insightReport": {
-      "title": "דוח תובנות",
-      "performance": "ביצועים",
-      "analyzingData": "AI מנתח את הנתונים...",
-      "insightsAppearHere": "התובנות מבוססות ה-AI שלך יופיעו כאן."
-    },
-    "suggestion": {
-      "impact": "השפעה"
-    },
-    "notifications": {
-      "analysisComplete": "הניתוח הושלם",
-      "analysisCompleteDesc": "התובנות לאופטימיזציה מבוססת AI מוכנות.",
-      "analysisFailed": "הניתוח נכשל"
     }
   },
   "Statuses": {
