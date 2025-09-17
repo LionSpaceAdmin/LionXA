@@ -1,47 +1,26 @@
+
+"use client";
+
+import React, { useState, useEffect, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { activities } from '@/app/lib/mock-data';
-import { BotMessageSquare, AlertTriangle, Cog } from 'lucide-react';
-import { formatDistanceToNow } from 'date-fns';
-import { cn } from '@/lib/utils';
-import type { Activity } from '@/app/lib/types';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
-
-const iconMap = {
-  tweet_response: BotMessageSquare,
-  error: AlertTriangle,
-  system_event: Cog,
-};
-
-const colorMap = {
-    tweet_response: "text-primary",
-    error: "text-destructive",
-    system_event: "text-muted-foreground"
-}
+import { getAgentStatus } from '@/app/actions';
+import { Terminal } from 'lucide-react';
 
 export function LiveActivityFeed() {
-  const getImageHint = (imageUrl: string) => {
-    const image = PlaceHolderImages.find(img => img.imageUrl === imageUrl);
-    return image ? image.imageHint : 'person face';
-  }
+  const [logs, setLogs] = useState<string[]>([]);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
 
-  const renderIcon = (activity: Activity) => {
-    const Icon = iconMap[activity.type];
-    if(activity.type === 'tweet_response' && activity.user) {
-        return (
-            <Avatar className="h-8 w-8">
-                <AvatarImage src={activity.user.avatarUrl} alt={activity.user.name} data-ai-hint={getImageHint(activity.user.avatarUrl)} />
-                <AvatarFallback>{activity.user.name.charAt(0)}</AvatarFallback>
-            </Avatar>
-        )
-    }
-    return (
-        <div className={cn("flex h-8 w-8 items-center justify-center rounded-full bg-secondary", colorMap[activity.type])}>
-            <Icon className="h-4 w-4" />
-        </div>
-    )
-  }
+  useEffect(() => {
+    const fetchLogs = async () => {
+      const { logs: newLogs } = await getAgentStatus();
+      setLogs(newLogs.slice().reverse()); // Reverse to show newest first
+    };
+
+    fetchLogs();
+    const interval = setInterval(fetchLogs, 5000); // Poll every 5 seconds
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <Card className="h-full">
@@ -49,22 +28,24 @@ export function LiveActivityFeed() {
         <CardTitle className="font-headline text-lg">Live Activity</CardTitle>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[450px]">
-          <div className="space-y-6">
-            {activities.map((activity) => (
-              <div key={activity.id} className="flex items-start gap-4">
-                {renderIcon(activity)}
-                <div className="flex-1">
-                  <p className="text-sm">{activity.description}</p>
-                  <p className="text-xs text-muted-foreground">
-                    {formatDistanceToNow(activity.timestamp, { addSuffix: true })}
-                  </p>
+        <ScrollArea className="h-[450px]" ref={scrollAreaRef}>
+          <div className="space-y-2 font-code text-xs text-muted-foreground">
+            {logs.length > 0 ? (
+              logs.map((log, index) => (
+                <div key={index} className="flex items-start gap-2">
+                  <Terminal className="mt-0.5 h-3 w-3 shrink-0" />
+                  <p className="flex-1">{log}</p>
                 </div>
+              ))
+            ) : (
+              <div className="flex h-[400px] items-center justify-center text-center">
+                <p>Waiting for agent activity...<br/>Press "Start Agent" to begin.</p>
               </div>
-            ))}
+            )}
           </div>
         </ScrollArea>
       </CardContent>
     </Card>
   );
 }
+
