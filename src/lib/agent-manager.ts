@@ -38,14 +38,16 @@ class AgentManager {
                 return reject(new Error('Agent is already running.'));
             }
 
-            this.addLog('Starting agent process...');
-            const agentScriptPath = path.resolve(process.cwd(), 'dist/agent/watchList.js');
+            this.addLog('Starting agent process with ts-node...');
+            const agentScriptPath = path.resolve(process.cwd(), 'src/agent/watchList.ts');
             this.addLog(`Agent script path: ${agentScriptPath}`);
 
-            this.agentProcess = spawn('node', [agentScriptPath], {
+            const tsNodePath = path.resolve(process.cwd(), 'node_modules/.bin/ts-node');
+
+            this.agentProcess = spawn(tsNodePath, [agentScriptPath], {
                 stdio: ['pipe', 'pipe', 'pipe'],
                 cwd: process.cwd(),
-                env: { ...process.env },
+                env: { ...process.env, NODE_ENV: 'development' },
             });
 
             this.status = 'running';
@@ -57,8 +59,6 @@ class AgentManager {
             this.agentProcess.stderr?.on('data', (data: Buffer) => {
                 const errorMessage = data.toString().trim();
                 this.addLog(`[Agent STDERR] ${errorMessage}`);
-                // Consider any stderr output as a potential error
-                // this.status = 'error';
             });
 
             this.agentProcess.on('spawn', () => {
