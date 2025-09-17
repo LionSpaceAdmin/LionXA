@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Share2, PlusCircle, Trash2 } from 'lucide-react';
+import { Share2, PlusCircle } from 'lucide-react';
 import React, { useCallback, useState, useMemo, useEffect } from 'react';
 import ReactFlow, {
   Controls,
