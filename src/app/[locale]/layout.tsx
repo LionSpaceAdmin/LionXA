@@ -14,15 +14,16 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
-  params: { locale }
+  params
 }: Readonly<{
   children: React.ReactNode;
   params: { locale: string };
 }>) {
   const messages = await getMessages();
+  const { locale } = params;
 
   return (
-    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'} suppressHydrationWarning>
+    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'} suppressHyd-rationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

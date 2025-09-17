@@ -38,10 +38,7 @@ export function StatusBadge({
 }: StatusBadgeProps) {
     const t = useTranslations('Statuses');
     const displayStatus = status === 'running' ? 'active' : status;
-    
-    // The key needs to be a valid key of the translation object
-    const translationKey = displayStatus as keyof ReturnType<typeof t>;
-    const translatedStatus = t(translationKey);
+    const translatedStatus = t(displayStatus);
 
   return (
     <span
