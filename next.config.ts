@@ -1,17 +1,13 @@
-
-const createNextIntlPlugin = require('next-intl/plugin');
-const withNextIntl = createNextIntlPlugin('./i18n.ts');
+const withNextIntl = require('next-intl/plugin')();
  
 /** @type {import('next').NextConfig} */
 
-const pwaConfig = {
+const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
   skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
-};
-
-const withPWA = require('next-pwa')(pwaConfig);
+});
 
 const nextConfig = {
   /* config options here */
@@ -41,6 +37,11 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+    ],
+  },
+  experimental: {
+    allowedDevOrigins: [
+      "*.cluster-pbm4nlfnrzakyryoooaq5fq3ps.cloudworkstations.dev",
     ],
   },
 };
