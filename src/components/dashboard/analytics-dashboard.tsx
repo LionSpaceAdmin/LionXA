@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { metrics, latencyData } from '@/app/lib/mock-data';
+import { metrics, latencyData as initialLatencyData } from '@/app/lib/mock-data';
 import { MetricCard } from './metric-card';
 import {
   ChartContainer,
@@ -10,7 +10,8 @@ import {
 } from '@/components/ui/chart';
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import type { ChartConfig } from '@/components/ui/chart';
-import { useMemo } from 'react';
+import { useMemo, useState, useEffect } from 'react';
+import type { LatencyData } from '@/app/lib/types';
 
 const chartConfig = {
   latency: {
@@ -20,13 +21,35 @@ const chartConfig = {
 } satisfies ChartConfig;
 
 export function AnalyticsDashboard() {
+  const [latencyData, setLatencyData] = useState<LatencyData[]>(initialLatencyData);
   const motion = useMemo(() => {
     try {
       return require("framer-motion").motion;
     } catch (e) {
-      return (props) => <div {...props} />;
+      return (props: any) => <div {...props} />;
     }
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setLatencyData(prevData => {
+        const now = new Date();
+        const newTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
+        const newLatency = 1000 + Math.floor(Math.random() * 400) - 200; //-200 to 200 around 1200
+        
+        const newDataPoint: LatencyData = {
+            time: newTime,
+            latency: newLatency
+        };
+
+        const updatedData = [...prevData.slice(1), newDataPoint];
+        return updatedData;
+      });
+    }, 5000); // Update every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
 
   return (
     <Card>
@@ -72,6 +95,7 @@ export function AnalyticsDashboard() {
                   tickLine={false}
                   axisLine={false}
                   tickMargin={8}
+                  domain={[800, 1600]}
                 />
                 <ChartTooltip
                   cursor={false}
@@ -89,6 +113,7 @@ export function AnalyticsDashboard() {
                   fill="url(#fillLatency)"
                   stroke="var(--color-latency)"
                   stackId="a"
+                  isAnimationActive={false}
                 />
               </AreaChart>
             </ChartContainer>

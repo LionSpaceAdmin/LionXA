@@ -20,9 +20,10 @@
     - `AgentStatusCard`: מציג סטטוס נוכחי של הסוכן.
     - `ControlPanel`: מכיל כפתורי בקרה ראשיים.
     - `LiveActivityFeed`: מציג פיד פעילות (מתוך נתונים מדומים).
-    - `AnalyticsDashboard`: מציג מדדים וגרף (מתוך נתונים מדומים).
+    - `AnalyticsDashboard`: מציג מדדים וגרף.
 - **[בוצע] מרכוז תמונות Placeholder**: הנתונים של התמונות ב-`LiveActivityFeed` הועברו לקובץ `placeholder-images.json`.
-- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`) והוטמעה בו ספריית `React Flow`.
+- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`), הוטמעה בו ספריית `React Flow`, הוספו צמתים מותאמים אישית ויכולת להוסיף ולחבר ביניהם.
+- **[בוצע] חיבור Analytics לנתוני אמת מדומים**: שודרג דשבורד האנליטיקס כדי לדמות קבלת נתונים דינמיים.
 
 ### Phase 5 / Advanced Features: AI-Powered Insights
 - **[בוצע] AI-Powered Optimization**:
@@ -35,11 +36,10 @@
 
 ### Phase 2: Agent Integration
 - **[לא בוצע] Agent Service Wrapper**: יצירת שירות פלייסהולדר `AgentManager` שידמה הפעלה ועצירה של הסוכן.
-- **[לא בו_בצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת.
+- **[לא בוצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת.
 
 ### Phase 3: Advanced UI Components
-- **[לא בוצע] הרחבת יכולות ה-Flow Editor**: הוספת צמתים מותאמים אישית, יכולת עריכה ושמירה.
-- **[לא בוצע] חיבור Analytics לנתוני אמת מדומים**: כרגע הדשבורד משתמש בנתונים סטטיים. יש לשדרג אותו כדי שידמה קבלת נתונים דינמיים.
+- **[לא בוצע] הרחבת יכולות ה-Flow Editor**: הוספת יכולת עריכה, מחיקה ושמירה.
 
 ### Phase 4: Mobile & PWA Features
 - **[לא בוצע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל עם מחוות מגע והתראות.
