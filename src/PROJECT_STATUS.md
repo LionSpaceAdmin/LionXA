@@ -22,7 +22,7 @@
     - `LiveActivityFeed`: מציג פיד פעילות (מתוך נתונים מדומים).
     - `AnalyticsDashboard`: מציג מדדים וגרף.
 - **[בוצע] מרכוז תמונות Placeholder**: הנתונים של התמונות ב-`LiveActivityFeed` הועברו לקובץ `placeholder-images.json`.
-- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`), הוטמעה בו ספריית `React Flow`, הוספו צמתים מותאמים אישית ויכולת להוסיף ולחבר ביניהם.
+- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`), הוטמעה בו ספריית `React Flow`, הוספו צמתים מותאמים אישית ויכולת להוסיף, לחבר ולמחוק ביניהם.
 - **[בוצע] חיבור Analytics לנתוני אמת מדומים**: שודרג דשבורד האנליטיקס כדי לדמות קבלת נתונים דינמיים.
 
 ### Phase 5 / Advanced Features: AI-Powered Insights
@@ -30,16 +30,16 @@
     - נוצר Genkit Flow (`ai-powered-optimization.ts`) לניתוח ביצועים.
     - נוצר רכיב UI (`ai-optimization.tsx`) שמאפשר למשתמש להזין נתונים ולקבל המלצות מה-AI.
 
+### Phase 2: Agent Integration
+- **[בוצע] Agent Service Wrapper**: נוצר שירות `AgentManager` שמפעיל ועוצר את הסוכן האמיתי.
+- **[בוצע] Real-time Communication (בסיסי)**: ה-`LiveActivityFeed` חובר ללוגים האמיתיים של הסוכן.
+
 ---
 
 ## ❌ מה טרם בוצע (הצ'ק ליסט שלנו)
 
-### Phase 2: Agent Integration
-- **[לא בוצע] Agent Service Wrapper**: יצירת שירות פלייסהולדר `AgentManager` שידמה הפעלה ועצירה של הסוכן.
-- **[לא בוצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת.
-
 ### Phase 3: Advanced UI Components
-- **[לא בוצע] הרחבת יכולות ה-Flow Editor**: הוספת יכולת עריכה, מחיקה ושמירה.
+- **[לא בוצע] הרחבת יכולות ה-Flow Editor**: הוספת יכולת עריכת תוכן ושמירה.
 
 ### Phase 4: Mobile & PWA Features
 - **[לא בוצע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל עם מחוות מגע והתראות.

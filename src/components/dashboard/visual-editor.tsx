@@ -16,6 +16,8 @@ import ReactFlow, {
   type OnEdgesChange,
   type NodeTypes,
   type Connection,
+  NodeChange,
+  EdgeChange,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { TriggerNode, FilterNode, AiNode } from './flow-nodes';
@@ -103,7 +105,7 @@ export function VisualEditor() {
           <CardTitle className="font-headline text-lg">Flow Editor</CardTitle>
         </div>
         <CardDescription>
-          Visualize and manage your agent's workflow. Drag to connect nodes.
+          Visualize and manage your agent's workflow. Select an element and press Backspace to delete.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -126,6 +128,7 @@ export function VisualEditor() {
                 onConnect={onConnect}
                 nodeTypes={nodeTypes}
                 fitView
+                deleteKeyCode={['Backspace', 'Delete']}
             >
                 <Controls />
                 <MiniMap nodeStrokeWidth={3} zoomable pannable />
