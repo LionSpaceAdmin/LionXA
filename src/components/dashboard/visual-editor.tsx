@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Share2, PlusCircle, Save, History } from 'lucide-react';
-import React, { useCallback, useState, useMemo, useEffect } from 'react';
+import React, { useCallback, useState, useEffect } from 'react';
 import ReactFlow, {
   Controls,
   MiniMap,
@@ -61,17 +61,17 @@ let id = 4;
 const getNextId = () => `node_${id++}`;
 const flowKey = 'xagent-flow-state';
 
+const nodeTypes: NodeTypes = {
+    triggerNode: TriggerNode,
+    filterNode: FilterNode,
+    aiNode: AiNode,
+};
+
 export function VisualEditor() {
     const { toast } = useToast();
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
     const [selectedNode, setSelectedNode] = useState<Node | null>(null);
-
-    const nodeTypes: NodeTypes = useMemo(() => ({
-        triggerNode: TriggerNode,
-        filterNode: FilterNode,
-        aiNode: AiNode,
-    }), []);
 
     const onNodesChange: OnNodesChange = useCallback(
       (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),

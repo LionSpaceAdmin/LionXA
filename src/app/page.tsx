@@ -57,7 +57,11 @@ export default function Home() {
   }
 
   if (isMobile) {
-    return <MobileDashboard />;
+    return (
+        <SidebarProvider>
+            <MobileDashboard />
+        </SidebarProvider>
+    );
   }
 
   return (
