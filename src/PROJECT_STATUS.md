@@ -22,7 +22,7 @@
     - `LiveActivityFeed`: מציג פיד פעילות (מתוך נתונים מדומים).
     - `AnalyticsDashboard`: מציג מדדים וגרף (מתוך נתונים מדומים).
 - **[בוצע] מרכוז תמונות Placeholder**: הנתונים של התמונות ב-`LiveActivityFeed` הועברו לקובץ `placeholder-images.json`.
-- **[בתהליך] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`) עבור העורך הויזואלי.
+- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`) והוטמעה בו ספריית `React Flow`.
 
 ### Phase 5 / Advanced Features: AI-Powered Insights
 - **[בוצע] AI-Powered Optimization**:
@@ -35,10 +35,10 @@
 
 ### Phase 2: Agent Integration
 - **[לא בוצע] Agent Service Wrapper**: יצירת שירות פלייסהולדר `AgentManager` שידמה הפעלה ועצירה של הסוכן.
-- **[לא בוצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת.
+- **[לא בו_בצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת.
 
 ### Phase 3: Advanced UI Components
-- **[לא בוצע] השלמת ה-Flowrise-Inspired Visual Editor**: מעבר מהפלייסהולדר למימוש ממשי באמצעות ספרייה כמו `ReactFlow`.
+- **[לא בוצע] הרחבת יכולות ה-Flow Editor**: הוספת צמתים מותאמים אישית, יכולת עריכה ושמירה.
 - **[לא בוצע] חיבור Analytics לנתוני אמת מדומים**: כרגע הדשבורד משתמש בנתונים סטטיים. יש לשדרג אותו כדי שידמה קבלת נתונים דינמיים.
 
 ### Phase 4: Mobile & PWA Features
