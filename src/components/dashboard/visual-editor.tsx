@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Share2 } from 'lucide-react';
+import { Share2, PlusCircle } from 'lucide-react';
 import React, { useCallback, useState, useMemo } from 'react';
 import ReactFlow, {
   Controls,
@@ -17,6 +17,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { TriggerNode, FilterNode, AiNode } from './flow-nodes';
+import { Button } from '@/components/ui/button';
 
 
 const initialNodes: Node[] = [
@@ -51,6 +52,9 @@ const initialEdges: Edge[] = [
     { id: 'filter-ai-response', source: 'filter', target: 'ai-response', animated: true, type: 'smoothstep' },
 ];
 
+let id = 4;
+const getNextId = () => `node_${id++}`;
+
 export function VisualEditor() {
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
@@ -71,6 +75,19 @@ export function VisualEditor() {
         [setEdges]
       );
 
+    const onAddNode = useCallback((type: 'filterNode' | 'aiNode') => {
+      const newNode: Node = {
+        id: getNextId(),
+        type,
+        position: {
+          x: Math.random() * 500,
+          y: Math.random() * 300,
+        },
+        data: { label: `New ${type === 'filterNode' ? 'Filter' : 'AI'} Node` },
+      };
+      setNodes((nds) => nds.concat(newNode));
+    }, []);
+
   return (
     <Card>
       <CardHeader>
@@ -79,10 +96,20 @@ export function VisualEditor() {
           <CardTitle className="font-headline text-lg">Flow Editor</CardTitle>
         </div>
         <CardDescription>
-          Visualize and manage your agent's workflow.
+          Visualize and manage your agent's workflow. Drag to connect nodes.
         </CardDescription>
       </CardHeader>
       <CardContent>
+        <div className="mb-4 flex gap-2">
+            <Button variant="outline" size="sm" onClick={() => onAddNode('filterNode')}>
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Add Filter
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => onAddNode('aiNode')}>
+                <PlusCircle className="mr-2 h-4 w-4" />
+                Add AI Step
+            </Button>
+        </div>
         <div className="h-96 w-full rounded-lg border">
             <ReactFlow
                 nodes={nodes}
