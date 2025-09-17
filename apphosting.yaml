@@ -1,7 +1,26 @@
 # Settings to manage and configure a Firebase App Hosting backend.
 # https://firebase.google.com/docs/app-hosting/configure
 
+# Specifies the node.js version to use when running your app.
+runtime: nodejs20
+
 runConfig:
   # Increase this value if you'd like to automatically spin up
   # more instances in response to increased traffic.
   maxInstances: 1
+
+# Defines the entrypoint for your application.
+entrypoint: next start
+
+# Defines the rewrite rules for your application.
+# This rule ensures that all non-static file requests are handled by your Next.js application.
+rewrites:
+  - source: "**"
+    destination: "/_next/server/server.js"
+
+# Environment variables that will be available to your application.
+# It is not recommended to store secrets in this file.
+# https://firebase.google.com/docs/app-hosting/configure#set-environment-variables
+env:
+  - variable: FIREBASE_APP_HOSTING_URL
+    value: ${__FIREBASE_APP_HOSTING_URL__}

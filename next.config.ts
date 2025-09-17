@@ -1,4 +1,4 @@
-const createNextIntlPlugin = require('next-intl/plugin');
+
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -6,8 +6,11 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
-const withNextIntl = createNextIntlPlugin('./i18n.ts');
- 
+// Correctly point to the i18n.ts file at the root of the project
+const withNextIntl = require('next-intl/plugin')(
+  './i18n.ts'
+);
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -31,8 +34,7 @@ const nextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
-        hostname: 'picsum.photos',
+        protocol: 'https://picsum.photos',
         port: '',
         pathname: '/**',
       },

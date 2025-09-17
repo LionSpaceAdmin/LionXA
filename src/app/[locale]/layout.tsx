@@ -12,23 +12,19 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 };
 
-export default async function RootLayout(
-  props: Readonly<{
-    children: React.ReactNode;
-    params: { locale: string };
-  }>
-) {
-  const params = await props.params;
-
-  const {
-    children
-  } = props;
-
+// The `params` object is now a Promise. We need to await it.
+export default async function RootLayout({
+  children,
+  params,
+}: Readonly<{
+  children: React.ReactNode;
+  params: Promise<{ locale: string }>;
+}>) {
+  const { locale } = await params;
   const messages = await getMessages();
-  const { locale } = params;
 
   return (
-    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'} suppressHyd-rationWarning>
+    <html lang={locale} dir={locale === 'he' ? 'rtl' : 'ltr'} suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
