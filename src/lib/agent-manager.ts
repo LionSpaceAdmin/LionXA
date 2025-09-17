@@ -4,13 +4,21 @@ import path from 'path';
 type AgentStatus = 'offline' | 'running' | 'error';
 
 class AgentManager {
+    private static instance: AgentManager;
     private agentProcess: ChildProcess | null = null;
     private status: AgentStatus = 'offline';
     private logs: string[] = [];
     private readonly MAX_LOGS = 100;
 
-    constructor() {
+    private constructor() {
         this.addLog('AgentManager initialized.');
+    }
+
+    public static getInstance(): AgentManager {
+        if (!AgentManager.instance) {
+            AgentManager.instance = new AgentManager();
+        }
+        return AgentManager.instance;
     }
 
     private addLog(message: string) {
@@ -101,4 +109,4 @@ class AgentManager {
 }
 
 // Export a singleton instance of the AgentManager
-export const agentManager = new AgentManager();
+export const agentManager = AgentManager.getInstance();
