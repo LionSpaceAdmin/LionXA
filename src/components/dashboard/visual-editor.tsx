@@ -9,11 +9,13 @@ import ReactFlow, {
   Background,
   applyNodeChanges,
   applyEdgeChanges,
+  addEdge,
   type Node,
   type Edge,
   type OnNodesChange,
   type OnEdgesChange,
   type NodeTypes,
+  type Connection,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { TriggerNode, FilterNode, AiNode } from './flow-nodes';
@@ -75,6 +77,11 @@ export function VisualEditor() {
         [setEdges]
       );
 
+      const onConnect: (connection: Connection) => void = useCallback(
+        (connection) => setEdges((eds) => addEdge({ ...connection, animated: true, type: 'smoothstep' }, eds)),
+        [setEdges]
+      );
+
     const onAddNode = useCallback((type: 'filterNode' | 'aiNode') => {
       const newNode: Node = {
         id: getNextId(),
@@ -116,6 +123,7 @@ export function VisualEditor() {
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
+                onConnect={onConnect}
                 nodeTypes={nodeTypes}
                 fitView
             >
