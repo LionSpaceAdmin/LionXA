@@ -57,7 +57,7 @@ Agent Performance Metrics:
 Response Rate: {{{metrics.responseRate}}}%
 Error Rate: {{{metrics.errorRate}}}%
 Average Response Time: {{{metrics.avgResponseTime}}}ms
-Daily Cost: ${{{metrics.dailyCost}}}
+Daily Cost: {{{metrics.dailyCost}}}
 Engagement Rate: {{{metrics.engagementRate}}}%
 
 Current Agent Configuration:
