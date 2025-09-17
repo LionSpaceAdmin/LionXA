@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Share2 } from 'lucide-react';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useState, useMemo } from 'react';
 import ReactFlow, {
   Controls,
   MiniMap,
@@ -13,29 +13,33 @@ import ReactFlow, {
   type Edge,
   type OnNodesChange,
   type OnEdgesChange,
+  type NodeTypes,
 } from 'reactflow';
 import 'reactflow/dist/style.css';
+import { TriggerNode, FilterNode, AiNode } from './flow-nodes';
+
 
 const initialNodes: Node[] = [
   {
     id: 'trigger',
-    type: 'input',
-    position: { x: 100, y: 100 },
+    type: 'triggerNode',
+    position: { x: 100, y: 150 },
     data: {
       label: 'Tweet Detection',
     }
   },
   {
     id: 'filter',
-    position: { x: 350, y: 100 },
+    type: 'filterNode',
+    position: { x: 400, y: 150 },
     data: {
       label: 'Content Filter',
     }
   },
   {
     id: 'ai-response',
-    type: 'output',
-    position: { x: 600, y: 100 },
+    type: 'aiNode',
+    position: { x: 700, y: 150 },
     data: {
       label: 'AI Response Generator',
     }
@@ -43,13 +47,19 @@ const initialNodes: Node[] = [
 ];
 
 const initialEdges: Edge[] = [
-    { id: 'trigger-filter', source: 'trigger', target: 'filter', animated: true },
-    { id: 'filter-ai-response', source: 'filter', target: 'ai-response', animated: true },
+    { id: 'trigger-filter', source: 'trigger', target: 'filter', animated: true, type: 'smoothstep' },
+    { id: 'filter-ai-response', source: 'filter', target: 'ai-response', animated: true, type: 'smoothstep' },
 ];
 
 export function VisualEditor() {
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
+
+    const nodeTypes: NodeTypes = useMemo(() => ({
+        triggerNode: TriggerNode,
+        filterNode: FilterNode,
+        aiNode: AiNode,
+    }), []);
 
     const onNodesChange: OnNodesChange = useCallback(
         (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
@@ -79,11 +89,12 @@ export function VisualEditor() {
                 edges={edges}
                 onNodesChange={onNodesChange}
                 onEdgesChange={onEdgesChange}
+                nodeTypes={nodeTypes}
                 fitView
             >
                 <Controls />
-                <MiniMap />
-                <Background gap={12} size={1} />
+                <MiniMap nodeStrokeWidth={3} zoomable pannable />
+                <Background gap={16} size={1} />
             </ReactFlow>
         </div>
       </CardContent>
