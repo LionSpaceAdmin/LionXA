@@ -17,6 +17,12 @@
       "description": "User avatar 3",
       "imageUrl": "https://picsum.photos/seed/3/40/40",
       "imageHint": "man face"
+    },
+    {
+      "id": "main-user-avatar",
+      "description": "Main user avatar in header",
+      "imageUrl": "https://picsum.photos/seed/avatar/40/40",
+      "imageHint": "person face"
     }
   ]
 }

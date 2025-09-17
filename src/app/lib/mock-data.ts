@@ -8,6 +8,7 @@ import {
   Clock,
 } from 'lucide-react';
 import type { Activity, Metric, AgentStatus, LatencyData } from './types';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export const agentStatus: AgentStatus = 'active';
 export const agentUptime = '99.98%';
@@ -19,7 +20,7 @@ export const activities: Activity[] = [
     type: 'tweet_response',
     timestamp: new Date(Date.now() - 2 * 60 * 1000),
     description: 'Responded to tweet from @user123',
-    user: { name: 'User 123', avatarUrl: 'https://picsum.photos/seed/1/40/40' },
+    user: { name: 'User 123', avatarUrl: PlaceHolderImages.find(img => img.id === 'user-avatar-1')?.imageUrl || '' },
   },
   {
     id: '2',
@@ -38,14 +39,14 @@ export const activities: Activity[] = [
     type: 'tweet_response',
     timestamp: new Date(Date.now() - 15 * 60 * 1000),
     description: 'Responded to tweet from @anotheruser',
-    user: { name: 'Another User', avatarUrl: 'https://picsum.photos/seed/2/40/40' },
+    user: { name: 'Another User', avatarUrl: PlaceHolderImages.find(img => img.id === 'user-avatar-2')?.imageUrl || '' },
   },
   {
     id: '5',
     type: 'tweet_response',
     timestamp: new Date(Date.now() - 25 * 60 * 1000),
     description: 'Replied to a thread about AI ethics.',
-    user: { name: 'Thinker', avatarUrl: 'https://picsum.photos/seed/3/40/40' },
+    user: { name: 'Thinker', avatarUrl: PlaceHolderImages.find(img => img.id === 'user-avatar-3')?.imageUrl || '' },
   },
 ];
 

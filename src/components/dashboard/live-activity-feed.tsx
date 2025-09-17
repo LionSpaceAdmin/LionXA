@@ -6,6 +6,7 @@ import { BotMessageSquare, AlertTriangle, Cog } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { cn } from '@/lib/utils';
 import type { Activity } from '@/app/lib/types';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 const iconMap = {
   tweet_response: BotMessageSquare,
@@ -20,13 +21,17 @@ const colorMap = {
 }
 
 export function LiveActivityFeed() {
+  const getImageHint = (imageUrl: string) => {
+    const image = PlaceHolderImages.find(img => img.imageUrl === imageUrl);
+    return image ? image.imageHint : 'person face';
+  }
 
   const renderIcon = (activity: Activity) => {
     const Icon = iconMap[activity.type];
     if(activity.type === 'tweet_response' && activity.user) {
         return (
             <Avatar className="h-8 w-8">
-                <AvatarImage src={activity.user.avatarUrl} alt={activity.user.name} data-ai-hint="person face" />
+                <AvatarImage src={activity.user.avatarUrl} alt={activity.user.name} data-ai-hint={getImageHint(activity.user.avatarUrl)} />
                 <AvatarFallback>{activity.user.name.charAt(0)}</AvatarFallback>
             </Avatar>
         )

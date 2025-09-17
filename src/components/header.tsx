@@ -18,8 +18,11 @@ import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { PanelLeft, Settings, User } from 'lucide-react';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function AppHeader() {
+  const userAvatar = PlaceHolderImages.find(img => img.id === 'main-user-avatar');
+
   return (
     <header className="sticky top-0 z-30 flex h-14 items-center gap-4 border-b bg-background/80 px-4 backdrop-blur-sm sm:static sm:h-auto sm:border-0 sm:bg-transparent sm:px-6">
       <div className="lg:hidden">
@@ -47,7 +50,7 @@ export function AppHeader() {
             className="overflow-hidden rounded-full"
           >
             <Avatar>
-              <AvatarImage src="https://picsum.photos/seed/avatar/40/40" alt="User Avatar" data-ai-hint="person face" />
+              <AvatarImage src={userAvatar?.imageUrl} alt="User Avatar" data-ai-hint={userAvatar?.imageHint} />
               <AvatarFallback>U</AvatarFallback>
             </Avatar>
           </Button>
