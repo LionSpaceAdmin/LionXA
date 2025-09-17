@@ -19,10 +19,10 @@
 - **[בוצע] רכיבי דשבורד בסיסיים**:
     - `AgentStatusCard`: מציג סטטוס נוכחי של הסוכן.
     - `ControlPanel`: מכיל כפתורי בקרה ראשיים.
-    - `LiveActivityFeed`: מציג פיד פעילות (מתוך נתונים מדומים).
+    - `LiveActivityFeed`: מחובר כעת ללוגים האמיתיים של הסוכן.
     - `AnalyticsDashboard`: מציג מדדים וגרף.
 - **[בוצע] מרכוז תמונות Placeholder**: הנתונים של התמונות ב-`LiveActivityFeed` הועברו לקובץ `placeholder-images.json`.
-- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`), הוטמעה בו ספריית `React Flow`, הוספו צמתים מותאמים אישית ויכולת להוסיף, לחבר ולמחוק ביניהם.
+- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`), הוטמעה בו ספריית `React Flow`, הוספו צמתים מותאמים אישית ויכולת להוסיף, לחבר, למחוק, לערוך ולשמור את הזרימה.
 - **[בוצע] חיבור Analytics לנתוני אמת מדומים**: שודרג דשבורד האנליטיקס כדי לדמות קבלת נתונים דינמיים.
 
 ### Phase 5 / Advanced Features: AI-Powered Insights
@@ -39,7 +39,7 @@
 ## ❌ מה טרם בוצע (הצ'ק ליסט שלנו)
 
 ### Phase 3: Advanced UI Components
-- **[לא בוצע] הרחבת יכולות ה-Flow Editor**: הוספת יכולת עריכת תוכן ושמירה.
+- **[בוצע] הרחבת יכולות ה-Flow Editor**: הוספת יכולת עריכת תוכן ושמירה.
 
 ### Phase 4: Mobile & PWA Features
 - **[לא בוצע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל עם מחוות מגע והתראות.

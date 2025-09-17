@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Share2, PlusCircle } from 'lucide-react';
+import { Share2, PlusCircle, Save, History } from 'lucide-react';
 import React, { useCallback, useState, useMemo, useEffect } from 'react';
 import ReactFlow, {
   Controls,
@@ -22,6 +22,8 @@ import { TriggerNode, FilterNode, AiNode } from './flow-nodes';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
+
 
 const initialNodes: Node[] = [
   {
@@ -57,8 +59,10 @@ const initialEdges: Edge[] = [
 
 let id = 4;
 const getNextId = () => `node_${id++}`;
+const flowKey = 'xagent-flow-state';
 
 export function VisualEditor() {
+    const { toast } = useToast();
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
     const [selectedNode, setSelectedNode] = useState<Node | null>(null);
@@ -120,6 +124,41 @@ export function VisualEditor() {
       setNodes((nds) => nds.concat(newNode));
     }, []);
 
+    const onSave = useCallback(() => {
+        try {
+            const flow = { nodes, edges };
+            localStorage.setItem(flowKey, JSON.stringify(flow));
+            toast({ title: "Flow Saved", description: "Your workflow layout has been saved." });
+        } catch (error) {
+            toast({ variant: "destructive", title: "Save Failed", description: "Could not save the flow." });
+        }
+    }, [nodes, edges, toast]);
+
+    const onRestore = useCallback(() => {
+        try {
+            const savedFlow = localStorage.getItem(flowKey);
+            if (savedFlow) {
+                const { nodes: savedNodes, edges: savedEdges } = JSON.parse(savedFlow);
+                setNodes(savedNodes);
+                setEdges(savedEdges);
+                toast({ title: "Flow Restored", description: "Your saved workflow has been loaded." });
+            } else {
+                 toast({ title: "No Saved Flow", description: "No saved workflow found to restore." });
+            }
+        } catch (error) {
+            toast({ variant: "destructive", title: "Restore Failed", description: "Could not restore the flow." });
+        }
+    }, [setNodes, setEdges, toast]);
+
+    useEffect(() => {
+        const savedFlow = localStorage.getItem(flowKey);
+        if (savedFlow) {
+            const { nodes: savedNodes, edges: savedEdges } = JSON.parse(savedFlow);
+            setNodes(savedNodes);
+            setEdges(savedEdges);
+        }
+    }, []);
+
   return (
     <Card>
       <CardHeader>
@@ -134,7 +173,7 @@ export function VisualEditor() {
       <CardContent>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <div className="col-span-1 md:col-span-2">
-                <div className="mb-4 flex gap-2">
+                <div className="mb-4 flex flex-wrap gap-2">
                     <Button variant="outline" size="sm" onClick={() => onAddNode('filterNode')}>
                         <PlusCircle className="mr-2 h-4 w-4" />
                         Add Filter
@@ -142,6 +181,15 @@ export function VisualEditor() {
                     <Button variant="outline" size="sm" onClick={() => onAddNode('aiNode')}>
                         <PlusCircle className="mr-2 h-4 w-4" />
                         Add AI Step
+                    </Button>
+                    <div className="flex-grow" />
+                     <Button variant="default" size="sm" onClick={onSave}>
+                        <Save className="mr-2 h-4 w-4" />
+                        Save Flow
+                    </Button>
+                    <Button variant="secondary" size="sm" onClick={onRestore}>
+                        <History className="mr-2 h-4 w-4" />
+                        Restore Flow
                     </Button>
                 </div>
                 <div className="h-96 w-full rounded-lg border">
