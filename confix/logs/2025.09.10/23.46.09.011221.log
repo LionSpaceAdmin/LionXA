@@ -1,0 +1,247 @@
+2025-09-10 23:46:09,011 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-10 23:46:09,012 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'list']
+2025-09-10 23:46:09,013 DEBUG    root            Running [gcloud.services.list] with arguments: [--enabled: "True", --format: "value(name)", --project: "lionspace"]
+2025-09-10 23:46:09,022 DEBUG    root            Chosen display Format:
+          table(
+            config.name:label=NAME:sort=1,
+            config.title
+          )
+         value(name)
+2025-09-10 23:46:09,023 INFO     root            Display format: "
+          table(
+            config.name:label=NAME:sort=1,
+            config.title
+          )
+         value(name)"
+2025-09-10 23:46:09,027 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-10 23:46:10,643 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/projects/lionspace/services?alt=json&filter=state%3AENABLED&pageSize=200 HTTP/11" 200 None
+2025-09-10 23:46:10,847 INFO     ___FILE_ONLY___ projects/707897822334/services/accessapproval.googleapis.com
+
+2025-09-10 23:46:10,850 INFO     ___FILE_ONLY___ projects/707897822334/services/aiplatform.googleapis.com
+
+2025-09-10 23:46:10,850 INFO     ___FILE_ONLY___ projects/707897822334/services/analyticshub.googleapis.com
+
+2025-09-10 23:46:10,850 INFO     ___FILE_ONLY___ projects/707897822334/services/anthosconfigmanagement.googleapis.com
+
+2025-09-10 23:46:10,851 INFO     ___FILE_ONLY___ projects/707897822334/services/anthospolicycontroller.googleapis.com
+
+2025-09-10 23:46:10,851 INFO     ___FILE_ONLY___ projects/707897822334/services/apikeys.googleapis.com
+
+2025-09-10 23:46:10,851 INFO     ___FILE_ONLY___ projects/707897822334/services/apim.googleapis.com
+
+2025-09-10 23:46:10,852 INFO     ___FILE_ONLY___ projects/707897822334/services/appengine.googleapis.com
+
+2025-09-10 23:46:10,852 INFO     ___FILE_ONLY___ projects/707897822334/services/apphub.googleapis.com
+
+2025-09-10 23:46:10,852 INFO     ___FILE_ONLY___ projects/707897822334/services/appoptimize.googleapis.com
+
+2025-09-10 23:46:10,853 INFO     ___FILE_ONLY___ projects/707897822334/services/artifactregistry.googleapis.com
+
+2025-09-10 23:46:10,853 INFO     ___FILE_ONLY___ projects/707897822334/services/autoscaling.googleapis.com
+
+2025-09-10 23:46:10,854 INFO     ___FILE_ONLY___ projects/707897822334/services/bigquery.googleapis.com
+
+2025-09-10 23:46:10,854 INFO     ___FILE_ONLY___ projects/707897822334/services/bigqueryconnection.googleapis.com
+
+2025-09-10 23:46:10,854 INFO     ___FILE_ONLY___ projects/707897822334/services/bigquerydatapolicy.googleapis.com
+
+2025-09-10 23:46:10,854 INFO     ___FILE_ONLY___ projects/707897822334/services/bigquerymigration.googleapis.com
+
+2025-09-10 23:46:10,854 INFO     ___FILE_ONLY___ projects/707897822334/services/bigqueryreservation.googleapis.com
+
+2025-09-10 23:46:10,855 INFO     ___FILE_ONLY___ projects/707897822334/services/bigquerystorage.googleapis.com
+
+2025-09-10 23:46:10,855 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudaicompanion.googleapis.com
+
+2025-09-10 23:46:10,855 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudapis.googleapis.com
+
+2025-09-10 23:46:10,855 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudasset.googleapis.com
+
+2025-09-10 23:46:10,855 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudbilling.googleapis.com
+
+2025-09-10 23:46:10,856 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudbuild.googleapis.com
+
+2025-09-10 23:46:10,856 INFO     ___FILE_ONLY___ projects/707897822334/services/clouderrorreporting.googleapis.com
+
+2025-09-10 23:46:10,857 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudfunctions.googleapis.com
+
+2025-09-10 23:46:10,857 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudkms.googleapis.com
+
+2025-09-10 23:46:10,857 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudresourcemanager.googleapis.com
+
+2025-09-10 23:46:10,857 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudscheduler.googleapis.com
+
+2025-09-10 23:46:10,858 INFO     ___FILE_ONLY___ projects/707897822334/services/cloudtrace.googleapis.com
+
+2025-09-10 23:46:10,860 INFO     ___FILE_ONLY___ projects/707897822334/services/compute.googleapis.com
+
+2025-09-10 23:46:10,860 INFO     ___FILE_ONLY___ projects/707897822334/services/config.googleapis.com
+
+2025-09-10 23:46:10,861 INFO     ___FILE_ONLY___ projects/707897822334/services/connectors.googleapis.com
+
+2025-09-10 23:46:10,861 INFO     ___FILE_ONLY___ projects/707897822334/services/container.googleapis.com
+
+2025-09-10 23:46:10,861 INFO     ___FILE_ONLY___ projects/707897822334/services/containerfilesystem.googleapis.com
+
+2025-09-10 23:46:10,861 INFO     ___FILE_ONLY___ projects/707897822334/services/containerregistry.googleapis.com
+
+2025-09-10 23:46:10,862 INFO     ___FILE_ONLY___ projects/707897822334/services/containerthreatdetection.googleapis.com
+
+2025-09-10 23:46:10,862 INFO     ___FILE_ONLY___ projects/707897822334/services/dataflow.googleapis.com
+
+2025-09-10 23:46:10,862 INFO     ___FILE_ONLY___ projects/707897822334/services/dataform.googleapis.com
+
+2025-09-10 23:46:10,862 INFO     ___FILE_ONLY___ projects/707897822334/services/datalabeling.googleapis.com
+
+2025-09-10 23:46:10,863 INFO     ___FILE_ONLY___ projects/707897822334/services/datalineage.googleapis.com
+
+2025-09-10 23:46:10,863 INFO     ___FILE_ONLY___ projects/707897822334/services/dataplex.googleapis.com
+
+2025-09-10 23:46:10,863 INFO     ___FILE_ONLY___ projects/707897822334/services/dataprocrm.googleapis.com
+
+2025-09-10 23:46:10,863 INFO     ___FILE_ONLY___ projects/707897822334/services/datastore.googleapis.com
+
+2025-09-10 23:46:10,864 INFO     ___FILE_ONLY___ projects/707897822334/services/deploymentmanager.googleapis.com
+
+2025-09-10 23:46:10,864 INFO     ___FILE_ONLY___ projects/707897822334/services/developerconnect.googleapis.com
+
+2025-09-10 23:46:10,864 INFO     ___FILE_ONLY___ projects/707897822334/services/directions-backend.googleapis.com
+
+2025-09-10 23:46:10,865 INFO     ___FILE_ONLY___ projects/707897822334/services/discoveryengine.googleapis.com
+
+2025-09-10 23:46:10,865 INFO     ___FILE_ONLY___ projects/707897822334/services/dns.googleapis.com
+
+2025-09-10 23:46:10,865 INFO     ___FILE_ONLY___ projects/707897822334/services/documentai.googleapis.com
+
+2025-09-10 23:46:10,865 INFO     ___FILE_ONLY___ projects/707897822334/services/domains.googleapis.com
+
+2025-09-10 23:46:10,866 INFO     ___FILE_ONLY___ projects/707897822334/services/edgecache.googleapis.com
+
+2025-09-10 23:46:10,866 INFO     ___FILE_ONLY___ projects/707897822334/services/eventarc.googleapis.com
+
+2025-09-10 23:46:10,866 INFO     ___FILE_ONLY___ projects/707897822334/services/fcm.googleapis.com
+
+2025-09-10 23:46:10,866 INFO     ___FILE_ONLY___ projects/707897822334/services/fcmregistrations.googleapis.com
+
+2025-09-10 23:46:10,868 INFO     ___FILE_ONLY___ projects/707897822334/services/file.googleapis.com
+
+2025-09-10 23:46:10,868 INFO     ___FILE_ONLY___ projects/707897822334/services/firebase.googleapis.com
+
+2025-09-10 23:46:10,868 INFO     ___FILE_ONLY___ projects/707897822334/services/firebaseapphosting.googleapis.com
+
+2025-09-10 23:46:10,869 INFO     ___FILE_ONLY___ projects/707897822334/services/firebasedataconnect.googleapis.com
+
+2025-09-10 23:46:10,869 INFO     ___FILE_ONLY___ projects/707897822334/services/firebaseinstallations.googleapis.com
+
+2025-09-10 23:46:10,869 INFO     ___FILE_ONLY___ projects/707897822334/services/firebaseremoteconfigrealtime.googleapis.com
+
+2025-09-10 23:46:10,869 INFO     ___FILE_ONLY___ projects/707897822334/services/firebaserules.googleapis.com
+
+2025-09-10 23:46:10,869 INFO     ___FILE_ONLY___ projects/707897822334/services/firebasevertexai.googleapis.com
+
+2025-09-10 23:46:10,870 INFO     ___FILE_ONLY___ projects/707897822334/services/firestore.googleapis.com
+
+2025-09-10 23:46:10,870 INFO     ___FILE_ONLY___ projects/707897822334/services/geminicloudassist.googleapis.com
+
+2025-09-10 23:46:10,870 INFO     ___FILE_ONLY___ projects/707897822334/services/generativelanguage.googleapis.com
+
+2025-09-10 23:46:10,870 INFO     ___FILE_ONLY___ projects/707897822334/services/geocoding-backend.googleapis.com
+
+2025-09-10 23:46:10,871 INFO     ___FILE_ONLY___ projects/707897822334/services/gkebackup.googleapis.com
+
+2025-09-10 23:46:10,871 INFO     ___FILE_ONLY___ projects/707897822334/services/gkeconnect.googleapis.com
+
+2025-09-10 23:46:10,871 INFO     ___FILE_ONLY___ projects/707897822334/services/gkehub.googleapis.com
+
+2025-09-10 23:46:10,871 INFO     ___FILE_ONLY___ projects/707897822334/services/iam.googleapis.com
+
+2025-09-10 23:46:10,872 INFO     ___FILE_ONLY___ projects/707897822334/services/iamcredentials.googleapis.com
+
+2025-09-10 23:46:10,872 INFO     ___FILE_ONLY___ projects/707897822334/services/iap.googleapis.com
+
+2025-09-10 23:46:10,872 INFO     ___FILE_ONLY___ projects/707897822334/services/identitytoolkit.googleapis.com
+
+2025-09-10 23:46:10,872 INFO     ___FILE_ONLY___ projects/707897822334/services/integrations.googleapis.com
+
+2025-09-10 23:46:10,872 INFO     ___FILE_ONLY___ projects/707897822334/services/krmapihosting.googleapis.com
+
+2025-09-10 23:46:10,873 INFO     ___FILE_ONLY___ projects/707897822334/services/language.googleapis.com
+
+2025-09-10 23:46:10,873 INFO     ___FILE_ONLY___ projects/707897822334/services/logging.googleapis.com
+
+2025-09-10 23:46:10,873 INFO     ___FILE_ONLY___ projects/707897822334/services/maintenance.googleapis.com
+
+2025-09-10 23:46:10,873 INFO     ___FILE_ONLY___ projects/707897822334/services/maps-backend.googleapis.com
+
+2025-09-10 23:46:10,874 INFO     ___FILE_ONLY___ projects/707897822334/services/monitoring.googleapis.com
+
+2025-09-10 23:46:10,874 INFO     ___FILE_ONLY___ projects/707897822334/services/multiclustermetering.googleapis.com
+
+2025-09-10 23:46:10,875 INFO     ___FILE_ONLY___ projects/707897822334/services/networkconnectivity.googleapis.com
+
+2025-09-10 23:46:10,875 INFO     ___FILE_ONLY___ projects/707897822334/services/networkmanagement.googleapis.com
+
+2025-09-10 23:46:10,876 INFO     ___FILE_ONLY___ projects/707897822334/services/networkservices.googleapis.com
+
+2025-09-10 23:46:10,876 INFO     ___FILE_ONLY___ projects/707897822334/services/notebooks.googleapis.com
+
+2025-09-10 23:46:10,876 INFO     ___FILE_ONLY___ projects/707897822334/services/notebooksecurityscanner.googleapis.com
+
+2025-09-10 23:46:10,877 INFO     ___FILE_ONLY___ projects/707897822334/services/orgpolicy.googleapis.com
+
+2025-09-10 23:46:10,877 INFO     ___FILE_ONLY___ projects/707897822334/services/oslogin.googleapis.com
+
+2025-09-10 23:46:10,877 INFO     ___FILE_ONLY___ projects/707897822334/services/places-backend.googleapis.com
+
+2025-09-10 23:46:10,877 INFO     ___FILE_ONLY___ projects/707897822334/services/plus.googleapis.com
+
+2025-09-10 23:46:10,878 INFO     ___FILE_ONLY___ projects/707897822334/services/privilegedaccessmanager.googleapis.com
+
+2025-09-10 23:46:10,878 INFO     ___FILE_ONLY___ projects/707897822334/services/pubsub.googleapis.com
+
+2025-09-10 23:46:10,878 INFO     ___FILE_ONLY___ projects/707897822334/services/recaptchaenterprise.googleapis.com
+
+2025-09-10 23:46:10,878 INFO     ___FILE_ONLY___ projects/707897822334/services/recommender.googleapis.com
+
+2025-09-10 23:46:10,881 INFO     ___FILE_ONLY___ projects/707897822334/services/redis.googleapis.com
+
+2025-09-10 23:46:10,881 INFO     ___FILE_ONLY___ projects/707897822334/services/run.googleapis.com
+
+2025-09-10 23:46:10,881 INFO     ___FILE_ONLY___ projects/707897822334/services/runtimeconfig.googleapis.com
+
+2025-09-10 23:46:10,881 INFO     ___FILE_ONLY___ projects/707897822334/services/secretmanager.googleapis.com
+
+2025-09-10 23:46:10,881 INFO     ___FILE_ONLY___ projects/707897822334/services/securetoken.googleapis.com
+
+2025-09-10 23:46:10,882 INFO     ___FILE_ONLY___ projects/707897822334/services/servicedirectory.googleapis.com
+
+2025-09-10 23:46:10,882 INFO     ___FILE_ONLY___ projects/707897822334/services/servicemanagement.googleapis.com
+
+2025-09-10 23:46:10,882 INFO     ___FILE_ONLY___ projects/707897822334/services/servicenetworking.googleapis.com
+
+2025-09-10 23:46:10,882 INFO     ___FILE_ONLY___ projects/707897822334/services/serviceusage.googleapis.com
+
+2025-09-10 23:46:10,883 INFO     ___FILE_ONLY___ projects/707897822334/services/source.googleapis.com
+
+2025-09-10 23:46:10,883 INFO     ___FILE_ONLY___ projects/707897822334/services/sql-component.googleapis.com
+
+2025-09-10 23:46:10,883 INFO     ___FILE_ONLY___ projects/707897822334/services/sqladmin.googleapis.com
+
+2025-09-10 23:46:10,883 INFO     ___FILE_ONLY___ projects/707897822334/services/storage-api.googleapis.com
+
+2025-09-10 23:46:10,884 INFO     ___FILE_ONLY___ projects/707897822334/services/storage-component.googleapis.com
+
+2025-09-10 23:46:10,885 INFO     ___FILE_ONLY___ projects/707897822334/services/storage.googleapis.com
+
+2025-09-10 23:46:10,885 INFO     ___FILE_ONLY___ projects/707897822334/services/testing.googleapis.com
+
+2025-09-10 23:46:10,886 INFO     ___FILE_ONLY___ projects/707897822334/services/visionai.googleapis.com
+
+2025-09-10 23:46:10,886 INFO     ___FILE_ONLY___ projects/707897822334/services/websecurityscanner.googleapis.com
+
+2025-09-10 23:46:10,886 INFO     ___FILE_ONLY___ projects/707897822334/services/workflowexecutions.googleapis.com
+
+2025-09-10 23:46:10,886 INFO     ___FILE_ONLY___ projects/707897822334/services/workflows.googleapis.com
+
+2025-09-10 23:46:10,886 INFO     ___FILE_ONLY___ projects/707897822334/services/workstations.googleapis.com
+

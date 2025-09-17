@@ -1,0 +1,10 @@
+2025-09-16 02:34:30,217 DEBUG    root            Loaded Command Group: ['gcloud', 'iam']
+2025-09-16 02:34:30,220 DEBUG    root            Loaded Command Group: ['gcloud', 'iam', 'service_accounts']
+2025-09-16 02:34:30,221 DEBUG    root            Loaded Command Group: ['gcloud', 'iam', 'service-accounts', 'create']
+2025-09-16 02:34:30,222 DEBUG    root            Running [gcloud.iam.service-accounts.create] with arguments: [--display-name: "Vertex Pipelines SA", NAME: "vertex-pipeline"]
+2025-09-16 02:34:30,232 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): iam.googleapis.com:443
+2025-09-16 02:34:32,020 DEBUG    urllib3.connectionpool https://iam.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/serviceAccounts?alt=json HTTP/11" 200 None
+2025-09-16 02:34:32,022 INFO     ___FILE_ONLY___ Created service account [vertex-pipeline].
+
+2025-09-16 02:34:32,022 DEBUG    root            Chosen display Format:none
+2025-09-16 02:34:32,022 INFO     root            Display format: "none"

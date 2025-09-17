@@ -1,0 +1,30 @@
+2025-09-16 09:01:49,914 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses']
+2025-09-16 09:01:49,915 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses', 'describe']
+2025-09-16 09:01:49,916 DEBUG    root            Running [gcloud.compute.addresses.describe] with arguments: [--format: "get(address)", --global: "True", NAME: "tour-global-ip"]
+2025-09-16 09:01:50,002 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 09:01:50,376 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionstour/global/addresses/tour-global-ip?alt=json HTTP/11" 404 None
+2025-09-16 09:01:50,378 DEBUG    root            Chosen display Format:list[title="Could not fetch resource:",always-display-title]
+2025-09-16 09:01:50,379 DEBUG    root            (gcloud.compute.addresses.describe) Could not fetch resource:
+ - The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/compute/addresses/describe.py", line 69, in Run
+    return client.MakeRequests([(service, 'Get', request)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/client_adapter.py", line 145, in MakeRequests
+    utils.RaiseToolException(
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/utils.py", line 139, in RaiseToolException
+    RaiseException(problems, calliope_exceptions.ToolException, error_message)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/utils.py", line 148, in RaiseException
+    raise exception(
+googlecloudsdk.calliope.exceptions.ToolException: Could not fetch resource:
+ - The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found
+
+2025-09-16 09:01:50,382 ERROR    root            (gcloud.compute.addresses.describe) Could not fetch resource:
+ - The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found
+

@@ -1,0 +1,10 @@
+2025-09-10 23:39:34,380 DEBUG    root            Loaded Command Group: ['gcloud', 'sql']
+2025-09-10 23:39:34,380 DEBUG    root            Loaded Command Group: ['gcloud', 'sql', 'instances']
+2025-09-10 23:39:34,388 DEBUG    root            Loaded Command Group: ['gcloud', 'sql', 'instances', 'list']
+2025-09-10 23:39:34,389 DEBUG    root            Running [gcloud.sql.instances.list] with arguments: []
+2025-09-10 23:39:34,395 DEBUG    root            Chosen display Format::(settings.userLabels:alias=labels:label=LABELS) table(name,databaseVersion,firstof(gceZone,region):label=LOCATION,settings.tier,ip_addresses.filter("type:PRIMARY").*extract(ip_address).flatten().yesno(no="-"):label=PRIMARY_ADDRESS,ip_addresses.filter("type:PRIVATE").*extract(ip_address).flatten().yesno(no="-"):label=PRIVATE_ADDRESS,state:label=STATUS)
+2025-09-10 23:39:34,396 INFO     root            Display format: ":(settings.userLabels:alias=labels:label=LABELS) table(name,databaseVersion,firstof(gceZone,region):label=LOCATION,settings.tier,ip_addresses.filter("type:PRIMARY").*extract(ip_address).flatten().yesno(no="-"):label=PRIMARY_ADDRESS,ip_addresses.filter("type:PRIVATE").*extract(ip_address).flatten().yesno(no="-"):label=PRIVATE_ADDRESS,state:label=STATUS)"
+2025-09-10 23:39:34,400 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): sqladmin.googleapis.com:443
+2025-09-10 23:39:34,891 DEBUG    urllib3.connectionpool https://sqladmin.googleapis.com:443 "GET /sql/v1beta4/projects/lionspace/instances?alt=json&maxResults=1000 HTTP/11" 200 None
+2025-09-10 23:39:34,891 INFO     ___FILE_ONLY___ Listed 0 items.
+

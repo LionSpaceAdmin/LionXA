@@ -1,0 +1,1765 @@
+2025-09-10 23:42:59,502 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-10 23:42:59,505 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'get_iam_policy']
+2025-09-10 23:42:59,506 DEBUG    root            Running [gcloud.projects.get-iam-policy] with arguments: [PROJECT_ID_OR_NUMBER: "lionspace"]
+2025-09-10 23:42:59,519 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:43:00,117 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionspace:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-10 23:43:00,119 DEBUG    root            Chosen display Format:default
+2025-09-10 23:43:00,119 INFO     root            Display format: "default"
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ bindings
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ roles/aiplatform.admin
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-vertex-nb.iam.gserviceaccount.com
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,127 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ roles/aiplatform.colabServiceAgent
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-aiplatform-vm.iam.gserviceaccount.com
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ roles/aiplatform.notebookServiceAgent
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-aiplatform.iam.gserviceaccount.com
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ roles/aiplatform.serviceAgent
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ deleted:serviceAccount:claude-agent@lionspace.iam.gserviceaccount.com?uid=109803411424233591457
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,128 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ deleted:serviceAccount:lions-cloud-run@lionspace.iam.gserviceaccount.com?uid=117027763561412731150
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-workstation@lionspace.iam.gserviceaccount.com?uid=101699771665526346713
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ deleted:serviceAccount:superadmin-sa@lionspace.iam.gserviceaccount.com?uid=106343873869122378740
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ roles/aiplatform.user
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-apigee.iam.gserviceaccount.com
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ roles/apigee.serviceAgent
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-apihub.iam.gserviceaccount.com
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ roles/apihub.admin
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,129 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-apihub.iam.gserviceaccount.com
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ roles/apihub.runtimeProjectServiceAgent
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ roles/artifactregistry.admin
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@serverless-robot-prod.iam.gserviceaccount.com
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ roles/artifactregistry.reader
+2025-09-10 23:43:00,130 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-artifactregistry.iam.gserviceaccount.com
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ roles/artifactregistry.serviceAgent
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-cloudaicompanion.iam.gserviceaccount.com
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ roles/cloudaicompanion.serviceAgent
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ roles/cloudbuild.builds.builder
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,131 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ roles/cloudbuild.builds.editor
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-cloudbuild.iam.gserviceaccount.com
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ roles/cloudbuild.serviceAgent
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ deleted:serviceAccount:lions-cloud-run@lionspace.iam.gserviceaccount.com?uid=117027763561412731150
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-workstation@lionspace.iam.gserviceaccount.com?uid=101699771665526346713
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,132 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ roles/cloudfunctions.developer
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcf-admin-robot.iam.gserviceaccount.com
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ roles/cloudfunctions.serviceAgent
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ deleted:serviceAccount:lions-cloud-run@lionspace.iam.gserviceaccount.com?uid=117027763561412731150
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ roles/cloudhub.operator
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,133 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-apihub.iam.gserviceaccount.com
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ roles/cloudkms.cryptoKeyEncrypterDecrypter
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-cloudscheduler.iam.gserviceaccount.com
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ roles/cloudscheduler.serviceAgent
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ roles/cloudsql.admin
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,134 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-app@lionspace.iam.gserviceaccount.com?uid=108589168380016521255
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace@appspot.gserviceaccount.com?uid=100886080030471596500
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ serviceAccount:dify-service-account@lionspace.iam.gserviceaccount.com
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ roles/cloudsql.client
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-connectors.iam.gserviceaccount.com
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ roles/connectors.serviceAgent
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@container-engine-robot.iam.gserviceaccount.com
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ roles/container.serviceAgent
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,135 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@dataflow-service-producer-prod.iam.gserviceaccount.com
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ roles/dataflow.serviceAgent
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-dataform.iam.gserviceaccount.com
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ roles/dataform.serviceAgent
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-datalabeling.iam.gserviceaccount.com
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ roles/datalabeling.serviceAgent
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,136 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@dataproc-accounts.iam.gserviceaccount.com
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ roles/dataproc.serviceAgent
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-app@lionspace.iam.gserviceaccount.com?uid=108589168380016521255
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ roles/datastore.user
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-app-hosting-compute@lionspace.iam.gserviceaccount.com?uid=100308864626908551918
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ roles/developerconnect.readTokenAccessor
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,137 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-devconnect.iam.gserviceaccount.com
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ roles/developerconnect.serviceAgent
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-discoveryengine.iam.gserviceaccount.com
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ roles/discoveryengine.serviceAgent
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ deleted:serviceAccount:claude-agent@lionspace.iam.gserviceaccount.com?uid=109803411424233591457
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,138 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudservices.gserviceaccount.com
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ serviceAccount:lionspace-app@lionspace.iam.gserviceaccount.com
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ roles/editor
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@cloud-filer.iam.gserviceaccount.com
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ roles/file.serviceAgent
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-firebase.iam.gserviceaccount.com
+2025-09-10 23:43:00,139 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ roles/firebase.managementServiceAgent
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-app-hosting-compute@lionspace.iam.gserviceaccount.com?uid=100308864626908551918
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ roles/firebase.sdkAdminServiceAgent
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ roles/firebaseappcheck.admin
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-app-hosting-compute@lionspace.iam.gserviceaccount.com?uid=100308864626908551918
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ roles/firebaseapphosting.computeRunner
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-firebaseapphosting.iam.gserviceaccount.com
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ roles/firebaseapphosting.serviceAgent
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ roles/firebaseauth.admin
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,141 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-firebasedataconnect.iam.gserviceaccount.com
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ roles/firebasedataconnect.serviceAgent
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-firebasevertexai.iam.gserviceaccount.com
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ roles/firebaseml.serviceAgent
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-firebasemods.iam.gserviceaccount.com
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ roles/firebasemods.serviceAgent
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@firebase-rules.iam.gserviceaccount.com
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,142 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ roles/firebaserules.system
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-firestore.iam.gserviceaccount.com
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ roles/firestore.serviceAgent
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ roles/iam.serviceAccountTokenCreator
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,143 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ roles/iam.serviceAccountUser
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@serverless-robot-prod.iam.gserviceaccount.com
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ roles/iap.admin
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,144 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ roles/iap.httpsResourceAccessor
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-integrations.iam.gserviceaccount.com
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ roles/integrations.serviceAgent
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-app@lionspace.iam.gserviceaccount.com?uid=108589168380016521255
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ roles/logging.logWriter
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,145 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-notebooks.iam.gserviceaccount.com
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ roles/notebooks.serviceAgent
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-notebooksecurityscanner.iam.gserviceaccount.com
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ roles/notebooksecurityscanner.serviceAgent
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ deleted:serviceAccount:service-707897822334-serverles@lionspace.iam.gserviceaccount.com?uid=104041496590386974430
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ roles/oauthconfig.editor
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,146 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ deleted:serviceAccount:claude-agent@lionspace.iam.gserviceaccount.com?uid=109803411424233591457
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionservice@lionspace.iam.gserviceaccount.com?uid=117819167825975446459
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ deleted:serviceAccount:superadmin-sa@lionspace.iam.gserviceaccount.com?uid=106343873869122378740
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ roles/owner
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ deleted:serviceAccount:integration-dev@lionspace.iam.gserviceaccount.com?uid=109244751692151531822
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ deleted:serviceAccount:integration-prod@lionspace.iam.gserviceaccount.com?uid=103520511192892095641
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,147 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ deleted:serviceAccount:integration-staging@lionspace.iam.gserviceaccount.com?uid=118328802996554520540
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ roles/pubsub.editor
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@cloud-redis.iam.gserviceaccount.com
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ roles/redis.serviceAgent
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,148 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@serverless-robot-prod.iam.gserviceaccount.com
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ roles/run.admin
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-workstation@lionspace.iam.gserviceaccount.com?uid=101699771665526346713
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ roles/run.developer
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace@appspot.gserviceaccount.com?uid=100886080030471596500
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionstore-agent@lionspace.iam.gserviceaccount.com?uid=110976656831120408151
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,149 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ roles/run.invoker
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@serverless-robot-prod.iam.gserviceaccount.com
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ roles/run.serviceAgent
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ roles/secretmanager.admin
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ condition
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___     
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ expression
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,150 INFO     ___FILE_ONLY___ request.time
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ <
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ timestamp("2025-08-10T12:50:29.235Z")
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___     
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ title
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ cloudbuild-connection-setup
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-cloudbuild.iam.gserviceaccount.com
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ roles/secretmanager.admin
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ condition
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___     
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ expression
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ request.time
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ <
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ timestamp("2025-08-15T23:20:15.885Z")
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___     
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ title
+2025-09-10 23:43:00,151 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ developer-connect-connection-setup
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-devconnect.iam.gserviceaccount.com
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ roles/secretmanager.admin
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-app@lionspace.iam.gserviceaccount.com?uid=108589168380016521255
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionstore-agent@lionspace.iam.gserviceaccount.com?uid=110976656831120408151
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ serviceAccount:dify-service-account@lionspace.iam.gserviceaccount.com
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ roles/secretmanager.secretAccessor
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,152 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ roles/securitycenter.admin
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ roles/securitycenter.findingsViewer
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ deleted:serviceAccount:707897822334-compute@developer.gserviceaccount.com?uid=102032914618662649878
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ roles/servicebroker.operator
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,153 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@service-networking.iam.gserviceaccount.com
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ roles/servicenetworking.serviceAgent
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ deleted:serviceAccount:claude-agent@lionspace.iam.gserviceaccount.com?uid=109803411424233591457
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ deleted:serviceAccount:lionspace-app@lionspace.iam.gserviceaccount.com?uid=108589168380016521255
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ serviceAccount:707897822334@cloudbuild.gserviceaccount.com
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ serviceAccount:dify-service-account@lionspace.iam.gserviceaccount.com
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ roles/storage.admin
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,154 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-app-hosting-compute@lionspace.iam.gserviceaccount.com?uid=100308864626908551918
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ roles/storage.objectViewer
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-visionai.iam.gserviceaccount.com
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ roles/visionai.serviceAgent
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-websecurityscanner.iam.gserviceaccount.com
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ roles/websecurityscanner.serviceAgent
+2025-09-10 23:43:00,155 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ deleted:serviceAccount:vertex-ops@lionspace.iam.gserviceaccount.com?uid=116146990979312540963
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ roles/workflows.admin
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-workflows.iam.gserviceaccount.com
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ roles/workflows.serviceAgent
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ members
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ -
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ serviceAccount:service-707897822334@gcp-sa-workstations.iam.gserviceaccount.com
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ role
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ roles/workstations.serviceAgent
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ etag
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,156 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___ BwY-U-GmsKM=
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___ version
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___ 3
+2025-09-10 23:43:00,157 INFO     ___FILE_ONLY___ 
+

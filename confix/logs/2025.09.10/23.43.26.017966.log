@@ -1,0 +1,32 @@
+2025-09-10 23:43:26,019 DEBUG    root            Loaded Command Group: ['gcloud', 'billing']
+2025-09-10 23:43:26,020 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'projects']
+2025-09-10 23:43:26,023 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'projects', 'describe']
+2025-09-10 23:43:26,024 DEBUG    root            Running [gcloud.billing.projects.describe] with arguments: [PROJECT_ID: "lionspace"]
+2025-09-10 23:43:26,039 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudbilling.googleapis.com:443
+2025-09-10 23:43:26,524 DEBUG    urllib3.connectionpool https://cloudbilling.googleapis.com:443 "GET /v1/projects/lionspace/billingInfo?alt=json HTTP/11" 200 None
+2025-09-10 23:43:26,525 DEBUG    root            Chosen display Format:default
+2025-09-10 23:43:26,525 INFO     root            Display format: "default"
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ billingAccountName
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ billingAccounts/015F38-D19F46-0B1ABA
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ billingEnabled
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ true
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ name
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ projects/lionspace/billingInfo
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ projectId
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ :
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___  
+2025-09-10 23:43:26,531 INFO     ___FILE_ONLY___ lionspace
+2025-09-10 23:43:26,532 INFO     ___FILE_ONLY___ 
+

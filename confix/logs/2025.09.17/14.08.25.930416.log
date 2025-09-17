@@ -1,0 +1,35 @@
+2025-09-17 14:08:25,934 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-17 14:08:25,939 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'config_helper']
+2025-09-17 14:08:25,941 DEBUG    root            Running [gcloud.config.config-helper] with arguments: [--format: "json"]
+2025-09-17 14:08:25,995 DEBUG    root            Chosen display Format:default json
+2025-09-17 14:08:25,996 INFO     root            Display format: "default json"
+2025-09-17 14:08:26,030 INFO     ___FILE_ONLY___ {
+  "configuration": {
+    "active_configuration": "lionsx",
+    "properties": {
+      "ai": {
+        "region": "us-east1"
+      },
+      "compute": {
+        "region": "us-east1",
+        "zone": "us-east1-b"
+      },
+      "core": {
+        "account": "hanudani@gmail.com",
+        "disable_usage_reporting": "False",
+        "project": "lionsxagent-472222"
+      }
+    }
+  },
+  "credential": {
+    "access_token": "ya29.a0AQQ_BDRZnb1STBV8VGu1pyLatMjXE-Euazfwh_wcu22CcQnGIPNDMC8JD9QqsUq9e8GUsS5ZUdPgPSX7PYcAcWxEr98XMgxnSI0qqmWYsuzRvW9UVB6b0_JFx24gkc4Vi7FVodwraMsslNXZfoA5RiWPxGypSVrt-2CxCMUyzJppOqQ0NjVqKcbpIl5DRAIZW-q1VoR3MgBXQQaCgYKAVkSARMSFQHGX2Mi1Q302LcnkABsGXrEmUjHQQ0213",
+    "id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA3ZjA3OGYyNjQ3ZThjZDAxOWM0MGRhOTU2OWU0ZjUyNDc5OTEwOTQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiIzMjU1NTk0MDU1OS5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6IjMyNTU1OTQwNTU5LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAyNzI4MDAzNzc3MDc5NzI5MjQ2IiwiZW1haWwiOiJoYW51ZGFuaUBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6Im00SlpCNVhoYmJHVTB5YktJT0hxZVEiLCJpYXQiOjE3NTgxMDY0NjksImV4cCI6MTc1ODExMDA2OX0.nZmsqlAaN9Y4eDD6VtWj6nU5casToSQ_xS3iP0z_QfsWnIVvbCvDCOChPOL-axtjB1rVBDhRKEENlTzJy5NtnuI71cRMpRWT3DsuWY_I4oPb0Aw8ohBTIoOxNZJDPSPJWZuMA557ixhngAgKeRBRJjTUIHoK4JzupOE3QX13QaReSrHtW5a5f1yMN7TJrmRMviQ_Eg1mNUWySKO9geFxJx6u1CNc6ZFQoUGiiSz3lG30k1FypLulv5NRS79M-uMXMOhJTKwzmEOdqnZXURMHXY5kh2upqyVpJMuKQmX_tlOAeTneKsUWr-hjJSXBpshcVe8D_p_gV0LsVg9FIecW1A",
+    "token_expiry": "2025-09-17T11:54:28Z"
+  },
+  "sentinels": {
+    "config_sentinel": "/Users/danielions/.config/gcloud/config_sentinel"
+  }
+}
+2025-09-17 14:08:26,030 INFO     ___FILE_ONLY___ 
+
+2025-09-17 14:08:26,043 DEBUG    root            Metrics reporting process started...

@@ -1,0 +1,39 @@
+2025-09-16 01:46:52,986 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-16 01:46:52,987 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-09-16 01:46:52,987 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--format: "yaml(parent,projectNumber,lifecycleState)", PROJECT_ID_OR_NUMBER: "lionsxagent"]
+2025-09-16 01:46:53,004 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 01:46:54,423 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionsxagent?alt=json HTTP/11" 200 None
+2025-09-16 01:46:54,425 DEBUG    root            Chosen display Format:default yaml(parent,projectNumber,lifecycleState)
+2025-09-16 01:46:54,427 INFO     root            Display format: "default yaml(parent,projectNumber,lifecycleState)"
+2025-09-16 01:46:54,444 INFO     ___FILE_ONLY___ lifecycleState
+2025-09-16 01:46:54,444 INFO     ___FILE_ONLY___ :
+2025-09-16 01:46:54,444 INFO     ___FILE_ONLY___  
+2025-09-16 01:46:54,444 INFO     ___FILE_ONLY___ DELETE_REQUESTED
+2025-09-16 01:46:54,444 INFO     ___FILE_ONLY___ 
+
+2025-09-16 01:46:54,444 INFO     ___FILE_ONLY___ parent
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ :
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ 
+
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___   
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ id
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ :
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___  '
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ 1091503060083
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ '
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ 
+
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___   
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ type
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ :
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___  
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ folder
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ 
+
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ projectNumber
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ :
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___  '
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ 46234075185
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ '
+2025-09-16 01:46:54,445 INFO     ___FILE_ONLY___ 
+

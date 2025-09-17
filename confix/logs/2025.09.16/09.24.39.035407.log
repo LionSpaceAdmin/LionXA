@@ -1,0 +1,27 @@
+2025-09-16 09:24:39,035 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 09:24:39,036 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record_sets']
+2025-09-16 09:24:39,036 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'transaction']
+2025-09-16 09:24:39,040 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'transaction', 'execute']
+2025-09-16 09:24:39,041 DEBUG    root            Running [gcloud.dns.record-sets.transaction.execute] with arguments: [--zone: "tour-zone"]
+2025-09-16 09:24:39,055 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-16 09:24:39,664 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "POST /dns/v1/projects/lionstour/managedZones/tour-zone/changes?alt=json HTTP/11" 200 None
+2025-09-16 09:24:39,667 INFO     ___FILE_ONLY___ Executed transaction [transaction.yaml] for managed-zone [tour-zone].
+
+2025-09-16 09:24:39,667 INFO     ___FILE_ONLY___ Created [https://dns.googleapis.com/dns/v1/projects/lionstour/managedZones/tour-zone/changes/1].
+
+2025-09-16 09:24:39,668 DEBUG    root            Chosen display Format:table(id, startTime, status)
+2025-09-16 09:24:39,669 INFO     root            Display format: "table(id, startTime, status)"
+2025-09-16 09:24:39,692 INFO     ___FILE_ONLY___ ID
+2025-09-16 09:24:39,692 INFO     ___FILE_ONLY___   
+2025-09-16 09:24:39,692 INFO     ___FILE_ONLY___ START_TIME
+2025-09-16 09:24:39,692 INFO     ___FILE_ONLY___                 
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___ STATUS
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___ 
+
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___ 1
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___    
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___ 2025-09-16T06:24:39.414Z
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___   
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___ pending
+2025-09-16 09:24:39,693 INFO     ___FILE_ONLY___ 
+

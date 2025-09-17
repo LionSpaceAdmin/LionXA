@@ -1,0 +1,19 @@
+2025-09-16 23:17:27,045 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-16 23:17:27,098 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'add_iam_policy_binding']
+2025-09-16 23:17:27,105 DEBUG    root            Running [gcloud.projects.add-iam-policy-binding] with arguments: [--member: "serviceAccount:vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com", --role: "roles/aiplatform.user", PROJECT_ID: "lionsxagent-472222"]
+2025-09-16 23:17:27,126 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 23:17:27,130 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 23:17:27,411 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 400 None
+2025-09-16 23:17:27,412 DEBUG    root            using google-auth reauth
+2025-09-16 23:17:27,412 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 23:17:27,509 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 23:17:27,510 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions:start
+2025-09-16 23:17:27,511 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): reauth.googleapis.com:443
+2025-09-16 23:17:28,111 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions:start HTTP/11" 200 None
+2025-09-16 23:17:31,231 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions/AMbiOOR1Fla1gBCUA97VC6lfgEVozi3oecoqmnUbdHtGko_F7zlKOb_G_GVqc4GP:continue
+2025-09-16 23:17:31,471 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions/AMbiOOR1Fla1gBCUA97VC6lfgEVozi3oecoqmnUbdHtGko_F7zlKOb_G_GVqc4GP:continue HTTP/11" 200 None
+2025-09-16 23:17:34,877 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

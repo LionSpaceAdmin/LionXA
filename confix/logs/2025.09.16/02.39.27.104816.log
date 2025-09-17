@@ -1,0 +1,50 @@
+2025-09-16 02:39:27,105 DEBUG    root            Loaded Command Group: ['gcloud', 'iam']
+2025-09-16 02:39:27,105 DEBUG    root            Loaded Command Group: ['gcloud', 'iam', 'service_accounts']
+2025-09-16 02:39:27,106 DEBUG    root            Loaded Command Group: ['gcloud', 'iam', 'service-accounts', 'create']
+2025-09-16 02:39:27,107 DEBUG    root            Running [gcloud.iam.service-accounts.create] with arguments: [--display-name: "Vertex Pipelines SA", NAME: "vertex-pipeline"]
+2025-09-16 02:39:27,117 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): iam.googleapis.com:443
+2025-09-16 02:39:28,403 DEBUG    urllib3.connectionpool https://iam.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/serviceAccounts?alt=json HTTP/11" 409 None
+2025-09-16 02:39:28,407 DEBUG    root            Chosen display Format:default
+2025-09-16 02:39:28,428 DEBUG    root            Chosen display Format:default
+2025-09-16 02:39:28,429 DEBUG    root            Chosen display Format:default
+2025-09-16 02:39:28,430 DEBUG    root            (gcloud.iam.service-accounts.create) Resource in projects [lionsxagent-472222] is the subject of a conflict: Service account vertex-pipeline already exists within project projects/lionsxagent-472222.
+- '@type': type.googleapis.com/google.rpc.ResourceInfo
+  resourceName: projects/lionsxagent-472222/serviceAccounts/vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/iam/service_accounts/create.py", line 74, in Run
+    result = client.projects_serviceAccounts.Create(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/iam/v1/iam_v1_client.py", line 4455, in Create
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpConflictError: HttpError accessing <https://iam.googleapis.com/v1/projects/lionsxagent-472222/serviceAccounts?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Mon, 15 Sep 2025 23:39:28 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 409}>, content <{
+  "error": {
+    "code": 409,
+    "message": "Service account vertex-pipeline already exists within project projects/lionsxagent-472222.",
+    "status": "ALREADY_EXISTS",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ResourceInfo",
+        "resourceName": "projects/lionsxagent-472222/serviceAccounts/vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com"
+      }
+    ]
+  }
+}
+>
+2025-09-16 02:39:28,434 ERROR    root            (gcloud.iam.service-accounts.create) Resource in projects [lionsxagent-472222] is the subject of a conflict: Service account vertex-pipeline already exists within project projects/lionsxagent-472222.
+- '@type': type.googleapis.com/google.rpc.ResourceInfo
+  resourceName: projects/lionsxagent-472222/serviceAccounts/vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com

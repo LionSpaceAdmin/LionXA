@@ -1,0 +1,7 @@
+2025-09-16 02:21:42,772 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-16 02:21:42,774 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'print_refresh_token']
+2025-09-16 02:21:42,775 DEBUG    root            Running [gcloud.auth.print-refresh-token] with arguments: []
+2025-09-16 02:21:42,780 DEBUG    root            Chosen display Format:value(refresh_token)
+2025-09-16 02:21:42,781 INFO     root            Display format: "value(refresh_token)"
+2025-09-16 02:21:42,786 INFO     ___FILE_ONLY___ 1//03qIwXvpQGFU2CgYIARAAGAMSNwF-L9IrSTXtCqVCu8YZD88EdfQw6lxiZd4OcRO4UB3lfUEKkwwyB2eCxWRfT5kWt--6xorJUgU
+

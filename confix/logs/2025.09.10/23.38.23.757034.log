@@ -1,0 +1,18 @@
+2025-09-10 23:38:23,759 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2025-09-10 23:38:23,858 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'rm']
+2025-09-10 23:38:23,859 DEBUG    root            Running [gcloud.storage.rm] with arguments: [--quiet: "True", --recursive: "True", URLS:1: "['gs://dify-storage-lionspace']"]
+2025-09-10 23:38:23,862 INFO     ___FILE_ONLY___ Removing objects:
+
+2025-09-10 23:38:23,870 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2025-09-10 23:38:24,210 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/dify-storage-lionspace/o?alt=json&fields=prefixes%2Citems%2Fname%2Citems%2Fsize%2Citems%2Fgeneration%2CnextPageToken&maxResults=1000&projection=noAcl&versions=True HTTP/11" 200 3
+2025-09-10 23:38:24,211 INFO     root            Using high CPU count, single-file workload config.
+2025-09-10 23:38:24,219 INFO     ___FILE_ONLY___   
+2025-09-10 23:38:25,010 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/dify-storage-lionspace/storageLayout?alt=json HTTP/11" 200 130
+2025-09-10 23:38:25,700 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/dify-storage-lionspace/o?alt=json&maxResults=1000&projection=noAcl HTTP/11" 200 32
+2025-09-10 23:38:25,997 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/dify-storage-lionspace/managedFolders?alt=json&pageSize=1000 HTTP/11" 200 39
+2025-09-10 23:38:25,997 INFO     ___FILE_ONLY___ Removing buckets:
+
+2025-09-10 23:38:25,998 INFO     root            Using high CPU count, single-file workload config.
+2025-09-10 23:38:26,005 INFO     ___FILE_ONLY___   
+2025-09-10 23:38:27,223 DEBUG    root            Chosen display Format:default
+2025-09-10 23:38:27,224 INFO     root            Display format: "default"

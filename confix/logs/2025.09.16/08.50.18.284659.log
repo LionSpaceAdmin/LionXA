@@ -1,0 +1,110 @@
+2025-09-16 08:50:18,286 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses']
+2025-09-16 08:50:18,288 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses', 'describe']
+2025-09-16 08:50:18,289 DEBUG    root            Running [gcloud.compute.addresses.describe] with arguments: [--format: "get(address)", --global: "True", NAME: "tour-global-ip"]
+2025-09-16 08:50:18,396 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 08:50:18,770 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionstour/global/addresses/tour-global-ip?alt=json HTTP/11" 403 None
+2025-09-16 08:59:28,145 INFO     ___FILE_ONLY___ Enabling service [compute.googleapis.com] on project [lionstour]...
+
+2025-09-16 08:59:28,163 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:29,794 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionstour/services/compute.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 08:59:29,803 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:30,839 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:33,033 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:34,073 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:36,884 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:37,967 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:40,462 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:41,508 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:44,557 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:45,596 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:48,712 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:49,745 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:53,727 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:54,753 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 08:59:58,791 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:59:59,851 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 09:00:03,964 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 09:00:04,977 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 09:00:09,357 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 09:00:09,705 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 09:00:15,431 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 09:00:16,473 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 09:00:21,850 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 09:00:22,881 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 09:00:28,758 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 09:00:29,827 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6?alt=json HTTP/11" 200 None
+2025-09-16 09:00:29,852 INFO     ___FILE_ONLY___ Operation "operations/acf.p2-578611451987-3d7a581d-460e-4e2b-915d-43ba8ce90fc6" finished successfully.
+
+2025-09-16 09:00:29,854 DEBUG    urllib3.connectionpool Resetting dropped connection: compute.googleapis.com
+2025-09-16 09:00:30,419 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionstour/global/addresses/tour-global-ip?alt=json HTTP/11" 404 None
+2025-09-16 09:00:30,424 DEBUG    root            (gcloud.compute.addresses.describe) HTTPError 404: The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/single_request_helper.py", line 69, in MakeSingleRequest
+    response = getattr(service, method)(request=request_body)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/compute/v1/compute_v1_client.py", line 3060, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 744, in _RunMethod
+    http_response = http_wrapper.MakeRequest(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 348, in MakeRequest
+    return _MakeRequestNoRetry(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 406, in _MakeRequestNoRetry
+    check_response_func(response)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 239, in _CheckResponse
+    _CheckForApiEnablementError(response_as_error)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 198, in _CheckForApiEnablementError
+    PromptToEnableApi(*enablement_info)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 179, in PromptToEnableApi
+    raise apitools_exceptions.RequestError('Retry')
+apitools.base.py.exceptions.RequestError: Retry
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/compute/addresses/describe.py", line 69, in Run
+    return client.MakeRequests([(service, 'Get', request)])[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/client_adapter.py", line 128, in MakeRequests
+    objects = list(
+              ^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/request_helper.py", line 321, in MakeRequests
+    responses, new_errors = single_request_helper.MakeSingleRequest(
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/compute/single_request_helper.py", line 81, in MakeSingleRequest
+    response = getattr(service, method)(request=request_body)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/compute/v1/compute_v1_client.py", line 3060, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpNotFoundError: HttpError accessing <https://compute.googleapis.com/compute/v1/projects/lionstour/global/addresses/tour-global-ip?alt=json>: response: <{'content-type': 'application/json; charset=UTF-8', 'vary': 'Origin, X-Origin, Referer', 'content-encoding': 'gzip', 'date': 'Tue, 16 Sep 2025 06:00:30 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 404}>, content <{
+  "error": {
+    "code": 404,
+    "message": "The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found",
+    "errors": [
+      {
+        "message": "The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found",
+        "domain": "global",
+        "reason": "notFound"
+      }
+    ]
+  }
+}
+>
+2025-09-16 09:00:30,439 ERROR    root            (gcloud.compute.addresses.describe) HTTPError 404: The resource 'projects/lionstour/global/addresses/tour-global-ip' was not found. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property

@@ -1,0 +1,15 @@
+2025-09-16 07:51:55,576 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-16 07:51:55,577 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'enable']
+2025-09-16 07:51:55,578 DEBUG    root            Running [gcloud.services.enable] with arguments: [--project: "lionstour", SERVICE:1: "['cloudfunctions.googleapis.com']"]
+2025-09-16 07:51:55,597 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:57,425 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionstour/services/cloudfunctions.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 07:51:57,431 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:58,490 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-b054a8bf-4d4e-41f1-8568-de989d5f1d5c?alt=json HTTP/11" 200 None
+2025-09-16 07:52:00,756 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:52:01,789 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-b054a8bf-4d4e-41f1-8568-de989d5f1d5c?alt=json HTTP/11" 200 None
+2025-09-16 07:52:04,544 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:52:05,584 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-578611451987-b054a8bf-4d4e-41f1-8568-de989d5f1d5c?alt=json HTTP/11" 200 None
+2025-09-16 07:52:05,587 INFO     ___FILE_ONLY___ Operation "operations/acf.p2-578611451987-b054a8bf-4d4e-41f1-8568-de989d5f1d5c" finished successfully.
+
+2025-09-16 07:52:05,587 DEBUG    root            Chosen display Format:none
+2025-09-16 07:52:05,587 INFO     root            Display format: "none"

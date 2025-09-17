@@ -1,0 +1,86 @@
+2025-09-10 23:21:56,761 DEBUG    root            Loaded Command Group: ['gcloud', 'app']
+2025-09-10 23:21:56,819 DEBUG    root            Loaded Command Group: ['gcloud', 'app', 'describe']
+2025-09-10 23:21:56,820 DEBUG    root            Running [gcloud.app.describe] with arguments: []
+2025-09-10 23:21:57,568 DEBUG    root            No app found:
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/app/describe.py", line 40, in Describe
+    return api_client.GetApplication()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/app/appengine_api_client.py", line 77, in GetApplication
+    return self.client.apps.Get(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/appengine/v1/appengine_v1_client.py", line 1219, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpNotFoundError: HttpError accessing <https://appengine.googleapis.com/v1/apps/lionspace?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'date': 'Wed, 10 Sep 2025 20:21:57 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': '404', 'content-length': '355', '-content-encoding': 'gzip'}>, content <{
+  "error": {
+    "code": 404,
+    "message": "Resource 'projects/lionspace/locations/global/applications/lionspace' was not found",
+    "status": "NOT_FOUND",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ResourceInfo",
+        "resourceName": "projects/lionspace/locations/global/applications/lionspace"
+      }
+    ]
+  }
+}
+>
+2025-09-10 23:21:57,570 DEBUG    root            (gcloud.app.describe) The current Google Cloud project [lionspace] does not contain an App Engine application. Use `gcloud app create` to initialize an App Engine application within the project.
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/app/describe.py", line 40, in Describe
+    return api_client.GetApplication()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/app/appengine_api_client.py", line 77, in GetApplication
+    return self.client.apps.Get(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/appengine/v1/appengine_v1_client.py", line 1219, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpNotFoundError: HttpError accessing <https://appengine.googleapis.com/v1/apps/lionspace?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'date': 'Wed, 10 Sep 2025 20:21:57 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': '404', 'content-length': '355', '-content-encoding': 'gzip'}>, content <{
+  "error": {
+    "code": 404,
+    "message": "Resource 'projects/lionspace/locations/global/applications/lionspace' was not found",
+    "status": "NOT_FOUND",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ResourceInfo",
+        "resourceName": "projects/lionspace/locations/global/applications/lionspace"
+      }
+    ]
+  }
+}
+>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/app/describe.py", line 52, in Run
+    return Describe(appengine_api_client.GetApiClientForTrack(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/app/describe.py", line 44, in Describe
+    raise exceptions.MissingApplicationError(project)
+googlecloudsdk.command_lib.app.exceptions.MissingApplicationError: The current Google Cloud project [lionspace] does not contain an App Engine application. Use `gcloud app create` to initialize an App Engine application within the project.
+2025-09-10 23:21:57,571 ERROR    root            (gcloud.app.describe) The current Google Cloud project [lionspace] does not contain an App Engine application. Use `gcloud app create` to initialize an App Engine application within the project.

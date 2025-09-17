@@ -1,0 +1,32 @@
+2025-09-17 13:54:58,423 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'billing']
+2025-09-17 13:54:58,424 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'billing', 'projects']
+2025-09-17 13:54:58,426 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'billing', 'projects', 'describe']
+2025-09-17 13:54:58,427 DEBUG    root            Running [gcloud.beta.billing.projects.describe] with arguments: [PROJECT_ID: "lionsofzion-bcc4a"]
+2025-09-17 13:54:58,439 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudbilling.googleapis.com:443
+2025-09-17 13:54:59,066 DEBUG    urllib3.connectionpool https://cloudbilling.googleapis.com:443 "GET /v1/projects/lionsofzion-bcc4a/billingInfo?alt=json HTTP/11" 200 None
+2025-09-17 13:54:59,069 DEBUG    root            Chosen display Format:default
+2025-09-17 13:54:59,070 INFO     root            Display format: "default"
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ billingAccountName
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ :
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___  
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ billingAccounts/015F38-D19F46-0B1ABA
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ billingEnabled
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ :
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___  
+2025-09-17 13:54:59,088 INFO     ___FILE_ONLY___ true
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ name
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ :
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___  
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ projects/lionsofzion-bcc4a/billingInfo
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ projectId
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ :
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___  
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ lionsofzion-bcc4a
+2025-09-17 13:54:59,089 INFO     ___FILE_ONLY___ 
+

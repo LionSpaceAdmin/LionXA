@@ -1,0 +1,6 @@
+2025-09-17 14:14:05,900 DEBUG    root            Loaded Command Group: ['gcloud', 'firebase']
+2025-09-17 14:14:05,903 DEBUG    root            Loaded Command Group: ['gcloud', 'firebase', 'test']
+2025-09-17 14:14:05,903 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'firebase']
+2025-09-17 14:14:05,903 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'firebase']
+2025-09-17 14:14:05,903 ERROR    root            (gcloud.firebase) Invalid choice: 'projects'.
+2025-09-17 14:14:05,955 DEBUG    root            Metrics reporting process started...

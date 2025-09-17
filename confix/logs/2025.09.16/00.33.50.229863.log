@@ -1,0 +1,91 @@
+2025-09-16 00:33:50,230 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-16 00:33:50,231 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders']
+2025-09-16 00:33:50,237 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders', 'add_iam_policy_binding']
+2025-09-16 00:33:50,240 DEBUG    root            Running [gcloud.resource-manager.folders.add-iam-policy-binding] with arguments: [--member: "user:Hanudani@gmail.com", --role: "roles/resourcemanager.folderAdmin", FOLDER: "172983073065"]
+2025-09-16 00:33:50,251 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:33:51,375 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v2/folders/172983073065:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 00:33:51,398 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:33:54,024 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v2/folders/172983073065:setIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 00:33:54,027 INFO     ___FILE_ONLY___ Updated IAM policy for folder [172983073065].
+
+2025-09-16 00:33:54,027 DEBUG    root            Chosen display Format:default
+2025-09-16 00:33:54,029 INFO     root            Display format: "default"
+2025-09-16 00:33:54,049 INFO     ___FILE_ONLY___ bindings
+2025-09-16 00:33:54,049 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,049 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,050 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ roles/owner
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:54,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ roles/resourcemanager.folderAdmin
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ roles/resourcemanager.folderEditor
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ etag
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ BwY-3cKTzmw=
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ version
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 1
+2025-09-16 00:33:54,052 INFO     ___FILE_ONLY___ 
+

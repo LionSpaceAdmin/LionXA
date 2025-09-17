@@ -1,0 +1,9 @@
+2025-09-10 22:50:08,734 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-10 22:50:08,735 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-09-10 22:50:08,735 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--account: "admin@lionsofzion-official.org", --configuration: "default", --format: "value(name)", PROJECT_ID_OR_NUMBER: "lionspace"]
+2025-09-10 22:50:08,746 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 22:50:09,768 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionspace?alt=json HTTP/11" 200 None
+2025-09-10 22:50:09,772 DEBUG    root            Chosen display Format:default value(name)
+2025-09-10 22:50:09,773 INFO     root            Display format: "default value(name)"
+2025-09-10 22:50:09,792 INFO     ___FILE_ONLY___ LionSpace
+

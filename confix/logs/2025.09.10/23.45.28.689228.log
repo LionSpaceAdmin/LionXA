@@ -1,0 +1,48 @@
+2025-09-10 23:45:28,689 DEBUG    root            Loaded Command Group: ['gcloud', 'billing']
+2025-09-10 23:45:28,690 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'accounts']
+2025-09-10 23:45:28,692 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'accounts', 'describe']
+2025-09-10 23:45:28,692 DEBUG    root            Running [gcloud.billing.accounts.describe] with arguments: [ACCOUNT_ID: "015F38-D19F46-0B1ABA"]
+2025-09-10 23:45:28,704 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudbilling.googleapis.com:443
+2025-09-10 23:45:29,206 DEBUG    urllib3.connectionpool https://cloudbilling.googleapis.com:443 "GET /v1/billingAccounts/015F38-D19F46-0B1ABA?alt=json HTTP/11" 200 None
+2025-09-10 23:45:29,207 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:29,207 INFO     root            Display format: "default"
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ currencyCode
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ ILS
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ displayName
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ My
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ Billing
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ Account
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:29,214 INFO     ___FILE_ONLY___ masterBillingAccount
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___  '
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ '
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ name
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ billingAccounts/015F38-D19F46-0B1ABA
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ open
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ true
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ parent
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ organizations/985698468107
+2025-09-10 23:45:29,215 INFO     ___FILE_ONLY___ 
+

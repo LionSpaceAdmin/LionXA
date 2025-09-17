@@ -1,0 +1,66 @@
+2025-09-10 23:33:51,211 DEBUG    root            Loaded Command Group: ['gcloud', 'app']
+2025-09-10 23:33:51,227 DEBUG    root            Loaded Command Group: ['gcloud', 'app', 'describe']
+2025-09-10 23:33:51,228 DEBUG    root            Running [gcloud.app.describe] with arguments: []
+2025-09-10 23:33:52,032 DEBUG    root            Chosen display Format:default
+2025-09-10 23:33:52,042 DEBUG    root            Chosen display Format:default
+2025-09-10 23:33:52,043 DEBUG    root            Chosen display Format:default
+2025-09-10 23:33:52,043 DEBUG    root            (gcloud.app.describe) [admin@lionsofzion-official.org] does not have permission to access apps instance [lionsofzion-dev] (or it may not exist): Permission 'appengine.applications.get' denied on resource '//appengine.googleapis.com/projects/lionsofzion-dev/locations/global/applications/lionsofzion-dev' (or it may not exist). This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property.
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: appengine.googleapis.com
+  metadata:
+    permission: appengine.applications.get
+    resource: projects/lionsofzion-dev/locations/global/applications/lionsofzion-dev
+  reason: IAM_PERMISSION_DENIED
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/app/describe.py", line 52, in Run
+    return Describe(appengine_api_client.GetApiClientForTrack(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/app/describe.py", line 40, in Describe
+    return api_client.GetApplication()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/app/appengine_api_client.py", line 77, in GetApplication
+    return self.client.apps.Get(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/appengine/v1/appengine_v1_client.py", line 1219, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpForbiddenError: HttpError accessing <https://appengine.googleapis.com/v1/apps/lionsofzion-dev?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'date': 'Wed, 10 Sep 2025 20:33:52 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': '403', 'content-length': '643', '-content-encoding': 'gzip'}>, content <{
+  "error": {
+    "code": 403,
+    "message": "Permission 'appengine.applications.get' denied on resource '//appengine.googleapis.com/projects/lionsofzion-dev/locations/global/applications/lionsofzion-dev' (or it may not exist).",
+    "status": "PERMISSION_DENIED",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "IAM_PERMISSION_DENIED",
+        "domain": "appengine.googleapis.com",
+        "metadata": {
+          "resource": "projects/lionsofzion-dev/locations/global/applications/lionsofzion-dev",
+          "permission": "appengine.applications.get"
+        }
+      }
+    ]
+  }
+}
+>
+2025-09-10 23:33:52,045 ERROR    root            (gcloud.app.describe) [admin@lionsofzion-official.org] does not have permission to access apps instance [lionsofzion-dev] (or it may not exist): Permission 'appengine.applications.get' denied on resource '//appengine.googleapis.com/projects/lionsofzion-dev/locations/global/applications/lionsofzion-dev' (or it may not exist). This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property.
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: appengine.googleapis.com
+  metadata:
+    permission: appengine.applications.get
+    resource: projects/lionsofzion-dev/locations/global/applications/lionsofzion-dev
+  reason: IAM_PERMISSION_DENIED

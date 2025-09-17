@@ -1,0 +1,60 @@
+2025-09-10 23:39:20,809 DEBUG    root            Loaded Command Group: ['gcloud', 'sql']
+2025-09-10 23:39:20,810 DEBUG    root            Loaded Command Group: ['gcloud', 'sql', 'instances']
+2025-09-10 23:39:20,821 DEBUG    root            Loaded Command Group: ['gcloud', 'sql', 'instances', 'delete']
+2025-09-10 23:39:20,822 DEBUG    root            Running [gcloud.sql.instances.delete] with arguments: [INSTANCE: "dify-postgres"]
+2025-09-10 23:39:20,836 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): sqladmin.googleapis.com:443
+2025-09-10 23:39:21,183 DEBUG    urllib3.connectionpool https://sqladmin.googleapis.com:443 "GET /sql/v1beta4/projects/lionspace/instances/dify-postgres?alt=json HTTP/11" 404 None
+2025-09-10 23:39:21,184 DEBUG    root            Ignoring the error to get instance resource : HttpError accessing <https://sqladmin.googleapis.com/sql/v1beta4/projects/lionspace/instances/dify-postgres?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 10 Sep 2025 20:39:21 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 404}>, content <{
+  "error": {
+    "code": 404,
+    "message": "The Cloud SQL instance does not exist.",
+    "errors": [
+      {
+        "message": "The Cloud SQL instance does not exist.",
+        "domain": "global",
+        "reason": "instanceDoesNotExist"
+      }
+    ]
+  }
+}
+>
+2025-09-10 23:39:21,563 DEBUG    urllib3.connectionpool https://sqladmin.googleapis.com:443 "DELETE /sql/v1beta4/projects/lionspace/instances/dify-postgres?alt=json HTTP/11" 403 None
+2025-09-10 23:39:21,563 DEBUG    root            operation : None
+2025-09-10 23:39:21,564 DEBUG    root            (gcloud.sql.instances.delete) PERMISSION_DENIED: The caller does not have permission. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/sql/instances/delete.py", line 133, in Run
+    result = sql_client.instances.Delete(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/sqladmin/v1beta4/sqladmin_v1beta4_client.py", line 754, in Delete
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpForbiddenError: HttpError accessing <https://sqladmin.googleapis.com/sql/v1beta4/projects/lionspace/instances/dify-postgres?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 10 Sep 2025 20:39:21 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 403}>, content <{
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "errors": [
+      {
+        "message": "The caller does not have permission",
+        "domain": "global",
+        "reason": "forbidden"
+      }
+    ],
+    "status": "PERMISSION_DENIED"
+  }
+}
+>
+2025-09-10 23:39:21,565 ERROR    root            (gcloud.sql.instances.delete) PERMISSION_DENIED: The caller does not have permission. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property

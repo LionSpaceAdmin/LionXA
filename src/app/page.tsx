@@ -12,6 +12,7 @@ import { ControlPanel } from '@/components/dashboard/control-panel';
 import { LiveActivityFeed } from '@/components/dashboard/live-activity-feed';
 import { AnalyticsDashboard } from '@/components/dashboard/analytics-dashboard';
 import { AIOptimization } from '@/components/dashboard/ai-optimization';
+import { VisualEditor } from '@/components/dashboard/visual-editor';
 import { Card } from '@/components/ui/card';
 
 export default function Home() {
@@ -50,6 +51,10 @@ export default function Home() {
 
               <div className="col-span-1">
                 <AnalyticsDashboard />
+              </div>
+              
+              <div className="col-span-1 lg:col-span-1">
+                <VisualEditor />
               </div>
             </div>
 

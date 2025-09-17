@@ -1,0 +1,39 @@
+2025-09-11 00:19:41,034 DEBUG    root            Loaded Command Group: ['gcloud', 'org_policies']
+2025-09-11 00:19:41,044 DEBUG    root            Loaded Command Group: ['gcloud', 'org-policies', 'describe']
+2025-09-11 00:19:41,044 DEBUG    root            Running [gcloud.org-policies.describe] with arguments: [--organization: "985698468107", CONSTRAINT: "constraints/iam.allowedPolicyMemberDomains"]
+2025-09-11 00:19:41,056 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): orgpolicy.googleapis.com:443
+2025-09-11 00:19:41,864 DEBUG    urllib3.connectionpool https://orgpolicy.googleapis.com:443 "GET /v2/organizations/985698468107/policies/iam.allowedPolicyMemberDomains?alt=json HTTP/11" 404 None
+2025-09-11 00:19:41,866 DEBUG    root            (gcloud.org-policies.describe) NOT_FOUND: Requested entity was not found. This command is authenticated as hanudani@gmail.com which is the active account specified by the [core/account] property.
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/org_policies/describe.py", line 76, in Run
+    return org_policy_api.GetPolicy(policy_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/orgpolicy/service.py", line 154, in GetPolicy
+    return self.client.organizations_policies.Get(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/orgpolicy/v2/orgpolicy_v2_client.py", line 528, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpNotFoundError: HttpError accessing <https://orgpolicy.googleapis.com/v2/organizations/985698468107/policies/iam.allowedPolicyMemberDomains?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 10 Sep 2025 21:19:41 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 404}>, content <{
+  "error": {
+    "code": 404,
+    "message": "Requested entity was not found.",
+    "status": "NOT_FOUND"
+  }
+}
+>
+2025-09-11 00:19:41,868 ERROR    root            (gcloud.org-policies.describe) NOT_FOUND: Requested entity was not found. This command is authenticated as hanudani@gmail.com which is the active account specified by the [core/account] property.

@@ -1,0 +1,180 @@
+2025-09-17 13:54:28,523 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-17 13:54:28,524 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'list']
+2025-09-17 13:54:28,525 DEBUG    root            Running [gcloud.projects.list] with arguments: []
+2025-09-17 13:54:28,525 INFO     root            client_filter="None" server_filter="None"
+2025-09-17 13:54:28,787 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-17 13:54:28,792 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-17 13:54:29,181 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-17 13:54:29,194 DEBUG    root            Chosen display Format:
+    table(
+      projectId:sort=1,
+      name,
+      projectNumber
+    )
+
+2025-09-17 13:54:29,194 INFO     root            Display format: "
+    table(
+      projectId:sort=1,
+      name,
+      projectNumber
+    )
+"
+2025-09-17 13:54:29,196 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-17 13:54:30,409 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects?alt=json&filter=lifecycleState%3AACTIVE&pageSize=500 HTTP/11" 200 None
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ PROJECT_ID
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___                     
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ NAME
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___                     
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ PROJECT_NUMBER
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ ai-powered-trip
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___                
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ AI-powered trip
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___          
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ 464809372762
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,442 INFO     ___FILE_ONLY___ droner-f7c33
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___                   
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ DRONER
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___                   
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 1083750968516
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ flash-ivy-02mzq
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___                                        
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 660502271296
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ google-mpf-172983073065
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ LionService-mp
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___           
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 232368778929
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ google-mpf-59036457140
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___         
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ Proof of Concept-mp
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___      
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 219605409270
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ lionsofzion-bcc4a
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___              
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ LionsOfZion
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___              
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 266978726573
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ lionsofzion-dev
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___                
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ LionsOfZion Dev
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___          
+2025-09-17 13:54:30,443 INFO     ___FILE_ONLY___ 1037795887975
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ lionspace
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___                      
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ LionSpace
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___                
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 707897822334
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ lionstour
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___                      
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ LIonSTour
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___                
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 578611451987
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ lionstour-16fc8
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___                
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ LionSTour
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___                
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 815900402896
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ lionsxagent-472222
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ LionSXagent
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___              
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 649309776370
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ luminous-bazaar-472222-a9
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___      
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ LionSXagent
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___              
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 533950681341
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ sample-firebase-ai-app-1091f
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___   
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ Sample Firebase AI App
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___   
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 367851666363
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,444 INFO     ___FILE_ONLY___ storied-line-441012-q1
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___         
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Lions Adventure
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___          
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 403081441254
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ studio-4793629576-aa68b
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Firebase app
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 440959567980
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ studio-4983471802-8d572
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Firebase app
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 861643808086
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ studio-5038101199-6b02e
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Firebase app
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 210838703765
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ studio-6148890776-ec107
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Firebase app
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 181276931048
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ studio-6472069941-fb18b
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Firebase app
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 330782857814
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ studio-7285293723-42d6d
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___        
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ Firebase app
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___             
+2025-09-17 13:54:30,445 INFO     ___FILE_ONLY___ 434292232820
+2025-09-17 13:54:30,446 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:54:30,446 DEBUG    root            Checking for updates...
+2025-09-17 13:54:30,448 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-17 13:54:31,416 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 233150
+2025-09-17 13:54:31,606 DEBUG    root            Updating notification cache...
+2025-09-17 13:54:31,607 DEBUG    root            Activating notification: [default]
+2025-09-17 13:54:31,607 INFO     ___FILE_ONLY___ 
+
+Updates are available for some Google Cloud CLI components.  To install them,
+please run:
+  $ gcloud components update
+
+

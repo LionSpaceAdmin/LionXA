@@ -1,0 +1,72 @@
+2025-09-10 23:21:33,379 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-10 23:21:33,382 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'list']
+2025-09-10 23:21:33,383 DEBUG    root            Running [gcloud.services.list] with arguments: [--enabled: "True", --limit: "10"]
+2025-09-10 23:21:33,397 DEBUG    root            Chosen display Format:
+          table(
+            config.name:label=NAME:sort=1,
+            config.title
+          )
+        
+2025-09-10 23:21:33,397 INFO     root            Display format: "
+          table(
+            config.name:label=NAME:sort=1,
+            config.title
+          )
+        "
+2025-09-10 23:21:33,402 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-10 23:21:34,758 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/projects/lionspace/services?alt=json&filter=state%3AENABLED&pageSize=10 HTTP/11" 200 None
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ NAME
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___                                    
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ TITLE
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ accessapproval.googleapis.com
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___           
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ Access Approval API
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ aiplatform.googleapis.com
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___               
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ Vertex AI API
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ analyticshub.googleapis.com
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___             
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ Analytics Hub API
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ anthosconfigmanagement.googleapis.com
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___   
+2025-09-10 23:21:34,777 INFO     ___FILE_ONLY___ Anthos Config Management API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ anthospolicycontroller.googleapis.com
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___   
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ Anthos Policy Controller API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ apikeys.googleapis.com
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___                  
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ API Keys API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ apim.googleapis.com
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___                     
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ API Management API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ appengine.googleapis.com
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___                
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ App Engine Admin API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ apphub.googleapis.com
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___                   
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ App Hub API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ appoptimize.googleapis.com
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___              
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ App Optimize API
+2025-09-10 23:21:34,778 INFO     ___FILE_ONLY___ 
+

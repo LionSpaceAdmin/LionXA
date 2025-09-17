@@ -1,0 +1,9 @@
+2025-09-17 13:57:24,947 DEBUG    root            Loaded Command Group: ['gcloud', 'run']
+2025-09-17 13:57:25,013 DEBUG    root            Loaded Command Group: ['gcloud', 'run', 'services']
+2025-09-17 13:57:25,034 DEBUG    root            Loaded Command Group: ['gcloud', 'run', 'services', 'list']
+2025-09-17 13:57:25,035 DEBUG    root            Running [gcloud.run.services.list] with arguments: [--format: "table(location,name,url,status)", --platform: "managed", --project: "lionsofzion-bcc4a"]
+2025-09-17 13:57:25,043 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): run.googleapis.com:443
+2025-09-17 13:57:26,500 DEBUG    urllib3.connectionpool https://run.googleapis.com:443 "GET /v1/projects/lionsofzion-bcc4a/locations/-/services?alt=json HTTP/11" 200 None
+2025-09-17 13:57:26,502 DEBUG    root            Chosen display Format:table(ready_symbol.color(red="[xX]",green="[✓✔]",yellow="[-!…]"):label="",firstof(id,metadata.name):label=SERVICE,region:label=REGION,domain:label=URL,last_modifier:label="LAST DEPLOYED BY",last_transition_time:label="LAST DEPLOYED AT"):(metadata.labels.'run.googleapis.com/satisfiesPzs':alias='satisfiesPzs') table(location,name,url,status)
+2025-09-17 13:57:26,505 INFO     root            Display format: "table(ready_symbol.color(red="[xX]",green="[✓✔]",yellow="[-!…]"):label="",firstof(id,metadata.name):label=SERVICE,region:label=REGION,domain:label=URL,last_modifier:label="LAST DEPLOYED BY",last_transition_time:label="LAST DEPLOYED AT"):(metadata.labels.'run.googleapis.com/satisfiesPzs':alias='satisfiesPzs') table(location,name,url,status)"
+2025-09-17 13:57:26,517 DEBUG    root            Metrics reporting process started...

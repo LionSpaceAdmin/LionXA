@@ -1,0 +1,42 @@
+2025-09-16 09:06:42,275 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses']
+2025-09-16 09:06:42,278 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses', 'create']
+2025-09-16 09:06:42,279 DEBUG    root            Running [gcloud.compute.addresses.create] with arguments: [--description: "Global IPv4 for tour.lionsofzion.io", --global: "True", --ip-version: "IPV4", NAME:1: "['tour-global-ip']"]
+2025-09-16 09:06:42,351 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 09:06:43,335 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "POST /compute/v1/projects/lionstour/global/addresses?alt=json HTTP/11" 200 None
+2025-09-16 09:06:43,336 DEBUG    root            Operations to inspect: [(<Operation
+ id: 6080601266632081564
+ insertTime: '2025-09-15T23:06:43.143-07:00'
+ kind: 'compute#operation'
+ name: 'operation-1758002802609-63ee4ec904d07-16d31b3a-da91684b'
+ operationType: 'insert'
+ progress: 0
+ selfLink: 'https://www.googleapis.com/compute/v1/projects/lionstour/global/operations/operation-1758002802609-63ee4ec904d07-16d31b3a-da91684b'
+ startTime: '2025-09-15T23:06:43.154-07:00'
+ status: StatusValueValuesEnum(RUNNING, 2)
+ targetId: 4023228789871165596
+ targetLink: 'https://www.googleapis.com/compute/v1/projects/lionstour/global/addresses/tour-global-ip'
+ user: 'admin@lionsofzion-official.org'
+ warnings: []>, 3)]
+2025-09-16 09:06:45,479 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "POST /compute/v1/projects/lionstour/global/operations/operation-1758002802609-63ee4ec904d07-16d31b3a-da91684b/wait?alt=json HTTP/11" 200 None
+2025-09-16 09:06:45,480 DEBUG    root            Operations to inspect: [(<Operation
+ endTime: '2025-09-15T23:06:45.302-07:00'
+ id: 6080601266632081564
+ insertTime: '2025-09-15T23:06:43.143-07:00'
+ kind: 'compute#operation'
+ name: 'operation-1758002802609-63ee4ec904d07-16d31b3a-da91684b'
+ operationType: 'insert'
+ progress: 100
+ selfLink: 'https://www.googleapis.com/compute/v1/projects/lionstour/global/operations/operation-1758002802609-63ee4ec904d07-16d31b3a-da91684b'
+ startTime: '2025-09-15T23:06:43.154-07:00'
+ status: StatusValueValuesEnum(DONE, 0)
+ targetId: 4023228789871165596
+ targetLink: 'https://www.googleapis.com/compute/v1/projects/lionstour/global/addresses/tour-global-ip'
+ user: 'admin@lionsofzion-official.org'
+ warnings: []>, 3)]
+2025-09-16 09:06:45,480 INFO     ___FILE_ONLY___ Created [https://www.googleapis.com/compute/v1/projects/lionstour/global/addresses/tour-global-ip].
+
+2025-09-16 09:06:45,851 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionstour/global/addresses/tour-global-ip?alt=json HTTP/11" 200 None
+2025-09-16 09:06:45,854 DEBUG    root            Chosen display Format:none
+2025-09-16 09:06:45,854 INFO     root            Display format: "none"
+2025-09-16 09:06:45,874 INFO     root            cache collection=compute.addresses api_version=v1 params=['project', 'region', 'address']
+2025-09-16 09:06:45,874 INFO     root            cache collection=compute.globalAddresses api_version=v1 params=['project', 'address']

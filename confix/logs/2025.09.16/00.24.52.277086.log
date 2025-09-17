@@ -1,0 +1,49 @@
+2025-09-16 00:24:52,277 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-16 00:24:52,278 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders']
+2025-09-16 00:24:52,286 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders', 'add_iam_policy_binding']
+2025-09-16 00:24:52,289 DEBUG    root            Running [gcloud.resource-manager.folders.add-iam-policy-binding] with arguments: [--member: "user:Hanudani@gmail.com", --role: "roles/resourcemanager.folderAdmin", FOLDER: "983073065"]
+2025-09-16 00:24:52,300 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:24:53,480 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v2/folders/983073065:getIamPolicy?alt=json HTTP/11" 403 None
+2025-09-16 00:24:53,485 DEBUG    root            (gcloud.resource-manager.folders.add-iam-policy-binding) [hanudani@gmail.com] does not have permission to access folders instance [983073065:getIamPolicy] (or it may not exist): The caller does not have permission. This command is authenticated as hanudani@gmail.com which is the active account specified by the [core/account] property
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1365, in Run
+    policy = self._GetModifiedIamPolicyAddIamBinding(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1312, in _GetModifiedIamPolicyAddIamBinding
+    policy = self._GetIamPolicy(args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1285, in _GetIamPolicy
+    policy = get_iam_method.Call(get_iam_request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/registry.py", line 341, in Call
+    return request_func(global_params=global_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/registry.py", line 404, in RequestFunc
+    return method(request, global_params=global_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/cloudresourcemanager/v2/cloudresourcemanager_v2_client.py", line 184, in GetIamPolicy
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpForbiddenError: HttpError accessing <https://cloudresourcemanager.googleapis.com/v2/folders/983073065:getIamPolicy?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Mon, 15 Sep 2025 21:24:53 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'server-timing': 'gfet4t7; dur=1030', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 403}>, content <{
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+>
+2025-09-16 00:24:53,490 ERROR    root            (gcloud.resource-manager.folders.add-iam-policy-binding) [hanudani@gmail.com] does not have permission to access folders instance [983073065:getIamPolicy] (or it may not exist): The caller does not have permission. This command is authenticated as hanudani@gmail.com which is the active account specified by the [core/account] property

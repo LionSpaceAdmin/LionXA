@@ -1,0 +1,14 @@
+[core]
+project = lionsxagent-472222
+account = admin@lionsofzion-official.org
+
+[compute]
+region = us-east1
+zone = us-east1-b
+
+[billing]
+quota_project = lionspace
+
+[ai]
+region = us-east5
+

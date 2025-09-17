@@ -1,0 +1,12 @@
+[core]
+account = hanudani@gmail.com
+project = lionsxagent-472222
+disable_usage_reporting = False
+
+[compute]
+zone = us-east1-b
+region = us-east1
+
+[ai]
+region = us-east1
+

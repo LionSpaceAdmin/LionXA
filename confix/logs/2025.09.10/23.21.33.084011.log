@@ -1,0 +1,7 @@
+2025-09-10 23:21:33,084 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 23:21:33,087 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get_value']
+2025-09-10 23:21:33,087 DEBUG    root            Running [gcloud.config.get-value] with arguments: [SECTION/PROPERTY: "project"]
+2025-09-10 23:21:33,087 DEBUG    root            Chosen display Format:value(.)
+2025-09-10 23:21:33,087 INFO     root            Display format: "value(.)"
+2025-09-10 23:21:33,088 INFO     ___FILE_ONLY___ lionspace
+

@@ -1,0 +1,23 @@
+2025-09-16 02:51:34,927 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts']
+2025-09-16 02:51:34,931 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts', 'repositories']
+2025-09-16 02:51:35,044 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts', 'repositories', 'create']
+2025-09-16 02:51:35,054 DEBUG    root            Running [gcloud.artifacts.repositories.create] with arguments: [--description: "Containers for agent services (orchestrator, sub-agents, puppeteer)", --location: "us-east1", --repository-format: "DOCKER", REPOSITORY: "agent-repo"]
+2025-09-16 02:51:35,068 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:51:36,440 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/locations/us-east1/repositories?alt=json&repositoryId=agent-repo HTTP/11" 200 None
+2025-09-16 02:51:36,443 INFO     ___FILE_ONLY___ Create request issued for: [agent-repo]
+
+2025-09-16 02:51:36,443 INFO     ___FILE_ONLY___ Waiting for operation [projects/lionsxagent-472222/locations/us-east1/operations/ab67d9dd-03a1-48cd-8ca4-2e84c4d9fc16] to complete...
+2025-09-16 02:51:37,460 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:51:38,507 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "GET /v1/projects/lionsxagent-472222/locations/us-east1/operations/ab67d9dd-03a1-48cd-8ca4-2e84c4d9fc16?alt=json HTTP/11" 200 None
+2025-09-16 02:51:40,947 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:51:42,219 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "GET /v1/projects/lionsxagent-472222/locations/us-east1/operations/ab67d9dd-03a1-48cd-8ca4-2e84c4d9fc16?alt=json HTTP/11" 200 None
+2025-09-16 02:51:45,407 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:51:47,192 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "GET /v1/projects/lionsxagent-472222/locations/us-east1/operations/ab67d9dd-03a1-48cd-8ca4-2e84c4d9fc16?alt=json HTTP/11" 200 None
+2025-09-16 02:51:51,658 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:51:53,335 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "GET /v1/projects/lionsxagent-472222/locations/us-east1/operations/ab67d9dd-03a1-48cd-8ca4-2e84c4d9fc16?alt=json HTTP/11" 200 None
+2025-09-16 02:51:53,345 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:51:54,533 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "GET /v1/projects/lionsxagent-472222/locations/us-east1/repositories/agent-repo?alt=json HTTP/11" 200 None
+2025-09-16 02:51:54,535 INFO     ___FILE_ONLY___ Created repository [agent-repo].
+
+2025-09-16 02:51:54,536 DEBUG    root            Chosen display Format:none
+2025-09-16 02:51:54,536 INFO     root            Display format: "none"

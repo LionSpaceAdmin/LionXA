@@ -1,0 +1,10 @@
+2025-09-10 23:57:46,352 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-10 23:57:46,352 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org_policies']
+2025-09-10 23:57:46,354 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org-policies', 'delete']
+2025-09-10 23:57:46,355 DEBUG    root            Running [gcloud.resource-manager.org-policies.delete] with arguments: [--organization: "985698468107", ORG_POLICY_ID: "constraints/iam.allowedPolicyMemberDomains"]
+2025-09-10 23:57:46,367 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:57:47,721 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:clearOrgPolicy?alt=json HTTP/11" 200 None
+2025-09-10 23:57:47,723 INFO     ___FILE_ONLY___ Deleted [<Empty>].
+
+2025-09-10 23:57:47,723 DEBUG    root            Chosen display Format:none
+2025-09-10 23:57:47,723 INFO     root            Display format: "none"

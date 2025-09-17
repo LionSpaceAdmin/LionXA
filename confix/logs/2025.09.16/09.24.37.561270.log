@@ -1,0 +1,13 @@
+2025-09-16 09:24:37,562 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 09:24:37,565 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record_sets']
+2025-09-16 09:24:37,567 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'transaction']
+2025-09-16 09:24:37,580 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'transaction', 'start']
+2025-09-16 09:24:37,580 DEBUG    root            Running [gcloud.dns.record-sets.transaction.start] with arguments: [--zone: "tour-zone"]
+2025-09-16 09:24:37,620 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-16 09:24:38,115 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionstour/managedZones/tour-zone?alt=json HTTP/11" 200 None
+2025-09-16 09:24:38,404 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionstour/managedZones/tour-zone/rrsets?alt=json&maxResults=100&name=tour.lionsofzion.io.&type=SOA HTTP/11" 200 None
+2025-09-16 09:24:38,406 DEBUG    root            Chosen display Format:yaml
+2025-09-16 09:24:38,419 INFO     ___FILE_ONLY___ Transaction started [transaction.yaml].
+
+2025-09-16 09:24:38,419 DEBUG    root            Chosen display Format:default
+2025-09-16 09:24:38,420 INFO     root            Display format: "default"

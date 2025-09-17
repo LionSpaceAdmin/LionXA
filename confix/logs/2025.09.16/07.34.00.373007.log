@@ -1,0 +1,27 @@
+2025-09-16 07:34:00,373 DEBUG    root            Loaded Command Group: ['gcloud', 'components']
+2025-09-16 07:34:00,375 DEBUG    root            Loaded Command Group: ['gcloud', 'components', 'install']
+2025-09-16 07:34:00,376 DEBUG    root            Running [gcloud.components.install] with arguments: [COMPONENT-IDS:1: "['sdk-tools']"]
+2025-09-16 07:34:00,388 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-16 07:34:00,650 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-v538.0.0.json HTTP/11" 200 233150
+2025-09-16 07:34:00,707 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-16 07:34:00,953 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 233150
+2025-09-16 07:34:01,073 DEBUG    root            (gcloud.components.install) The following components are unknown [sdk-tools].
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/components/install.py", line 85, in Run
+    update_manager.Install(args.component_ids)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/updater/update_manager.py", line 955, in Install
+    return self.Update(
+           ^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/updater/update_manager.py", line 1000, in Update
+    update_seed = self._HandleInvalidUpdateSeeds(diff, version, update_seed)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/updater/update_manager.py", line 1219, in _HandleInvalidUpdateSeeds
+    raise InvalidComponentError(' '.join(msgs))
+googlecloudsdk.core.updater.update_manager.InvalidComponentError: The following components are unknown [sdk-tools].
+2025-09-16 07:34:01,076 ERROR    root            (gcloud.components.install) The following components are unknown [sdk-tools].

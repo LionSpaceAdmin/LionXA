@@ -1,0 +1,12 @@
+2025-09-16 09:38:08,132 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 09:38:08,134 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'dns_keys']
+2025-09-16 09:38:08,135 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'project_info']
+2025-09-16 09:38:08,135 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed_zones']
+2025-09-16 09:38:08,136 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'policies']
+2025-09-16 09:38:08,137 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record_sets']
+2025-09-16 09:38:08,137 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'response_policies']
+2025-09-16 09:38:08,138 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'operations']
+2025-09-16 09:38:08,138 DEBUG    root            No implementation for release track [GA] for element: [/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/dns/active_peering_zones]
+2025-09-16 09:38:08,139 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'dns']
+2025-09-16 09:38:08,139 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'dns']
+2025-09-16 09:38:08,139 ERROR    root            (gcloud.dns) Invalid choice: 'changes'.

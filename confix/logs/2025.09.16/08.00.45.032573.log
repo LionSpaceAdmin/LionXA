@@ -1,0 +1,23 @@
+2025-09-16 08:00:45,034 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 08:00:45,037 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed_zones']
+2025-09-16 08:00:45,041 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed-zones', 'create']
+2025-09-16 08:00:45,048 DEBUG    root            Running [gcloud.dns.managed-zones.create] with arguments: [--description: "Subdomain delegation for tours", --dns-name: "tour.lionsofzion.io.", --visibility: "public", ZONE_NAME: "tour-zone"]
+2025-09-16 08:00:45,095 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-16 08:00:45,450 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "POST /dns/v1/projects/lionstour/managedZones?alt=json HTTP/11" 403 None
+2025-09-16 08:00:47,823 INFO     ___FILE_ONLY___ Enabling service [dns.googleapis.com] on project [lionstour]...
+
+2025-09-16 08:00:47,833 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:00:49,594 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionstour/services/dns.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 08:00:49,599 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:00:50,673 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-578611451987-90530d29-55bb-41ba-9a9e-94badb0123db?alt=json HTTP/11" 200 None
+2025-09-16 08:00:52,876 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 08:00:54,001 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-578611451987-90530d29-55bb-41ba-9a9e-94badb0123db?alt=json HTTP/11" 200 None
+2025-09-16 08:00:54,003 INFO     ___FILE_ONLY___ Operation "operations/acat.p2-578611451987-90530d29-55bb-41ba-9a9e-94badb0123db" finished successfully.
+
+2025-09-16 08:00:54,004 DEBUG    root            Request returned no response, retrying
+2025-09-16 08:00:54,004 DEBUG    root            Retrying request to url https://dns.googleapis.com/dns/v1/projects/lionstour/managedZones?alt=json after exception Retry
+2025-09-16 08:00:57,383 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "POST /dns/v1/projects/lionstour/managedZones?alt=json HTTP/11" 200 None
+2025-09-16 08:00:57,384 INFO     ___FILE_ONLY___ Created [https://dns.googleapis.com/dns/v1/projects/lionstour/managedZones/tour-zone].
+
+2025-09-16 08:00:57,385 DEBUG    root            Chosen display Format:none
+2025-09-16 08:00:57,385 INFO     root            Display format: "none"

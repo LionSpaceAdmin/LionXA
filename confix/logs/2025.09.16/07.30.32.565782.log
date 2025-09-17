@@ -1,0 +1,53 @@
+2025-09-16 07:30:32,567 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-16 07:30:32,569 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'list']
+2025-09-16 07:30:32,571 DEBUG    root            Running [gcloud.auth.list] with arguments: []
+2025-09-16 07:30:32,629 DEBUG    root            Chosen display Format:    table[title='Credentialed Accounts'](
+        status.yesno(yes='*', no=''):label=ACTIVE,
+        account
+    )
+2025-09-16 07:30:32,630 INFO     root            Display format: "    table[title='Credentialed Accounts'](
+        status.yesno(yes='*', no=''):label=ACTIVE,
+        account
+    )"
+2025-09-16 07:30:32,652 INFO     ___FILE_ONLY___                       Credentialed Accounts
+2025-09-16 07:30:32,652 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,652 INFO     ___FILE_ONLY___ ACTIVE
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___   
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ ACCOUNT
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___         
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ admin@lionsofzion-official.org
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___         
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ claude-agent@lionspace.iam.gserviceaccount.com
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___         
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ claude-code-vertex@lionspace.iam.gserviceaccount.com
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___         
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ claude-vertex-ai-service@lionspace.iam.gserviceaccount.com
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,653 INFO     ___FILE_ONLY___ *
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___        
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ hanudani@gmail.com
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___         
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ lionspace-app@lionspace.iam.gserviceaccount.com
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___         
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ vertex-agent@lionspace.iam.gserviceaccount.com
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ 
+
+2025-09-16 07:30:32,654 INFO     ___FILE_ONLY___ 
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`
+
+

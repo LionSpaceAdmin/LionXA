@@ -1,0 +1,184 @@
+2025-09-10 23:57:00,636 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-10 23:57:00,637 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org_policies']
+2025-09-10 23:57:00,640 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org-policies', 'list']
+2025-09-10 23:57:00,640 DEBUG    root            Running [gcloud.resource-manager.org-policies.list] with arguments: [--organization: "985698468107"]
+2025-09-10 23:57:00,653 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:57:01,911 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:listOrgPolicies?alt=json HTTP/11" 200 None
+2025-09-10 23:57:01,912 DEBUG    root            Chosen display Format:
+          table(
+            constraint,
+            listPolicy.yesno(no="-", yes="SET"),
+            booleanPolicy.yesno(no="-", yes="SET"),
+            etag
+          )
+        
+2025-09-10 23:57:01,913 INFO     root            Display format: "
+          table(
+            constraint,
+            listPolicy.yesno(no="-", yes="SET"),
+            booleanPolicy.yesno(no="-", yes="SET"),
+            etag
+          )
+        "
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ CONSTRAINT
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___                                                       
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ LIST_POLICY
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___   
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ BOOLEAN_POLICY
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___   
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ ETAG
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ constraints/compute.disableNestedVirtualization
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___                  
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ CObU4cQGELDr3yY=
+2025-09-10 23:57:01,920 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/compute.disableSerialPortAccess
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                      
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CObU4cQGEJCK-CU=
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/compute.restrictXpnProjectLienRemoval
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CObU4cQGEOi1v1U=
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/compute.requireOsLogin
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                               
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CObU4cQGEPjtgyY=
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/compute.setNewProjectDefaultToZonalDNSOnly
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___           
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CJuan8QGEPD3oAk=
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/compute.vmExternalIpAccess
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                           
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___           
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CObU4cQGEOiE5oUB
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/essentialcontacts.allowedContactDomains
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___           
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CJuan8QGEMDeigc=
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/iam.allowedPolicyMemberDomains
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                       
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___           
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ CKm128UGEKiJxPUC
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ constraints/iam.disableServiceAccountKeyUpload
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___                   
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,921 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CJuan8QGEPiBigY=
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/iam.disableServiceAccountKeyCreation
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                 
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CLG_2sQGELCB-bQB
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/iam.automaticIamGrantsForDefaultServiceAccounts
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___      
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CJuan8QGENCfvwU=
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/sql.restrictAuthorizedNetworks
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                       
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CObU4cQGEKDIpyY=
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/sql.restrictPublicIp
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                                 
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CObU4cQGEPj2gCY=
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/storage.uniformBucketLevelAccess
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                     
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CJuan8QGEKiwnwY=
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/compute.restrictProtocolForwardingCreationForTypes
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___   
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___           
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CJuan8QGELC5rAU=
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/storage.publicAccessPrevention
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                       
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CKm128UGEMiAtOYB
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ constraints/compute.disableVpcExternalIpv6
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___                       
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___             
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ SET
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___              
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ CObU4cQGEIjm0IUB
+2025-09-10 23:57:01,922 INFO     ___FILE_ONLY___ 
+

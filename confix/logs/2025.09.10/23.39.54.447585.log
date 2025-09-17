@@ -1,0 +1,10 @@
+2025-09-10 23:39:54,447 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore']
+2025-09-10 23:39:54,448 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore', 'databases']
+2025-09-10 23:39:54,449 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore', 'databases', 'list']
+2025-09-10 23:39:54,449 DEBUG    root            Running [gcloud.firestore.databases.list] with arguments: []
+2025-09-10 23:39:54,464 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): firestore.googleapis.com:443
+2025-09-10 23:39:55,390 DEBUG    urllib3.connectionpool https://firestore.googleapis.com:443 "GET /v1/projects/lionspace/databases?alt=json HTTP/11" 200 None
+2025-09-10 23:39:55,391 DEBUG    root            Chosen display Format:default
+2025-09-10 23:39:55,391 INFO     root            Display format: "default"
+2025-09-10 23:39:55,391 INFO     ___FILE_ONLY___ Listed 0 items.
+

@@ -1,0 +1,9 @@
+2025-09-10 22:42:29,161 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 22:42:29,165 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-10 22:42:29,166 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "lionspace"]
+2025-09-10 22:42:29,182 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 22:42:29,528 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionspace?alt=json HTTP/11" 200 None
+2025-09-10 22:42:29,528 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2025-09-10 22:42:29,529 DEBUG    root            Chosen display Format:default
+2025-09-10 22:42:29,530 INFO     root            Display format: "default"

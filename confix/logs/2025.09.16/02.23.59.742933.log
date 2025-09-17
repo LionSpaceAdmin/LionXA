@@ -1,0 +1,7 @@
+2025-09-16 02:23:59,743 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-16 02:23:59,745 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'enable']
+2025-09-16 02:23:59,745 DEBUG    root            Running [gcloud.services.enable] with arguments: [--project: "lionsxagent-472222", SERVICE:1: "['bigquery.googleapis.com']"]
+2025-09-16 02:23:59,763 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:24:01,301 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/services/bigquery.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 02:24:01,306 DEBUG    root            Chosen display Format:none
+2025-09-16 02:24:01,306 INFO     root            Display format: "none"

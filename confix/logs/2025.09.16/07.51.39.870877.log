@@ -1,0 +1,13 @@
+2025-09-16 07:51:39,871 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-16 07:51:39,872 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'enable']
+2025-09-16 07:51:39,873 DEBUG    root            Running [gcloud.services.enable] with arguments: [--project: "lionstour", SERVICE:1: "['translate.googleapis.com']"]
+2025-09-16 07:51:39,893 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:41,439 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionstour/services/translate.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 07:51:41,446 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:42,521 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-578611451987-a7888a85-45b4-4c9c-b3a7-1ac3fe3d0394?alt=json HTTP/11" 200 None
+2025-09-16 07:51:45,296 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:46,353 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-578611451987-a7888a85-45b4-4c9c-b3a7-1ac3fe3d0394?alt=json HTTP/11" 200 None
+2025-09-16 07:51:46,354 INFO     ___FILE_ONLY___ Operation "operations/acat.p2-578611451987-a7888a85-45b4-4c9c-b3a7-1ac3fe3d0394" finished successfully.
+
+2025-09-16 07:51:46,355 DEBUG    root            Chosen display Format:none
+2025-09-16 07:51:46,355 INFO     root            Display format: "none"

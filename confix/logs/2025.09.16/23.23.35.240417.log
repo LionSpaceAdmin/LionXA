@@ -1,0 +1,13 @@
+2025-09-16 23:23:35,241 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-16 23:23:35,244 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'enable']
+2025-09-16 23:23:35,245 DEBUG    root            Running [gcloud.services.enable] with arguments: [SERVICE:9: "['aiplatform.googleapis.com', 'run.googleapis.com', 'artifactregistry.googleapis.com', 'firestore.googleapis.com', 'pubsub.googleapis.com', 'secretmanager.googleapis.com', 'logging.googleapis.com', 'monitoring.googleapis.com', 'cloudtrace.googleapis.com']"]
+2025-09-16 23:23:35,269 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 23:23:37,136 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/services:batchEnable?alt=json HTTP/11" 200 None
+2025-09-16 23:23:37,142 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 23:23:38,173 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-649309776370-7db803a3-b276-4b80-bbd6-983193624d04?alt=json HTTP/11" 200 None
+2025-09-16 23:23:40,978 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 23:23:42,129 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-649309776370-7db803a3-b276-4b80-bbd6-983193624d04?alt=json HTTP/11" 200 None
+2025-09-16 23:23:42,157 INFO     ___FILE_ONLY___ Operation "operations/acat.p2-649309776370-7db803a3-b276-4b80-bbd6-983193624d04" finished successfully.
+
+2025-09-16 23:23:42,157 DEBUG    root            Chosen display Format:none
+2025-09-16 23:23:42,157 INFO     root            Display format: "none"

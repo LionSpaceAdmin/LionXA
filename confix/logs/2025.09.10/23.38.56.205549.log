@@ -1,0 +1,18 @@
+2025-09-10 23:38:56,208 DEBUG    root            Loaded Command Group: ['gcloud', 'storage']
+2025-09-10 23:38:56,301 DEBUG    root            Loaded Command Group: ['gcloud', 'storage', 'rm']
+2025-09-10 23:38:56,303 DEBUG    root            Running [gcloud.storage.rm] with arguments: [--quiet: "True", --recursive: "True", URLS:1: "['gs://lionspace_cloudbuild']"]
+2025-09-10 23:38:56,305 INFO     ___FILE_ONLY___ Removing objects:
+
+2025-09-10 23:38:56,314 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): storage.googleapis.com:443
+2025-09-10 23:38:56,598 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/lionspace_cloudbuild/o?alt=json&fields=prefixes%2Citems%2Fname%2Citems%2Fsize%2Citems%2Fgeneration%2CnextPageToken&maxResults=1000&projection=noAcl&versions=True HTTP/11" 200 3
+2025-09-10 23:38:56,599 INFO     root            Using high CPU count, single-file workload config.
+2025-09-10 23:38:56,606 INFO     ___FILE_ONLY___   
+2025-09-10 23:38:57,396 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/lionspace_cloudbuild/storageLayout?alt=json HTTP/11" 200 128
+2025-09-10 23:38:57,571 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/lionspace_cloudbuild/o?alt=json&maxResults=1000&projection=noAcl HTTP/11" 200 32
+2025-09-10 23:38:57,744 DEBUG    urllib3.connectionpool https://storage.googleapis.com:443 "GET /storage/v1/b/lionspace_cloudbuild/managedFolders?alt=json&pageSize=1000 HTTP/11" 200 39
+2025-09-10 23:38:57,745 INFO     ___FILE_ONLY___ Removing buckets:
+
+2025-09-10 23:38:57,745 INFO     root            Using high CPU count, single-file workload config.
+2025-09-10 23:38:57,752 INFO     ___FILE_ONLY___   
+2025-09-10 23:38:59,361 DEBUG    root            Chosen display Format:default
+2025-09-10 23:38:59,361 INFO     root            Display format: "default"

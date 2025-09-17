@@ -1,0 +1,40 @@
+2025-09-10 23:59:39,022 DEBUG    root            Loaded Command Group: ['gcloud', 'billing']
+2025-09-10 23:59:39,022 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'accounts']
+2025-09-10 23:59:39,023 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'accounts', 'describe']
+2025-09-10 23:59:39,023 DEBUG    root            Running [gcloud.billing.accounts.describe] with arguments: [ACCOUNT_ID: "0157BB-53599C-7D705E"]
+2025-09-10 23:59:39,035 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudbilling.googleapis.com:443
+2025-09-10 23:59:39,529 DEBUG    urllib3.connectionpool https://cloudbilling.googleapis.com:443 "GET /v1/billingAccounts/0157BB-53599C-7D705E?alt=json HTTP/11" 403 None
+2025-09-10 23:59:39,531 DEBUG    root            (gcloud.billing.accounts.describe) [hanudani@gmail.com] does not have permission to access billingAccounts instance [0157BB-53599C-7D705E] (or it may not exist): The caller does not have permission. This command is authenticated as hanudani@gmail.com which is the active account specified by the [core/account] property
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/billing/accounts/describe.py", line 60, in Run
+    return client.Get(account_ref)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/billing/billing_client.py", line 35, in Get
+    return self._service.Get(
+           ^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/cloudbilling/v1/cloudbilling_v1_client.py", line 198, in Get
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpForbiddenError: HttpError accessing <https://cloudbilling.googleapis.com/v1/billingAccounts/0157BB-53599C-7D705E?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 10 Sep 2025 20:59:39 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 403}>, content <{
+  "error": {
+    "code": 403,
+    "message": "The caller does not have permission",
+    "status": "PERMISSION_DENIED"
+  }
+}
+>
+2025-09-10 23:59:39,533 ERROR    root            (gcloud.billing.accounts.describe) [hanudani@gmail.com] does not have permission to access billingAccounts instance [0157BB-53599C-7D705E] (or it may not exist): The caller does not have permission. This command is authenticated as hanudani@gmail.com which is the active account specified by the [core/account] property

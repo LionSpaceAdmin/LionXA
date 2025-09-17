@@ -1,0 +1,9 @@
+2025-09-10 22:42:29,827 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 22:42:29,829 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-10 22:42:29,829 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "compute/region", VALUE: "us-east1"]
+2025-09-10 22:42:29,892 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-10 22:42:30,773 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionspace/regions/us-east1?alt=json HTTP/11" 200 None
+2025-09-10 22:42:30,776 INFO     ___FILE_ONLY___ Updated property [compute/region].
+
+2025-09-10 22:42:30,777 DEBUG    root            Chosen display Format:default
+2025-09-10 22:42:30,777 INFO     root            Display format: "default"

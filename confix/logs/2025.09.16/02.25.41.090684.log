@@ -1,0 +1,43 @@
+2025-09-16 02:25:41,100 DEBUG    root            Loaded Command Group: ['gcloud', 'init']
+2025-09-16 02:25:41,100 DEBUG    root            Running [gcloud.init] with arguments: [--console-only: "True"]
+2025-09-16 02:25:41,100 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2025-09-16 02:25:41,101 INFO     ___FILE_ONLY___ Settings from your current configuration [default] are:
+
+2025-09-16 02:25:41,102 INFO     ___FILE_ONLY___ ai:
+  region: us-east5
+billing:
+  quota_project: lionspace
+compute:
+  region: us-east1
+  zone: us-east1-b
+core:
+  account: admin@lionsofzion-official.org
+  disable_usage_reporting: 'True'
+  project: lionsxagent-472222
+
+2025-09-16 02:25:41,102 INFO     ___FILE_ONLY___ 
+
+2025-09-16 02:25:52,663 DEBUG    root            (gcloud.init) Invalid name [LIOnXco] for a configuration.  Except for special cases (NONE), configuration names start with a lower case letter and contain only lower case letters a-z, digits 0-9, and hyphens '-'.
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/init.py", line 151, in Run
+    configuration_name = self._PickConfiguration()
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/init.py", line 341, in _PickConfiguration
+    return self._CreateConfiguration()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/init.py", line 499, in _CreateConfiguration
+    named_configs.ConfigurationStore.CreateConfig(configuration_name)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/configurations/named_configs.py", line 230, in CreateConfig
+    _EnsureValidConfigName(config_name, allow_reserved=False)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/configurations/named_configs.py", line 612, in _EnsureValidConfigName
+    raise InvalidConfigName(config_name)
+googlecloudsdk.core.configurations.named_configs.InvalidConfigName: Invalid name [LIOnXco] for a configuration.  Except for special cases (NONE), configuration names start with a lower case letter and contain only lower case letters a-z, digits 0-9, and hyphens '-'.
+2025-09-16 02:25:52,669 ERROR    root            (gcloud.init) Invalid name [LIOnXco] for a configuration.  Except for special cases (NONE), configuration names start with a lower case letter and contain only lower case letters a-z, digits 0-9, and hyphens '-'.

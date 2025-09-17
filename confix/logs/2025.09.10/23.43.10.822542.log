@@ -1,0 +1,22 @@
+2025-09-10 23:43:10,823 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-10 23:43:10,842 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'add_iam_policy_binding']
+2025-09-10 23:43:10,847 DEBUG    root            Running [gcloud.projects.add-iam-policy-binding] with arguments: [--member: "user:hanudani@gmail.com", --role: "roles/owner", PROJECT_ID: "lionspace"]
+2025-09-10 23:43:10,858 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:43:11,920 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionspace:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-10 23:43:11,922 DEBUG    root            (gcloud.projects.add-iam-policy-binding) Adding a binding without specifying a condition to a policy containing conditions is prohibited in non-interactive mode. Run the command again with `--condition=None`
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1365, in Run
+    policy = self._GetModifiedIamPolicyAddIamBinding(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1314, in _GetModifiedIamPolicyAddIamBinding
+    iam_util.AddBindingToIamPolicyWithCondition(
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/iam/iam_util.py", line 432, in AddBindingToIamPolicyWithCondition
+    raise IamPolicyBindingIncompleteError(message)
+googlecloudsdk.command_lib.iam.iam_util.IamPolicyBindingIncompleteError: Adding a binding without specifying a condition to a policy containing conditions is prohibited in non-interactive mode. Run the command again with `--condition=None`
+2025-09-10 23:43:11,924 ERROR    root            (gcloud.projects.add-iam-policy-binding) Adding a binding without specifying a condition to a policy containing conditions is prohibited in non-interactive mode. Run the command again with `--condition=None`

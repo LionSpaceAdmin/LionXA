@@ -1,0 +1,6 @@
+2025-09-10 22:17:57,767 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 22:17:57,768 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'virtualenv']
+2025-09-10 22:17:57,774 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'virtualenv', 'delete']
+2025-09-10 22:17:57,775 DEBUG    root            Running [gcloud.config.virtualenv.delete] with arguments: [--quiet: "True"]
+2025-09-10 22:17:57,864 DEBUG    root            Chosen display Format:default
+2025-09-10 22:17:57,864 INFO     root            Display format: "default"

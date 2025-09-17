@@ -1,0 +1,9 @@
+2025-09-16 01:35:55,843 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-16 01:35:55,844 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-09-16 01:35:55,845 DEBUG    root            Running [gcloud.projects.describe] with arguments: [--format: "value(parent.type,parent.id)", PROJECT_ID_OR_NUMBER: "lionsxagent"]
+2025-09-16 01:35:55,862 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 01:35:56,966 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionsxagent?alt=json HTTP/11" 200 None
+2025-09-16 01:35:56,968 DEBUG    root            Chosen display Format:default value(parent.type,parent.id)
+2025-09-16 01:35:56,968 INFO     root            Display format: "default value(parent.type,parent.id)"
+2025-09-16 01:35:56,985 INFO     ___FILE_ONLY___ organization	985698468107
+

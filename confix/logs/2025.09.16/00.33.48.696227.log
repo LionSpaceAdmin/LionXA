@@ -1,0 +1,22 @@
+2025-09-16 00:33:48,696 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-16 00:33:48,697 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders']
+2025-09-16 00:33:48,698 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders', 'list']
+2025-09-16 00:33:48,699 DEBUG    root            Running [gcloud.resource-manager.folders.list] with arguments: [--format: "value(name)", --organization: "985698468107"]
+2025-09-16 00:33:48,706 DEBUG    root            Chosen display Format:
+        table(
+          displayName:label=DISPLAY_NAME,
+          parent:label=PARENT_NAME,
+          name.segment():label=ID:align=right:sort=1
+        )
+     value(name)
+2025-09-16 00:33:48,706 INFO     root            Display format: "
+        table(
+          displayName:label=DISPLAY_NAME,
+          parent:label=PARENT_NAME,
+          name.segment():label=ID:align=right:sort=1
+        )
+     value(name)"
+2025-09-16 00:33:48,710 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:33:49,919 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v2/folders?alt=json&parent=organizations%2F985698468107 HTTP/11" 200 None
+2025-09-16 00:33:49,937 INFO     ___FILE_ONLY___ 172983073065
+

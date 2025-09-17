@@ -1,0 +1,23 @@
+2025-09-16 00:26:09,220 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-16 00:26:09,225 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'login']
+2025-09-16 00:26:09,226 DEBUG    root            Running [gcloud.auth.login] with arguments: [ACCOUNT: "admin@lionsofzion-official.org"]
+2025-09-16 00:26:09,232 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 00:26:09,236 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 00:26:09,594 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 400 None
+2025-09-16 00:26:09,595 DEBUG    root            using google-auth reauth
+2025-09-16 00:26:09,595 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 00:26:09,719 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 00:26:09,721 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions:start
+2025-09-16 00:26:09,723 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): reauth.googleapis.com:443
+2025-09-16 00:26:10,537 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions:start HTTP/11" 200 None
+2025-09-16 00:26:13,634 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions/AMbiOOQ8c-274kEzP3kuRBtSFUBP4MMtz-Goo0unOewqTqIu61QXiE49N8ES2HXv:continue
+2025-09-16 00:26:15,867 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions/AMbiOOQ8c-274kEzP3kuRBtSFUBP4MMtz-Goo0unOewqTqIu61QXiE49N8ES2HXv:continue HTTP/11" 200 None
+2025-09-16 00:26:17,323 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions/AMbiOOQ8c-274kEzP3kuRBtSFUBP4MMtz-Goo0unOewqTqIu61QXiE49N8ES2HXv:continue
+2025-09-16 00:26:17,551 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions/AMbiOOQ8c-274kEzP3kuRBtSFUBP4MMtz-Goo0unOewqTqIu61QXiE49N8ES2HXv:continue HTTP/11" 200 None
+2025-09-16 00:26:18,653 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions/AMbiOOQ8c-274kEzP3kuRBtSFUBP4MMtz-Goo0unOewqTqIu61QXiE49N8ES2HXv:continue
+2025-09-16 00:26:19,069 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions/AMbiOOQ8c-274kEzP3kuRBtSFUBP4MMtz-Goo0unOewqTqIu61QXiE49N8ES2HXv:continue HTTP/11" 200 None
+2025-09-16 00:26:21,063 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

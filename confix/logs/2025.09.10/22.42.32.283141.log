@@ -1,0 +1,7 @@
+2025-09-10 22:42:32,283 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 22:42:32,285 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-10 22:42:32,286 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "billing/quota_project", VALUE: "lionspace"]
+2025-09-10 22:42:32,286 INFO     ___FILE_ONLY___ Updated property [billing/quota_project].
+
+2025-09-10 22:42:32,286 DEBUG    root            Chosen display Format:default
+2025-09-10 22:42:32,287 INFO     root            Display format: "default"

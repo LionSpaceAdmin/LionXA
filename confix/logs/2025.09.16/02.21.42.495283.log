@@ -1,0 +1,7 @@
+2025-09-16 02:21:42,496 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-16 02:21:42,497 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'print_access_token']
+2025-09-16 02:21:42,498 DEBUG    root            Running [gcloud.auth.print-access-token] with arguments: []
+2025-09-16 02:21:42,503 DEBUG    root            Chosen display Format:value(token)
+2025-09-16 02:21:42,503 INFO     root            Display format: "value(token)"
+2025-09-16 02:21:42,508 INFO     ___FILE_ONLY___ ya29.a0AS3H6NynhCbjTL1S5FjCr07MLJhPKAZjAHJvQzO_aNllHmjfx5in8WFXuFaL5kdPAd8OdfGPOOZCJ9GosUTJWxcdaDMSolRehS_ASIpB22HsfGbVwKRiRPdQOnHTbEDUeYzebglkCwtYiLg5V5d3tSVMN-0hFqn8lpxAgzIvgCN0qnbioWaUUL18cf9P_YuV-YHeVg-zwdinaCgYKAVkSARESFQHGX2MilqMOI-XUJzV8gBVFe_dw9w0211
+

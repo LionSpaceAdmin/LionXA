@@ -1,0 +1,12 @@
+2025-09-10 23:54:25,112 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-10 23:54:25,112 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record_sets']
+2025-09-10 23:54:25,116 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'export']
+2025-09-10 23:54:25,117 DEBUG    root            Running [gcloud.dns.record-sets.export] with arguments: [--project: "lionspace", --zone: "lionsofzion", RECORDS_FILE: "/tmp/lionsofzion-dns-backup.yaml"]
+2025-09-10 23:54:25,130 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-10 23:54:25,431 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionspace/managedZones/lionsofzion?alt=json HTTP/11" 200 None
+2025-09-10 23:54:25,776 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionspace/managedZones/lionsofzion/rrsets?alt=json&maxResults=100 HTTP/11" 200 None
+2025-09-10 23:54:25,777 DEBUG    root            Chosen display Format:yaml
+2025-09-10 23:54:25,788 INFO     ___FILE_ONLY___ Exported record-sets to [/tmp/lionsofzion-dns-backup.yaml].
+
+2025-09-10 23:54:25,788 DEBUG    root            Chosen display Format:default
+2025-09-10 23:54:25,788 INFO     root            Display format: "default"

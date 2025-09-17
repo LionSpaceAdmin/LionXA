@@ -1,0 +1,20 @@
+2025-09-10 23:57:54,707 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-10 23:57:54,708 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org_policies']
+2025-09-10 23:57:54,708 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org-policies', 'describe']
+2025-09-10 23:57:54,709 DEBUG    root            Running [gcloud.resource-manager.org-policies.describe] with arguments: [--organization: "985698468107", ORG_POLICY_ID: "constraints/iam.allowedPolicyMemberDomains"]
+2025-09-10 23:57:54,721 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:57:55,890 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:getOrgPolicy?alt=json HTTP/11" 200 None
+2025-09-10 23:57:55,891 DEBUG    root            Chosen display Format:default
+2025-09-10 23:57:55,891 INFO     root            Display format: "default"
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ constraint
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___  
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ constraints/iam.allowedPolicyMemberDomains
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ etag
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___  
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ BwVUSr8Q7Ng=
+2025-09-10 23:57:55,898 INFO     ___FILE_ONLY___ 
+

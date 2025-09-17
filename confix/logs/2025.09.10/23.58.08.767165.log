@@ -1,0 +1,70 @@
+2025-09-10 23:58:08,768 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-10 23:58:08,775 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'add_iam_policy_binding']
+2025-09-10 23:58:08,778 DEBUG    root            Running [gcloud.projects.add-iam-policy-binding] with arguments: [--condition: "OrderedDict({'None': None})", --member: "user:hanudani@gmail.com", --role: "roles/owner", PROJECT_ID: "lionspace"]
+2025-09-10 23:58:08,790 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:58:09,297 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionspace:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-10 23:58:09,303 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:58:10,536 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionspace:setIamPolicy?alt=json HTTP/11" 400 None
+2025-09-10 23:58:10,537 INFO     ___FILE_ONLY___ ERROR: Policy modification failed. For a binding with condition, run "gcloud alpha iam policies lint-condition" to identify issues in condition.
+
+2025-09-10 23:58:10,538 DEBUG    root            Chosen display Format:default
+2025-09-10 23:58:10,544 DEBUG    root            Chosen display Format:default
+2025-09-10 23:58:10,544 DEBUG    root            Chosen display Format:default
+2025-09-10 23:58:10,544 DEBUG    root            (gcloud.projects.add-iam-policy-binding) INVALID_ARGUMENT: Request contains an invalid argument.
+- '@type': type.googleapis.com/google.cloudresourcemanager.v1.ProjectIamPolicyError
+  member: user:hanudani@gmail.com
+  role: roles/owner
+  type: ORG_MUST_INVITE_EXTERNAL_OWNERS
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1382, in Run
+    raise ex
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 1375, in Run
+    ref, response = self._CommonRun(args)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 455, in _CommonRun
+    response = method.Call(
+               ^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/registry.py", line 341, in Call
+    return request_func(global_params=global_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/registry.py", line 404, in RequestFunc
+    return method(request, global_params=global_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/cloudresourcemanager/v1/cloudresourcemanager_v1_client.py", line 966, in SetIamPolicy
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpBadRequestError: HttpError accessing <https://cloudresourcemanager.googleapis.com/v1/projects/lionspace:setIamPolicy?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 10 Sep 2025 20:58:10 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'server-timing': 'gfet4t7; dur=1070', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 400}>, content <{
+  "error": {
+    "code": 400,
+    "message": "Request contains an invalid argument.",
+    "status": "INVALID_ARGUMENT",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.cloudresourcemanager.v1.ProjectIamPolicyError",
+        "type": "ORG_MUST_INVITE_EXTERNAL_OWNERS",
+        "member": "user:hanudani@gmail.com",
+        "role": "roles/owner"
+      }
+    ]
+  }
+}
+>
+2025-09-10 23:58:10,546 ERROR    root            (gcloud.projects.add-iam-policy-binding) INVALID_ARGUMENT: Request contains an invalid argument.
+- '@type': type.googleapis.com/google.cloudresourcemanager.v1.ProjectIamPolicyError
+  member: user:hanudani@gmail.com
+  role: roles/owner
+  type: ORG_MUST_INVITE_EXTERNAL_OWNERS

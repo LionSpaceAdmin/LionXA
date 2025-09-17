@@ -1,0 +1,52 @@
+2025-09-16 00:26:49,993 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-16 00:26:49,995 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'revoke']
+2025-09-16 00:26:49,996 DEBUG    root            Running [gcloud.auth.revoke] with arguments: []
+2025-09-16 00:26:50,004 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/revoke?token=1%2F%2F03PC9Qg6RRrbuCgYIARAAGAMSNwF-L9IrWs40wuoxpm-vxlKa_I1I63yBs__bh7O5-hJGoTJR8sIVIukAXQFKfO5IMY7X807VLSY
+2025-09-16 00:26:50,007 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 00:26:50,300 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /revoke?token=1%2F%2F03PC9Qg6RRrbuCgYIARAAGAMSNwF-L9IrWs40wuoxpm-vxlKa_I1I63yBs__bh7O5-hJGoTJR8sIVIukAXQFKfO5IMY7X807VLSY HTTP/11" 200 None
+2025-09-16 00:26:50,303 WARNING  root            You also have Application Default Credentials (ADC) set up. If you want to revoke your Application Default Credentials as well, use the `gcloud auth application-default revoke` command.
+
+For information about ADC credentials and gcloud CLI credentials, see https://cloud.google.com/docs/authentication/external/credential-types
+
+2025-09-16 00:26:50,303 DEBUG    root            Chosen display Format:list[title="Revoked credentials:"]
+2025-09-16 00:26:50,303 INFO     root            Display format: "list[title="Revoked credentials:"]"
+2025-09-16 00:26:50,304 INFO     ___FILE_ONLY___ Revoked credentials:
+
+2025-09-16 00:26:50,304 INFO     ___FILE_ONLY___  - hanudani@gmail.com
+
+2025-09-16 00:26:50,304 DEBUG    root            Chosen display Format:    table[title='Credentialed Accounts'](
+        status.yesno(yes='*', no=''):label=ACTIVE,
+        account
+    )
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___                       Credentialed Accounts
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ ACTIVE
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___   
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ ACCOUNT
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___         
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ admin@lionsofzion-official.org
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___         
+2025-09-16 00:26:50,310 INFO     ___FILE_ONLY___ claude-agent@lionspace.iam.gserviceaccount.com
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___         
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ claude-code-vertex@lionspace.iam.gserviceaccount.com
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___         
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ claude-vertex-ai-service@lionspace.iam.gserviceaccount.com
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___         
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ lionspace-app@lionspace.iam.gserviceaccount.com
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___         
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ vertex-agent@lionspace.iam.gserviceaccount.com
+2025-09-16 00:26:50,311 INFO     ___FILE_ONLY___ 
+

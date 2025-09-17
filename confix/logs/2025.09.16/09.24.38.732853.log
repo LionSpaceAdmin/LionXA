@@ -1,0 +1,10 @@
+2025-09-16 09:24:38,733 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 09:24:38,733 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record_sets']
+2025-09-16 09:24:38,734 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'transaction']
+2025-09-16 09:24:38,739 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'transaction', 'add']
+2025-09-16 09:24:38,740 DEBUG    root            Running [gcloud.dns.record-sets.transaction.add] with arguments: [--name: "tour.lionsofzion.io.", --ttl: "300", --type: "A", --zone: "tour-zone", RRDATAS:1: "['34.111.176.4']"]
+2025-09-16 09:24:38,744 DEBUG    root            Chosen display Format:yaml
+2025-09-16 09:24:38,750 INFO     ___FILE_ONLY___ Record addition appended to transaction at [transaction.yaml].
+
+2025-09-16 09:24:38,750 DEBUG    root            Chosen display Format:default
+2025-09-16 09:24:38,751 INFO     root            Display format: "default"

@@ -1,0 +1,12 @@
+2025-09-16 01:49:49,981 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-16 01:49:49,985 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-16 01:49:49,985 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "luminous-bazaar-472222-a9"]
+2025-09-16 01:49:49,988 WARNING  root            Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+2025-09-16 01:49:49,998 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 01:49:51,193 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/luminous-bazaar-472222-a9?alt=json HTTP/11" 200 None
+2025-09-16 01:49:51,196 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2025-09-16 01:49:51,197 DEBUG    root            Chosen display Format:default
+2025-09-16 01:49:51,198 INFO     root            Display format: "default"

@@ -1,0 +1,58 @@
+2025-09-16 01:19:26,551 DEBUG    root            Loaded Command Group: ['gcloud', 'init']
+2025-09-16 01:19:26,552 DEBUG    root            Running [gcloud.init] with arguments: []
+2025-09-16 01:19:26,552 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2025-09-16 01:19:26,552 INFO     ___FILE_ONLY___ Settings from your current configuration [default] are:
+
+2025-09-16 01:19:26,554 INFO     ___FILE_ONLY___ ai:
+  region: us-east5
+billing:
+  quota_project: lionspace
+compute:
+  region: us-east1
+  zone: us-east1-b
+core:
+  account: admin@lionsofzion-official.org
+  disable_usage_reporting: 'True'
+  project: lionsxagent
+
+2025-09-16 01:19:26,554 INFO     ___FILE_ONLY___ 
+
+2025-09-16 01:21:19,131 INFO     ___FILE_ONLY___ Your current configuration has been set to: [lionsx]
+
+
+2025-09-16 01:21:19,132 INFO     ___FILE_ONLY___ You can skip diagnostics next time by using the following flag:
+
+2025-09-16 01:21:19,132 INFO     ___FILE_ONLY___   gcloud init --skip-diagnostics
+
+
+2025-09-16 01:21:19,134 INFO     ___FILE_ONLY___ Network diagnostic detects and fixes local network connection issues.
+
+2025-09-16 01:21:19,134 INFO     ___FILE_ONLY___ Checking network connection...
+2025-09-16 01:21:23,804 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): accounts.google.com:443
+2025-09-16 01:21:24,083 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET / HTTP/11" 302 365
+2025-09-16 01:21:24,189 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /ServiceLogin?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F HTTP/11" 302 0
+2025-09-16 01:21:24,301 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /InteractiveLogin?continue=https://accounts.google.com/&followup=https://accounts.google.com/&passive=1209600&ifkv=AdBytiOcOiEmLgKY_kuS8tDDQ4HinoYLoQo1mE6FxBRcgGU6wP5eHlKoXHS6kLuq-XESsM2sM8vp HTTP/11" 302 555
+2025-09-16 01:21:24,415 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AdBytiPUx8Qc08B5lZe9gffSlxMVByTSatkp3AztO55zaFCXfzQgjiYgGLxEos1PsY_7qeOmt7pzaQ&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-1375092009%3A1757974884346875 HTTP/11" 200 None
+2025-09-16 01:21:24,672 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 01:21:25,504 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1beta1/projects HTTP/11" 401 None
+2025-09-16 01:21:25,508 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): www.googleapis.com:443
+2025-09-16 01:21:25,726 DEBUG    urllib3.connectionpool https://www.googleapis.com:443 "GET /auth/cloud-platform HTTP/11" 200 14
+2025-09-16 01:21:25,729 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-16 01:21:25,948 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 233150
+2025-09-16 01:21:26,076 INFO     ___FILE_ONLY___ Reachability Check passed.
+
+2025-09-16 01:21:26,077 INFO     ___FILE_ONLY___ Network diagnostic passed (1/1 checks passed).
+
+
+2025-09-16 01:21:49,288 INFO     ___FILE_ONLY___ You are signed in as: [admin@lionsofzion-official.org].
+
+
+2025-09-16 01:21:49,301 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 01:21:50,680 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects?alt=json&filter=lifecycleState%3AACTIVE&pageSize=201 HTTP/11" 200 None
+2025-09-16 01:22:04,596 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

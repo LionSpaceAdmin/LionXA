@@ -1,0 +1,22 @@
+2025-09-16 08:02:27,719 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 08:02:27,720 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed_zones']
+2025-09-16 08:02:27,723 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed-zones', 'describe']
+2025-09-16 08:02:27,732 DEBUG    root            Running [gcloud.dns.managed-zones.describe] with arguments: [--format: "table(name,dnsName,nameServers)", ZONE: "tour-zone"]
+2025-09-16 08:02:27,748 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-16 08:02:28,060 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionstour/managedZones/tour-zone?alt=json HTTP/11" 200 None
+2025-09-16 08:02:28,061 DEBUG    root            Chosen display Format:default table(name,dnsName,nameServers)
+2025-09-16 08:02:28,061 INFO     root            Display format: "default table(name,dnsName,nameServers)"
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___ NAME
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___        
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___ DNS_NAME
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___               
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___ NAME_SERVERS
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:02:28,074 INFO     ___FILE_ONLY___ tour-zone
+2025-09-16 08:02:28,075 INFO     ___FILE_ONLY___   
+2025-09-16 08:02:28,075 INFO     ___FILE_ONLY___ tour.lionsofzion.io.
+2025-09-16 08:02:28,075 INFO     ___FILE_ONLY___   
+2025-09-16 08:02:28,075 INFO     ___FILE_ONLY___ ['ns-cloud-d1.googledomains.com.', 'ns-cloud-d2.googledomains.com.', 'ns-cloud-d3.googledomains.com.', 'ns-cloud-d4.googledomains.com.']
+2025-09-16 08:02:28,075 INFO     ___FILE_ONLY___ 
+

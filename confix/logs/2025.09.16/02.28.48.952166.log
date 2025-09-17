@@ -1,0 +1,40 @@
+2025-09-16 02:28:48,952 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-16 02:28:48,955 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-16 02:28:48,956 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "compute/region", VALUE: "us-east1"]
+2025-09-16 02:28:49,014 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 02:28:50,107 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionsxagent-472222/regions/us-east1?alt=json HTTP/11" 403 None
+2025-09-16 02:28:52,549 INFO     ___FILE_ONLY___ Enabling service [compute.googleapis.com] on project [lionsxagent-472222]...
+
+2025-09-16 02:28:52,565 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:28:54,591 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/services/compute.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 02:28:54,599 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:28:55,685 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:28:58,504 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:28:59,612 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:02,212 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:03,310 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:06,364 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:07,414 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:10,178 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:11,503 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:14,989 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:16,094 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:19,988 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:20,383 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:24,644 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:30,551 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:34,998 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:36,080 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:40,460 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:41,624 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:46,674 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:47,962 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:53,842 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 02:29:55,231 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec?alt=json HTTP/11" 200 None
+2025-09-16 02:29:55,247 INFO     ___FILE_ONLY___ Operation "operations/acf.p2-649309776370-c831a1f0-a873-465f-8409-8e850efb27ec" finished successfully.
+
+2025-09-16 02:29:56,042 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionsxagent-472222/regions/us-east1?alt=json HTTP/11" 200 None
+2025-09-16 02:29:56,060 INFO     ___FILE_ONLY___ Updated property [compute/region].
+
+2025-09-16 02:29:56,061 DEBUG    root            Chosen display Format:default
+2025-09-16 02:29:56,061 INFO     root            Display format: "default"

@@ -1,0 +1,21 @@
+2025-09-16 01:31:29,637 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-16 01:31:29,641 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders']
+2025-09-16 01:31:29,647 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'folders', 'get_iam_policy']
+2025-09-16 01:31:29,667 DEBUG    root            Running [gcloud.resource-manager.folders.get-iam-policy] with arguments: [--format: "table(bindings.role, bindings.members)", FOLDER_ID: "1091503060083"]
+2025-09-16 01:31:29,682 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 01:31:29,685 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 01:31:30,653 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 01:31:30,661 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 01:31:32,512 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v2/folders/1091503060083:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 01:31:32,514 DEBUG    root            Chosen display Format:default table(bindings.role, bindings.members)
+2025-09-16 01:31:32,515 INFO     root            Display format: "default table(bindings.role, bindings.members)"
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___ ROLE
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___                                                                          
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___ MEMBERS
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___ 
+
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___ ['roles/resourcemanager.folderAdmin', 'roles/resourcemanager.folderEditor']
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___   
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___ [['user:Hanudani@gmail.com'], ['user:Hanudani@gmail.com']]
+2025-09-16 01:31:32,532 INFO     ___FILE_ONLY___ 
+

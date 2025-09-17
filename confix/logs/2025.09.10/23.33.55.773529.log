@@ -1,0 +1,9 @@
+2025-09-10 23:33:55,774 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 23:33:55,775 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-10 23:33:55,776 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "lionsofzion-hub"]
+2025-09-10 23:33:55,788 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:33:56,885 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionsofzion-hub?alt=json HTTP/11" 200 None
+2025-09-10 23:33:56,886 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2025-09-10 23:33:56,886 DEBUG    root            Chosen display Format:default
+2025-09-10 23:33:56,887 INFO     root            Display format: "default"

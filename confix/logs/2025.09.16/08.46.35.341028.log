@@ -1,0 +1,122 @@
+2025-09-16 08:46:35,343 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-16 08:46:35,356 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'add_iam_policy_binding']
+2025-09-16 08:46:35,362 DEBUG    root            Running [gcloud.projects.add-iam-policy-binding] with arguments: [--member: "serviceAccount:tour-backend@lionstour.iam.gserviceaccount.com", --role: "roles/dns.admin", PROJECT_ID: "lionstour"]
+2025-09-16 08:46:35,380 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 08:46:36,520 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionstour:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 08:46:36,530 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 08:46:38,200 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionstour:setIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 08:46:38,201 INFO     ___FILE_ONLY___ Updated IAM policy for project [lionstour].
+
+2025-09-16 08:46:38,201 DEBUG    root            Chosen display Format:default
+2025-09-16 08:46:38,202 INFO     root            Display format: "default"
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ bindings
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ members
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ serviceAccount:service-578611451987@gcf-admin-robot.iam.gserviceaccount.com
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,216 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ role
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ roles/cloudfunctions.serviceAgent
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ members
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ serviceAccount:tour-backend@lionstour.iam.gserviceaccount.com
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,217 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ role
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ roles/dns.admin
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ members
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ serviceAccount:service-578611451987@gcp-sa-notebooksecurityscanner.iam.gserviceaccount.com
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ role
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,218 INFO     ___FILE_ONLY___ roles/notebooksecurityscanner.serviceAgent
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ members
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 08:46:38,219 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ role
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ roles/owner
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ members
+2025-09-16 08:46:38,220 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ -
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ serviceAccount:service-578611451987@gcp-sa-pubsub.iam.gserviceaccount.com
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___   
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ role
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ roles/pubsub.serviceAgent
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ etag
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,221 INFO     ___FILE_ONLY___ BwY-5KTGT-0=
+2025-09-16 08:46:38,222 INFO     ___FILE_ONLY___ 
+
+2025-09-16 08:46:38,222 INFO     ___FILE_ONLY___ version
+2025-09-16 08:46:38,222 INFO     ___FILE_ONLY___ :
+2025-09-16 08:46:38,222 INFO     ___FILE_ONLY___  
+2025-09-16 08:46:38,222 INFO     ___FILE_ONLY___ 1
+2025-09-16 08:46:38,222 INFO     ___FILE_ONLY___ 
+

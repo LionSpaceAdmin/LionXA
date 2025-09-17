@@ -1,0 +1,50 @@
+2025-09-10 23:39:49,113 DEBUG    root            Loaded Command Group: ['gcloud', 'iam']
+2025-09-10 23:39:49,114 DEBUG    root            Loaded Command Group: ['gcloud', 'iam', 'service_accounts']
+2025-09-10 23:39:49,114 DEBUG    root            Loaded Command Group: ['gcloud', 'iam', 'service-accounts', 'list']
+2025-09-10 23:39:49,115 DEBUG    root            Running [gcloud.iam.service-accounts.list] with arguments: []
+2025-09-10 23:39:49,115 DEBUG    root            Chosen display Format:table(displayName:label="DISPLAY NAME", email, disabled)
+2025-09-10 23:39:49,115 INFO     root            Display format: "table(displayName:label="DISPLAY NAME", email, disabled)"
+2025-09-10 23:39:49,126 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): iam.googleapis.com:443
+2025-09-10 23:39:50,088 DEBUG    urllib3.connectionpool https://iam.googleapis.com:443 "GET /v1/projects/lionspace/serviceAccounts?alt=json&pageSize=100 HTTP/11" 200 None
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ DISPLAY NAME
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___                      
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ EMAIL
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___                                                    
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ DISABLED
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ Super Admin Service Account
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___       
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ superadmin-sa@lionspace.iam.gserviceaccount.com
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___          
+2025-09-10 23:39:50,101 INFO     ___FILE_ONLY___ False
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ Claude AI Agent Service Account
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___   
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ claude-agent@lionspace.iam.gserviceaccount.com
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___           
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ False
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___  lionspace-app
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___                    
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ lionspace-app@lionspace.iam.gserviceaccount.com
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___          
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ False
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ Deployment Service Account
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___        
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ deployment-sa@lionspace.iam.gserviceaccount.com
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___          
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ False
+2025-09-10 23:39:50,102 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:39:50,103 INFO     ___FILE_ONLY___ Dify Service Account
+2025-09-10 23:39:50,103 INFO     ___FILE_ONLY___              
+2025-09-10 23:39:50,103 INFO     ___FILE_ONLY___ dify-service-account@lionspace.iam.gserviceaccount.com
+2025-09-10 23:39:50,103 INFO     ___FILE_ONLY___   
+2025-09-10 23:39:50,103 INFO     ___FILE_ONLY___ False
+2025-09-10 23:39:50,103 INFO     ___FILE_ONLY___ 
+

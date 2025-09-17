@@ -1,0 +1,18 @@
+2025-09-10 22:37:09,642 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 22:37:09,644 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'list']
+2025-09-10 22:37:09,644 DEBUG    root            Running [gcloud.config.list] with arguments: []
+2025-09-10 22:37:09,645 DEBUG    root            Chosen display Format:config
+2025-09-10 22:37:09,645 INFO     root            Display format: "config"
+2025-09-10 22:37:09,649 INFO     ___FILE_ONLY___ [billing]
+quota_project = lionspace
+[compute]
+region = us-east1
+zone = us-east1-b
+[core]
+account = admin@lionsofzion-official.org
+disable_usage_reporting = True
+project = lionspace
+
+2025-09-10 22:37:09,649 INFO     ___FILE_ONLY___ 
+Your active configuration is: [default]
+

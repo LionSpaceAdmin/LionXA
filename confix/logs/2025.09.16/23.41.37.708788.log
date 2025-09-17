@@ -1,0 +1,9 @@
+2025-09-16 23:41:37,709 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-16 23:41:37,711 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'get_value']
+2025-09-16 23:41:37,711 DEBUG    root            Running [gcloud.config.get-value] with arguments: [SECTION/PROPERTY: "core/project"]
+2025-09-16 23:41:37,711 INFO     ___FILE_ONLY___ Your active configuration is: [lionsx]
+
+2025-09-16 23:41:37,711 DEBUG    root            Chosen display Format:value(.)
+2025-09-16 23:41:37,712 INFO     root            Display format: "value(.)"
+2025-09-16 23:41:37,712 INFO     ___FILE_ONLY___ lionsxagent-472222
+

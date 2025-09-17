@@ -1,0 +1,118 @@
+2025-09-16 01:36:30,974 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-16 01:36:30,977 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'application_default']
+2025-09-16 01:36:30,981 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'application-default', 'set_quota_project']
+2025-09-16 01:36:30,982 DEBUG    root            Running [gcloud.auth.application-default.set-quota-project] with arguments: [QUOTA_PROJECT_ID: "lionsxagent"]
+2025-09-16 01:36:30,992 INFO     root            Using alternate credentials from file: [/Users/danielions/.config/gcloud/application_default_credentials.json]
+2025-09-16 01:36:30,994 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 01:36:30,998 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 01:36:31,325 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 400 None
+2025-09-16 01:36:31,327 DEBUG    root            (gcloud.auth.application-default.set-quota-project) There was a problem refreshing your current auth tokens: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+Please run:
+
+  $ gcloud auth login
+
+to obtain new credentials.
+
+If you have already logged in with a different account, run:
+
+  $ gcloud config set account ACCOUNT
+
+to select an already authenticated account to use.
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1204, in HandleGoogleAuthCredentialsRefreshError
+    yield
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1338, in _RefreshGoogleAuth
+    credentials.refresh(request_client)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/creds.py", line 931, in _WrappedRefresh
+    orig_refresh(request)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/google/oauth2/credentials.py", line 409, in refresh
+    ) = reauth.refresh_grant(
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/google/oauth2/reauth.py", line 349, in refresh_grant
+    raise exceptions.RefreshError(
+google.auth.exceptions.RefreshError: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/auth/application_default/set_quota_project.py", line 58, in Run
+    return auth_util.AddQuotaProjectToADC(args.quota_project_id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/auth/auth_util.py", line 314, in AddQuotaProjectToADC
+    if not AdcHasGivenPermissionOnProject(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/auth/auth_util.py", line 167, in AdcHasGivenPermissionOnProject
+    return _AdcHasGivenPermissionOnProjectHelper(project_ref, permissions)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/auth/auth_util.py", line 174, in _AdcHasGivenPermissionOnProjectHelper
+    granted_permissions = projects_api.TestIamPermissions(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/cloudresourcemanager/projects_api.py", line 349, in TestIamPermissions
+    client = projects_util.GetClient(api_version)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/cloudresourcemanager/projects_util.py", line 56, in GetClient
+    return apis.GetClientInstance(_API_NAME, version)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 278, in GetClientInstance
+    return apis_internal._GetClientInstance(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis_internal.py", line 169, in _GetClientInstance
+    http_client = transports.GetApitoolsTransport(
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/transports.py", line 80, in GetApitoolsTransport
+    session = requests.GetSession(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/requests.py", line 85, in GetSession
+    credentials = store.LoadIfEnabled(
+                  ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 636, in LoadIfEnabled
+    return Load(
+           ^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 876, in Load
+    cred = _Load(
+           ^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1093, in _Load
+    RefreshIfAlmostExpire(cred)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1451, in RefreshIfAlmostExpire
+    RefreshIfExpireWithinWindow(credentials, window=_CREDENTIALS_EXPIRY_WINDOW)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1447, in RefreshIfExpireWithinWindow
+    Refresh(credentials)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1133, in Refresh
+    _RefreshGoogleAuth(credentials, is_impersonated_credential,
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1304, in _RefreshGoogleAuth
+    with HandleGoogleAuthCredentialsRefreshError(
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.12/3.12.11/Frameworks/Python.framework/Versions/3.12/lib/python3.12/contextlib.py", line 158, in __exit__
+    self.gen.throw(value)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/store.py", line 1212, in HandleGoogleAuthCredentialsRefreshError
+    raise creds_exceptions.TokenRefreshError(
+googlecloudsdk.core.credentials.exceptions.TokenRefreshError: There was a problem refreshing your current auth tokens: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+Please run:
+
+  $ gcloud auth login
+
+to obtain new credentials.
+
+If you have already logged in with a different account, run:
+
+  $ gcloud config set account ACCOUNT
+
+to select an already authenticated account to use.
+2025-09-16 01:36:31,338 ERROR    root            (gcloud.auth.application-default.set-quota-project) There was a problem refreshing your current auth tokens: Reauthentication is needed. Please run `gcloud auth application-default login` to reauthenticate.
+Please run:
+
+  $ gcloud auth login
+
+to obtain new credentials.
+
+If you have already logged in with a different account, run:
+
+  $ gcloud config set account ACCOUNT
+
+to select an already authenticated account to use.

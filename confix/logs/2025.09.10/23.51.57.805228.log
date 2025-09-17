@@ -1,0 +1,123 @@
+2025-09-10 23:51:57,805 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-10 23:51:57,806 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'disable']
+2025-09-10 23:51:57,807 DEBUG    root            Running [gcloud.services.disable] with arguments: [--project: "lionspace", --quiet: "True", SERVICE:1: "['workflows.googleapis.com']"]
+2025-09-10 23:51:57,821 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-10 23:51:59,026 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionspace/services/workflows.googleapis.com:disable?alt=json HTTP/11" 400 None
+2025-09-10 23:51:59,026 INFO     ___FILE_ONLY___ Provide the --force flag if you wish to force disable services.
+
+2025-09-10 23:51:59,027 DEBUG    root            Chosen display Format:default
+2025-09-10 23:51:59,040 DEBUG    root            Chosen display Format:default
+2025-09-10 23:51:59,037 DEBUG    root            (gcloud.services.disable) FAILED_PRECONDITION: The service workflows.googleapis.com is depended on by the following active service(s): workflowexecutions.googleapis.com; Please specify disable_dependent_services=true if you want to proceed with disabling all services.
+Help Token: AVSZLmuTllxcow5AxNar7cagb-bmRMXLsu22QX75d479S4rTwKw3YQ_S9X2pZHmVhIKZ44nyUDPHkoYd4s5wAftN-bBSMmTa_MvDNdGZNPF32kq6
+- '@type': type.googleapis.com/google.rpc.PreconditionFailure
+  violations:
+  - subject: ?error_code=100001&service_name=workflows.googleapis.com&services=workflowexecutions.googleapis.com
+    type: googleapis.com
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: serviceusage.googleapis.com
+  metadata:
+    service_name: workflows.googleapis.com
+    services: workflowexecutions.googleapis.com
+  reason: COMMON_SU_SERVICE_HAS_DEPENDENT_SERVICES
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/services/serviceusage.py", line 976, in DisableApiCall
+    return client.services.Disable(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/serviceusage/v1/serviceusage_v1_client.py", line 236, in Disable
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpBadRequestError: HttpError accessing <https://serviceusage.googleapis.com/v1/projects/lionspace/services/workflows.googleapis.com:disable?alt=json>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Wed, 10 Sep 2025 20:51:58 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 400}>, content <{
+  "error": {
+    "code": 400,
+    "message": "The service workflows.googleapis.com is depended on by the following active service(s): workflowexecutions.googleapis.com; Please specify disable_dependent_services=true if you want to proceed with disabling all services.\nHelp Token: AVSZLmuTllxcow5AxNar7cagb-bmRMXLsu22QX75d479S4rTwKw3YQ_S9X2pZHmVhIKZ44nyUDPHkoYd4s5wAftN-bBSMmTa_MvDNdGZNPF32kq6",
+    "status": "FAILED_PRECONDITION",
+    "details": [
+      {
+        "@type": "type.googleapis.com/google.rpc.PreconditionFailure",
+        "violations": [
+          {
+            "type": "googleapis.com",
+            "subject": "?error_code=100001&service_name=workflows.googleapis.com&services=workflowexecutions.googleapis.com"
+          }
+        ]
+      },
+      {
+        "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+        "reason": "COMMON_SU_SERVICE_HAS_DEPENDENT_SERVICES",
+        "domain": "serviceusage.googleapis.com",
+        "metadata": {
+          "service_name": "workflows.googleapis.com",
+          "services": "workflowexecutions.googleapis.com"
+        }
+      }
+    ]
+  }
+}
+>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/services/disable.py", line 264, in Run
+    op = serviceusage.DisableApiCall(project, service_name, args.force)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/services/serviceusage.py", line 983, in DisableApiCall
+    exceptions.ReraiseError(e, exceptions.Error)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/services/exceptions.py", line 162, in ReraiseError
+    core_exceptions.reraise(klass(api_lib_exceptions.HttpException(err)))
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/exceptions.py", line 149, in reraise
+    six.reraise(type(exc_value), exc_value, tb)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/six/__init__.py", line 718, in reraise
+    raise value.with_traceback(tb)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/services/serviceusage.py", line 976, in DisableApiCall
+    return client.services.Disable(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/serviceusage/v1/serviceusage_v1_client.py", line 236, in Disable
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+googlecloudsdk.api_lib.services.exceptions.Error: FAILED_PRECONDITION: The service workflows.googleapis.com is depended on by the following active service(s): workflowexecutions.googleapis.com; Please specify disable_dependent_services=true if you want to proceed with disabling all services.
+Help Token: AVSZLmuTllxcow5AxNar7cagb-bmRMXLsu22QX75d479S4rTwKw3YQ_S9X2pZHmVhIKZ44nyUDPHkoYd4s5wAftN-bBSMmTa_MvDNdGZNPF32kq6
+- '@type': type.googleapis.com/google.rpc.PreconditionFailure
+  violations:
+  - subject: ?error_code=100001&service_name=workflows.googleapis.com&services=workflowexecutions.googleapis.com
+    type: googleapis.com
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: serviceusage.googleapis.com
+  metadata:
+    service_name: workflows.googleapis.com
+    services: workflowexecutions.googleapis.com
+  reason: COMMON_SU_SERVICE_HAS_DEPENDENT_SERVICES
+2025-09-10 23:51:59,041 ERROR    root            (gcloud.services.disable) FAILED_PRECONDITION: The service workflows.googleapis.com is depended on by the following active service(s): workflowexecutions.googleapis.com; Please specify disable_dependent_services=true if you want to proceed with disabling all services.
+Help Token: AVSZLmuTllxcow5AxNar7cagb-bmRMXLsu22QX75d479S4rTwKw3YQ_S9X2pZHmVhIKZ44nyUDPHkoYd4s5wAftN-bBSMmTa_MvDNdGZNPF32kq6
+- '@type': type.googleapis.com/google.rpc.PreconditionFailure
+  violations:
+  - subject: ?error_code=100001&service_name=workflows.googleapis.com&services=workflowexecutions.googleapis.com
+    type: googleapis.com
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: serviceusage.googleapis.com
+  metadata:
+    service_name: workflows.googleapis.com
+    services: workflowexecutions.googleapis.com
+  reason: COMMON_SU_SERVICE_HAS_DEPENDENT_SERVICES

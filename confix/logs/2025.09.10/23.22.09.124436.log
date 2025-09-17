@@ -1,0 +1,10 @@
+2025-09-10 23:22:09,125 DEBUG    root            Loaded Command Group: ['gcloud', 'run']
+2025-09-10 23:22:09,292 DEBUG    root            Loaded Command Group: ['gcloud', 'run', 'services']
+2025-09-10 23:22:09,331 DEBUG    root            Loaded Command Group: ['gcloud', 'run', 'services', 'list']
+2025-09-10 23:22:09,333 DEBUG    root            Running [gcloud.run.services.list] with arguments: [--limit: "5"]
+2025-09-10 23:22:09,346 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): run.googleapis.com:443
+2025-09-10 23:22:10,804 DEBUG    urllib3.connectionpool https://run.googleapis.com:443 "GET /v1/projects/lionspace/locations/-/services?alt=json HTTP/11" 200 None
+2025-09-10 23:22:10,805 DEBUG    root            Chosen display Format:table(ready_symbol.color(red="[xX]",green="[✓✔]",yellow="[-!…]"):label="",firstof(id,metadata.name):label=SERVICE,region:label=REGION,domain:label=URL,last_modifier:label="LAST DEPLOYED BY",last_transition_time:label="LAST DEPLOYED AT"):(metadata.labels.'run.googleapis.com/satisfiesPzs':alias='satisfiesPzs')
+2025-09-10 23:22:10,806 INFO     root            Display format: "table(ready_symbol.color(red="[xX]",green="[✓✔]",yellow="[-!…]"):label="",firstof(id,metadata.name):label=SERVICE,region:label=REGION,domain:label=URL,last_modifier:label="LAST DEPLOYED BY",last_transition_time:label="LAST DEPLOYED AT"):(metadata.labels.'run.googleapis.com/satisfiesPzs':alias='satisfiesPzs')"
+2025-09-10 23:22:10,806 INFO     ___FILE_ONLY___ Listed 0 items.
+

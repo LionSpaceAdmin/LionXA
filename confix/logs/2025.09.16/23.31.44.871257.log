@@ -1,0 +1,13 @@
+2025-09-16 23:31:44,872 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore']
+2025-09-16 23:31:44,874 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore', 'databases']
+2025-09-16 23:31:44,877 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore', 'databases', 'create']
+2025-09-16 23:31:44,879 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'firestore']
+2025-09-16 23:31:44,880 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'firestore', 'databases']
+2025-09-16 23:31:44,880 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'firestore', 'databases', 'create']
+2025-09-16 23:31:44,881 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'firestore']
+2025-09-16 23:31:44,882 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'firestore', 'databases']
+2025-09-16 23:31:44,882 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'firestore', 'databases', 'create']
+2025-09-16 23:31:44,883 ERROR    root            (gcloud.firestore.databases.create) unrecognized arguments: --region=us-east1 (did you mean '--location'?) 
+
+To search the help text of gcloud commands, run:
+  gcloud help -- SEARCH_TERMS

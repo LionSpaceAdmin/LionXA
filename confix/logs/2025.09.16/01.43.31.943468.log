@@ -1,0 +1,10 @@
+2025-09-16 01:43:31,948 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'projects']
+2025-09-16 01:43:31,950 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'projects', 'move']
+2025-09-16 01:43:31,951 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-16 01:43:31,952 DEBUG    root            No implementation for release track [GA] for element: [/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/projects/move]
+2025-09-16 01:43:31,952 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'projects']
+2025-09-16 01:43:31,953 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'projects', 'move']
+2025-09-16 01:43:31,953 ERROR    root            (gcloud.beta.projects.move) unrecognized arguments: --destination-folder=1091503060083 
+
+To search the help text of gcloud commands, run:
+  gcloud help -- SEARCH_TERMS

@@ -1,0 +1,62 @@
+2025-09-16 23:18:06,297 DEBUG    root            Loaded Command Group: ['gcloud', 'init']
+2025-09-16 23:18:06,298 DEBUG    root            Running [gcloud.init] with arguments: []
+2025-09-16 23:18:06,298 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2025-09-16 23:18:06,298 INFO     ___FILE_ONLY___ Settings from your current configuration [lionstour] are:
+
+2025-09-16 23:18:06,300 INFO     ___FILE_ONLY___ core:
+  account: admin@lionsofzion-official.org
+  disable_usage_reporting: 'True'
+  project: lionstour
+
+2025-09-16 23:18:06,300 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:18:15,198 INFO     ___FILE_ONLY___ Your current configuration has been set to: [lionsx]
+
+
+2025-09-16 23:18:15,198 INFO     ___FILE_ONLY___ You can skip diagnostics next time by using the following flag:
+
+2025-09-16 23:18:15,198 INFO     ___FILE_ONLY___   gcloud init --skip-diagnostics
+
+
+2025-09-16 23:18:15,199 INFO     ___FILE_ONLY___ Network diagnostic detects and fixes local network connection issues.
+
+2025-09-16 23:18:15,199 INFO     ___FILE_ONLY___ Checking network connection...
+2025-09-16 23:18:16,865 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): accounts.google.com:443
+2025-09-16 23:18:17,123 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET / HTTP/11" 302 365
+2025-09-16 23:18:17,203 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /ServiceLogin?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F HTTP/11" 302 0
+2025-09-16 23:18:17,291 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /InteractiveLogin?continue=https://accounts.google.com/&followup=https://accounts.google.com/&passive=1209600&ifkv=AfYwgwWyREMzmEpR8cj-wdhghyX4gILxf5k6MF2Qy7QyEhIkWWegOjSQ_KNG5AJVTqea4pbpoVtfpA HTTP/11" 302 554
+2025-09-16 23:18:17,389 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AfYwgwXSomu004M2ho_72_IsZERDVViW-rZdfKeWitsKHFBUC4wGsQxdcsDBiQ7VVxlBVor_APbUNg&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-969604734%3A1758053897411535 HTTP/11" 200 None
+2025-09-16 23:18:17,657 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 23:18:18,622 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1beta1/projects HTTP/11" 401 None
+2025-09-16 23:18:18,624 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): www.googleapis.com:443
+2025-09-16 23:18:18,779 DEBUG    urllib3.connectionpool https://www.googleapis.com:443 "GET /auth/cloud-platform HTTP/11" 200 14
+2025-09-16 23:18:18,781 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-16 23:18:19,146 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 233150
+2025-09-16 23:18:19,278 INFO     ___FILE_ONLY___ Reachability Check passed.
+
+2025-09-16 23:18:19,278 INFO     ___FILE_ONLY___ Network diagnostic passed (1/1 checks passed).
+
+
+2025-09-16 23:19:12,927 INFO     ___FILE_ONLY___ You are signed in as: [admin@lionsofzion-official.org].
+
+
+2025-09-16 23:19:12,942 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 23:19:12,944 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 23:19:13,244 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 400 None
+2025-09-16 23:19:13,245 DEBUG    root            using google-auth reauth
+2025-09-16 23:19:13,245 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 23:19:13,338 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 23:19:13,338 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions:start
+2025-09-16 23:19:13,339 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): reauth.googleapis.com:443
+2025-09-16 23:19:13,897 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions:start HTTP/11" 200 None
+2025-09-16 23:19:17,231 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions/AMbiOOQFVMViqHTEbfknDo58pVvUWsJ2Ji1z3OZYNPRHpxJb0oxDWV9nTDFZXQOG:continue
+2025-09-16 23:19:17,421 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions/AMbiOOQFVMViqHTEbfknDo58pVvUWsJ2Ji1z3OZYNPRHpxJb0oxDWV9nTDFZXQOG:continue HTTP/11" 200 None
+2025-09-16 23:19:20,839 DEBUG    google.auth.transport.requests Making request: POST https://reauth.googleapis.com/v2/sessions/AMbiOOQFVMViqHTEbfknDo58pVvUWsJ2Ji1z3OZYNPRHpxJb0oxDWV9nTDFZXQOG:continue
+2025-09-16 23:19:21,079 DEBUG    urllib3.connectionpool https://reauth.googleapis.com:443 "POST /v2/sessions/AMbiOOQFVMViqHTEbfknDo58pVvUWsJ2Ji1z3OZYNPRHpxJb0oxDWV9nTDFZXQOG:continue HTTP/11" 200 None
+2025-09-16 23:19:23,508 INFO     ___FILE_ONLY___ 
+
+Command killed by keyboard interrupt
+
+

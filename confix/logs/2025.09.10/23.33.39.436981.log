@@ -1,0 +1,12 @@
+2025-09-10 23:33:39,437 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-10 23:33:39,441 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-10 23:33:39,442 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "lionsofzion-dev"]
+2025-09-10 23:33:39,493 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-10 23:33:39,497 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-10 23:33:39,745 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-10 23:33:39,751 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:33:40,919 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionsofzion-dev?alt=json HTTP/11" 200 None
+2025-09-10 23:33:40,920 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2025-09-10 23:33:40,921 DEBUG    root            Chosen display Format:default
+2025-09-10 23:33:40,921 INFO     root            Display format: "default"

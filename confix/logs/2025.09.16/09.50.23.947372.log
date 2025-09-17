@@ -1,0 +1,26 @@
+2025-09-16 09:50:23,947 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-16 09:50:23,948 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record_sets']
+2025-09-16 09:50:23,949 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'changes']
+2025-09-16 09:50:23,951 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'record-sets', 'changes', 'list']
+2025-09-16 09:50:23,951 DEBUG    root            Running [gcloud.dns.record-sets.changes.list] with arguments: [--limit: "1", --sort-by: "['~startTime']", --zone: "tour-zone"]
+2025-09-16 09:50:23,981 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 09:50:23,984 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 09:50:24,240 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 09:50:24,256 DEBUG    root            Chosen display Format:table(id, startTime, status):(startTime:sort=1:reverse)
+2025-09-16 09:50:24,258 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-16 09:50:25,265 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionstour/managedZones/tour-zone/changes?alt=json&maxResults=1&sortBy=changeSequence HTTP/11" 200 None
+2025-09-16 09:50:25,267 INFO     root            Display format: "table(id, startTime, status):(startTime:sort=1:reverse)"
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ ID
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___   
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ START_TIME
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___                 
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ STATUS
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ 
+
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ 1
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___    
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ 2025-09-16T06:24:39.414Z
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___   
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ done
+2025-09-16 09:50:25,286 INFO     ___FILE_ONLY___ 
+

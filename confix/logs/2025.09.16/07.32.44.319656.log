@@ -1,0 +1,15 @@
+2025-09-16 07:32:44,322 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-16 07:32:44,330 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'set']
+2025-09-16 07:32:44,331 DEBUG    root            Running [gcloud.config.set] with arguments: [SECTION/PROPERTY: "project", VALUE: "lionstour"]
+2025-09-16 07:32:44,336 WARNING  root            Your active project does not match the quota project in your local Application Default Credentials file. This might result in unexpected quota issues.
+
+To update your Application Default Credentials quota project, use the `gcloud auth application-default set-quota-project` command.
+2025-09-16 07:32:44,352 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 07:32:44,357 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 07:32:44,620 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 07:32:44,629 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 07:32:45,758 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionstour?alt=json HTTP/11" 200 None
+2025-09-16 07:32:45,760 INFO     ___FILE_ONLY___ Updated property [core/project].
+
+2025-09-16 07:32:45,761 DEBUG    root            Chosen display Format:default
+2025-09-16 07:32:45,762 INFO     root            Display format: "default"

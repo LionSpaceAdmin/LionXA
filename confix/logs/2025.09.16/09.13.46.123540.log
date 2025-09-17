@@ -1,0 +1,9 @@
+2025-09-16 09:13:46,123 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses']
+2025-09-16 09:13:46,124 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'addresses', 'describe']
+2025-09-16 09:13:46,125 DEBUG    root            Running [gcloud.compute.addresses.describe] with arguments: [--format: "get(address)", --global: "True", NAME: "tour-global-ip"]
+2025-09-16 09:13:46,206 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 09:13:46,766 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionstour/global/addresses/tour-global-ip?alt=json HTTP/11" 200 None
+2025-09-16 09:13:46,767 DEBUG    root            Chosen display Format:default get(address)
+2025-09-16 09:13:46,768 INFO     root            Display format: "default get(address)"
+2025-09-16 09:13:46,783 INFO     ___FILE_ONLY___ 34.111.176.4
+

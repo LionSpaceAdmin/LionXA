@@ -1,0 +1,46 @@
+2025-09-16 02:52:15,378 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts']
+2025-09-16 02:52:15,379 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts', 'repositories']
+2025-09-16 02:52:15,428 DEBUG    root            Loaded Command Group: ['gcloud', 'artifacts', 'repositories', 'create']
+2025-09-16 02:52:15,436 DEBUG    root            Running [gcloud.artifacts.repositories.create] with arguments: [--description: "Containers for agent services (orchestrator, sub-agents, puppeteer)", --location: "us-east1", --repository-format: "DOCKER", REPOSITORY: "agent-repo"]
+2025-09-16 02:52:15,447 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): artifactregistry.googleapis.com:443
+2025-09-16 02:52:16,267 DEBUG    urllib3.connectionpool https://artifactregistry.googleapis.com:443 "POST /v1/projects/lionsxagent-472222/locations/us-east1/repositories?alt=json&repositoryId=agent-repo HTTP/11" 409 None
+2025-09-16 02:52:16,275 DEBUG    root            (gcloud.artifacts.repositories.create) ALREADY_EXISTS: the repository already exists
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 919, in Run
+    ref, response = self._CommonRun(args)
+                    ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/yaml_command_translator.py", line 455, in _CommonRun
+    response = method.Call(
+               ^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/registry.py", line 341, in Call
+    return request_func(global_params=global_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/util/apis/registry.py", line 404, in RequestFunc
+    return method(request, global_params=global_params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/artifactregistry/v1/artifactregistry_v1_client.py", line 1636, in Create
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 747, in _RunMethod
+    return self.ProcessHttpResponse(method_config, http_response, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 753, in ProcessHttpResponse
+    self.__ProcessHttpResponse(method_config, http_response, request))
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 612, in __ProcessHttpResponse
+    raise exceptions.HttpError.FromResponse(
+apitools.base.py.exceptions.HttpConflictError: HttpError accessing <https://artifactregistry.googleapis.com/v1/projects/lionsxagent-472222/locations/us-east1/repositories?alt=json&repositoryId=agent-repo>: response: <{'vary': 'Origin, X-Origin, Referer', 'content-type': 'application/json; charset=UTF-8', 'content-encoding': 'gzip', 'date': 'Mon, 15 Sep 2025 23:52:16 GMT', 'server': 'ESF', 'x-xss-protection': '0', 'x-frame-options': 'SAMEORIGIN', 'x-content-type-options': 'nosniff', 'alt-svc': 'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000', 'transfer-encoding': 'chunked', 'status': 409}>, content <{
+  "error": {
+    "code": 409,
+    "message": "the repository already exists",
+    "status": "ALREADY_EXISTS"
+  }
+}
+>
+2025-09-16 02:52:16,283 ERROR    root            (gcloud.artifacts.repositories.create) ALREADY_EXISTS: the repository already exists

@@ -1,0 +1,27 @@
+2025-09-10 23:22:01,916 DEBUG    root            Loaded Command Group: ['gcloud', 'functions']
+2025-09-10 23:22:01,960 DEBUG    root            Loaded Command Group: ['gcloud', 'functions', 'list']
+2025-09-10 23:22:01,961 DEBUG    root            Running [gcloud.functions.list] with arguments: [--limit: "5"]
+2025-09-10 23:22:01,973 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudfunctions.googleapis.com:443
+2025-09-10 23:22:02,305 DEBUG    urllib3.connectionpool https://cloudfunctions.googleapis.com:443 "GET /v1/projects/lionspace/locations?alt=json&pageSize=100 HTTP/11" 200 None
+2025-09-10 23:22:02,307 DEBUG    root            Chosen display Format:
+        table(
+          name.basename():sort=1,
+          state():label=STATE,
+          trigger():label=TRIGGER,
+          name.scope("locations").segment(0):label=REGION,
+          generation():label=ENVIRONMENT
+        )
+2025-09-10 23:22:02,308 INFO     root            Display format: "
+        table(
+          name.basename():sort=1,
+          state():label=STATE,
+          trigger():label=TRIGGER,
+          name.scope("locations").segment(0):label=REGION,
+          generation():label=ENVIRONMENT
+        )"
+2025-09-10 23:22:02,310 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudfunctions.googleapis.com:443
+2025-09-10 23:22:03,430 DEBUG    urllib3.connectionpool https://cloudfunctions.googleapis.com:443 "GET /v2/projects/lionspace/locations/-/functions?alt=json&filter=environment%3D%22GEN_2%22&pageSize=5 HTTP/11" 200 None
+2025-09-10 23:22:03,431 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudfunctions.googleapis.com:443
+2025-09-10 23:22:04,148 DEBUG    urllib3.connectionpool https://cloudfunctions.googleapis.com:443 "GET /v1/projects/lionspace/locations/-/functions?alt=json&pageSize=5 HTTP/11" 200 None
+2025-09-10 23:22:04,148 INFO     ___FILE_ONLY___ Listed 0 items.
+

@@ -1,0 +1,11 @@
+[core]
+account = hanudani@gmail.com
+project = lionstour
+
+[compute]
+region = us-east1
+zone = us-east1-b
+
+[ai]
+region = us-east1
+

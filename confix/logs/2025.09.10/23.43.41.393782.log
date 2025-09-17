@@ -1,0 +1,29 @@
+2025-09-10 23:43:41,394 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-10 23:43:41,395 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'list']
+2025-09-10 23:43:41,396 DEBUG    root            Running [gcloud.auth.list] with arguments: []
+2025-09-10 23:43:41,420 DEBUG    root            Chosen display Format:    table[title='Credentialed Accounts'](
+        status.yesno(yes='*', no=''):label=ACTIVE,
+        account
+    )
+2025-09-10 23:43:41,421 INFO     root            Display format: "    table[title='Credentialed Accounts'](
+        status.yesno(yes='*', no=''):label=ACTIVE,
+        account
+    )"
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___         Credentialed Accounts
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ ACTIVE
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___   
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ ACCOUNT
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ *
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___        
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ admin@lionsofzion-official.org
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:43:41,428 INFO     ___FILE_ONLY___ 
+To set the active account, run:
+    $ gcloud config set account `ACCOUNT`
+
+

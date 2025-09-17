@@ -1,0 +1,42 @@
+2025-09-10 23:57:08,900 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-10 23:57:08,901 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org_policies']
+2025-09-10 23:57:08,903 DEBUG    root            Loaded Command Group: ['gcloud', 'resource-manager', 'org-policies', 'describe']
+2025-09-10 23:57:08,903 DEBUG    root            Running [gcloud.resource-manager.org-policies.describe] with arguments: [--organization: "985698468107", ORG_POLICY_ID: "constraints/iam.allowedPolicyMemberDomains"]
+2025-09-10 23:57:08,915 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:57:09,993 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:getOrgPolicy?alt=json HTTP/11" 200 None
+2025-09-10 23:57:09,996 DEBUG    root            Chosen display Format:default
+2025-09-10 23:57:09,996 INFO     root            Display format: "default"
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ constraint
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___  
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ constraints/iam.allowedPolicyMemberDomains
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ etag
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___  
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ CKm128UGEKiJxPUC
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ listPolicy
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:10,002 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___   
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ allowedValues
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___   
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ -
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___  
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ C02mzrr8v
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ updateTime
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ :
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___  '
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ 2025-09-02T11:53:13.783353Z
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ '
+2025-09-10 23:57:10,003 INFO     ___FILE_ONLY___ 
+

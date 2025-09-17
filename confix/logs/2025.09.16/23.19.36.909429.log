@@ -1,0 +1,113 @@
+2025-09-16 23:19:36,920 DEBUG    root            Loaded Command Group: ['gcloud', 'init']
+2025-09-16 23:19:36,921 DEBUG    root            Running [gcloud.init] with arguments: []
+2025-09-16 23:19:36,921 INFO     ___FILE_ONLY___ Welcome! This command will take you through the configuration of gcloud.
+
+
+2025-09-16 23:19:36,921 INFO     ___FILE_ONLY___ Settings from your current configuration [lionsx] are:
+
+2025-09-16 23:19:36,923 INFO     ___FILE_ONLY___ core:
+  account: admin@lionsofzion-official.org
+  disable_usage_reporting: 'True'
+  project: luminous-bazaar-472222-a9
+
+2025-09-16 23:19:36,923 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:19:49,747 INFO     ___FILE_ONLY___ Your current configuration has been set to: [lionsx]
+
+
+2025-09-16 23:19:49,747 INFO     ___FILE_ONLY___ You can skip diagnostics next time by using the following flag:
+
+2025-09-16 23:19:49,747 INFO     ___FILE_ONLY___   gcloud init --skip-diagnostics
+
+
+2025-09-16 23:19:49,748 INFO     ___FILE_ONLY___ Network diagnostic detects and fixes local network connection issues.
+
+2025-09-16 23:19:49,748 INFO     ___FILE_ONLY___ Checking network connection...
+2025-09-16 23:19:52,031 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): accounts.google.com:443
+2025-09-16 23:19:52,257 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET / HTTP/11" 302 365
+2025-09-16 23:19:52,341 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /ServiceLogin?passive=1209600&continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F HTTP/11" 302 0
+2025-09-16 23:19:52,470 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /InteractiveLogin?continue=https://accounts.google.com/&followup=https://accounts.google.com/&passive=1209600&ifkv=AfYwgwWTzxkAk5lV9NLLjzm3dvBrR8gnMeX9Ja2K5-OkH4cv_tedB3pXAXYxQpyVkd7xlfSpih55oQ HTTP/11" 302 554
+2025-09-16 23:19:52,562 DEBUG    urllib3.connectionpool https://accounts.google.com:443 "GET /v3/signin/identifier?continue=https%3A%2F%2Faccounts.google.com%2F&followup=https%3A%2F%2Faccounts.google.com%2F&ifkv=AfYwgwUiGarrp3HZclXGhDtpvfxjGiyTFkjQaFw4zXZgSwIY0YPAYlW-AduNiEXQ-JMZ4kIxzzJJng&passive=1209600&flowName=WebLiteSignIn&flowEntry=ServiceLogin&dsh=S-133878248%3A1758053992556203 HTTP/11" 200 None
+2025-09-16 23:19:52,758 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 23:19:53,701 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1beta1/projects HTTP/11" 401 None
+2025-09-16 23:19:53,704 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): www.googleapis.com:443
+2025-09-16 23:19:53,861 DEBUG    urllib3.connectionpool https://www.googleapis.com:443 "GET /auth/cloud-platform HTTP/11" 200 14
+2025-09-16 23:19:53,863 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-16 23:19:54,149 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 233150
+2025-09-16 23:19:54,245 INFO     ___FILE_ONLY___ Reachability Check passed.
+
+2025-09-16 23:19:54,245 INFO     ___FILE_ONLY___ Network diagnostic passed (1/1 checks passed).
+
+
+2025-09-16 23:19:57,744 INFO     ___FILE_ONLY___ You are signed in as: [hanudani@gmail.com].
+
+
+2025-09-16 23:19:57,758 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-16 23:19:57,759 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-16 23:19:58,002 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-16 23:19:58,012 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 23:19:59,069 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects?alt=json&filter=lifecycleState%3AACTIVE&pageSize=201 HTTP/11" 200 None
+2025-09-16 23:20:15,282 INFO     ___FILE_ONLY___ Your current project has been set to: [lionsxagent-472222].
+
+
+2025-09-16 23:20:15,283 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'project_info']
+2025-09-16 23:20:15,286 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'project-info', 'describe']
+2025-09-16 23:20:15,287 INFO     root            Executing: [gcloud compute project-info describe --quiet]
+2025-09-16 23:20:15,289 DEBUG    root            Running [gcloud.compute.project-info.describe] with arguments: [--no-user-output-enabled: "false", --quiet: "True", --verbosity: "none"]
+2025-09-16 23:20:15,391 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 23:20:15,952 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionsxagent-472222?alt=json HTTP/11" 200 None
+2025-09-16 23:20:15,958 INFO     root            Display disabled.
+2025-09-16 23:20:23,703 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'zones']
+2025-09-16 23:20:23,704 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'zones', 'list']
+2025-09-16 23:20:23,706 INFO     root            Executing: [gcloud compute zones list]
+2025-09-16 23:20:23,707 DEBUG    root            Running [gcloud.compute.zones.list] with arguments: [--no-user-output-enabled: "false", --verbosity: "none"]
+2025-09-16 23:20:23,715 INFO     root            Display disabled.
+2025-09-16 23:20:23,716 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 23:20:24,223 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionsxagent-472222/zones?alt=json&maxResults=500 HTTP/11" 200 None
+2025-09-16 23:21:29,463 INFO     ___FILE_ONLY___ Your project default Compute Engine zone has been set to [us-east1-b].
+You can change it by running [gcloud config set compute/zone NAME].
+
+
+2025-09-16 23:21:29,464 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'regions']
+2025-09-16 23:21:29,467 DEBUG    root            Loaded Command Group: ['gcloud', 'compute', 'regions', 'describe']
+2025-09-16 23:21:29,469 INFO     root            Executing: [gcloud compute regions describe https://www.googleapis.com/compute/v1/projects/lionsxagent-472222/regions/us-east1]
+2025-09-16 23:21:29,470 DEBUG    root            Running [gcloud.compute.regions.describe] with arguments: [--no-user-output-enabled: "false", --verbosity: "none", NAME: "https://www.googleapis.com/compute/v1/projects/lionsxagent-472222/regions/us-east1"]
+2025-09-16 23:21:29,476 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): compute.googleapis.com:443
+2025-09-16 23:21:30,319 DEBUG    urllib3.connectionpool https://compute.googleapis.com:443 "GET /compute/v1/projects/lionsxagent-472222/regions/us-east1?alt=json HTTP/11" 200 None
+2025-09-16 23:21:30,323 INFO     root            Display disabled.
+2025-09-16 23:21:30,329 INFO     ___FILE_ONLY___ Your project default Compute Engine region has been set to [us-east1].
+You can change it by running [gcloud config set compute/region NAME].
+
+
+2025-09-16 23:21:30,330 DEBUG    root            Not configuring default .boto file. File already exists at [/Users/danielions/.boto].
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ The Google Cloud CLI is configured and ready to use!
+
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ * Commands that require authentication will use hanudani@gmail.com by default
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ * Commands will reference project `lionsxagent-472222` by default
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ * Compute Engine commands will use region `us-east1` by default
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ * Compute Engine commands will use zone `us-east1-b` by default
+
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ Run `gcloud help config` to learn how to change individual settings
+
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ This gcloud configuration is called [lionsx]. You can create additional configurations if you work with multiple accounts and/or projects.
+
+2025-09-16 23:21:30,330 INFO     ___FILE_ONLY___ Run `gcloud topic configurations` to learn more.
+
+
+2025-09-16 23:21:30,331 INFO     ___FILE_ONLY___ Some things to try next:
+
+
+2025-09-16 23:21:30,331 INFO     ___FILE_ONLY___ * Run `gcloud --help` to see the Cloud Platform services you can interact with. And run `gcloud help COMMAND` to get help on any gcloud command.
+
+2025-09-16 23:21:30,331 INFO     ___FILE_ONLY___ * Run `gcloud topic --help` to learn about advanced features of the CLI like arg files and output formatting
+
+2025-09-16 23:21:30,331 INFO     ___FILE_ONLY___ * Run `gcloud cheat-sheet` to see a roster of go-to `gcloud` commands.
+
+2025-09-16 23:21:30,331 DEBUG    root            Chosen display Format:default
+2025-09-16 23:21:30,331 INFO     root            Display format: "default"

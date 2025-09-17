@@ -1,0 +1,261 @@
+2025-09-16 23:25:13,746 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-16 23:25:13,759 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'add_iam_policy_binding']
+2025-09-16 23:25:13,765 DEBUG    root            Running [gcloud.projects.add-iam-policy-binding] with arguments: [--member: "serviceAccount:vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com", --role: "roles/aiplatform.user", PROJECT_ID: "lionsxagent-472222"]
+2025-09-16 23:25:13,784 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 23:25:15,073 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionsxagent-472222:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 23:25:15,085 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 23:25:17,024 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/projects/lionsxagent-472222:setIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 23:25:17,025 INFO     ___FILE_ONLY___ Updated IAM policy for project [lionsxagent-472222].
+
+2025-09-16 23:25:17,026 DEBUG    root            Chosen display Format:default
+2025-09-16 23:25:17,026 INFO     root            Display format: "default"
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___ bindings
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,043 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ serviceAccount:vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ roles/aiplatform.user
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,044 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@gcp-sa-artifactregistry.iam.gserviceaccount.com
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ roles/artifactregistry.serviceAgent
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,045 INFO     ___FILE_ONLY___ serviceAccount:649309776370@cloudbuild.gserviceaccount.com
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ roles/cloudbuild.builds.builder
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@gcp-sa-cloudbuild.iam.gserviceaccount.com
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,046 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ roles/cloudbuild.serviceAgent
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@compute-system.iam.gserviceaccount.com
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ roles/compute.serviceAgent
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,047 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@containerregistry.iam.gserviceaccount.com
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ roles/containerregistry.ServiceAgent
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,048 INFO     ___FILE_ONLY___ serviceAccount:649309776370@cloudservices.gserviceaccount.com
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ roles/editor
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@gcp-sa-notebooksecurityscanner.iam.gserviceaccount.com
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,049 INFO     ___FILE_ONLY___ roles/notebooksecurityscanner.serviceAgent
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ serviceAccount:vertex-pipeline@lionsxagent-472222.iam.gserviceaccount.com
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ roles/owner
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,050 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@gcp-sa-pubsub.iam.gserviceaccount.com
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ roles/pubsub.serviceAgent
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,051 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@serverless-robot-prod.iam.gserviceaccount.com
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ roles/run.serviceAgent
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ members
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ -
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ serviceAccount:service-649309776370@gcp-sa-websecurityscanner.iam.gserviceaccount.com
+2025-09-16 23:25:17,052 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___   
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ role
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ roles/websecurityscanner.serviceAgent
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ etag
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ BwY-8OsQx-0=
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ 
+
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ version
+2025-09-16 23:25:17,053 INFO     ___FILE_ONLY___ :
+2025-09-16 23:25:17,054 INFO     ___FILE_ONLY___  
+2025-09-16 23:25:17,054 INFO     ___FILE_ONLY___ 1
+2025-09-16 23:25:17,054 INFO     ___FILE_ONLY___ 
+

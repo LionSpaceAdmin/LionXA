@@ -1,0 +1,22 @@
+2025-09-16 02:42:25,257 DEBUG    root            Loaded Command Group: ['gcloud', 'ai']
+2025-09-16 02:42:25,262 DEBUG    root            Loaded Command Group: ['gcloud', 'ai', 'models']
+2025-09-16 02:42:25,269 DEBUG    root            Loaded Command Group: ['gcloud', 'ai', 'models', 'list']
+2025-09-16 02:42:25,277 DEBUG    root            Running [gcloud.ai.models.list] with arguments: [--region: "us-east1"]
+2025-09-16 02:42:25,317 INFO     ___FILE_ONLY___ Using endpoint [https://us-east1-aiplatform.googleapis.com/]
+
+2025-09-16 02:42:25,329 DEBUG    root            Chosen display Format:
+        table(
+            name.basename():label=MODEL_ID,
+            displayName
+        )
+    
+2025-09-16 02:42:25,330 INFO     root            Display format: "
+        table(
+            name.basename():label=MODEL_ID,
+            displayName
+        )
+    "
+2025-09-16 02:42:25,335 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): us-east1-aiplatform.googleapis.com:443
+2025-09-16 02:42:26,589 DEBUG    urllib3.connectionpool https://us-east1-aiplatform.googleapis.com:443 "GET /v1/projects/lionsxagent-472222/locations/us-east1/models?alt=json&pageSize=100 HTTP/11" 200 None
+2025-09-16 02:42:26,595 INFO     ___FILE_ONLY___ Listed 0 items.
+

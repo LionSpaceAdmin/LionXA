@@ -1,0 +1,13 @@
+2025-09-16 07:51:46,898 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-16 07:51:46,900 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'enable']
+2025-09-16 07:51:46,901 DEBUG    root            Running [gcloud.services.enable] with arguments: [--project: "lionstour", SERVICE:1: "['firestore.googleapis.com']"]
+2025-09-16 07:51:46,921 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:48,511 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionstour/services/firestore.googleapis.com:enable?alt=json HTTP/11" 200 None
+2025-09-16 07:51:48,516 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:49,559 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-578611451987-645a35aa-8090-4a44-b289-fa88fff2b306?alt=json HTTP/11" 200 None
+2025-09-16 07:51:52,341 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-16 07:51:53,359 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p2-578611451987-645a35aa-8090-4a44-b289-fa88fff2b306?alt=json HTTP/11" 200 None
+2025-09-16 07:51:53,360 INFO     ___FILE_ONLY___ Operation "operations/acat.p2-578611451987-645a35aa-8090-4a44-b289-fa88fff2b306" finished successfully.
+
+2025-09-16 07:51:53,360 DEBUG    root            Chosen display Format:none
+2025-09-16 07:51:53,361 INFO     root            Display format: "none"

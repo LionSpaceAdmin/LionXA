@@ -1,0 +1,4 @@
+2025-09-10 23:39:04,595 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore']
+2025-09-10 23:39:04,596 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore', 'databases']
+2025-09-10 23:39:04,599 DEBUG    root            Loaded Command Group: ['gcloud', 'firestore', 'databases', 'delete']
+2025-09-10 23:39:04,600 ERROR    root            (gcloud.firestore.databases.delete) argument --database: Must be specified.

@@ -1,0 +1,35 @@
+2025-09-10 23:34:14,692 DEBUG    root            Loaded Command Group: ['gcloud', 'dns']
+2025-09-10 23:34:14,693 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed_zones']
+2025-09-10 23:34:14,698 DEBUG    root            Loaded Command Group: ['gcloud', 'dns', 'managed-zones', 'list']
+2025-09-10 23:34:14,699 DEBUG    root            Running [gcloud.dns.managed-zones.list] with arguments: []
+2025-09-10 23:34:14,714 DEBUG    root            Chosen display Format:table(name, dnsName, description, visibility)
+2025-09-10 23:34:14,715 INFO     root            Display format: "table(name, dnsName, description, visibility)"
+2025-09-10 23:34:14,718 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dns.googleapis.com:443
+2025-09-10 23:34:15,134 DEBUG    urllib3.connectionpool https://dns.googleapis.com:443 "GET /dns/v1/projects/lionspace/managedZones?alt=json&maxResults=100 HTTP/11" 200 None
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ NAME
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___           
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ DNS_NAME
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___                     
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ DESCRIPTION
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___                 
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ VISIBILITY
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ lionsofjudea
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ lionsofjudea-official.org.
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ migrate zone to lionspace
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___   
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ public
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ lionsofzion
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___    
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___ lionsofzion-official.org.
+2025-09-10 23:34:15,140 INFO     ___FILE_ONLY___    
+2025-09-10 23:34:15,141 INFO     ___FILE_ONLY___ migrate zone to lionspace
+2025-09-10 23:34:15,141 INFO     ___FILE_ONLY___   
+2025-09-10 23:34:15,141 INFO     ___FILE_ONLY___ public
+2025-09-10 23:34:15,141 INFO     ___FILE_ONLY___ 
+

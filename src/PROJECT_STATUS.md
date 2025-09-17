@@ -13,7 +13,7 @@
 ### Phase 1: Core Infrastructure
 - **[בוצע] Next.js PWA Setup**: הפרויקט מבוסס Next.js 15 עם App Router.
 - **[בוצע] Core Dependencies**: הותקנו ספריות הליבה כמו `react-query`, `shadcn/ui`, `lucide-react` וכו'.
-- **[בוצע] Firebase SDK Setup**: הוספנו קובץ תצורה ושירות בסיסי (`src/lib/firebase.ts`) שישמש כ-placeholder לחיבור עתידי.
+- **[בוצע] Firebase SDK Setup (Placeholder)**: נוצר קובץ תצורה ושירות בסיסי (`src/lib/firebase.ts`) שישמש כ-placeholder לחיבור עתידי.
 
 ### Phase 3: Advanced UI Components
 - **[בוצע] רכיבי דשבורד בסיסיים**:
@@ -22,6 +22,7 @@
     - `LiveActivityFeed`: מציג פיד פעילות (מתוך נתונים מדומים).
     - `AnalyticsDashboard`: מציג מדדים וגרף (מתוך נתונים מדומים).
 - **[בוצע] מרכוז תמונות Placeholder**: הנתונים של התמונות ב-`LiveActivityFeed` הועברו לקובץ `placeholder-images.json`.
+- **[בתהליך] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`) עבור העורך הויזואלי.
 
 ### Phase 5 / Advanced Features: AI-Powered Insights
 - **[בוצע] AI-Powered Optimization**:
@@ -34,10 +35,10 @@
 
 ### Phase 2: Agent Integration
 - **[לא בוצע] Agent Service Wrapper**: יצירת שירות פלייסהולדר `AgentManager` שידמה הפעלה ועצירה של הסוכן.
-- **[לא בוצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת (כרגע הנתונים סטטיים).
+- **[לא בוצע] Real-time Communication**: שדרוג ה-`LiveActivityFeed` כך שידמה קבלת נתונים בזמן אמת.
 
 ### Phase 3: Advanced UI Components
-- **[לא בוצע] Flowrise-Inspired Visual Editor**: בניית העורך הוויזואלי לתהליכים.
+- **[לא בוצע] השלמת ה-Flowrise-Inspired Visual Editor**: מעבר מהפלייסהולדר למימוש ממשי באמצעות ספרייה כמו `ReactFlow`.
 - **[לא בוצע] חיבור Analytics לנתוני אמת מדומים**: כרגע הדשבורד משתמש בנתונים סטטיים. יש לשדרג אותו כדי שידמה קבלת נתונים דינמיים.
 
 ### Phase 4: Mobile & PWA Features

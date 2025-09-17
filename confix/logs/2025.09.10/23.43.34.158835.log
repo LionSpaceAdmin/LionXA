@@ -1,0 +1,88 @@
+2025-09-10 23:43:34,159 DEBUG    root            Loaded Command Group: ['gcloud', 'auth']
+2025-09-10 23:43:34,163 DEBUG    root            Loaded Command Group: ['gcloud', 'auth', 'login']
+2025-09-10 23:43:34,164 DEBUG    root            Running [gcloud.auth.login] with arguments: [--no-launch-browser: "False", ACCOUNT: "hanudani@gmail.com"]
+2025-09-10 23:43:34,185 DEBUG    requests_oauthlib.oauth2_session Generated new state siocq3enLrKoPnTzYIgjgvQwZjE2gZ.
+2025-09-10 23:43:34,186 INFO     ___FILE_ONLY___ Go to the following link in your browser, and complete the sign-in prompts:
+
+    https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=32555940559.apps.googleusercontent.com&redirect_uri=https%3A%2F%2Fsdk.cloud.google.com%2Fauthcode.html&scope=openid+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcloud-platform+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fappengine.admin+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fsqlservice.login+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fcompute+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Faccounts.reauth&state=siocq3enLrKoPnTzYIgjgvQwZjE2gZ&prompt=consent&token_usage=remote&access_type=offline&code_challenge=8Auu_Vp_6agDPRzMx7uY7e7fFCSGw8D_V82SKx2OrBs&code_challenge_method=S256
+
+
+2025-09-10 23:43:34,186 DEBUG    root            EOF when reading a line
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/auth/login.py", line 334, in Run
+    creds = auth_util.DoInstalledAppBrowserFlowGoogleAuth(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/auth/util.py", line 355, in DoInstalledAppBrowserFlowGoogleAuth
+    user_creds = RemoteLoginWithAuthProxyFlowRunner(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/auth/util.py", line 146, in Run
+    return self._flow.Run(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/flow.py", line 262, in Run
+    return self._Run(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/flow.py", line 810, in _Run
+    code = PromptForAuthCode(
+           ^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/flow.py", line 97, in PromptForAuthCode
+    return input(
+           ^^^^^^
+EOFError: EOF when reading a line
+2025-09-10 23:43:34,187 ERROR    ___FILE_ONLY___ BEGIN CRASH STACKTRACE
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/command_lib/crash_handling.py", line 199, in Wrapper
+    target_function(*args, **kwargs)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/gcloud_main.py", line 190, in main
+    gcloud_cli.Execute()
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 1016, in Execute
+    self._HandleAllErrors(exc, command_path_string, specified_arg_names)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 1060, in _HandleAllErrors
+    exceptions.HandleError(exc, command_path_string, self.__known_error_handler)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/exceptions.py", line 594, in HandleError
+    core_exceptions.reraise(exc)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/exceptions.py", line 149, in reraise
+    six.reraise(type(exc_value), exc_value, tb)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/six/__init__.py", line 719, in reraise
+    raise value
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 946, in Run
+    resources = command_instance.Run(args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/auth/login.py", line 334, in Run
+    creds = auth_util.DoInstalledAppBrowserFlowGoogleAuth(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/auth/util.py", line 355, in DoInstalledAppBrowserFlowGoogleAuth
+    user_creds = RemoteLoginWithAuthProxyFlowRunner(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/auth/util.py", line 146, in Run
+    return self._flow.Run(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/flow.py", line 262, in Run
+    return self._Run(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/flow.py", line 810, in _Run
+    code = PromptForAuthCode(
+           ^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/credentials/flow.py", line 97, in PromptForAuthCode
+    return input(
+           ^^^^^^
+EOFError: EOF when reading a line
+2025-09-10 23:43:34,188 ERROR    root            gcloud crashed (EOFError): EOF when reading a line
+2025-09-10 23:43:34,188 INFO     ___FILE_ONLY___ 
+If you would like to report this issue, please run the following command:
+
+2025-09-10 23:43:34,188 INFO     ___FILE_ONLY___   gcloud feedback
+
+2025-09-10 23:43:34,189 INFO     ___FILE_ONLY___ 
+To check gcloud for common problems, please run the following command:
+
+2025-09-10 23:43:34,189 INFO     ___FILE_ONLY___   gcloud info --run-diagnostics
+

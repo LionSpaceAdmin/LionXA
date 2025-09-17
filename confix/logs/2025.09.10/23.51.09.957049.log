@@ -1,0 +1,13 @@
+2025-09-10 23:51:09,957 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-10 23:51:09,958 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'disable']
+2025-09-10 23:51:09,958 DEBUG    root            Running [gcloud.services.disable] with arguments: [--project: "lionspace", --quiet: "True", SERVICE:1: "['cloudfunctions.googleapis.com']"]
+2025-09-10 23:51:09,971 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-10 23:51:11,456 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "POST /v1/projects/lionspace/services/cloudfunctions.googleapis.com:disable?alt=json HTTP/11" 200 None
+2025-09-10 23:51:11,459 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-10 23:51:12,438 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p17-707897822334-96ec4341-1aa2-40b9-aa95-ce651aa579ee?alt=json HTTP/11" 200 None
+2025-09-10 23:51:14,983 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-10 23:51:16,018 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/operations/acat.p17-707897822334-96ec4341-1aa2-40b9-aa95-ce651aa579ee?alt=json HTTP/11" 200 None
+2025-09-10 23:51:16,020 INFO     ___FILE_ONLY___ Operation "operations/acat.p17-707897822334-96ec4341-1aa2-40b9-aa95-ce651aa579ee" finished successfully.
+
+2025-09-10 23:51:16,020 DEBUG    root            Chosen display Format:none
+2025-09-10 23:51:16,020 INFO     root            Display format: "none"

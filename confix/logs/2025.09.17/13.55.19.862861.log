@@ -1,0 +1,1554 @@
+2025-09-17 13:55:19,864 DEBUG    root            Loaded Command Group: ['gcloud', 'components']
+2025-09-17 13:55:19,865 DEBUG    root            Loaded Command Group: ['gcloud', 'components', 'update']
+2025-09-17 13:55:19,866 DEBUG    root            Running [gcloud.components.update] with arguments: []
+2025-09-17 13:55:23,184 INFO     ___FILE_ONLY___ Beginning update. This process may take several minutes.
+
+2025-09-17 13:55:23,203 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-17 13:55:23,515 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components-2.json HTTP/11" 200 233150
+2025-09-17 13:55:24,021 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,023 INFO     ___FILE_ONLY___ 
+Your current Google Cloud CLI version is: 538.0.0
+
+2025-09-17 13:55:24,024 INFO     ___FILE_ONLY___ You will be upgraded to version: 539.0.0
+
+2025-09-17 13:55:24,024 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,024 DEBUG    root            Chosen display Format:table[box,title="These components will be removed."](details.display_name:label=Name:align=left,version.version_string:label=Version:align=right,data.size.size(zero="",min=1048576):label=Size:align=right)
+2025-09-17 13:55:24,025 DEBUG    root            Chosen display Format:table[box,title="These components will be updated."](details.display_name:label=Name:align=left,version.version_string:label=Version:align=right,data.size.size(zero="",min=1048576):label=Size:align=right)
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ ┌─────────────────────────────────────────────────────────┐
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ │            These components will be updated.            │
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ ├─────────────────────────────────┬────────────┬──────────┤
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ │               Name              │  Version   │   Size   │
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ ├─────────────────────────────────┼────────────┼──────────┤
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ Google Cloud CLI Core Libraries
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,038 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 2025.09.12
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 22.5 MiB
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ gcloud Alpha Commands          
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 2025.09.12
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  < 1 MiB
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ gcloud Beta Commands           
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 2025.09.12
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │ 
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  < 1 MiB
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ │
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ └─────────────────────────────────┴────────────┴──────────┘
+2025-09-17 13:55:24,039 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,039 DEBUG    root            Chosen display Format:table[box,title="These components will be installed."](details.display_name:label=Name:align=left,version.version_string:label=Version:align=right,data.size.size(zero="",min=1048576):label=Size:align=right)
+2025-09-17 13:55:24,040 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:24,042 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-17 13:55:24,561 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/RELEASE_NOTES HTTP/11" 200 1482680
+2025-09-17 13:55:25,297 INFO     ___FILE_ONLY___ The following release notes are new in this upgrade.
+Please read carefully for information about new features, breaking changes,
+and bugs fixed.  The latest full release notes can be viewed at:
+  https://cloud.google.com/sdk/release_notes
+
+
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [1m539.0.0 (2025-09-16)[m
+
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [1mAI[m
+
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ ai[m
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ commands
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ ensure
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ correct
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ endpoint
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ resolution
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ in
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ non-default
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ Google
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ Cloud
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ universes.
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ Added
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [1m--gpu-partition-size[m
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ flag
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,298 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ ai
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ endpoints
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ deploy-model[m
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ multi-instance
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ GPU
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ partitioning.
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ [1mApigee[m
+
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ When
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ an
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ Apigee
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ organization
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ name
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ its
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ Google
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ Cloud
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ project
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ ID
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ are
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ same,
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ apigee[m
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,299 INFO     ___FILE_ONLY___ commands
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ will
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ now
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ automatically
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ use
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ correct
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ regional
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ endpoint.
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ [1mApp Engine[m
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ Java
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ SDK
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ version
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 2.0.39
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ build
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ from
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ open
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ source
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ project
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ <https://github.com/GoogleCloudPlatform/appengine-java-standard/releases/tag/v2.0.39>.
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,300 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1mCloud Backup DR[m
+
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ Promoted
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ backup-dr
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ service-config[m
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ command
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ group
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ which
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ includes
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ backup-dr
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ service-config
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ init[m
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ GA.
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1mCloud Filestore[m
+
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ Added
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1mpsc-endpoint-project[m
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ option
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1m--network[m
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ flag
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ of
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,301 INFO     ___FILE_ONLY___ filestore
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ instances
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ command.
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1mCloud Interconnect[m
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ Promoted
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1m--subzone[m
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ flag
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ of
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ interconnects
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ GA.
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1mCloud Key Management Service[m
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ Add
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ support
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1mkey-encapsulation[m
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ key
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ purpose
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1mml-kem-768[m,
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,302 INFO     ___FILE_ONLY___ [1mml-kem-1024[m,
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ [1mkem-xwing[m
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ algorithms.
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ Add
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ support
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ [1mder[m
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ [1mxwing-raw-bytes[m
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ format.
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ Fix
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ bug
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ in
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ get-public-key:
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ when
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ non-pem
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ format
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ is
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ specified,
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ returned
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ public
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ key
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ should
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ be
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ in
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___ raw
+2025-09-17 13:55:25,303 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ bytes
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ (not
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ in
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ base-64).
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ Add
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ support
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ decapsulate.
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ [1mCloud Resource Manager[m
+
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ resource-manager
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ tags
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ values
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ support
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ Hierarchical
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ Tag
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ Values
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ release.
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,304 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ resource-manager
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ tags
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ values
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ list[m
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ support
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ Hierarchical
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ Tag
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ Values
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ release.
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ [1mCloud SQL[m
+
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ Promoted
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ [1mpatch
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ --[clear-]psc-auto-connections[m
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ flags
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ GA
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ PSC
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ service
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ automation.
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ Added
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___ [1m--source-instance-deletion-time[m
+2025-09-17 13:55:25,305 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ flag
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ sql
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ instances
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ clone[m,
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ sql
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ instances
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ get-latest-recovery-time[m
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ support
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ clone
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ from
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ deleted
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ instances.
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ 'cloud-sql-proxy'
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ packaged
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ component
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ use
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ 2.18.2
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ of
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ Cloud
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ SQL
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,306 INFO     ___FILE_ONLY___ Proxy.
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [1mCloud TPU[m
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ Promoted
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [1m--boot-disk[m
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ flag
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ with
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [1mkms-key[m
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ option
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ GA
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ tpus
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ tpu-vm
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ tpus
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ queued-resources
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ create[m.
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ [1mCompute Engine[m
+
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,307 INFO     ___FILE_ONLY___ Promoted
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ [1m--provisioning-model=flex-start[m
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ GA
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ instances
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ instance-templates
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ commands.
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ Promoted
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ [1m--request-valid-for-duration[m
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ GA
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ instances
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ create[m
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ command.
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ Added
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ [1mSNP_SVSM_CAPABLE[m
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,308 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ list
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ of
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [1mguestOsFeatures[m.
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ Removed
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ extension
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ specific
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [1m<extension>-version[m
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [1m<extension>-config[m
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ flags
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ added
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ generic
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ '--config'
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [1m--version[m
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ flags
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ compute
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ zone-vm-extension-policies
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ create|update[m
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ commands.
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___ [1mKubernetes Engine[m
+
+2025-09-17 13:55:25,309 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ Removed
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ [1mThe
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ Kubelet
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ readonly
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ port
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ (10255)
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ is
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ now
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ deprecated[m
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ warning
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ on
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ [1mgcloud[m
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ CLI
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ cluster
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ creation
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ unless
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ either
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ enable-insecure-kubelet-readonly-port
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ or
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ autoprovisioning-enable-insecure-kubelet-readonly-port
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ flags
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ are
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ set.
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,310 INFO     ___FILE_ONLY___ Deprecate
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ flag
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ option
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ [1m--tier[m
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ in
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ container
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ clusters
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ create[m,
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ container
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ clusters
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ create-auto[m
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ container
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ clustes
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ update[m
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ commands.
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ Deprecated
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ as
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ GKE
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ Enterprise
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ features
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ are
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ now
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ available
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ without
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ an
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ Enterprise
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,311 INFO     ___FILE_ONLY___ tier.
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ See
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ <https://cloud.google.com/kubernetes-engine/docs/release-notes#September_02_2025>
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ the
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ announcement
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ of
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ this
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ change.
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ Added
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mswapConfig[m
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ option
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ with
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1menabled[m,
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mencryptionConfig[m,
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mbootDiskProfile[m,
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mephemeralLocalSsdProfile[m,
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mdedicatedLocalSsdProfile[m
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ fields
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ container
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ clusters
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ create[m,
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,312 INFO     ___FILE_ONLY___ container
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ node-pools
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ create[m,
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ and`gcloud
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ container
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ node-pools
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ update[1m
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ commands
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ configure
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ swap
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ space
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ on
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ nodes.
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ [1mNetwork Security[m
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ import
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ export
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ schemas
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ network-security
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ security-profile-groups[m.
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___ Updated
+2025-09-17 13:55:25,313 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ import
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ and
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ export
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ schemas
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ for
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ network-security
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ security-profiles[m.
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ [1mPubsub Emulator[m
+
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ Fix
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ bug
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ that
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ caused
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ non-utf8
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ data
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ be
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ incorrectly
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ decoded
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ before
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ being
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ sent
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ a
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ subscription's
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ push
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ endpoint.
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,314 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___   
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ [1mRecommender[m
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ Update
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ recommender
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ list
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ insights[m
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ recursive
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ search
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ feature
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ release
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ target.
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___       ▪
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ Update
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ [1mgcloud
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ recommender
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ list
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ recommendations[m
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ recursive
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ search
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___         
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ feature
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ beta
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ release
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ target.
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___    
+2025-09-17 13:55:25,315 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ Subscribe
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ to
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ these
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ release
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ notes
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___  
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ at
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___     
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ https://groups.google.com/forum/#!forum/google-cloud-sdk-announce
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___     
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ (https://groups.google.com/forum/#!forum/google-cloud-sdk-announce).
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ [m
+2025-09-17 13:55:25,316 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:29,025 INFO     ___FILE_ONLY___ Performing in place update...
+
+
+2025-09-17 13:55:29,026 INFO     ___FILE_ONLY___ ╔════════════════════════════════════════════════════════════╗
+
+2025-09-17 13:55:29,026 INFO     ___FILE_ONLY___ ╠═ Downloading: Google Cloud CLI Core Libraries             ═╣
+
+2025-09-17 13:55:29,026 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:29,031 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-17 13:55:29,797 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components/google-cloud-sdk-core-20250912135004.tar.gz HTTP/11" 200 23575074
+2025-09-17 13:55:35,119 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,120 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,121 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,121 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,121 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,122 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,122 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,123 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,123 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,124 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,124 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,125 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,125 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,126 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,127 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,127 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,128 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,128 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,129 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,129 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,130 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,131 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,132 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,133 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,133 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,134 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,134 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,135 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,135 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,136 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,136 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,136 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,137 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,137 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,138 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,138 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,139 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,139 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,140 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,140 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,141 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,141 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,143 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,144 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,144 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,145 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,145 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,145 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,146 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,146 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,147 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,147 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,147 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,148 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,148 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,149 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,149 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,149 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,150 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,150 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:35,150 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:35,151 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:35,152 INFO     ___FILE_ONLY___ ╠═ Downloading: gcloud Alpha Commands                       ═╣
+
+2025-09-17 13:55:35,152 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:35,155 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-17 13:55:35,676 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components/google-cloud-sdk-alpha-20250912135004.tar.gz HTTP/11" 200 800
+2025-09-17 13:55:35,677 INFO     ___FILE_ONLY___ ════════════════════════════════════════════════════════════
+2025-09-17 13:55:35,677 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:35,678 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:35,678 INFO     ___FILE_ONLY___ ╠═ Downloading: gcloud Beta Commands                        ═╣
+
+2025-09-17 13:55:35,678 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:35,681 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): dl.google.com:443
+2025-09-17 13:55:36,014 DEBUG    urllib3.connectionpool https://dl.google.com:443 "GET /dl/cloudsdk/channels/rapid/components/google-cloud-sdk-beta-20250912135004.tar.gz HTTP/11" 200 797
+2025-09-17 13:55:36,015 INFO     ___FILE_ONLY___ ════════════════════════════════════════════════════════════
+2025-09-17 13:55:36,015 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:36,016 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:36,016 INFO     ___FILE_ONLY___ ╠═ Uninstalling: Google Cloud CLI Core Libraries            ═╣
+
+2025-09-17 13:55:36,016 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:36,074 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,097 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,116 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,133 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,152 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,174 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,197 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,215 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,233 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,252 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,270 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,285 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,303 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,317 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,348 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,373 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,397 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,419 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,438 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,456 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,473 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,495 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,512 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,531 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,550 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,567 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,587 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,606 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,624 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,640 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,658 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,675 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,691 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,706 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,720 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,736 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,750 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,764 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,780 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,796 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,812 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,830 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,851 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,868 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,884 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,901 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,918 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,936 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,953 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,972 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:36,988 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,006 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,025 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,040 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,057 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,075 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,091 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,109 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,126 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,142 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:37,142 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:38,345 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:38,345 INFO     ___FILE_ONLY___ ╠═ Uninstalling: gcloud Alpha Commands                      ═╣
+
+2025-09-17 13:55:38,345 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:38,345 INFO     ___FILE_ONLY___ ════════════════════════════════════════════════════════════
+2025-09-17 13:55:38,345 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:38,346 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:38,346 INFO     ___FILE_ONLY___ ╠═ Uninstalling: gcloud Beta Commands                       ═╣
+
+2025-09-17 13:55:38,346 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:38,346 INFO     ___FILE_ONLY___ ════════════════════════════════════════════════════════════
+2025-09-17 13:55:38,346 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:38,347 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:38,347 INFO     ___FILE_ONLY___ ╠═ Installing: Google Cloud CLI Core Libraries              ═╣
+
+2025-09-17 13:55:38,347 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:38,855 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:38,880 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:38,904 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:38,927 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:38,950 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:38,978 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,003 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,028 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,052 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,075 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,099 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,122 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,146 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,171 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,209 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,243 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,297 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,333 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,372 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,406 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,469 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,499 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,521 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,542 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,563 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,583 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,606 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,628 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,651 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,673 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,695 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,718 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,742 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,765 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,788 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,811 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,833 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,856 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,878 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,899 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,921 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,943 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,966 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:39,988 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,010 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,033 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,055 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,078 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,100 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,122 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,145 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,186 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,219 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,241 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,263 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,286 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,309 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,331 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,354 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,379 INFO     ___FILE_ONLY___ ═
+2025-09-17 13:55:40,379 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:40,415 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:40,415 INFO     ___FILE_ONLY___ ╠═ Installing: gcloud Alpha Commands                        ═╣
+
+2025-09-17 13:55:40,415 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:40,415 INFO     ___FILE_ONLY___ ════════════════════════════════════════════════════════════
+2025-09-17 13:55:40,415 INFO     ___FILE_ONLY___ ╝
+2025-09-17 13:55:40,416 INFO     ___FILE_ONLY___ ╠════════════════════════════════════════════════════════════╣
+
+2025-09-17 13:55:40,416 INFO     ___FILE_ONLY___ ╠═ Installing: gcloud Beta Commands                         ═╣
+
+2025-09-17 13:55:40,416 INFO     ___FILE_ONLY___ ╚
+2025-09-17 13:55:40,417 INFO     ___FILE_ONLY___ ════════════════════════════════════════════════════════════
+2025-09-17 13:55:40,417 INFO     ___FILE_ONLY___ ╝
+
+2025-09-17 13:55:40,419 DEBUG    root            Updating notification cache...
+2025-09-17 13:55:40,419 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:55:40,419 INFO     ___FILE_ONLY___ Performing post processing steps...
+2025-09-17 13:55:40,419 DEBUG    root            Executing command: ['/opt/homebrew/share/google-cloud-sdk/bin/gcloud', 'components', 'post-process']
+2025-09-17 13:55:44,552 DEBUG    ___FILE_ONLY___ 
+2025-09-17 13:55:44,552 DEBUG    ___FILE_ONLY___ 
+2025-09-17 13:55:44,710 INFO     root            descriptor_list: [{'universeDomain': 'googleapis.com', 'universeShortName': '', 'authenticationDomain': 'auth.cloud.google.com', 'projectPrefix': '', 'cloudWebDomain': 'cloud.google.com', 'documentationDomain': 'cloud.google.com', 'version': '1.0.0', 'state': 'primary', 'artifactRegistryDomain': 'pkg.dev'}]
+2025-09-17 13:55:50,731 DEBUG    root            Loaded Command Group: ['gcloud']
+2025-09-17 13:55:50,739 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha']
+2025-09-17 13:55:50,740 DEBUG    root            Loaded Command Group: ['gcloud', 'beta']
+2025-09-17 13:55:50,741 DEBUG    root            Loaded Command Group: ['gcloud', 'container']
+2025-09-17 13:55:50,742 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'container']
+2025-09-17 13:55:50,743 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'container']
+2025-09-17 13:55:50,744 DEBUG    root            Loaded Command Group: ['gcloud', 'bigtable']
+2025-09-17 13:55:50,745 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'bigtable']
+2025-09-17 13:55:50,745 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'bigtable']
+2025-09-17 13:55:50,746 DEBUG    root            Loaded Command Group: ['gcloud', 'compute']
+2025-09-17 13:55:50,748 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'compute']
+2025-09-17 13:55:50,750 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'compute']
+2025-09-17 13:55:50,753 DEBUG    root            Loaded Command Group: ['gcloud', 'config']
+2025-09-17 13:55:50,753 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'virtualenv']
+2025-09-17 13:55:50,760 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'virtualenv', 'update']
+2025-09-17 13:55:50,761 DEBUG    root            Running [gcloud.config.virtualenv.update] with arguments: []
+2025-09-17 13:55:50,761 INFO     ___FILE_ONLY___ Updating modules...
+
+2025-09-17 13:55:50,761 DEBUG    root            Executing command: ['/Users/danielions/.config/gcloud/virtenv/bin/pip3', 'install', '--log', '/Users/danielions/.config/gcloud/virtenv/update_module.log', '-q', '--disable-pip-version-check', 'crcmod', 'grpcio', 'pyopenssl==24.2.1', 'google_crc32c', 'certifi', 'https://github.com/googleapis/enterprise-certificate-proxy/releases/download/v0.3.6/cryptography-42.0.7-cp39-abi3-macosx_10_12_universal2.whl', 'setuptools']
+2025-09-17 13:55:56,685 INFO     ___FILE_ONLY___ Modules updated.
+
+2025-09-17 13:55:56,686 DEBUG    root            Chosen display Format:default
+2025-09-17 13:55:56,686 INFO     root            Display format: "default"
+2025-09-17 13:55:56,688 DEBUG    root            Loaded Command Group: ['gcloud', 'config', 'virtualenv', 'enable']
+2025-09-17 13:55:56,689 DEBUG    root            Running [gcloud.config.virtualenv.enable] with arguments: []
+2025-09-17 13:55:56,689 INFO     ___FILE_ONLY___ Virtual env enabled.
+
+2025-09-17 13:55:56,689 DEBUG    root            Chosen display Format:default
+2025-09-17 13:55:56,689 INFO     root            Display format: "default"
+2025-09-17 13:55:56,689 INFO     ___FILE_ONLY___ 
+Update done!
+
+
+2025-09-17 13:55:56,689 INFO     ___FILE_ONLY___ To revert your CLI to the previously installed version, you may run:
+  $ gcloud components update --version 538.0.0
+
+
+2025-09-17 13:55:56,691 DEBUG    root            Chosen display Format:none
+2025-09-17 13:55:56,691 INFO     root            Display format: "none"

@@ -1,0 +1,28 @@
+2025-09-16 00:33:54,341 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations']
+2025-09-16 00:33:54,345 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations', 'get_iam_policy']
+2025-09-16 00:33:54,346 DEBUG    root            Running [gcloud.organizations.get-iam-policy] with arguments: [--filter: "bindings.members:user:Hanudani@gmail.com", --flatten: "['bindings[].members']", --format: "table(bindings.role)", ORGANIZATION_ID: "985698468107"]
+2025-09-16 00:33:54,359 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:33:55,850 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 00:33:55,855 DEBUG    root            Chosen display Format:default table(bindings.role)
+2025-09-16 00:33:55,857 INFO     root            Display format: "default table(bindings.role)"
+2025-09-16 00:33:55,883 INFO     ___FILE_ONLY___ ROLE
+2025-09-16 00:33:55,883 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ roles/billing.admin
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ roles/owner
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ roles/resourcemanager.folderAdmin
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ roles/resourcemanager.folderCreator
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ roles/resourcemanager.organizationAdmin
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ roles/resourcemanager.projectCreator
+2025-09-16 00:33:55,884 INFO     ___FILE_ONLY___ 
+

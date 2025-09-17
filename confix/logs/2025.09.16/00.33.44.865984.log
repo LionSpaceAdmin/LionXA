@@ -1,0 +1,454 @@
+2025-09-16 00:33:44,866 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations']
+2025-09-16 00:33:44,873 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations', 'add_iam_policy_binding']
+2025-09-16 00:33:44,876 DEBUG    root            Running [gcloud.organizations.add-iam-policy-binding] with arguments: [--member: "user:Hanudani@gmail.com", --role: "roles/owner", ORGANIZATION: "985698468107"]
+2025-09-16 00:33:44,887 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:33:46,082 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:getIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 00:33:46,103 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-16 00:33:48,376 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "POST /v1/organizations/985698468107:setIamPolicy?alt=json HTTP/11" 200 None
+2025-09-16 00:33:48,378 INFO     ___FILE_ONLY___ Updated IAM policy for organization [985698468107].
+
+2025-09-16 00:33:48,378 DEBUG    root            Chosen display Format:default
+2025-09-16 00:33:48,379 INFO     root            Display format: "default"
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ bindings
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,400 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ roles/accesscontextmanager.policyAdmin
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ group:gcp-billing-admins@lionsofzion-official.org
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,401 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ roles/billing.admin
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ domain:lionsofzion-official.org
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ group:gcp-billing-admins@lionsofzion-official.org
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ roles/billing.creator
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,402 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ roles/billing.user
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ roles/cloudkms.admin
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ roles/cloudsupport.admin
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ serviceAccount:service-org-985698468107@gcp-sa-ktd-hpsa.iam.gserviceaccount.com
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,403 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ roles/containerthreatdetection.serviceAgent
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ roles/iam.organizationRoleAdmin
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ deleted:serviceAccount:firebase-adminsdk-fbsvc@lionspace.iam.gserviceaccount.com?uid=102817140316643318297
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ roles/iap.admin
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:48,404 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ roles/orgpolicy.policyAdmin
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ roles/owner
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ roles/pubsub.admin
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,405 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ roles/resourcemanager.folderAdmin
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ roles/resourcemanager.folderCreator
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,406 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ user:admin@lionsofzion-official.org
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ roles/resourcemanager.organizationAdmin
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ group:gcp-billing-admins@lionsofzion-official.org
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ roles/resourcemanager.organizationViewer
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ domain:lionsofzion-official.org
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ user:Hanudani@gmail.com
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ roles/resourcemanager.projectCreator
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,407 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ group:gcp-organization-admins@lionsofzion-official.org
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ roles/securitycenter.admin
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ members
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ -
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ serviceAccount:service-org-985698468107@security-center-api.iam.gserviceaccount.com
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___   
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ role
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ roles/securitycenter.serviceAgent
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ etag
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ BwY-3cJEgPQ=
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ version
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ :
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___  
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 1
+2025-09-16 00:33:48,408 INFO     ___FILE_ONLY___ 
+

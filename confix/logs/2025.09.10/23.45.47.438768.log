@@ -1,0 +1,103 @@
+2025-09-10 23:45:47,439 DEBUG    root            Loaded Command Group: ['gcloud', 'billing']
+2025-09-10 23:45:47,440 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'budgets']
+2025-09-10 23:45:47,449 DEBUG    root            Loaded Command Group: ['gcloud', 'billing', 'budgets', 'list']
+2025-09-10 23:45:47,452 DEBUG    root            Running [gcloud.billing.budgets.list] with arguments: [--billing-account: "015F38-D19F46-0B1ABA"]
+2025-09-10 23:45:47,460 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:47,460 INFO     root            Display format: "default"
+2025-09-10 23:45:47,464 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): billingbudgets.googleapis.com:443
+2025-09-10 23:45:48,338 DEBUG    urllib3.connectionpool https://billingbudgets.googleapis.com:443 "GET /v1/billingAccounts/015F38-D19F46-0B1ABA/budgets?alt=json HTTP/11" 403 None
+2025-09-10 23:45:48,339 DEBUG    root            Chosen display Format:value(message.list(separator="
+"))
+2025-09-10 23:45:48,344 DEBUG    root            Chosen display Format:value(links.flatten(show="values",separator="
+"))
+2025-09-10 23:45:48,345 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:48,346 DEBUG    root            Chosen display Format:value(message.list(separator="
+"))
+2025-09-10 23:45:48,346 DEBUG    root            Chosen display Format:value(links.flatten(show="values",separator="
+"))
+2025-09-10 23:45:48,346 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:48,346 DEBUG    root            Chosen display Format:value(message.list(separator="
+"))
+2025-09-10 23:45:48,346 DEBUG    root            Chosen display Format:value(links.flatten(show="values",separator="
+"))
+2025-09-10 23:45:48,347 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:48,349 DEBUG    root            Chosen display Format:value(message.list(separator="
+"))
+2025-09-10 23:45:48,349 DEBUG    root            Chosen display Format:value(links.flatten(show="values",separator="
+"))
+2025-09-10 23:45:48,349 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:48,347 DEBUG    root            (gcloud.billing.budgets.list) [admin@lionsofzion-official.org] does not have permission to access billingAccounts instance [015F38-D19F46-0B1ABA] (or it may not exist): Cloud Billing Budget API has not been used in project lionspace before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property.
+Cloud Billing Budget API has not been used in project lionspace before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Google developers console API activation
+https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: googleapis.com
+  metadata:
+    activationUrl: https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace
+    consumer: projects/lionspace
+    containerInfo: lionspace
+    service: billingbudgets.googleapis.com
+    serviceTitle: Cloud Billing Budget API
+  reason: SERVICE_DISABLED
+Traceback (most recent call last):
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/cli.py", line 987, in Execute
+    resources = calliope_command.Run(cli=self, args=args)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/backend.py", line 949, in Run
+    ).Display()
+      ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/calliope/display.py", line 507, in Display
+    self._printer.Print(self._resources)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/core/resource/resource_printer_base.py", line 301, in Print
+    for resource in resources:
+                    ^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/list_pager.py", line 120, in YieldFromList
+    response = getattr(service, method)(request,
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/generated_clients/apis/billingbudgets/v1/billingbudgets_v1_client.py", line 146, in List
+    return self._RunMethod(
+           ^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/base_api.py", line 744, in _RunMethod
+    http_response = http_wrapper.MakeRequest(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 359, in MakeRequest
+    retry_func(ExceptionRetryArgs(http, http_request, e, retry,
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 304, in HandleExceptionsAndRebuildHttpConnections
+    raise retry_args.exc
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 348, in MakeRequest
+    return _MakeRequestNoRetry(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/third_party/apitools/base/py/http_wrapper.py", line 406, in _MakeRequestNoRetry
+    check_response_func(response)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 239, in _CheckResponse
+    _CheckForApiEnablementError(response_as_error)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 198, in _CheckForApiEnablementError
+    PromptToEnableApi(*enablement_info)
+  File "/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/googlecloudsdk/api_lib/util/apis.py", line 181, in PromptToEnableApi
+    raise exception
+googlecloudsdk.api_lib.util.exceptions.HttpException: [admin@lionsofzion-official.org] does not have permission to access billingAccounts instance [015F38-D19F46-0B1ABA] (or it may not exist): Cloud Billing Budget API has not been used in project lionspace before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property.
+Cloud Billing Budget API has not been used in project lionspace before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Google developers console API activation
+https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: googleapis.com
+  metadata:
+    activationUrl: https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace
+    consumer: projects/lionspace
+    containerInfo: lionspace
+    service: billingbudgets.googleapis.com
+    serviceTitle: Cloud Billing Budget API
+  reason: SERVICE_DISABLED
+2025-09-10 23:45:48,350 ERROR    root            (gcloud.billing.budgets.list) [admin@lionsofzion-official.org] does not have permission to access billingAccounts instance [015F38-D19F46-0B1ABA] (or it may not exist): Cloud Billing Budget API has not been used in project lionspace before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry. This command is authenticated as admin@lionsofzion-official.org which is the active account specified by the [core/account] property.
+Cloud Billing Budget API has not been used in project lionspace before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry.
+Google developers console API activation
+https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace
+- '@type': type.googleapis.com/google.rpc.ErrorInfo
+  domain: googleapis.com
+  metadata:
+    activationUrl: https://console.developers.google.com/apis/api/billingbudgets.googleapis.com/overview?project=lionspace
+    consumer: projects/lionspace
+    containerInfo: lionspace
+    service: billingbudgets.googleapis.com
+    serviceTitle: Cloud Billing Budget API
+  reason: SERVICE_DISABLED

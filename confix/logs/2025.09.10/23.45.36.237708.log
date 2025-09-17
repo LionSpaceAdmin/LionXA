@@ -1,0 +1,43 @@
+2025-09-10 23:45:36,239 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations']
+2025-09-10 23:45:36,241 DEBUG    root            Loaded Command Group: ['gcloud', 'organizations', 'describe']
+2025-09-10 23:45:36,242 DEBUG    root            Running [gcloud.organizations.describe] with arguments: [ORGANIZATION_ID: "985698468107"]
+2025-09-10 23:45:36,253 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-10 23:45:37,281 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/organizations/985698468107?alt=json HTTP/11" 200 None
+2025-09-10 23:45:37,282 DEBUG    root            Chosen display Format:default
+2025-09-10 23:45:37,282 INFO     root            Display format: "default"
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ creationTime
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___  '
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 2025-07-28T19:18:49.400177Z
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ '
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ displayName
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ lionsofzion-official.org
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ lifecycleState
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ ACTIVE
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ name
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ organizations/985698468107
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ owner
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 
+
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___   
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ directoryCustomerId
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ :
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___  
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ C02mzrr8v
+2025-09-10 23:45:37,289 INFO     ___FILE_ONLY___ 
+

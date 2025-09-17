@@ -1,0 +1,481 @@
+2025-09-17 16:06:11,766 DEBUG    root            Loaded Command Group: ['gcloud', 'services']
+2025-09-17 16:06:11,771 DEBUG    root            Loaded Command Group: ['gcloud', 'services', 'list']
+2025-09-17 16:06:11,771 DEBUG    root            Running [gcloud.services.list] with arguments: [--enabled: "True", --project: "lionsofzion-bcc4a"]
+2025-09-17 16:06:11,806 DEBUG    google.auth.transport.requests Making request: POST https://oauth2.googleapis.com/token
+2025-09-17 16:06:11,810 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): oauth2.googleapis.com:443
+2025-09-17 16:06:12,038 DEBUG    urllib3.connectionpool https://oauth2.googleapis.com:443 "POST /token HTTP/11" 200 None
+2025-09-17 16:06:12,058 DEBUG    root            Chosen display Format:
+          table(
+            config.name:label=NAME:sort=1,
+            config.title
+          )
+        
+2025-09-17 16:06:12,058 INFO     root            Display format: "
+          table(
+            config.name:label=NAME:sort=1,
+            config.title
+          )
+        "
+2025-09-17 16:06:12,061 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): serviceusage.googleapis.com:443
+2025-09-17 16:06:13,620 DEBUG    urllib3.connectionpool https://serviceusage.googleapis.com:443 "GET /v1/projects/lionsofzion-bcc4a/services?alt=json&filter=state%3AENABLED&pageSize=200 HTTP/11" 200 None
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ NAME
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                                          
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ TITLE
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ admin.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                          
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ Admin SDK API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ aiplatform.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                     
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ Vertex AI API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ analyticshub.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                   
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ Analytics Hub API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ apigee.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                         
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ Apigee API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ apihub.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                         
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ API hub API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ apikeys.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ API Keys API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ appengine.googleapis.com
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ App Engine Admin API
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,825 INFO     ___FILE_ONLY___ appenginereporting.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ App Engine
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ apphub.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___                         
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ App Hub API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ artifactregistry.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___               
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ Artifact Registry API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ bigquery.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ BigQuery API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ bigqueryconnection.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ BigQuery Connection API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ bigquerydatapolicy.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ BigQuery Data Policy API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ bigquerymigration.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ BigQuery Migration API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ bigqueryreservation.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___            
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ BigQuery Reservation API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ bigquerystorage.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___                
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ BigQuery Storage API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ certificatemanager.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ Certificate Manager API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ cloudaicompanion.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___               
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ Gemini for Google Cloud API
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ cloudapis.googleapis.com
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ Google Cloud APIs
+2025-09-17 16:06:13,826 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ cloudasset.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                     
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Cloud Asset API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ cloudbilling.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                   
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Cloud Billing API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ cloudbuild.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                     
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Cloud Build API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ cloudfunctions.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                 
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Cloud Functions API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ cloudresourcemanager.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___           
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Cloud Resource Manager API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ cloudtrace.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                     
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Cloud Trace API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ compute.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Compute Engine API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ connectors.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___                     
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Connectors API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ containeranalysis.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Container Analysis API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ containerfilesystem.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___            
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Container File System API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ containerregistry.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Container Registry API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ containerscanning.googleapis.com
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ Container Scanning API
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,827 INFO     ___FILE_ONLY___ containerthreatdetection.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___       
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Container Threat Detection API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ dataflow.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Dataflow API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ dataform.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Dataform API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ datalineage.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                    
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Data Lineage API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ dataplex.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Cloud Dataplex API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ datastore.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Cloud Datastore API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ deploymentmanager.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Cloud Deployment Manager V2 API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ developerconnect.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___               
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Developer Connect API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ dns.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                            
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Cloud DNS API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ domains.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Cloud Domains API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ drive.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                          
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Google Drive API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ edgecache.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Global Edge Cache Service
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ eventarc.googleapis.com
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ Eventarc API
+2025-09-17 16:06:13,828 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ fcm.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___                            
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Cloud Messaging API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ fcmregistrations.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___               
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ FCM Registration API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebase.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Management API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaseappdistribution.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___        
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase App Distribution API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaseapphosting.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase App Hosting API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaseextensions.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Extensions API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebasehosting.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___                
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Hosting API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaseinstallations.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___          
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Installations API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaseremoteconfig.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___           
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Remote Config API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaseremoteconfigrealtime.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___   
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Remote Config Realtime API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebaserules.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___                  
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Firebase Rules API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firebasestorage.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___                
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Cloud Storage for Firebase API
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ firestore.googleapis.com
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,829 INFO     ___FILE_ONLY___ Cloud Firestore API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ geminicloudassist.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Gemini Cloud Assist API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ generativelanguage.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Generative Language API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ iam.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                            
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Identity and Access Management (IAM) API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ iamcredentials.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                 
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ IAM Service Account Credentials API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ identitytoolkit.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Identity Toolkit API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ integrations.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                   
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Application Integration API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ logging.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Cloud Logging API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ monitoring.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                     
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Cloud Monitoring API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ networkconnectivity.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___            
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Network Connectivity API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ networkservices.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Network Services API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ notebooks.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Notebooks API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ notebooksecurityscanner.googleapis.com
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___        
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ Notebook Security Scanner API
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,830 INFO     ___FILE_ONLY___ oslogin.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Cloud OS Login API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ pubsub.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                         
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Cloud Pub/Sub API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ recaptchaenterprise.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___            
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ reCAPTCHA Enterprise API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ recommender.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                    
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Recommender API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ run.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                            
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Cloud Run Admin API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ runtimeconfig.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                  
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Cloud Runtime Configuration API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ secretmanager.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                  
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Secret Manager API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ securetoken.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                    
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Token Service API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ servicemanagement.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Service Management API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ serviceusage.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                   
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Service Usage API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ source.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                         
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Legacy Cloud Source Repositories API
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ sql-component.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                  
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ Cloud SQL
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___ sqladmin.googleapis.com
+2025-09-17 16:06:13,831 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Cloud SQL Admin API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ storage-api.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___                    
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Google Cloud Storage JSON API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ storage-component.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___              
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Cloud Storage
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ storage.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Cloud Storage API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ testing.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___                        
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Cloud Testing API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ visionai.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___                       
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Vision AI API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ websecurityscanner.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Web Security Scanner API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ workflowexecutions.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___             
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Workflow Executions API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ workflows.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___                      
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Workflows API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ workstations.googleapis.com
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___                   
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ Cloud Workstations API
+2025-09-17 16:06:13,832 INFO     ___FILE_ONLY___ 
+
+2025-09-17 16:06:13,841 DEBUG    root            Metrics reporting process started...

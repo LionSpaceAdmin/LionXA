@@ -1,0 +1,59 @@
+2025-09-17 13:56:42,155 DEBUG    root            Loaded Command Group: ['gcloud', 'projects']
+2025-09-17 13:56:42,157 DEBUG    root            Loaded Command Group: ['gcloud', 'projects', 'describe']
+2025-09-17 13:56:42,158 DEBUG    root            Running [gcloud.projects.describe] with arguments: [PROJECT_ID_OR_NUMBER: "lionsofzion-bcc4a"]
+2025-09-17 13:56:42,170 DEBUG    urllib3.connectionpool Starting new HTTPS connection (1): cloudresourcemanager.googleapis.com:443
+2025-09-17 13:56:43,217 DEBUG    urllib3.connectionpool https://cloudresourcemanager.googleapis.com:443 "GET /v1/projects/lionsofzion-bcc4a?alt=json HTTP/11" 200 None
+2025-09-17 13:56:43,222 DEBUG    root            Chosen display Format:default
+2025-09-17 13:56:43,223 INFO     root            Display format: "default"
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ createTime
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___  '
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ 2025-07-10T01:49:29.608865Z
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ '
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ lifecycleState
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___  
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ ACTIVE
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ name
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___  
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ LionsOfZion
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ parent
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,252 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___   
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ id
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___  '
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ 172983073065
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ '
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___   
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ type
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___  
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ folder
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ projectId
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___  
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ lionsofzion-bcc4a
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ projectNumber
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ :
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___  '
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ 266978726573
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ '
+2025-09-17 13:56:43,253 INFO     ___FILE_ONLY___ 
+
+2025-09-17 13:56:43,261 DEBUG    root            Metrics reporting process started...

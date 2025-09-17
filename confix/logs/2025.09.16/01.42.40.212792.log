@@ -1,0 +1,11 @@
+2025-09-16 01:42:40,213 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'resource_manager']
+2025-09-16 01:42:40,214 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'resource-manager', 'org_policies']
+2025-09-16 01:42:40,215 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'resource-manager', 'capabilities']
+2025-09-16 01:42:40,218 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'resource-manager', 'folders']
+2025-09-16 01:42:40,218 DEBUG    root            No implementation for release track [BETA] for element: [/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/resource_manager/operations]
+2025-09-16 01:42:40,219 DEBUG    root            No implementation for release track [BETA] for element: [/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/resource_manager/settings]
+2025-09-16 01:42:40,219 DEBUG    root            Loaded Command Group: ['gcloud', 'beta', 'resource-manager', 'tags']
+2025-09-16 01:42:40,219 DEBUG    root            No implementation for release track [BETA] for element: [/opt/homebrew/Caskroom/gcloud-cli/538.0.0/google-cloud-sdk/lib/surface/resource_manager/liens]
+2025-09-16 01:42:40,220 DEBUG    root            Loaded Command Group: ['gcloud', 'resource_manager']
+2025-09-16 01:42:40,220 DEBUG    root            Loaded Command Group: ['gcloud', 'alpha', 'resource_manager']
+2025-09-16 01:42:40,220 ERROR    root            (gcloud.beta.resource-manager) Invalid choice: 'projects'.
