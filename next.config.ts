@@ -12,6 +12,9 @@ const withPWA = require('next-pwa')({
 
 const nextConfig = {
   /* config options here */
+  experimental: {
+    allowedDevOrigins: ["6000-firebase-studio-1758132286460.cluster-pbm4nlfnrzakyryoooaq5fq3ps.cloudworkstations.dev"],
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
