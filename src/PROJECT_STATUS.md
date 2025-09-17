@@ -36,22 +36,19 @@
 - **[בוצע] Agent Service Wrapper**: נוצר שירות `AgentManager` שמפעיל ועוצר את הסוכן האמיתי.
 - **[בוצע] Real-time Communication (בסיסי)**: ה-`LiveActivityFeed` חובר ללוגים האמיתיים של הסוכן.
 
+### Phase 4: Mobile & PWA Features
+- **[בוצע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל, כולל התאמת פיד הפעילות והוספת יכולות PWA בסיסיות.
+
 ---
 
 ## ❌ מה טרם בוצע (הצ'ק ליסט שלנו)
 
-### Phase 4: Mobile & PWA Features
-- **[בביצוע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל עם מחוות מגע והתראות.
 - **[לא בוצע] Push Notifications System**: בניית מערכת פלייסהולדר לשליחת התראות.
-
-### Phase 5: Advanced Monitoring
 - **[לא בוצע] OpenTelemetry Integration**: אין צורך לבצע בשלב ה-Frontend.
-
-### Deployment & Security
-- **[לא בוצע] Cloud Build / Terraform**: לא באחריותי.
-- **[לא בוצע] Authentication & Authorization**: יצירת Auth Middleware פלייסהולדר.
+- **[לא בוצע] Deployment & Security**:
+    - Cloud Build / Terraform: לא באחריותי.
+    - Authentication & Authorization: יצירת Auth Middleware פלייסהולדר.
 
 ---
 
 מה היית רוצה שנעשה עכשיו?
-

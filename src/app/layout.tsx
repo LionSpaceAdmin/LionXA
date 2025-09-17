@@ -7,6 +7,7 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'XAgent Studio',
   description: 'Advanced AI Agent Management Platform',
+  manifest: '/manifest.json',
 };
 
 export default function RootLayout({
