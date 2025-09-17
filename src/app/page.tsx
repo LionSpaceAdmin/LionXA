@@ -1,6 +1,7 @@
+
 "use client";
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SidebarProvider,
   Sidebar,
@@ -19,9 +20,33 @@ import { VisualEditor } from '@/components/dashboard/visual-editor';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { MobileDashboard } from '@/components/mobile/MobileDashboard';
 import { Skeleton } from '@/components/ui/skeleton';
+import { getAgentStatus } from './actions';
 
 export default function Home() {
   const isMobile = useIsMobile();
+  const [logs, setLogs] = useState<string[]>([]);
+  const [isLoadingLogs, setIsLoadingLogs] = useState(true);
+
+  useEffect(() => {
+    // Only poll for logs on desktop
+    if (!isMobile) {
+      const fetchLogs = async () => {
+        try {
+          const { logs: newLogs } = await getAgentStatus();
+          setLogs(newLogs.slice().reverse());
+        } catch (error) {
+          console.error("Failed to fetch logs:", error);
+        } finally {
+          setIsLoadingLogs(false);
+        }
+      };
+
+      fetchLogs();
+      const interval = setInterval(fetchLogs, 5000); // Poll every 5 seconds
+      return () => clearInterval(interval);
+    }
+  }, [isMobile]);
+
 
   if (isMobile === undefined) {
     return (
@@ -78,7 +103,7 @@ export default function Home() {
             </div>
 
             <div className="col-span-1 lg:col-span-4">
-              <LiveActivityFeed />
+              <LiveActivityFeed logs={logs} isLoading={isLoadingLogs} className="h-full" />
             </div>
 
             <div className="col-span-1 lg:col-span-12">
