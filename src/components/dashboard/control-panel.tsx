@@ -3,8 +3,8 @@
 import React, { useState, useEffect, useTransition } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Power, ShieldAlert, Play, Pause } from 'lucide-react';
-import { getAgentStatus, startAgent, stopAgent } from '@/app/actions';
+import { Power, ShieldAlert, Play, Pause, Bell } from 'lucide-react';
+import { getAgentStatus, startAgent, stopAgent, sendTestNotification } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
 import type { AgentStatus } from '@/lib/types';
 
@@ -57,6 +57,17 @@ export function ControlPanel() {
     });
   };
 
+  const handleSendNotification = () => {
+    startTransition(async () => {
+      const result = await sendTestNotification();
+       toast({
+        title: result.success ? 'Notification Sent' : 'Notification Failed',
+        description: result.message,
+        variant: result.success ? 'default' : 'destructive',
+      });
+    });
+  };
+
   const isRunning = status === 'running';
 
   return (
@@ -64,7 +75,7 @@ export function ControlPanel() {
       <CardHeader>
         <CardTitle className="font-headline text-lg">Control Panel</CardTitle>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4 sm:flex-row">
+      <CardContent className="grid grid-cols-1 gap-4 md:grid-cols-3">
         <Button variant="destructive" className="w-full" onClick={handleEmergencyStop} disabled={isPending || !isRunning}>
           <ShieldAlert className="mr-2 h-4 w-4" /> Emergency Stop
         </Button>
@@ -78,6 +89,9 @@ export function ControlPanel() {
                     <Play className="mr-2 h-4 w-4" /> Start Agent
                 </>
             )}
+        </Button>
+        <Button variant="secondary" className="w-full" onClick={handleSendNotification} disabled={isPending}>
+          <Bell className="mr-2 h-4 w-4" /> Send Test Notification
         </Button>
       </CardContent>
     </Card>

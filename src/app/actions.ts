@@ -3,6 +3,7 @@
 import { analyzeAgentPerformance, AIPoweredOptimizationInput, AIPoweredOptimizationOutput } from "@/ai/flows/ai-powered-optimization";
 import { z } from "zod";
 import { getAgentManagerInstance } from "@/lib/agent-manager";
+import { getNotificationServiceInstance } from "@/lib/notification-service";
 
 const formSchema = z.object({
   responseRate: z.number().min(0).max(100),
@@ -60,4 +61,23 @@ export async function getAgentStatus(): Promise<{ status: 'offline' | 'running' 
         status: agentManager.getStatus(),
         logs: agentManager.getLogs(),
     };
+}
+
+export async function sendTestNotification(): Promise<{ success: boolean; message: string }> {
+    try {
+        const notificationService = getNotificationServiceInstance();
+        const result = await notificationService.sendNotification('test-user-token', {
+            title: 'Agent Alert',
+            body: 'This is a test notification from your XAgent platform.',
+            data: { screen: 'dashboard' },
+        });
+
+        if (result.success) {
+            return { success: true, message: `Test notification sent successfully. (ID: ${result.messageId})` };
+        } else {
+            return { success: false, message: `Failed to send test notification: ${result.error}` };
+        }
+    } catch (error: any) {
+        return { success: false, message: `An error occurred: ${error.message}` };
+    }
 }
