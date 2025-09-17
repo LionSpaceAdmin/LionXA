@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { getAgentStatus } from '@/app/actions';
-import type { AgentStatus } from '@/lib/types';
 import { agentUptime, activeProfile } from '@/app/lib/mock-data';
+import type { AgentStatus as AgentStatusType } from '@/lib/types';
+
 
 export function AgentStatusCard() {
-  const [status, setStatus] = useState<AgentStatus>('offline');
+  const [status, setStatus] = useState<AgentStatusType>('offline');
 
   useEffect(() => {
     const fetchStatus = async () => {
@@ -21,6 +22,8 @@ export function AgentStatusCard() {
     return () => clearInterval(interval);
   }, []);
 
+  const isRunning = status === 'running';
+
   return (
     <Card>
       <CardHeader>
@@ -30,11 +33,11 @@ export function AgentStatusCard() {
       <CardContent className="space-y-4">
         <div className="flex items-center justify-between rounded-lg border p-3">
           <span className="text-sm font-medium">Status</span>
-          <StatusBadge status={status} pulse={status === 'running'} />
+          <StatusBadge status={isRunning ? 'active' : status} pulse={isRunning} />
         </div>
         <div className="flex items-center justify-between rounded-lg border p-3">
           <span className="text-sm font-medium">Uptime (24h)</span>
-          <span className="text-sm text-muted-foreground">{status === 'running' ? agentUptime : 'N/A'}</span>
+          <span className="text-sm text-muted-foreground">{isRunning ? agentUptime : 'N/A'}</span>
         </div>
         <div className="flex items-center justify-between rounded-lg border p-3">
           <span className="text-sm font-medium">Active Profile</span>

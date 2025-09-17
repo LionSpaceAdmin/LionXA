@@ -2,7 +2,7 @@
 
 import { analyzeAgentPerformance, AIPoweredOptimizationInput, AIPoweredOptimizationOutput } from "@/ai/flows/ai-powered-optimization";
 import { z } from "zod";
-import { agentManager } from "@/lib/agent-manager";
+import { getAgentManagerInstance } from "@/lib/agent-manager";
 
 const formSchema = z.object({
   responseRate: z.number().min(0).max(100),
@@ -38,7 +38,7 @@ export async function getAIOptimization(
 
 export async function startAgent(): Promise<{ success: boolean; message: string }> {
     try {
-        await agentManager.start();
+        await getAgentManagerInstance().start();
         return { success: true, message: "Agent started successfully." };
     } catch (error: any) {
         return { success: false, message: `Failed to start agent: ${error.message}` };
@@ -47,7 +47,7 @@ export async function startAgent(): Promise<{ success: boolean; message: string 
 
 export async function stopAgent(): Promise<{ success: boolean; message: string }> {
     try {
-        await agentManager.stop();
+        await getAgentManagerInstance().stop();
         return { success: true, message: "Agent stopped successfully." };
     } catch (error: any) {
         return { success: false, message: `Failed to stop agent: ${error.message}` };
@@ -55,6 +55,7 @@ export async function stopAgent(): Promise<{ success: boolean; message: string }
 }
 
 export async function getAgentStatus(): Promise<{ status: 'offline' | 'running' | 'error'; logs: string[] }> {
+    const agentManager = getAgentManagerInstance();
     return {
         status: agentManager.getStatus(),
         logs: agentManager.getLogs(),
