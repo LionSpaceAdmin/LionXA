@@ -1,7 +1,4 @@
-const withNextIntl = require('next-intl/plugin')('./src/i18n.ts');
- 
-/** @type {import('next').NextConfig} */
-
+const createNextIntlPlugin = require('next-intl/plugin');
 const withPWA = require('next-pwa')({
   dest: 'public',
   register: true,
@@ -9,8 +6,10 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
+const withNextIntl = createNextIntlPlugin();
+ 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
-  /* config options here */
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -41,4 +40,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(withPWA(nextConfig));
+module.exports = withPWA(withNextIntl(nextConfig));
