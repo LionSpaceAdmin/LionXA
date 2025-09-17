@@ -1,28 +1,30 @@
 "use client";
 
+import React from 'react';
 import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { activities } from '@/app/lib/mock-data';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { BotMessageSquare, AlertTriangle, Info } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { formatDistanceToNow } from 'date-fns';
+import { BotMessageSquare, AlertTriangle, Info, Loader } from 'lucide-react';
+import { getAgentStatus } from '@/app/actions';
+import { useQuery } from '@tanstack/react-query';
+import { Skeleton } from '../ui/skeleton';
 
 export function LiveActivityFeed() {
   const t = useTranslations('LiveActivityFeed');
 
-  const getIcon = (type: string) => {
-    switch (type) {
-      case 'tweet_response':
-        return <BotMessageSquare className="h-5 w-5 text-blue-500" />;
-      case 'error':
-        return <AlertTriangle className="h-5 w-5 text-red-500" />;
-      case 'system_event':
-        return <Info className="h-5 w-5 text-gray-500" />;
-      default:
-        return null;
-    }
+  const { data, isLoading, isError, error } = useQuery({
+      queryKey: ['agent-logs'],
+      queryFn: getAgentStatus,
+      refetchInterval: 3000, // Refresh logs every 3 seconds
+  });
+
+  const logs = data?.logs?.slice().reverse() || [];
+
+  const getIcon = (line: string) => {
+      const lowerLine = line.toLowerCase();
+      if (lowerLine.includes('error') || lowerLine.includes('failed')) return <AlertTriangle className="h-5 w-5 text-red-500" />;
+      if (lowerLine.includes('reply') || lowerLine.includes('posted')) return <BotMessageSquare className="h-5 w-5 text-blue-500" />;
+      return <Info className="h-5 w-5 text-gray-500" />;
   };
 
   return (
@@ -32,36 +34,33 @@ export function LiveActivityFeed() {
         <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ScrollArea className="h-[450px]">
-          <div className="space-y-6">
-            {activities.map((activity) => (
-              <div key={activity.id} className="flex items-start gap-4">
-                <div className="mt-1 flex h-8 w-8 items-center justify-center rounded-full bg-muted">
-                  {getIcon(activity.type)}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center justify-between">
-                    <p className="text-sm font-medium">
-                      {activity.type.replace('_', ' ').replace(/\b\w/g, (l) => l.toUpperCase())}
-                    </p>
-                    <p className="text-xs text-muted-foreground">
-                      {formatDistanceToNow(activity.timestamp, { addSuffix: true })}
-                    </p>
-                  </div>
-                  <p className="text-sm text-muted-foreground">{activity.description}</p>
-                  {activity.user && (
-                    <div className="mt-2 flex items-center gap-2">
-                       <Avatar className="h-6 w-6">
-                        <AvatarImage src={activity.user.avatarUrl} alt={activity.user.name} />
-                        <AvatarFallback>{activity.user.name.charAt(0)}</AvatarFallback>
-                      </Avatar>
-                      <span className="text-xs font-medium">{activity.user.name}</span>
-                    </div>
-                  )}
-                </div>
+        <ScrollArea className="h-[450px] rounded-md border p-4 font-mono text-xs">
+          {isLoading && (
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-5/6" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-4/6" />
+            </div>
+          )}
+          {isError && (
+              <div className="flex items-center text-red-500">
+                  <AlertTriangle className="mr-2 h-4 w-4" />
+                  <p>{t('errorLoading')}: {error.message}</p>
               </div>
-            ))}
-          </div>
+          )}
+          {logs.length === 0 && !isLoading && (
+            <div className="flex h-full items-center justify-center text-center text-muted-foreground">
+              <p>{t('noActivity')}</p>
+            </div>
+          )}
+          {logs.map((log, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <div className="mt-0.5">{getIcon(log)}</div>
+              <p className="flex-1">{log}</p>
+            </div>
+          ))}
         </ScrollArea>
       </CardContent>
     </Card>

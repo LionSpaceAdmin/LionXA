@@ -20,8 +20,14 @@
   },
   "ControlPanel": {
     "title": "Control Panel",
-    "emergencyStop": "Emergency Stop",
-    "pauseAgent": "Pause Agent"
+    "startAgent": "Start Agent",
+    "stopAgent": "Stop Agent",
+    "notifications": {
+      "startSuccessTitle": "Agent Started",
+      "startErrorTitle": "Start Failed",
+      "stopSuccessTitle": "Agent Stopped",
+      "stopErrorTitle": "Stop Failed"
+    }
   },
   "AgentStatusCard": {
     "title": "Agent Status",
@@ -33,7 +39,9 @@
   },
   "LiveActivityFeed": {
     "title": "Live Activity Feed",
-    "description": "A real-time stream of agent actions and system events."
+    "description": "A real-time stream of agent actions and system events.",
+    "errorLoading": "Error loading logs",
+    "noActivity": "No activity to display. Start the agent to see logs."
   },
   "Analytics": {
     "title": "Smart Analytics",
@@ -48,6 +56,7 @@
   },
   "Statuses": {
     "active": "Active",
+    "running": "Running",
     "paused": "Paused",
     "error": "Error",
     "offline": "Offline"

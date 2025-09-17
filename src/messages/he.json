@@ -20,8 +20,14 @@
   },
   "ControlPanel": {
     "title": "לוח בקרה",
-    "emergencyStop": "עצירת חירום",
-    "pauseAgent": "השהיית סוכן"
+    "startAgent": "הפעל סוכן",
+    "stopAgent": "עצור סוכן",
+    "notifications": {
+      "startSuccessTitle": "הסוכן הופעל",
+      "startErrorTitle": "הפעלה נכשלה",
+      "stopSuccessTitle": "הסוכן נעצר",
+      "stopErrorTitle": "עצירה נכשלה"
+    }
   },
   "AgentStatusCard": {
     "title": "סטטוס סוכן",
@@ -33,7 +39,9 @@
   },
   "LiveActivityFeed": {
     "title": "פיד פעילות חיה",
-    "description": "זרם בזמן אמת של פעולות הסוכן ואירועי מערכת."
+    "description": "זרם בזמן אמת של פעולות הסוכן ואירועי מערכת.",
+    "errorLoading": "שגיאה בטעינת הלוגים",
+    "noActivity": "אין פעילות להצגה. הפעל את הסוכן כדי לראות לוגים."
   },
   "Analytics": {
     "title": "אנליטיקות חכמות",
@@ -48,6 +56,7 @@
   },
   "Statuses": {
     "active": "פעיל",
+    "running": "רץ",
     "paused": "מושהה",
     "error": "שגיאה",
     "offline": "לא מחובר"
