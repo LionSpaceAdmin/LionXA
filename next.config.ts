@@ -1,5 +1,6 @@
-const withNextIntl = require('next-intl/plugin')();
- 
+const createNextIntlPlugin = require('next-intl/plugin');
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
+
 /** @type {import('next').NextConfig} */
 
 const withPWA = require('next-pwa')({
@@ -37,11 +38,6 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
-    ],
-  },
-  experimental: {
-    allowedDevOrigins: [
-      "*.cluster-pbm4nlfnrzakyryoooaq5fq3ps.cloudworkstations.dev",
     ],
   },
 };
