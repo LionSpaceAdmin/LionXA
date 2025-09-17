@@ -7,6 +7,9 @@
 ### Phase 1: Core Infrastructure
 - **[בוצע] Next.js PWA Setup**: הפרויקט מבוסס Next.js 15 עם App Router.
 - **[בוצע] Core Dependencies**: הותקנו ספריות הליבה כמו `react-query`, `shadcn/ui`, `lucide-react` וכו'.
+- **[בתהליך] GCP Project Setup**:
+    - **[בוצע] הוספת תצורת Firebase SDK**: הוספנו את קבצי התצורה והשירותים הנדרשים לאינטגרציה עם Firebase.
+- **[לא בוצע] PWA & Mobile-First**: יכולות PWA מלאות (Service Workers, Offline-first) טרם מומשו.
 
 ### Phase 3: Advanced UI Components
 - **[בוצע częściowo] Smart Analytics Dashboard**:
@@ -28,8 +31,7 @@
 ## ❌ מה טרם בוצע
 
 ### Phase 1: Core Infrastructure
-- **[לא בוצע] GCP Project Setup**: תשתית הענן ב-GCP (Cloud Run, Firestore, Pub/Sub) טרם הוגדרה.
-- **[לא בוצע] PWA & Mobile-First**: יכולות PWA מלאות (Service Workers, Offline-first) טרם מומשו.
+- **[לא בוצע] חיבור ל-Firestore אמיתי**: עדיין לא מחליפים את ה-Mock Data בנתונים מ-Firestore.
 
 ### Phase 2: Agent Integration
 - **[לא בוצע] Agent Service Wrapper**: השירות לניהול תהליך ה-XAgent (`AgentManager`) עדיין לא קיים.
