@@ -11,17 +11,27 @@ import {
 import { Area, AreaChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import type { ChartConfig } from '@/components/ui/chart';
 import { useMemo, useState, useEffect } from 'react';
-import type { LatencyData } from '@/app/lib/types';
-
-const chartConfig = {
-  latency: {
-    label: 'Latency (ms)',
-    color: 'hsl(var(--accent))',
-  },
-} satisfies ChartConfig;
+import type { LatencyData, Metric } from '@/app/lib/types';
+import { useTranslations } from 'next-intl';
 
 export function AnalyticsDashboard() {
+  const t = useTranslations('Analytics');
   const [latencyData, setLatencyData] = useState<LatencyData[]>(initialLatencyData);
+
+  const chartConfig = {
+    latency: {
+      label: t('latencyLabel'),
+      color: 'hsl(var(--accent))',
+    },
+  } satisfies ChartConfig;
+
+  const translatedMetrics: Metric[] = useMemo(() => [
+    { ...metrics[0], label: t('metrics.avgResponseTime') },
+    { ...metrics[1], label: t('metrics.engagementRate') },
+    { ...metrics[2], label: t('metrics.tweetsPerDay') },
+    { ...metrics[3], label: t('metrics.errorRate') },
+  ], [t]);
+
   const motion = useMemo(() => {
     try {
       return require("framer-motion").motion;
@@ -35,7 +45,7 @@ export function AnalyticsDashboard() {
       setLatencyData(prevData => {
         const now = new Date();
         const newTime = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
-        const newLatency = 1000 + Math.floor(Math.random() * 400) - 200; //-200 to 200 around 1200
+        const newLatency = 1000 + Math.floor(Math.random() * 400) - 200;
         
         const newDataPoint: LatencyData = {
             time: newTime,
@@ -45,7 +55,7 @@ export function AnalyticsDashboard() {
         const updatedData = [...prevData.slice(1), newDataPoint];
         return updatedData;
       });
-    }, 5000); // Update every 5 seconds
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
@@ -54,12 +64,12 @@ export function AnalyticsDashboard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="font-headline text-lg">Smart Analytics</CardTitle>
-        <CardDescription>Key performance metrics and trends</CardDescription>
+        <CardTitle className="font-headline text-lg">{t('title')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {metrics.map((metric, i) => (
+          {translatedMetrics.map((metric, i) => (
             <motion.div
               key={metric.id}
               initial={{ opacity: 0, y: 20 }}
@@ -71,7 +81,7 @@ export function AnalyticsDashboard() {
           ))}
         </div>
         <div>
-          <h3 className="text-md mb-2 font-medium">Response Latency (ms)</h3>
+          <h3 className="text-md mb-2 font-medium">{t('responseLatency')}</h3>
           <div className="h-[200px]">
             <ChartContainer config={chartConfig}>
               <AreaChart

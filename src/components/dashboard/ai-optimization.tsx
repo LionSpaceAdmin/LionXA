@@ -34,6 +34,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
+import { useTranslations } from "next-intl";
 
 const formSchema = z.object({
   responseRate: z.number().min(0).max(100),
@@ -46,7 +47,7 @@ const formSchema = z.object({
 
 const defaultAgentConfig = JSON.stringify(
   {
-    model: "gpt-4-turbo",
+    model: "gemini-1.5-pro-latest",
     temperature: 0.7,
     max_tokens: 256,
   },
@@ -55,6 +56,7 @@ const defaultAgentConfig = JSON.stringify(
 );
 
 export function AIOptimization() {
+  const t = useTranslations('AIOptimization');
   const { toast } = useToast();
   const [isPending, startTransition] = useTransition();
   const [result, setResult] = useState<AIPoweredOptimizationOutput | null>(
@@ -79,13 +81,13 @@ export function AIOptimization() {
       if (response.success) {
         setResult(response.data);
         toast({
-          title: "Analysis Complete",
-          description: "AI-powered optimization insights are ready.",
+          title: t('notifications.analysisComplete'),
+          description: t('notifications.analysisCompleteDesc'),
         });
       } else {
         toast({
           variant: "destructive",
-          title: "Analysis Failed",
+          title: t('notifications.analysisFailed'),
           description: response.error,
         });
       }
@@ -97,10 +99,10 @@ export function AIOptimization() {
       <CardHeader>
         <div className="flex items-center gap-2">
             <Sparkles className="h-6 w-6 text-primary" />
-            <CardTitle className="font-headline text-lg">AI-Powered Optimization</CardTitle>
+            <CardTitle className="font-headline text-lg">{t('title')}</CardTitle>
         </div>
         <CardDescription>
-          Leverage AI to analyze agent performance and get optimization suggestions.
+          {t('description')}
         </CardDescription>
       </CardHeader>
       <CardContent className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -112,7 +114,7 @@ export function AIOptimization() {
                 name="responseRate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Response Rate ({field.value}%)</FormLabel>
+                    <FormLabel>{t('form.responseRate')} ({field.value}%)</FormLabel>
                     <FormControl>
                       <Slider
                         defaultValue={[field.value]}
@@ -129,7 +131,7 @@ export function AIOptimization() {
                 name="errorRate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Error Rate ({field.value}%)</FormLabel>
+                    <FormLabel>{t('form.errorRate')} ({field.value}%)</FormLabel>
                     <FormControl>
                       <Slider
                         defaultValue={[field.value]}
@@ -146,7 +148,7 @@ export function AIOptimization() {
                 name="engagementRate"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Engagement Rate ({field.value}%)</FormLabel>
+                    <FormLabel>{t('form.engagementRate')} ({field.value}%)</FormLabel>
                     <FormControl>
                       <Slider
                         defaultValue={[field.value]}
@@ -163,7 +165,7 @@ export function AIOptimization() {
                 name="avgResponseTime"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Avg. Response Time ({field.value}ms)</FormLabel>
+                    <FormLabel>{t('form.avgResponseTime')} ({field.value}ms)</FormLabel>
                     <FormControl>
                       <Slider
                         defaultValue={[field.value]}
@@ -180,7 +182,7 @@ export function AIOptimization() {
                 name="dailyCost"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Daily Cost (${field.value})</FormLabel>
+                    <FormLabel>{t('form.dailyCost')} (${field.value})</FormLabel>
                     <FormControl>
                       <Slider
                         defaultValue={[field.value]}
@@ -199,10 +201,10 @@ export function AIOptimization() {
               name="agentConfig"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Agent Configuration</FormLabel>
+                  <FormLabel>{t('form.agentConfig')}</FormLabel>
                   <FormControl>
                     <Textarea
-                      placeholder="Paste your agent's JSON config here."
+                      placeholder={t('form.agentConfigPlaceholder')}
                       className="font-code"
                       rows={8}
                       {...field}
@@ -214,18 +216,18 @@ export function AIOptimization() {
             />
 
             <Button type="submit" disabled={isPending} className="w-full">
-              {isPending ? "Analyzing..." : "Analyze Performance"}
+              {isPending ? t('form.analyzingButton') : t('form.analyzeButton')}
               <Bot className="ml-2 h-4 w-4" />
             </Button>
           </form>
         </Form>
         <div className="space-y-4">
-          <h3 className="font-headline text-md font-semibold">Insight Report</h3>
+          <h3 className="font-headline text-md font-semibold">{t('insightReport.title')}</h3>
           {isPending && (
              <div className="flex h-full items-center justify-center rounded-lg border border-dashed p-8">
                 <div className="text-center text-muted-foreground">
                     <BrainCircuit className="mx-auto h-12 w-12 animate-pulse"/>
-                    <p className="mt-2">AI is analyzing the data...</p>
+                    <p className="mt-2">{t('insightReport.analyzingData')}</p>
                 </div>
              </div>
           )}
@@ -233,7 +235,7 @@ export function AIOptimization() {
             <div className="space-y-4">
               <Card>
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <CardTitle className="text-sm font-medium">Performance</CardTitle>
+                    <CardTitle className="text-sm font-medium">{t('insightReport.performance')}</CardTitle>
                     <TrendingUp className="h-4 w-4 text-muted-foreground"/>
                 </CardHeader>
                 <CardContent>
@@ -255,7 +257,7 @@ export function AIOptimization() {
                       <div className="flex gap-2">
                         <Badge variant="secondary">{suggestion.category}</Badge>
                         <Badge variant={suggestion.impact === 'high' ? 'destructive' : suggestion.impact === 'medium' ? 'default' : 'outline'}>
-                            Impact: {suggestion.impact}
+                            {t('suggestion.impact')}: {suggestion.impact}
                         </Badge>
                       </div>
                       <p className="text-sm text-muted-foreground">{suggestion.implementation}</p>
@@ -268,7 +270,7 @@ export function AIOptimization() {
            {!isPending && !result && (
             <div className="flex h-full items-center justify-center rounded-lg border border-dashed p-8">
                 <div className="text-center text-muted-foreground">
-                    <p>Your AI-powered insights will appear here.</p>
+                    <p>{t('insightReport.insightsAppearHere')}</p>
                 </div>
             </div>
            )}

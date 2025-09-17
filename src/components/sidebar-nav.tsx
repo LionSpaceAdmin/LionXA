@@ -1,6 +1,7 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
 import {
   SidebarMenu,
   SidebarMenuItem,
@@ -15,16 +16,17 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 
-const links = [
-  { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '#visual-editor', label: 'Visual Editor', icon: Share2 },
-  { href: '#automation', label: 'Automation', icon: ListChecks },
-  { href: '#ai-optimization', label: 'AI Optimization', icon: Bot },
-  { href: '#settings', label: 'Settings', icon: Settings },
-];
-
 export function SidebarNav() {
   const pathname = usePathname();
+  const t = useTranslations('Navigation');
+
+  const links = [
+    { href: '/', label: t('dashboard'), icon: LayoutDashboard },
+    { href: '#visual-editor', label: t('visualEditor'), icon: Share2 },
+    { href: '#automation', label: t('automation'), icon: ListChecks },
+    { href: '#ai-optimization', label: t('aiOptimization'), icon: Bot },
+    { href: '#settings', label: t('settings'), icon: Settings },
+  ];
 
   return (
     <SidebarMenu>

@@ -23,43 +23,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
-
-
-const initialNodes: Node[] = [
-  {
-    id: 'trigger',
-    type: 'triggerNode',
-    position: { x: 100, y: 150 },
-    data: {
-      label: 'Tweet Detection',
-    }
-  },
-  {
-    id: 'filter',
-    type: 'filterNode',
-    position: { x: 400, y: 150 },
-    data: {
-      label: 'Content Filter',
-    }
-  },
-  {
-    id: 'ai-response',
-    type: 'aiNode',
-    position: { x: 700, y: 150 },
-    data: {
-      label: 'AI Response Generator',
-    }
-  }
-];
-
-const initialEdges: Edge[] = [
-    { id: 'trigger-filter', source: 'trigger', target: 'filter', animated: true, type: 'smoothstep' },
-    { id: 'filter-ai-response', source: 'filter', target: 'ai-response', animated: true, type: 'smoothstep' },
-];
-
-let id = 4;
-const getNextId = () => `node_${id++}`;
-const flowKey = 'xagent-flow-state';
+import { useTranslations } from 'next-intl';
 
 const nodeTypes: NodeTypes = {
     triggerNode: TriggerNode,
@@ -67,8 +31,46 @@ const nodeTypes: NodeTypes = {
     aiNode: AiNode,
 };
 
+let id = 4;
+const getNextId = () => `node_${id++}`;
+const flowKey = 'xagent-flow-state';
+
 export function VisualEditor() {
+    const t = useTranslations('VisualEditor');
     const { toast } = useToast();
+    
+    const initialNodes: Node[] = [
+      {
+        id: 'trigger',
+        type: 'triggerNode',
+        position: { x: 100, y: 150 },
+        data: {
+          label: t('initialNodes.trigger'),
+        }
+      },
+      {
+        id: 'filter',
+        type: 'filterNode',
+        position: { x: 400, y: 150 },
+        data: {
+          label: t('initialNodes.filter'),
+        }
+      },
+      {
+        id: 'ai-response',
+        type: 'aiNode',
+        position: { x: 700, y: 150 },
+        data: {
+          label: t('initialNodes.aiResponse'),
+        }
+      }
+    ];
+
+    const initialEdges: Edge[] = [
+        { id: 'trigger-filter', source: 'trigger', target: 'filter', animated: true, type: 'smoothstep' },
+        { id: 'filter-ai-response', source: 'filter', target: 'ai-response', animated: true, type: 'smoothstep' },
+    ];
+    
     const [nodes, setNodes] = useState<Node[]>(initialNodes);
     const [edges, setEdges] = useState<Edge[]>(initialEdges);
     const [selectedNode, setSelectedNode] = useState<Node | null>(null);
@@ -119,20 +121,20 @@ export function VisualEditor() {
           x: Math.random() * 500,
           y: Math.random() * 300,
         },
-        data: { label: `New ${type === 'filterNode' ? 'Filter' : 'AI'} Node` },
+        data: { label: type === 'filterNode' ? t('newNode.filter') : t('newNode.ai') },
       };
       setNodes((nds) => nds.concat(newNode));
-    }, []);
+    }, [t]);
 
     const onSave = useCallback(() => {
         try {
             const flow = { nodes, edges };
             localStorage.setItem(flowKey, JSON.stringify(flow));
-            toast({ title: "Flow Saved", description: "Your workflow layout has been saved." });
+            toast({ title: t('notifications.flowSaved'), description: t('notifications.flowSavedDesc') });
         } catch (error) {
-            toast({ variant: "destructive", title: "Save Failed", description: "Could not save the flow." });
+            toast({ variant: "destructive", title: t('notifications.saveFailed'), description: t('notifications.saveFailedDesc') });
         }
-    }, [nodes, edges, toast]);
+    }, [nodes, edges, toast, t]);
 
     const onRestore = useCallback(() => {
         try {
@@ -141,14 +143,14 @@ export function VisualEditor() {
                 const { nodes: savedNodes, edges: savedEdges } = JSON.parse(savedFlow);
                 setNodes(savedNodes);
                 setEdges(savedEdges);
-                toast({ title: "Flow Restored", description: "Your saved workflow has been loaded." });
+                toast({ title: t('notifications.flowRestored'), description: t('notifications.flowRestoredDesc') });
             } else {
-                 toast({ title: "No Saved Flow", description: "No saved workflow found to restore." });
+                 toast({ title: t('notifications.noSavedFlow'), description: t('notifications.noSavedFlowDesc') });
             }
         } catch (error) {
-            toast({ variant: "destructive", title: "Restore Failed", description: "Could not restore the flow." });
+            toast({ variant: "destructive", title: t('notifications.restoreFailed'), description: t('notifications.restoreFailedDesc') });
         }
-    }, [setNodes, setEdges, toast]);
+    }, [setNodes, setEdges, toast, t]);
 
     useEffect(() => {
         const savedFlow = localStorage.getItem(flowKey);
@@ -164,10 +166,10 @@ export function VisualEditor() {
       <CardHeader>
         <div className="flex items-center gap-2">
           <Share2 className="h-6 w-6 text-primary" />
-          <CardTitle className="font-headline text-lg">Flow Editor</CardTitle>
+          <CardTitle className="font-headline text-lg">{t('title')}</CardTitle>
         </div>
         <CardDescription>
-          Visualize your agent's workflow. Click a node to edit it, or select and press Backspace to delete.
+          {t('description')}
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -176,20 +178,20 @@ export function VisualEditor() {
                 <div className="mb-4 flex flex-wrap gap-2">
                     <Button variant="outline" size="sm" onClick={() => onAddNode('filterNode')}>
                         <PlusCircle className="mr-2 h-4 w-4" />
-                        Add Filter
+                        {t('addFilter')}
                     </Button>
                     <Button variant="outline" size="sm" onClick={() => onAddNode('aiNode')}>
                         <PlusCircle className="mr-2 h-4 w-4" />
-                        Add AI Step
+                        {t('addAIStep')}
                     </Button>
                     <div className="flex-grow" />
                      <Button variant="default" size="sm" onClick={onSave}>
                         <Save className="mr-2 h-4 w-4" />
-                        Save Flow
+                        {t('saveFlow')}
                     </Button>
                     <Button variant="secondary" size="sm" onClick={onRestore}>
                         <History className="mr-2 h-4 w-4" />
-                        Restore Flow
+                        {t('restoreFlow')}
                     </Button>
                 </div>
                 <div className="h-96 w-full rounded-lg border">
@@ -213,20 +215,20 @@ export function VisualEditor() {
             <div className="col-span-1">
                 {selectedNode ? (
                     <div className="rounded-lg border bg-card p-4">
-                        <h3 className="font-headline text-md mb-4 font-semibold">Edit Node</h3>
+                        <h3 className="font-headline text-md mb-4 font-semibold">{t('editNode')}</h3>
                          <div className="space-y-2">
-                            <Label htmlFor="node-label">Label</Label>
+                            <Label htmlFor="node-label">{t('label')}</Label>
                             <Input
                                 id="node-label"
                                 value={selectedNode.data.label}
                                 onChange={(e) => setSelectedNode({ ...selectedNode, data: { ...selectedNode.data, label: e.target.value }})}
                             />
                         </div>
-                        <Button variant="outline" size="sm" className="mt-4 w-full" onClick={() => setSelectedNode(null)}>Done</Button>
+                        <Button variant="outline" size="sm" className="mt-4 w-full" onClick={() => setSelectedNode(null)}>{t('done')}</Button>
                     </div>
                 ) : (
                     <div className="flex h-full items-center justify-center rounded-lg border border-dashed">
-                        <p className="text-sm text-muted-foreground">Click a node to edit</p>
+                        <p className="text-sm text-muted-foreground">{t('clickToEdit')}</p>
                     </div>
                 )}
             </div>

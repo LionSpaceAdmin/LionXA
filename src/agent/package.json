@@ -1,7 +1,7 @@
 {
-  "name": "gpt_agent_browser",
+  "name": "gemini_agent_browser",
   "version": "1.1.0",
-  "description": "A Playwright and OpenAI-based agent to monitor and respond to posts on a specific X.com list.",
+  "description": "A Playwright and Google Gemini-based agent to monitor and respond to posts on a specific X.com list.",
   "main": "src/watchList.ts",
   "scripts": {
     "start": "ts-node src/watchList.ts",
@@ -11,7 +11,7 @@
   },
   "keywords": [
     "playwright",
-    "openai",
+    "gemini",
     "typescript",
     "automation",
     "twitter",
@@ -28,7 +28,6 @@
   },
   "dependencies": {
     "dotenv": "^17.2.1",
-    "openai": "^5.10.2",
     "playwright": "^1.54.2"
   }
 }

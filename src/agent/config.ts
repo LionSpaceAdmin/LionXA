@@ -11,11 +11,6 @@ dotenv.config({ path: path.resolve(process.cwd(), '.env') });
  * and type conversions where necessary.
  */
 export const config = {
-  // OpenAI API settings
-  openai: {
-    apiKey: process.env.OPENAI_API_KEY,
-  },
-  
   // Twitter/X settings
   twitter: {
     listUrl: process.env.TWITTER_LIST_URL || 'https://x.com/i/lists/1950005227715014919',
@@ -67,9 +62,3 @@ export const config = {
     }
   },
 };
-
-// Validate that the essential API key is present
-if (!config.openai.apiKey) {
-  console.error("❌ FATAL: OPENAI_API_KEY is not defined. Please create a .env file and add your key.");
-  // process.exit(1); // We won't exit in a server context, just log
-}

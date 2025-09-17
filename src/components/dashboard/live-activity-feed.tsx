@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Terminal } from 'lucide-react';
@@ -13,24 +14,27 @@ interface LiveActivityFeedProps {
   isLoading?: boolean;
 }
 
-export function LiveActivityFeed({ logs, title = "Live Activity", className, isLoading = false }: LiveActivityFeedProps) {
+export function LiveActivityFeed({ logs, title, className, isLoading = false }: LiveActivityFeedProps) {
+  const t = useTranslations('LiveActivityFeed');
   const scrollAreaRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     // This could be enhanced to scroll to bottom, but for now we keep it simple.
   }, [logs]);
+  
+  const cardTitle = title || t('title');
 
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle className="font-headline text-lg">{title}</CardTitle>
+        <CardTitle className="font-headline text-lg">{cardTitle}</CardTitle>
       </CardHeader>
       <CardContent>
         <ScrollArea className="h-[450px]" ref={scrollAreaRef}>
           <div className="space-y-2 font-code text-xs text-muted-foreground">
             {isLoading ? (
               <div className="flex h-[400px] items-center justify-center text-center">
-                <p>Loading logs...</p>
+                <p>{t('loading')}</p>
               </div>
             ) : logs.length > 0 ? (
               logs.map((log, index) => (
@@ -41,7 +45,7 @@ export function LiveActivityFeed({ logs, title = "Live Activity", className, isL
               ))
             ) : (
               <div className="flex h-[400px] items-center justify-center text-center">
-                <p>Waiting for agent activity...<br/>Press "Start Agent" to begin.</p>
+                <p>{t('waiting')}<br/>{t('waitingInstruction')}</p>
               </div>
             )}
           </div>

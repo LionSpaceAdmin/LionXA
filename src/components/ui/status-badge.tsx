@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import * as React from "react";
+import { useTranslations } from "next-intl";
 
 const statusBadgeVariants = cva(
   "inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium transition-colors",
@@ -35,7 +36,13 @@ export function StatusBadge({
   pulse = false,
   ...props
 }: StatusBadgeProps) {
+    const t = useTranslations('Statuses');
     const displayStatus = status === 'running' ? 'active' : status;
+    
+    // The key needs to be a valid key of the translation object
+    const translationKey = displayStatus as keyof ReturnType<typeof t>;
+    const translatedStatus = t(translationKey);
+
   return (
     <span
       className={cn(statusBadgeVariants({ status: displayStatus }), className)}
@@ -51,7 +58,7 @@ export function StatusBadge({
           pulse && (status === 'active' || status === 'running') && "animate-pulse"
         )}
       />
-      {displayStatus.charAt(0).toUpperCase() + displayStatus.slice(1)}
+      {translatedStatus}
     </span>
   );
 }

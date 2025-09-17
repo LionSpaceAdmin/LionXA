@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { StatusBadge } from '@/components/ui/status-badge';
 import { getAgentStatus } from '@/app/actions';
@@ -9,6 +10,7 @@ import type { AgentStatus as AgentStatusType } from '@/lib/types';
 
 
 export function AgentStatusCard() {
+  const t = useTranslations('AgentStatusCard');
   const [status, setStatus] = useState<AgentStatusType>('offline');
 
   useEffect(() => {
@@ -27,20 +29,20 @@ export function AgentStatusCard() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="font-headline text-lg">Agent Status</CardTitle>
-        <CardDescription>Real-time operational status</CardDescription>
+        <CardTitle className="font-headline text-lg">{t('title')}</CardTitle>
+        <CardDescription>{t('description')}</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
         <div className="flex items-center justify-between rounded-lg border p-3">
-          <span className="text-sm font-medium">Status</span>
+          <span className="text-sm font-medium">{t('status')}</span>
           <StatusBadge status={isRunning ? 'active' : status} pulse={isRunning} />
         </div>
         <div className="flex items-center justify-between rounded-lg border p-3">
-          <span className="text-sm font-medium">Uptime (24h)</span>
-          <span className="text-sm text-muted-foreground">{isRunning ? agentUptime : 'N/A'}</span>
+          <span className="text-sm font-medium">{t('uptime')}</span>
+          <span className="text-sm text-muted-foreground">{isRunning ? agentUptime : t('notAvailable')}</span>
         </div>
         <div className="flex items-center justify-between rounded-lg border p-3">
-          <span className="text-sm font-medium">Active Profile</span>
+          <span className="text-sm font-medium">{t('activeProfile')}</span>
           <span className="text-sm text-muted-foreground">{activeProfile}</span>
         </div>
       </CardContent>

@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import {
   SidebarProvider,
   Sidebar,
@@ -20,9 +21,10 @@ import { VisualEditor } from '@/components/dashboard/visual-editor';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { MobileDashboard } from '@/components/mobile/MobileDashboard';
 import { Skeleton } from '@/components/ui/skeleton';
-import { getAgentStatus } from './actions';
+import { getAgentStatus } from '@/app/actions';
 
 export default function Home() {
+  const t = useTranslations('Dashboard');
   const isMobile = useIsMobile();
   const [logs, setLogs] = useState<string[]>([]);
   const [isLoadingLogs, setIsLoadingLogs] = useState(true);
@@ -85,9 +87,9 @@ export default function Home() {
         <main className="p-4 lg:p-6">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-12">
             <div className="col-span-1 lg:col-span-12">
-              <h1 className="font-headline text-3xl font-bold">Dashboard</h1>
+              <h1 className="font-headline text-3xl font-bold">{t('title')}</h1>
               <p className="text-muted-foreground">
-                Welcome to your AI Agent Management Platform.
+                {t('welcomeMessage')}
               </p>
             </div>
 
