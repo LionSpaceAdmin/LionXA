@@ -39,15 +39,15 @@
 ### Phase 4: Mobile & PWA Features
 - **[בוצע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל, כולל התאמת פיד הפעילות והוספת יכולות PWA בסיסיות.
 
+### Security
+- **[בוצע] Authentication & Authorization**: יצירת Auth Middleware פלייסהולדר.
+
 ---
 
 ## ❌ מה טרם בוצע (הצ'ק ליסט שלנו)
 
 - **[לא בוצע] Push Notifications System**: בניית מערכת פלייסהולדר לשליחת התראות.
 - **[לא בוצע] OpenTelemetry Integration**: אין צורך לבצע בשלב ה-Frontend.
-- **[לא בוצע] Deployment & Security**:
-    - Cloud Build / Terraform: לא באחריותי.
-    - Authentication & Authorization: יצירת Auth Middleware פלייסהולדר.
 
 ---
 
