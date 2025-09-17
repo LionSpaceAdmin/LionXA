@@ -1,3 +1,6 @@
+"use client";
+
+import React from 'react';
 import {
   SidebarProvider,
   Sidebar,
@@ -13,9 +16,25 @@ import { LiveActivityFeed } from '@/components/dashboard/live-activity-feed';
 import { AnalyticsDashboard } from '@/components/dashboard/analytics-dashboard';
 import { AIOptimization } from '@/components/dashboard/ai-optimization';
 import { VisualEditor } from '@/components/dashboard/visual-editor';
-import { Card } from '@/components/ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { MobileDashboard } from '@/components/mobile/MobileDashboard';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export default function Home() {
+  const isMobile = useIsMobile();
+
+  if (isMobile === undefined) {
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <Skeleton className="h-full w-full" />
+      </div>
+    );
+  }
+
+  if (isMobile) {
+    return <MobileDashboard />;
+  }
+
   return (
     <SidebarProvider>
       <Sidebar
