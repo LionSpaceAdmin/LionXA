@@ -13,26 +13,24 @@
 ### Phase 1: Core Infrastructure
 - **[בוצע] Next.js PWA Setup**: הפרויקט מבוסס Next.js 15 עם App Router.
 - **[בוצע] Core Dependencies**: הותקנו ספריות הליבה כמו `react-query`, `shadcn/ui`, `lucide-react` וכו'.
-- **[בוצע] Firebase SDK Setup**: המערכת חוברה לפרויקט Firebase אמיתי.
 
 ### Phase 2: Agent Integration
-- **[בוצע] Agent Service Wrapper**: נוצר שירות `AgentManager` שמפעיל ועוצר את הסוכן האמיתי.
-- **[בוצע] Real-time Communication (בסיסי)**: ה-`LiveActivityFeed` חובר ללוגים האמיתיים של הסוכן.
+- **[בוצע] Agent Service Wrapper (Placeholder)**: נוצר שירות דמה `AgentManager` שמדמה הפעלה ועצירה של הסוכן.
+- **[בוצע] Real-time Communication (Placeholder)**: ה-`LiveActivityFeed` מחובר ללוגים מדומים של הסוכן.
 
 ### Phase 3: Advanced UI Components
 - **[בוצע] רכיבי דשבורד בסיסיים**:
-    - `AgentStatusCard`: מציג סטטוס נוכחי של הסוכן.
+    - `AgentStatusCard`: מציג סטטוס נוכחי של הסוכן (מחובר ללוגיקת דמה).
     - `ControlPanel`: מכיל כפתורי בקרה ראשיים.
-    - `LiveActivityFeed`: מחובר כעת ללוגים האמיתיים של הסוכן.
-    - `AnalyticsDashboard`: מציג מדדים וגרף.
+    - `LiveActivityFeed`: מציג לוגים מדומים.
+    - `AnalyticsDashboard`: מציג מדדים וגרף דינמיים מדומים.
 - **[בוצע] מרכוז תמונות Placeholder**: הנתונים של התמונות ב-`LiveActivityFeed` הועברו לקובץ `placeholder-images.json`.
-- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב פלייסהולדר בסיסי (`visual-editor.tsx`), הוטמעה בו ספריית `React Flow`, הוספו צמתים מותאמים אישית ויכולת להוסיף, לחבר, למחוק, לערוך ולשמור את הזרימה.
+- **[בוצע] Flowrise-Inspired Visual Editor**: נוצר רכיב `visual-editor.tsx` עם יכולות בסיסיות של הוספה, חיבור, מחיקה, עריכה ושמירה של צמתים באמצעות `React Flow`.
 - **[בוצע] חיבור Analytics לנתוני אמת מדומים**: שודרג דשבורד האנליטיקס כדי לדמות קבלת נתונים דינמיים.
 - **[בוצע] הרחבת יכולות ה-Flow Editor**: הוספת יכולת עריכת תוכן ושמירה.
 
 ### Phase 4: Mobile & PWA Features
-- **[בוצע] Mobile-Optimized Interface**: יצירת ממשק ייעודי למובייל, כולל התאמת פיד הפעילות והוספת יכולות PWA בסיסיות.
-- **[בוצע] Push Notifications System**: נוצרה תשתית פלייסהולדר לשליחת התראות.
+- **[בוצע] Mobile-Optimized Interface & PWA**: יצירת ממשק ייעודי למובייל והפיכת האפליקציה ל-Progressive Web App הניתנת להתקנה.
 
 ### Phase 5 / Advanced Features: AI-Powered Insights
 - **[בוצע] AI-Powered Optimization**:
@@ -41,6 +39,9 @@
 
 ### Security
 - **[בוצע] Authentication & Authorization**: יצירת Auth Middleware פלייסהולדר.
+
+### Notifications
+- **[בוצע] Push Notifications System**: נוצרה תשתית פלייסהולדר לשליחת התראות.
 
 ---
 
