@@ -2,7 +2,7 @@
 import { Page } from 'playwright';
 import { ensureSession } from './browser';
 import { isSeen, markSeen, registerGracefulShutdown } from './memory';
-import { getProfile, Profile } from './profiles';
+import { getProfileByHandle, Profile } from './profile-manager';
 import { config } from './config';
 import { askGemini } from '../ai/gemini';
 import { logHandledTweet } from './logging';
@@ -30,10 +30,6 @@ interface Tweet {
     username: string;
     text: string;
     element: any; // Playwright Locator
-}
-
-interface ProfileWithFacts extends Profile {
-    facts?: string[];
 }
 
 // --- Helper Functions ---
@@ -170,7 +166,7 @@ async function main() {
                 if (!seen) {
                     console.log(`[NEW] New post from @${tweet.username}: "${tweet.text.slice(0, 80)}..."`);
                     
-                    const profile = getProfile(tweet.username) as ProfileWithFacts | undefined;
+                    const profile = await getProfileByHandle(tweet.username);
                     if (profile) {
                         let prompt = profile.customPrompt.replace('{{TWEET_TEXT}}', tweet.text);
                         if (profile.facts?.length) {
