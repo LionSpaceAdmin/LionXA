@@ -13,7 +13,7 @@
 ### Phase 1: Core Infrastructure
 - **[בוצע] Next.js PWA Setup**: הפרויקט מבוסס Next.js 15 עם App Router.
 - **[בוצע] Core Dependencies**: הותקנו ספריות הליבה כמו `react-query`, `shadcn/ui`, `lucide-react` וכו'.
-- **[בוצע] Firebase SDK Setup (Placeholder)**: נוצר קובץ תצורה ושירות בסיסי (`src/lib/firebase.ts`) שישמש כ-placeholder לחיבור עתידי.
+- **[בוצע] Firebase SDK Setup**: המערכת חוברה לפרויקט Firebase אמיתי.
 
 ### Phase 2: Agent Integration
 - **[בוצע] Agent Service Wrapper**: נוצר שירות `AgentManager` שמפעיל ועוצר את הסוכן האמיתי.
@@ -41,6 +41,13 @@
 
 ### Security
 - **[בוצע] Authentication & Authorization**: יצירת Auth Middleware פלייסהולדר.
+
+---
+
+## 🚀 מעבר לתצורה אמיתית
+
+- **[בוצע] חיבור ל-Firebase:** האפליקציה מחוברת כעת לפרויקט Firebase אמיתי. זה מאפשר שימוש בשירותים כמו Firestore, Authentication ו-Cloud Messaging.
+- **[בוצע] חיבור Genkit ל-GCP:** יכולות ה-AI מחוברות כעת לחשבון Google Cloud באמצעות אישורי הגישה שסופקו, ומאפשרות הפעלת מודלים אמיתיים.
 
 ---
 
