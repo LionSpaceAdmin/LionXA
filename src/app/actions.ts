@@ -3,6 +3,7 @@
 import { analyzeAgentPerformance, AIPoweredOptimizationInput, AIPoweredOptimizationOutput } from "@/ai/flows/ai-powered-optimization";
 import { z } from "zod";
 import { getNotificationServiceInstance } from "@/lib/notification-service";
+import { revalidatePath } from "next/cache";
 
 const formSchema = z.object({
   responseRate: z.number().min(0).max(100),
@@ -13,7 +14,11 @@ const formSchema = z.object({
   agentConfig: z.string().min(1, "Agent config is required."),
 });
 
-const XAGENT_API_URL = process.env.XAGENT_API_URL || 'http://localhost:8080'; // Fallback for local dev
+// The base URL for our internal API
+const API_BASE_URL = process.env.NODE_ENV === 'production' 
+    ? (process.env.NEXT_PUBLIC_SITE_URL || '') // In production, use the public URL
+    : 'http://localhost:3000'; // In development, use localhost
+
 
 export async function getAIOptimization(
   values: z.infer<typeof formSchema>
@@ -40,12 +45,16 @@ export async function getAIOptimization(
 
 export async function startAgent(): Promise<{ success: boolean; message: string }> {
     try {
-        const response = await fetch(`${XAGENT_API_URL}/start`, { method: 'POST' });
+        const response = await fetch(`${API_BASE_URL}/api/agent/start`, { 
+            method: 'POST',
+            cache: 'no-store' 
+        });
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({ message: 'Failed to start agent' }));
             throw new Error(errorData.message);
         }
         const data = await response.json();
+        revalidatePath('/');
         return { success: true, message: data.message || "Agent started successfully." };
     } catch (error: any) {
         return { success: false, message: `Failed to start agent: ${error.message}` };
@@ -54,12 +63,16 @@ export async function startAgent(): Promise<{ success: boolean; message: string 
 
 export async function stopAgent(): Promise<{ success: boolean; message: string }> {
     try {
-        const response = await fetch(`${XAGENT_API_URL}/stop`, { method: 'POST' });
+        const response = await fetch(`${API_BASE_URL}/api/agent/stop`, { 
+            method: 'POST',
+            cache: 'no-store'
+        });
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({ message: 'Failed to stop agent' }));
             throw new Error(errorData.message);
         }
         const data = await response.json();
+        revalidatePath('/');
         return { success: true, message: data.message || "Agent stopped successfully." };
     } catch (error: any) {
         return { success: false, message: `Failed to stop agent: ${error.message}` };
@@ -68,19 +81,17 @@ export async function stopAgent(): Promise<{ success: boolean; message: string }
 
 export async function getAgentStatus(): Promise<{ status: 'offline' | 'running' | 'error'; logs: string[] }> {
     try {
-        const response = await fetch(`${XAGENT_API_URL}/status`);
+        const response = await fetch(`${API_BASE_URL}/api/agent/status`, { cache: 'no-store' });
         if (!response.ok) {
             throw new Error('Failed to fetch agent status');
         }
         const data = await response.json();
-        // The backend should return a status and logs array
         return {
             status: data.status || 'offline',
             logs: data.logs || [],
         };
     } catch (error: any) {
         console.error("getAgentStatus error:", error.message);
-        // Return a default error state if the backend is unreachable
         return {
             status: 'error',
             logs: [`Error fetching agent status: ${error.message}`],
