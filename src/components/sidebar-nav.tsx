@@ -17,10 +17,10 @@ import Link from 'next/link';
 
 const links = [
   { href: '/', label: 'Dashboard', icon: LayoutDashboard },
-  { href: '#', label: 'Visual Editor', icon: Share2 },
-  { href: '#', label: 'Automation', icon: ListChecks },
-  { href: '#', label: 'AI Optimization', icon: Bot },
-  { href: '#', label: 'Settings', icon: Settings },
+  { href: '#visual-editor', label: 'Visual Editor', icon: Share2 },
+  { href: '#automation', label: 'Automation', icon: ListChecks },
+  { href: '#ai-optimization', label: 'AI Optimization', icon: Bot },
+  { href: '#settings', label: 'Settings', icon: Settings },
 ];
 
 export function SidebarNav() {
