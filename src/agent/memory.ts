@@ -1,107 +1,78 @@
+// src/agent/memory.ts
+import { db } from '@/lib/firebase';
+import { collection, doc, getDoc, setDoc, query, getDocs, limit } from 'firebase/firestore';
 
-import path from 'path';
-import fs from 'fs';
+const MEMORY_COLLECTION = 'agent_memory';
+const SEEN_TWEETS_DOC_ID = 'seen_tweets';
 
-// --- Constants ---
-const MEMORY_PATH = path.resolve(__dirname, './memory.json');
-const DATA_DIR = path.dirname(MEMORY_PATH);
-
-// --- State ---
+// In-memory cache to reduce Firestore reads
 let seenTweetIds: Set<string> = new Set();
-let hasUnsavedChanges = false;
+let isLoaded = false;
 
-/**
- * Ensures the data directory exists before trying to read/write files.
- */
-function ensureDataDirectoryExists(): void {
-  if (!fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true });
-  }
-}
-
-/**
- * Loads the set of seen tweet IDs from the memory file.
- * This is called once when the module is first imported.
- */
-function loadMemory(): void {
-  ensureDataDirectoryExists();
-  if (fs.existsSync(MEMORY_PATH)) {
-    try {
-      const fileContent = fs.readFileSync(MEMORY_PATH, 'utf-8');
-      const ids = JSON.parse(fileContent);
-      if (Array.isArray(ids)) {
-        seenTweetIds = new Set(ids);
-        console.log(`🧠 Loaded ${seenTweetIds.size} tweet IDs from memory.`);
-      }
-    } catch (error) {
-      console.error('Failed to load memory file. Starting with an empty set.', error);
-      seenTweetIds = new Set();
-    }
-  } else {
-    console.log('No memory file found. Starting with an empty set.');
-  }
-}
-
-/**
- * Saves the current set of seen tweet IDs to the memory file.
- * This should be called when the application is shutting down.
- */
-function saveMemory(): void {
-  if (!hasUnsavedChanges) {
-    return; // No need to write if nothing has changed
-  }
-  console.log('💾 Saving memory to disk...');
+async function loadMemory(): Promise<void> {
+  if (isLoaded) return;
+  
+  console.log('🧠 Loading memory from Firestore...');
   try {
-    ensureDataDirectoryExists();
-    const data = JSON.stringify(Array.from(seenTweetIds), null, 2);
-    fs.writeFileSync(MEMORY_PATH, data);
-    hasUnsavedChanges = false; // Reset flag after saving
-    console.log(`✅ Saved ${seenTweetIds.size} tweet IDs.`);
+    const docRef = doc(db, MEMORY_COLLECTION, SEEN_TWEETS_DOC_ID);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      // Firestore stores the set as an array
+      if (data.ids && Array.isArray(data.ids)) {
+        seenTweetIds = new Set(data.ids);
+      }
+    }
+    isLoaded = true;
+    console.log(`✅ Loaded ${seenTweetIds.size} tweet IDs from Firestore.`);
   } catch (error) {
-    console.error('❌ Failed to save memory file:', error);
+    console.error('❌ Failed to load memory from Firestore:', error);
+    // In case of error, start with an empty set to avoid breaking the agent
+    seenTweetIds = new Set();
   }
 }
 
-// --- Public API ---
+async function saveMemory(): Promise<void> {
+  console.log('💾 Saving memory to Firestore...');
+  try {
+    const docRef = doc(db, MEMORY_COLLECTION, SEEN_TWEETS_DOC_ID);
+    // Convert Set to Array for Firestore compatibility
+    await setDoc(docRef, { ids: Array.from(seenTweetIds) });
+    console.log(`✅ Saved ${seenTweetIds.size} tweet IDs to Firestore.`);
+  } catch (error) {
+    console.error('❌ Failed to save memory to Firestore:', error);
+  }
+}
 
-/**
- * Checks if a tweet ID has been seen before.
- * @param tweetId The ID of the tweet to check.
- * @returns True if the tweet has been seen, false otherwise.
- */
-export function isSeen(tweetId: string): boolean {
+export async function isSeen(tweetId: string): Promise<boolean> {
+  await loadMemory();
   return seenTweetIds.has(tweetId);
 }
 
-/**
- * Marks a tweet ID as seen. This updates the in-memory set
- * and flags that there are changes to be saved.
- * @param tweetId The ID of the tweet to mark as seen.
- */
-export function markSeen(tweetId:string): void {
+export async function markSeen(tweetId: string): Promise<void> {
+  await loadMemory();
   if (!seenTweetIds.has(tweetId)) {
     seenTweetIds.add(tweetId);
-    hasUnsavedChanges = true;
+    // Save immediately to ensure persistence, can be optimized later
+    await saveMemory(); 
   }
 }
 
-// --- Initialization and Shutdown ---
-
-// Load memory on module initialization
-loadMemory();
-
-// Register a shutdown hook to save memory gracefully
 export function registerGracefulShutdown() {
-    const shutdown = () => {
-        saveMemory();
+    const shutdown = async () => {
+        await saveMemory();
         process.exit(0);
     };
-    process.on('exit', saveMemory);
+    process.on('exit', () => saveMemory());
     process.on('SIGINT', shutdown);
     process.on('SIGTERM', shutdown);
-    process.on('uncaughtException', (err) => {
+    process.on('uncaughtException', async (err) => {
       console.error('An uncaught exception occurred!', err);
-      saveMemory();
+      await saveMemory();
       process.exit(1);
     });
 }
+
+// Initial load
+loadMemory().catch(console.error);
