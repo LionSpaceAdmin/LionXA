@@ -6,7 +6,7 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
-const withNextIntl = createNextIntlPlugin();
+const withNextIntl = createNextIntlPlugin('./i18n.ts');
  
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -40,4 +40,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(withNextIntl(nextConfig));
+module.exports = withNextIntl(withPWA(nextConfig));
