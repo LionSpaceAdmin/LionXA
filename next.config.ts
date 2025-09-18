@@ -6,11 +6,6 @@ const withPWA = require('next-pwa')({
   disable: process.env.NODE_ENV === 'development',
 });
 
-// Correctly point to the i18n.ts file at the root of the project
-const withNextIntl = require('next-intl/plugin')(
-  './i18n.ts'
-);
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   typescript: {
@@ -43,4 +38,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withPWA(withNextIntl(nextConfig));
+module.exports = withPWA(nextConfig);
