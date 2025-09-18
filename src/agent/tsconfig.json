@@ -8,7 +8,14 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "outDir": "../../dist/agent",
-    "rootDir": "."
+    // Expand the rootDir to the parent `src` so the agent project can import
+    // shared modules under `src/ai` and `src/lib` during compilation.
+    "rootDir": "..",
+    // Resolve the `@/*` path alias used across the repo.
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["../src/*"]
+    }
   },
   "include": ["**/*"],
   "exclude": ["node_modules"]

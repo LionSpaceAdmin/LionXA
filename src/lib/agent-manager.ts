@@ -27,7 +27,7 @@ function addToLogs(data: string) {
   }
 }
 
-export function startAgentProcess(): { success: boolean; message: string } {
+export async function startAgentProcess(): Promise<{ success: boolean; message: string }> {
   if (agentState.process) {
     return { success: false, message: 'Agent is already running.' };
   }
@@ -76,7 +76,7 @@ export function startAgentProcess(): { success: boolean; message: string } {
   return { success: true, message: `Agent process started with PID: ${agentProcess.pid}` };
 }
 
-export function stopAgentProcess(): { success: boolean; message: string } {
+export async function stopAgentProcess(): Promise<{ success: boolean; message: string }> {
   if (!agentState.process) {
     return { success: false, message: 'Agent is not running.' };
   }
@@ -91,7 +91,7 @@ export function stopAgentProcess(): { success: boolean; message: string } {
   }
 }
 
-export function getAgentState(): { status: 'offline' | 'running' | 'error'; logs: string[] } {
+export async function getAgentState(): Promise<{ status: 'offline' | 'running' | 'error'; logs: string[] }> {
     // If the process is null, ensure status is offline.
     if(agentState.process === null && agentState.status === 'running') {
         agentState.status = 'offline';

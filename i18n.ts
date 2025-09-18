@@ -1,14 +1,15 @@
 import {getRequestConfig} from 'next-intl/server';
 import {notFound} from 'next/navigation';
- 
-// A list of all locales that are supported
-const locales = ['he', 'en'];
- 
+
+// Supported locales
+const locales = ['he', 'en'] as const;
+
 export default getRequestConfig(async ({locale}) => {
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(locale as any)) notFound();
- 
+  const current = String(locale);
+  if (!locales.includes(current as any)) notFound();
+
   return {
-    messages: (await import(`./src/messages/${locale}.json`)).default
+    locale: current,
+    messages: (await import(`./src/messages/${current}.json`)).default
   };
 });

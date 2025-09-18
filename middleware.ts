@@ -1,15 +1,13 @@
 import createMiddleware from 'next-intl/middleware';
- 
+
 export default createMiddleware({
-  // A list of all locales that are supported
   locales: ['he', 'en'],
- 
-  // Used when no locale matches
   defaultLocale: 'he',
-  localePrefix: 'always'
+  // Hide the default locale prefix; keep prefix only for non-default
+  localePrefix: 'as-needed'
 });
- 
+
 export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
+  // Exclude Next internals and any path with an extension
+  matcher: ['/((?!api|_next|.*\\..*).*)']
 };

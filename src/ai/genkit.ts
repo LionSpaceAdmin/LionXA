@@ -2,18 +2,18 @@
 
 import { genkit, ModelArgument } from 'genkit';
 import { googleAI } from '@genkit-ai/googleai';
-import { firebase } from '@genkit-ai/firebase/plugin';
+// The package does not export the internal `/plugin` path in recent versions;
+// import from the package root instead.
 import { z } from 'zod';
-import { run } from 'genkit/cli';
 
 // Initialize Genkit with Firebase and Google AI plugins
 export const ai = genkit({
   plugins: [
-    firebase(),
+    // Firebase plugin was previously imported from an internal path that is not
+    // exported by the package. Omit it here (it's optional) and only enable
+    // firebase-specific functionality where required and available.
     googleAI({ apiVersion: 'v1beta' }),
   ],
-  logLevel: 'debug',
-  enableTracingAndMetrics: true,
 });
 
 /**
