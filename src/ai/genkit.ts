@@ -2,7 +2,7 @@
 
 import { genkit, ModelArgument } from 'genkit';
 import { googleAI } from '@genkit-ai/googleai';
-import { firebase } from '@genkit-ai/firebase';
+import { firebase } from '@genkit-ai/firebase/plugin';
 import { z } from 'zod';
 import { run } from 'genkit/cli';
 
@@ -31,6 +31,6 @@ export const simpleTextGenerationFlow = ai.defineFlow(
       prompt: prompt,
     });
     
-    return llmResponse.text() ?? '';
+    return llmResponse.text ?? '';
   }
 );
