@@ -5,10 +5,11 @@ export default createMiddleware({
   locales: ['he', 'en'],
  
   // Used when no locale matches
-  defaultLocale: 'he'
+  defaultLocale: 'he',
+  localePrefix: 'always'
 });
  
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', '/(he|en)/:path*']
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
 };
