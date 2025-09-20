@@ -11,7 +11,6 @@
     "dev:agent": "ts-node -O '{\"module\":\"commonjs\"}' src/setup/devAll.ts agent",
     "dev:dash": "ts-node src/setup/devAll.ts dash",
     "dev:all": "ts-node -O '{\"module\":\"commonjs\"}' src/setup/devAll.ts agent",
-    
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
@@ -33,7 +32,8 @@
     "fix:quarantine": "bash src/setup/fix_quarantine.sh",
     "open:chrome": "ts-node -O '{\"module\":\"commonjs\"}' src/setup/openChrome.ts",
     "lh:prod": "node scripts/run-lighthouse.mjs --preset=desktop",
-    "lh:mobile": "node scripts/run-lighthouse.mjs --preset=mobile"
+    "lh:mobile": "node scripts/run-lighthouse.mjs --preset=mobile",
+    "shot:home": "ts-node -O '{\"module\":\"commonjs\"}' scripts/screenshot-home.ts"
   },
   "keywords": [
     "playwright",
