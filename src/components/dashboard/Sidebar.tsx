@@ -52,7 +52,7 @@ const formatEventText = (event: DashboardEvent) => {
   }
 };
 
-export default function Sidebar({ isConnected, recentEvents }: SidebarProps) {
+export default function Sidebar({ recentEvents }: SidebarProps) {
   const [formattedEvents, setFormattedEvents] = useState<FormattedEvent[]>([]);
 
   useEffect(() => {

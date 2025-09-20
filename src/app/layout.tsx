@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,9 +14,7 @@ export default function RootLayout({
   return (
     <html lang="he" dir="rtl">
       <head>
-        <Script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></Script>
-        <Script src="https://cdn.jsdelivr.net/npm/chart.js"></Script>
-        <Script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></Script>
+        {/** External scripts removed: using bundled deps (socket.io-client, chart.js, lucide-react) */}
       </head>
       <body className="flex h-screen bg-background font-sans">{children}</body>
     </html>

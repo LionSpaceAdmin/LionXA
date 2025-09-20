@@ -3,7 +3,6 @@ import express from 'express';
 import { Server } from 'socket.io';
 import { createServer } from 'http';
 import path from 'path';
-import fs from 'fs';
 
 export interface DashboardMetrics {
   timestamp: Date;

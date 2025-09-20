@@ -2,7 +2,6 @@
 import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
 import * as fs from 'fs/promises';
 import * as fssync from 'fs';
-import * as path from 'path';
 import { config } from './config';
 
 // --- Types ---
@@ -48,7 +47,7 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
   });
 
   const browser = context.browser();
-  const pid = (browser as any)?.process?.()?.pid as number | undefined;
+  const pid = (browser as { process?: () => { pid: number } })?.process?.()?.pid as number | undefined;
 
   let page = context.pages()[0];
   if (!page) {

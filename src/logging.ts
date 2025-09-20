@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as path from 'path';
 import { config } from './config';
 
 const LOG_FILE_PATH = config.data.handledTweets;

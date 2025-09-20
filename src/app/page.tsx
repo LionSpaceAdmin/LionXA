@@ -20,13 +20,13 @@ interface DashboardEvent {
 }
 
 export default function Home() {
-  const [socket, setSocket] = useState<Socket | null>(null);
+  const [, setSocket] = useState<Socket | null>(null);
   const [uptime, setUptime] = useState(0);
   const [recentEvents, setRecentEvents] = useState<DashboardEvent[]>([]);
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const newSocket = io({ path: '/api/socketio' });
+    const newSocket = io('http://localhost:3001', { path: '/socket.io' });
     setSocket(newSocket);
 
     newSocket.on('connect', () => {

@@ -1,6 +1,6 @@
 // src/watchList.ts
-import { Page } from 'playwright';
-import { ensureSession, getSingleton } from './browser';
+import { Page, Locator } from 'playwright';
+import { ensureSession } from './browser';
 import { isSeen, markSeen } from './memory';
 import { askGPT } from './gemini';
 import { getProfile, Profile } from './profiles';
@@ -12,7 +12,6 @@ import { dashboard, logTweetProcessed, logReplyPosted, logGeminiCall, logError, 
 const LIST_URL = config.browser.startUrl || config.twitter.listUrl;
 const POLLING_INTERVAL_MS = config.agent.pollingIntervalMs;
 const INITIAL_REPLY_DELAY_MS = config.agent.initialReplyDelayMs;
-const ACTION_TIMEOUT_MS = config.agent.actionTimeoutMs;
 const INITIAL_POST_LIMIT = config.agent.initialPostLimit;
 
 // Keywords to check for relevance (Israel/Palestine context)
@@ -27,10 +26,14 @@ const RELEVANCE_KEYWORDS = [
 // --- Types ---
 interface Tweet {
     id: string;
-    username: string;
     text: string;
+    author: string;
+    username: string;
+    fullText: string;
+    createdTime: string;
+    isRepost: boolean;
     images: string[];
-    element: any;
+    element: Locator;
 }
 
 interface ProfileWithFacts extends Profile {
@@ -101,7 +104,17 @@ async function scrapeTweetsFromList(page: Page): Promise<Tweet[]> {
                     }
                     if (text) {
                         console.log(`Processing tweet from @${username}`);
-                        tweets.push({ id, username, text, images, element: article });
+                        tweets.push({ 
+                            id, 
+                            username, 
+                            author: username,
+                            text, 
+                            fullText: text,
+                            images, 
+                            createdTime: new Date().toISOString(),
+                            isRepost: false,
+                            element: article 
+                        });
                     }
                 }
             } catch (error) {
@@ -281,7 +294,7 @@ async function main() {
             console.log('🔶 User navigated elsewhere; leaving page as-is.');
         }
         console.log('✅ Ready and keeping tab open.');
-    } catch (error: any) {
+    } catch (error: unknown) {
         console.error('Initial navigation failed:', error);
     }
     
@@ -357,7 +370,7 @@ async function main() {
         withinHourWindow();
         withinDayWindow();
         if (repliesThisHour >= config.agent.rateLimit.maxRequestsPerHour) return false;
-        if (repliesToday >= (config.agent.rateLimit as any).maxTweetsPerDay) return false;
+        if (repliesToday >= ((config.agent.rateLimit as { maxTweetsPerDay?: number }).maxTweetsPerDay || 50)) return false;
         return true;
     }
 

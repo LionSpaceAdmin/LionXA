@@ -1,4 +1,4 @@
-import { _electron, chromium } from '@playwright/test';
+import { chromium } from '@playwright/test';
 import * as fs from 'fs/promises';
 import * as path from 'path';
 import { exec, execSync } from 'child_process';
@@ -24,11 +24,12 @@ async function checkPlaywrightInstallation(): Promise<ValidationResult> {
     }
     
     return { success: true, message: '✅ Playwright is installed correctly' };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return { 
       success: false, 
       message: '❌ Failed to verify Playwright installation', 
-      error: error.message 
+      error: errorMessage 
     };
   }
 }
@@ -78,8 +79,9 @@ async function ensurePlaywrightBrowsers(): Promise<void> {
   try {
     console.log('🔄 Installing Playwright browsers...');
     execSync('pnpm exec playwright install chromium --with-deps', { stdio: 'inherit' });
-  } catch (error: any) {
-    throw new Error('Failed to install Playwright browsers: ' + error.message);
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    throw new Error('Failed to install Playwright browsers: ' + errorMessage);
   }
 }
 
@@ -119,11 +121,12 @@ try {
       success: false, 
       message: '❌ Could not locate Chromium executable' 
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return { 
       success: false, 
       message: '❌ Error searching for Chromium', 
-      error: error.message 
+      error: errorMessage 
     };
   }
 }
@@ -146,11 +149,12 @@ async function testChromiumLaunch(chromePath: string): Promise<ValidationResult>
       message: '✅ Chromium launches successfully',
       path: chromePath
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     return { 
       success: false, 
       message: '❌ Failed to launch Chromium', 
-      error: error.message 
+      error: errorMessage 
     };
   }
 }
@@ -172,14 +176,15 @@ async function checkAccessibilityPermissions(chromePath: string): Promise<Valida
       success: true, 
       message: '✅ Accessibility permissions are granted' 
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : String(error);
     // Open System Preferences to Accessibility
     execSync('open x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibility');
     
     return { 
       success: false, 
       message: '⚠️ Please grant Accessibility permissions for Chromium in System Settings',
-      error: error.message 
+      error: errorMessage 
     };
   }
 }

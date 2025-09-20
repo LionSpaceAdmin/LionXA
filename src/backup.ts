@@ -7,7 +7,7 @@ interface BackupData {
     timestamp: string;
     cookies?: Record<string, unknown>[]; // optional with persistent profile
     memory: string[];
-    engagementLogs: any[];
+    engagementLogs: Record<string, unknown>[];
 }
 
 async function ensureBackupDir(): Promise<void> {
@@ -19,7 +19,7 @@ async function createBackup(): Promise<void> {
         await ensureBackupDir();
         
         // Load current data
-        let cookies: any[] | undefined = undefined;
+        let cookies: Record<string, unknown>[] | undefined = undefined;
         try {
             // Legacy cookies.json (optional). With persistent profile we no longer rely on this.
             cookies = JSON.parse(await fs.readFile(config.data.cookies, 'utf-8'));

@@ -1,106 +1,118 @@
 'use client';
-import { ReactNode, useEffect, useRef } from 'react';
-import { Chart, registerables, ChartConfiguration } from 'chart.js';
-
-Chart.register(...registerables);
+import React, { useRef, useEffect } from 'react';
+import type { Chart as ChartJS, ChartConfiguration } from 'chart.js';
 
 interface MetricCardProps {
-  icon: ReactNode;
+  icon?: React.ReactNode;
   title: string;
   value?: string;
   change?: string;
   isChart?: boolean;
   isNetworkCanvas?: boolean;
-  data?: any[];
+  data?: EventData[];
   fullHeight?: boolean;
+}
+
+interface EventData {
+  timestamp: string;
+  event: string;
+  username?: string;
+  data?: {
+    username?: string;
+  };
 }
 
 export default function MetricCard({ icon, title, value, change, isChart = false, isNetworkCanvas = false, data = [], fullHeight = false }: MetricCardProps) {
   const chartRef = useRef<HTMLCanvasElement | null>(null);
-  const chartInstance = useRef<Chart | null>(null);
+  const chartInstance = useRef<ChartJS | null>(null);
   const networkCanvasRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (isChart && chartRef.current && data) {
+    let cancelled = false;
+    (async () => {
+      if (!(isChart && chartRef.current && data)) return;
       const ctx = chartRef.current.getContext('2d');
-      if (ctx) {
-        if (chartInstance.current) {
-          chartInstance.current.destroy();
-        }
+      if (!ctx) return;
 
-        const chartData = {
-          labels: data.map(e => new Date(e.timestamp).toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })).reverse(),
-          datasets: [
-            {
-              label: 'Replies',
-              data: data.map(e => e.event === 'reply_posted' ? 1 : 0).reverse(),
-              borderColor: '#3b82f6', // blue-500
-              backgroundColor: 'rgba(59, 130, 246, 0.1)',
-              type: 'bar' as const,
-              order: 2,
-            },
-            {
-              label: 'Gemini Calls',
-              data: data.map(e => e.event === 'gemini_call' ? 1 : 0).reverse(),
-              borderColor: '#a855f7', // purple-500
-              backgroundColor: 'rgba(168, 85, 247, 0.1)',
-              type: 'bar' as const,
-              order: 2,
-            },
-             {
-              label: 'Errors',
-              data: data.map(e => e.event === 'error' ? 1 : 0).reverse(),
-              borderColor: '#ef4444', // red-500
-              backgroundColor: 'rgba(239, 68, 68, 0.1)',
-              type: 'bar' as const,
-              order: 2,
-            },
-          ],
-        };
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+        chartInstance.current = null;
+      }
 
-        const config: ChartConfiguration = {
-          type: 'bar',
-          data: chartData,
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                mode: 'index',
-                intersect: false,
-              },
+      const { Chart, registerables } = await import('chart.js');
+      if (cancelled) return;
+      Chart.register(...registerables);
+
+      const chartData = {
+        labels: data.map(e => new Date(e.timestamp).toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit' })).reverse(),
+        datasets: [
+          {
+            label: 'Replies',
+            data: data.map(e => e.event === 'reply_posted' ? 1 : 0).reverse(),
+            borderColor: '#3b82f6',
+            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            type: 'bar' as const,
+            order: 2,
+          },
+          {
+            label: 'Gemini Calls',
+            data: data.map(e => e.event === 'gemini_call' ? 1 : 0).reverse(),
+            borderColor: '#a855f7',
+            backgroundColor: 'rgba(168, 85, 247, 0.1)',
+            type: 'bar' as const,
+            order: 2,
+          },
+           {
+            label: 'Errors',
+            data: data.map(e => e.event === 'error' ? 1 : 0).reverse(),
+            borderColor: '#ef4444',
+            backgroundColor: 'rgba(239, 68, 68, 0.1)',
+            type: 'bar' as const,
+            order: 2,
+          },
+        ],
+      };
+
+      const config: ChartConfiguration = {
+        type: 'bar',
+        data: chartData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { mode: 'index', intersect: false },
+          },
+          scales: {
+            x: {
+              stacked: true,
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8' },
             },
-            scales: {
-              x: {
-                stacked: true,
-                grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                ticks: { color: '#94a3b8' },
-              },
-              y: {
-                stacked: true,
-                grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                ticks: { color: '#94a3b8', stepSize: 1 },
-                 beginAtZero: true
-              },
+            y: {
+              stacked: true,
+              grid: { color: 'rgba(255, 255, 255, 0.05)' },
+              ticks: { color: '#94a3b8', stepSize: 1 },
+              beginAtZero: true,
             },
           },
-        };
-        
-        chartInstance.current = new Chart(ctx, config);
-      }
-    }
-     return () => {
+        },
+      };
+
+      chartInstance.current = new Chart(ctx, config);
+    })();
+    return () => {
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
+      cancelled = true;
     };
   }, [isChart, data]);
 
   useEffect(() => {
     if (isNetworkCanvas && networkCanvasRef.current && data?.length) {
       const event = data[0];
-      if (event.data.username) {
+      if (event.data?.username) {
         const canvas = networkCanvasRef.current;
         if (!canvas) return;
 

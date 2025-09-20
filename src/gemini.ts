@@ -80,11 +80,12 @@ export async function askGemini(prompt: string, modelName: string = DEFAULT_MODE
       console.log(`[Gemini] Successfully generated response with ${currentModel}`);
       return validateResponse(text.trim());
 
-    } catch (error: any) {
-      console.error(`[Gemini] Error with ${currentModel} (attempt ${retries + 1}):`, error.message);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      console.error(`[Gemini] Error with ${currentModel} (attempt ${retries + 1}):`, errorMessage);
       
       // If model not available or quota exceeded, try fallback model
-      if ((error.message?.includes("model") || error.message?.includes("quota")) && currentModel === DEFAULT_MODEL) {
+      if ((errorMessage?.includes("model") || errorMessage?.includes("quota")) && currentModel === DEFAULT_MODEL) {
         console.log(`[Gemini] Falling back to ${FALLBACK_MODEL}`);
         currentModel = FALLBACK_MODEL;
       }
