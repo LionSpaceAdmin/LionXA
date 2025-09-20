@@ -1,6 +1,5 @@
 // src/browser.ts
 import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
-import path from 'path';
 import * as fs from 'fs/promises';
 import * as fssync from 'fs';
 import { config } from './config';
@@ -61,9 +60,9 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
 
   // If a specific executable is provided, use it; otherwise, prefer a channel (defaults to 'chrome')
   if (config.browser.executablePath) {
-    (launchOpts as any).executablePath = config.browser.executablePath;
+    (launchOpts as { executablePath?: string }).executablePath = config.browser.executablePath;
   } else if (config.browser.channel) {
-    (launchOpts as any).channel = config.browser.channel;
+    (launchOpts as { channel?: string }).channel = config.browser.channel;
   }
 
   let context: BrowserContext;
@@ -76,8 +75,8 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
 
   try {
     context = await tryLaunch(userDataDirUsed, launchOpts);
-  } catch (err: any) {
-    const msg = String(err?.message || err);
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err);
     // If profile is locked, try an alternate persistent dir
     if (/ProcessSingleton|SingletonLock|profile directory.*in use/i.test(msg)) {
       const altDir = userDataDirUsed + '_codex';
@@ -85,7 +84,7 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
       try {
         context = await tryLaunch(altDir, launchOpts);
         userDataDirUsed = altDir;
-      } catch (err2) {
+      } catch (err2: unknown) {
         console.warn('⚠️ Alternate profile failed. Retrying with bundled Chromium...', err2);
         const fallbackOpts: PersistentOpts = {
           headless: config.browser.headless,
@@ -97,7 +96,7 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
         try {
           context = await tryLaunch(altDir, fallbackOpts);
           userDataDirUsed = altDir;
-        } catch (err3) {
+        } catch {
           // Last resort: use original dir with fallback opts
           context = await tryLaunch(userDataDirUsed, fallbackOpts);
         }

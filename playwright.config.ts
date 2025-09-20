@@ -5,7 +5,7 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 const disableWebServer = process.env.PW_DISABLE_WEBSERVER === '1';
-const reporter = (process.env.PW_REPORTER as any) || 'html';
+const reporter = process.env.PW_REPORTER ?? 'html';
 export default defineConfig({
   testDir: './e2e',
   /* Run tests in files in parallel */

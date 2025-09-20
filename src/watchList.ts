@@ -43,6 +43,7 @@ interface ProfileWithFacts extends Profile {
 // --- Helper Functions ---
 
 // NOTE: Relevance filter kept for future use
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function _isTweetRelevant(text: string): boolean {
     const lowerText = text.toLowerCase();
     return RELEVANCE_KEYWORDS.some(keyword => lowerText.includes(keyword));

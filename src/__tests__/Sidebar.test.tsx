@@ -1,10 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import Sidebar from '@/components/dashboard/Sidebar';
+import React from 'react';
 
 // Mock next/link to a simple passthrough for tests
 jest.mock('next/link', () => ({
   __esModule: true,
-  default: ({ children }: any) => children,
+  default: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
 describe('Sidebar Component', () => {
@@ -12,7 +13,7 @@ describe('Sidebar Component', () => {
 
   beforeAll(() => {
     // Ensure deterministic time formatting across environments
-    jest.spyOn(Date.prototype as any, 'toLocaleTimeString').mockReturnValue('12:34:56');
+    jest.spyOn(Date.prototype, 'toLocaleTimeString').mockReturnValue('12:34:56' as unknown as string);
   });
 
   afterAll(() => {
@@ -20,7 +21,8 @@ describe('Sidebar Component', () => {
   });
 
   it('renders recent events with formatted text and time', () => {
-    const events = [
+    type DashboardEvent = { timestamp: string; event: string; data: { username?: string; content?: string; error?: string } };
+    const events: DashboardEvent[] = [
       {
         timestamp: '2023-01-01T12:34:56Z',
         event: 'tweet_processed',
@@ -33,7 +35,7 @@ describe('Sidebar Component', () => {
       },
     ];
 
-    render(<Sidebar isConnected={true} recentEvents={events as any} />);
+    render(<Sidebar isConnected={true} recentEvents={events} />);
 
     // Header/link area
     expect(screen.getByText('פעילות')).toBeInTheDocument();
@@ -46,4 +48,3 @@ describe('Sidebar Component', () => {
     expect(screen.getAllByText('12:34:56')[0]).toBeInTheDocument();
   });
 });
-

@@ -1,4 +1,4 @@
-import { chromium } from '@playwright/test';
+import { chromium } from 'playwright';
 
 function parseArgs(): string[] {
   return (process.env.BROWSER_ARGS || '')
@@ -11,7 +11,7 @@ async function main() {
   console.log('\n🔍 Playwright Validation');
 
   const headless = process.env.INTERACTIVE === '0' || process.env.HEADLESS_BROWSER === 'true';
-  const executablePath = process.env.BROWSER_EXECUTABLE_PATH || (chromium as any).executablePath?.();
+  const executablePath = process.env.BROWSER_EXECUTABLE_PATH || chromium.executablePath?.();
 
   if (executablePath) {
     console.log('• Chromium executable:', executablePath);

@@ -6,7 +6,7 @@ async function wait(ms: number) {
   return new Promise((res) => setTimeout(res, ms));
 }
 
-function fetchCDPVersion(port: number): Promise<any> {
+function fetchCDPVersion(port: number): Promise<unknown> {
   return new Promise((resolve, reject) => {
     const req = http.get({ host: '127.0.0.1', port, path: '/json/version', timeout: 2000 }, (res) => {
       let data = '';
@@ -43,4 +43,3 @@ main().catch((e) => {
   console.error('Failed to open Chrome:', e);
   process.exit(1);
 });
-
