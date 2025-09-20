@@ -145,11 +145,16 @@ export default function MetricCard({ icon, title, value, change, isChart = false
       </div>
       <div className="flex-1 p-4 pt-0">
         {isChart ? (
-          <div className="chart-container relative h-full min-h-[250px]">
-            <canvas ref={chartRef}></canvas>
+          <div className="chart-container relative h-full min-h-[300px] rounded-lg bg-background/60">
+            {(!data || data.length === 0) && (
+              <div className="absolute inset-0 flex items-center justify-center text-sm text-muted-foreground">
+                אין פעילות להצגה
+              </div>
+            )}
+            <canvas ref={chartRef} className="w-full h-full"></canvas>
           </div>
         ) : isNetworkCanvas ? (
-          <div ref={networkCanvasRef} className="network-canvas h-full min-h-[250px] relative overflow-hidden rounded-lg bg-background/50">
+          <div ref={networkCanvasRef} className="network-canvas h-full min-h-[300px] relative overflow-hidden rounded-lg bg-background/60">
             <style>{`.animate-pulse-short { animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite; }`}</style>
           </div>
         ) : (

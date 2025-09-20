@@ -11,8 +11,16 @@ async function main() {
   fs.mkdirSync(outDir, { recursive: true });
 
   console.log('📸 Taking screenshot of', url, '→', outPath, '(channel:', channel, ')');
-  const browser = await chromium.launch({ headless: true, channel });
-  const ctx = await browser.newContext({ viewport: { width: 1366, height: 900 } });
+  const ctx = await chromium.launchPersistentContext(path.resolve('.playwright-tmp-profile'), {
+    headless: true,
+    channel,
+    viewport: { width: 1366, height: 900 },
+    args: [
+      '--disable-crash-reporter',
+      '--no-sandbox',
+      '--disable-dev-shm-usage',
+    ],
+  });
   const page = await ctx.newPage();
 
   try {
@@ -24,7 +32,7 @@ async function main() {
     await page.screenshot({ path: outPath, fullPage: true });
     console.log('✅ Saved:', outPath);
   } finally {
-    await browser.close();
+    await ctx.close();
   }
 }
 
@@ -32,4 +40,3 @@ main().catch((e) => {
   console.error('❌ Screenshot failed:', e);
   process.exit(1);
 });
-

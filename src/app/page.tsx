@@ -117,6 +117,7 @@ export default function Home() {
       <div className="flex-1 flex flex-col">
         <Header uptime={uptime} isConnected={isConnected} />
         <main className="flex-1 overflow-y-auto p-6 md:p-8">
+          <div className="max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4">
             <MetricCard
               icon={<MessageCircle size={28} className="text-primary" />}
@@ -163,6 +164,7 @@ export default function Home() {
                 fullHeight={true}
               />
             </div>
+          </div>
           </div>
         </main>
       </div>
