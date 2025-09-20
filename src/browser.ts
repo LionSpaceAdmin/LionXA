@@ -1,5 +1,6 @@
 // src/browser.ts
 import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
+import path from 'path';
 import * as fs from 'fs/promises';
 import * as fssync from 'fs';
 import { config } from './config';
@@ -25,9 +26,11 @@ function ensureDirSync(dir: string) {
 
 function logSessionInit(startUrl: string, userDataDir: string, pid?: number) {
   const mode = config.browser.headless ? 'headless' : 'interactive';
+  const channel = config.browser.executablePath ? 'custom-executable' : config.browser.channel;
   console.log(`🧭 Session init: url=${startUrl}`);
   console.log(`👤 Profile: ${userDataDir}`);
   console.log(`🧩 Mode: ${mode}`);
+  console.log(`🛠️ Browser: ${config.browser.executablePath || channel}`);
   if (pid) console.log(`🆔 Chromium PID: ${pid}`);
   // Single-line proof log for validators
   console.log(`Session init: url=${startUrl}, profile=${userDataDir}, Engine=Chromium, PID=${pid ?? 'n/a'}, mode=${mode}`);
@@ -36,15 +39,81 @@ function logSessionInit(startUrl: string, userDataDir: string, pid?: number) {
 async function createPersistentContext(startUrl: string): Promise<BrowserSession> {
   ensureDirSync(config.browser.userDataDir);
 
-  const context = await chromium.launchPersistentContext(config.browser.userDataDir, {
+  // Build launch options with Chrome-first preference and rich communication options
+  const args = [
+    '--disable-infobars',
+    '--no-default-browser-check',
+    '--no-first-run',
+    ...config.browser.extraArgs,
+  ];
+  if (config.browser.debugPort && config.browser.debugPort > 0) {
+    args.push(`--remote-debugging-port=${config.browser.debugPort}`);
+  }
+
+  type PersistentOpts = Parameters<typeof chromium.launchPersistentContext>[1];
+  const launchOpts: PersistentOpts = {
     headless: config.browser.headless,
-    args: [
-      '--disable-infobars',
-      '--no-default-browser-check',
-      '--no-first-run',
-    ],
+    args,
     viewport: { width: 1280, height: 860 },
-  });
+    devtools: !!config.browser.devtools,
+    slowMo: config.browser.slowMo || 0,
+  };
+
+  // If a specific executable is provided, use it; otherwise, prefer a channel (defaults to 'chrome')
+  if (config.browser.executablePath) {
+    (launchOpts as any).executablePath = config.browser.executablePath;
+  } else if (config.browser.channel) {
+    (launchOpts as any).channel = config.browser.channel;
+  }
+
+  let context: BrowserContext;
+  let userDataDirUsed = config.browser.userDataDir;
+
+  const tryLaunch = async (dir: string, opts: PersistentOpts) => {
+    ensureDirSync(dir);
+    return await chromium.launchPersistentContext(dir, opts);
+  };
+
+  try {
+    context = await tryLaunch(userDataDirUsed, launchOpts);
+  } catch (err: any) {
+    const msg = String(err?.message || err);
+    // If profile is locked, try an alternate persistent dir
+    if (/ProcessSingleton|SingletonLock|profile directory.*in use/i.test(msg)) {
+      const altDir = userDataDirUsed + '_codex';
+      console.warn(`⚠️ Profile is locked. Trying alternate profile at: ${altDir}`);
+      try {
+        context = await tryLaunch(altDir, launchOpts);
+        userDataDirUsed = altDir;
+      } catch (err2) {
+        console.warn('⚠️ Alternate profile failed. Retrying with bundled Chromium...', err2);
+        const fallbackOpts: PersistentOpts = {
+          headless: config.browser.headless,
+          args,
+          viewport: { width: 1280, height: 860 },
+          devtools: !!config.browser.devtools,
+          slowMo: config.browser.slowMo || 0,
+        };
+        try {
+          context = await tryLaunch(altDir, fallbackOpts);
+          userDataDirUsed = altDir;
+        } catch (err3) {
+          // Last resort: use original dir with fallback opts
+          context = await tryLaunch(userDataDirUsed, fallbackOpts);
+        }
+      }
+    } else {
+      console.warn('⚠️ Failed to launch with preferred browser settings. Retrying with bundled Chromium...', err);
+      const fallbackOpts: PersistentOpts = {
+        headless: config.browser.headless,
+        args,
+        viewport: { width: 1280, height: 860 },
+        devtools: !!config.browser.devtools,
+        slowMo: config.browser.slowMo || 0,
+      };
+      context = await tryLaunch(userDataDirUsed, fallbackOpts);
+    }
+  }
 
   const browser = context.browser();
   const pid = (browser as { process?: () => { pid: number } })?.process?.()?.pid as number | undefined;
@@ -69,7 +138,7 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
     console.warn('⚠️ Failed to import legacy cookies.json (continuing):', e);
   }
 
-  logSessionInit(startUrl, config.browser.userDataDir, pid);
+  logSessionInit(startUrl, userDataDirUsed, pid);
 
   // Only navigate once on brand-new session
   try {
@@ -88,6 +157,17 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
       try { await pages[i].close({ runBeforeUnload: true }); } catch {}
     }
   }
+
+  // Pipe page console logs and errors for maximum observability
+  page.on('console', (msg) => {
+    try {
+      const txt = msg.text();
+      console.log(`🖥️ [page:${msg.type()}] ${txt}`);
+    } catch {}
+  });
+  page.on('pageerror', (err) => {
+    console.error('🌋 Page error:', err);
+  });
 
   // Resilience: if the page is closed or crashes, we will recreate on next ensureSession()
   page.on('close', () => {

@@ -26,7 +26,32 @@ export default function Home() {
   const [isConnected, setIsConnected] = useState(false);
 
   useEffect(() => {
-    const newSocket = io('http://localhost:3001', { path: '/socket.io' });
+    // Flexible Socket.IO URL to avoid hard-coded localhost and reduce breakage
+    const envUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL;
+    const envPort = process.env.NEXT_PUBLIC_DASHBOARD_PORT || '3001';
+    const envPath = process.env.NEXT_PUBLIC_DASHBOARD_PATH || '/socket.io';
+
+    let socketUrl: string | undefined = undefined;
+    if (envUrl) {
+      socketUrl = envUrl;
+    } else if (typeof window !== 'undefined') {
+      const host = window.location.hostname;
+      if (host === 'localhost' || host === '127.0.0.1' || /^(192|10|172)\./.test(host)) {
+        socketUrl = `${window.location.protocol}//${host}:${envPort}`;
+      } else {
+        socketUrl = undefined; // same-origin if proxied
+      }
+    }
+
+    const newSocket = io(socketUrl, {
+      path: envPath,
+      transports: ['websocket'],
+      reconnection: true,
+      reconnectionDelay: 500,
+      reconnectionAttempts: Infinity,
+      timeout: 20000,
+      withCredentials: false,
+    });
     setSocket(newSocket);
 
     newSocket.on('connect', () => {
@@ -37,6 +62,10 @@ export default function Home() {
     newSocket.on('disconnect', () => {
       console.log('Socket.IO disconnected');
       setIsConnected(false);
+    });
+
+    newSocket.on('connect_error', (err) => {
+      console.warn('Socket.IO connect_error:', err?.message || err);
     });
 
     newSocket.on('initial-data', (data) => {

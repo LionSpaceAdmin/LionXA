@@ -17,25 +17,21 @@ Aim for very short, impactful replies (1-2 sentences). Vary your tone and phrasi
 `;
 
 // --- API Initialization ---
-if (!config.gemini.apiKey) {
+const DRY_RUN = process.env.DRY_RUN === '1';
+if (!config.gemini.apiKey && !DRY_RUN) {
     throw new Error('Gemini API key is not configured');
 }
 
-const genAI = new GoogleGenerativeAI(config.gemini.apiKey);
+const genAI: GoogleGenerativeAI | null = config.gemini.apiKey
+  ? new GoogleGenerativeAI(config.gemini.apiKey)
+  : null;
 
 // --- Response Validation ---
 function validateResponse(text: string): string {
-    // Enforce character limit
+    // Enforce character limit only; no emojis/hashtags decoration per policy
     if (text.length > 280) {
         text = text.slice(0, 277) + "...";
     }
-    
-    // Add random emoji (30% chance)
-    if (Math.random() < 0.3) {
-        const emojis = ["😏", "🤔", "🙄", "😶", "🤨", "😬", "🤷‍♂️", "🤦‍♂️", "🎯", "💡", "⚡️", "🔥"];
-        text = `${emojis[Math.floor(Math.random() * emojis.length)]} ${text}`;
-    }
-    
     return text;
 }
 
@@ -49,6 +45,10 @@ function validateResponse(text: string): string {
  * @returns The text content of the AI's response, or null if an error occurred.
  */
 export async function askGemini(prompt: string, modelName: string = DEFAULT_MODEL): Promise<string | null> {
+  if (DRY_RUN || !config.gemini.apiKey) {
+    const text = `Simulated reply: ${prompt.slice(0, 80)}`;
+    return validateResponse(text);
+  }
   let retries = 0;
   let currentModel = modelName;
 
@@ -56,7 +56,7 @@ export async function askGemini(prompt: string, modelName: string = DEFAULT_MODE
     try {
       console.log(`[Gemini] Attempting with model: ${currentModel} (attempt ${retries + 1}/${MAX_RETRIES})`);
       
-      const model = genAI.getGenerativeModel({ 
+      const model = genAI!.getGenerativeModel({ 
         model: currentModel,
         generationConfig: {
           temperature: 0.5, // More consistent responses

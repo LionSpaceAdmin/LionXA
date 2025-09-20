@@ -6,6 +6,9 @@ import path from 'path';
 dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 const DATA_DIR = path.resolve(process.cwd(), 'data');
+const DEFAULT_PROFILE_DIR = process.env.PROFILE_DIR
+  ? path.resolve(process.cwd(), process.env.PROFILE_DIR)
+  : path.resolve(process.cwd(), 'src/profiles/agent_profile/Default');
 
 /**
  * A centralized configuration object for the entire application.
@@ -41,9 +44,22 @@ export const config = {
   // Browser automation settings
   browser: {
     // Persistent Chromium user-data-dir to keep session/cookies across runs
-    userDataDir: process.env.BROWSER_USER_DATA_DIR || path.join(DATA_DIR, 'chromium_profile'),
+    userDataDir: process.env.BROWSER_USER_DATA_DIR || DEFAULT_PROFILE_DIR,
     // INTERACTIVE=1 (default) -> headful, INTERACTIVE=0 -> headless
     headless: process.env.INTERACTIVE === '0' || process.env.HEADLESS_BROWSER === 'true',
+    // Prefer a stable, system-installed browser for reliability on macOS
+    // Options: 'chrome' | 'chromium' | 'msedge' | 'chrome-beta' | 'chrome-canary'
+    channel: process.env.BROWSER_CHANNEL || 'chrome',
+    // Optional absolute path to a specific browser executable; if set, overrides channel
+    executablePath: process.env.BROWSER_EXECUTABLE_PATH,
+    // Open DevTools on start (only effective in headful mode)
+    devtools: process.env.BROWSER_DEVTOOLS === 'true',
+    // Slow down operations (ms) for debugging/demo purposes
+    slowMo: process.env.BROWSER_SLOWMO ? Number(process.env.BROWSER_SLOWMO) : 0,
+    // Expose Chrome DevTools Protocol remote debugging port for external tooling/inspection
+    debugPort: process.env.BROWSER_DEBUG_PORT ? Number(process.env.BROWSER_DEBUG_PORT) : 0,
+    // Extra CLI args (comma-separated) to pass to the browser process
+    extraArgs: (process.env.BROWSER_ARGS || '').split(',').map(s => s.trim()).filter(Boolean),
     // Initial navigation target (list/notifications)
     startUrl: process.env.START_URL || (process.env.TWITTER_LIST_URL || 'https://x.com/i/lists/1950005227715014919')
   },
@@ -79,7 +95,7 @@ export const config = {
 };
 
 // Validate that the essential API key is present
-if (!config.gemini.apiKey) {
-  console.error("❌ FATAL: GEMINI_API_KEY is not defined. Please create a .env file and add your key.");
+if (!config.gemini.apiKey && process.env.DRY_RUN !== '1') {
+  console.error("❌ FATAL: GEMINI_API_KEY is not defined. Set it in .env or run with DRY_RUN=1 for a stubbed local mode.");
   process.exit(1);
 }

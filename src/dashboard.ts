@@ -3,6 +3,7 @@ import express from 'express';
 import { Server } from 'socket.io';
 import { createServer } from 'http';
 import path from 'path';
+import fs from 'fs';
 
 export interface DashboardMetrics {
   timestamp: Date;
@@ -31,14 +32,23 @@ class XAgentDashboard {
   private activeConnections = 0;
   private startTime = new Date();
 
-  constructor(private port: number = 3001) {
+  constructor(private port: number = Number(process.env.DASHBOARD_PORT) || 3001) {
     this.setupRoutes();
     this.setupSocketIO();
   }
 
   private setupRoutes() {
-    // Serve static dashboard files
-    this.app.use(express.static(path.join(__dirname, '../dashboard-ui')));
+    // Serve static dashboard files (optional; Next.js UI is primary)
+    const uiDir = path.join(__dirname, '../dashboard-ui');
+    if (fs.existsSync(uiDir)) {
+      this.app.use(express.static(uiDir));
+      // Main dashboard page
+      this.app.get('/', (req, res) => {
+        res.sendFile(path.join(uiDir, 'index.html'));
+      });
+    }
+
+    // (no architecture viewer served here; archd handles it)
     
     // API endpoints
     this.app.get('/api/metrics', (req, res) => {
@@ -49,11 +59,7 @@ class XAgentDashboard {
         recentEvents: this.metrics.slice(-50)
       });
     });
-
-    // Main dashboard page
-    this.app.get('/', (req, res) => {
-      res.sendFile(path.join(__dirname, '../dashboard-ui/index.html'));
-    });
+    // (no architecture snapshot endpoint; archd handles it)
   }
 
   private setupSocketIO() {

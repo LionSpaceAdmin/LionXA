@@ -4,6 +4,8 @@ import { defineConfig, devices } from '@playwright/test';
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
+const disableWebServer = process.env.PW_DISABLE_WEBSERVER === '1';
+const reporter = (process.env.PW_REPORTER as any) || 'html';
 export default defineConfig({
   testDir: './e2e',
   /* Run tests in files in parallel */
@@ -15,7 +17,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -29,12 +31,15 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { 
+        ...devices['Desktop Chrome'],
+        channel: process.env.BROWSER_CHANNEL || 'chrome'
+      },
     },
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: {
+  webServer: disableWebServer ? undefined : {
     command: 'pnpm run dev',
     url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,

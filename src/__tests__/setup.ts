@@ -42,14 +42,12 @@ beforeEach(() => {
 // Suppress console warnings in tests
 const originalWarn = console.warn;
 beforeAll(() => {
-  console.warn = (...args: any[]) => {
-    if (
-      typeof args[0] === 'string' &&
-      args[0].includes('Warning: ReactDOM.render is deprecated')
-    ) {
+  console.warn = (...args: unknown[]) => {
+    const first = args[0];
+    if (typeof first === 'string' && first.includes('Warning: ReactDOM.render is deprecated')) {
       return;
     }
-    originalWarn(...args);
+    (originalWarn as (...args: unknown[]) => void)(...args);
   };
 });
 

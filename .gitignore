@@ -25,12 +25,15 @@ pnpm-debug.log*
 
 # User-generated data and browser profiles
 data/
+backups/
+reports/
+test-results/
+coverage/
+playwright-report/
+
+# Build output (ensure not tracked)
+.next/
+out/
+dist/
 
 node_modules/
-.next/
-
-node_modules/
-.next/
-
-node_modules/
-.next/

@@ -42,10 +42,8 @@ interface ProfileWithFacts extends Profile {
 
 // --- Helper Functions ---
 
-/**
- * Checks if the tweet text contains any of the relevance keywords.
- */
-function isTweetRelevant(text: string): boolean {
+// NOTE: Relevance filter kept for future use
+function _isTweetRelevant(text: string): boolean {
     const lowerText = text.toLowerCase();
     return RELEVANCE_KEYWORDS.some(keyword => lowerText.includes(keyword));
 }
@@ -56,7 +54,7 @@ function isTweetRelevant(text: string): boolean {
  */
 async function scrapeTweetsFromList(page: Page): Promise<Tweet[]> {
     const tweets: Tweet[] = [];
-    const seenIdsThisSession = new Set<string>();
+    // const seenIdsThisSession = new Set<string>();
     
     try {
         console.log('🔍 Starting tweet scraping...');
@@ -144,16 +142,13 @@ async function postReply(tweet: Tweet, replyText: string): Promise<boolean> {
 
         // Try to find the reply editor inside the same article (tweet)
         let replyEditor = tweet.element.locator('.public-DraftEditor-content');
-        let found = false;
         try {
             await replyEditor.waitFor({ state: 'visible', timeout: 3000 });
-            found = true;
         } catch {
             // fallback: try global (page) editor
             replyEditor = tweet.element.page().locator('.public-DraftEditor-content');
             try {
                 await replyEditor.waitFor({ state: 'visible', timeout: 3000 });
-                found = true;
                 console.warn('⚠️ Reply editor not found in tweet article, using global editor.');
             } catch {
                 console.error('❌ Could not find any visible reply editor.');
