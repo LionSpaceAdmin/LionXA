@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XAgent Analytics Dashboard | דשבורד אנליטיקה</title>
+    <style>
+        :root {
+            --bg: #0a0e17;
+            --panel: #12161f;
+            --card: #1a1f2e;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --accent: #3b82f6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --border: #334155;
+        }
+        
+        * { box-sizing: border-box; }
+        
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, var(--bg) 0%, #0f172a 100%);
+            color: var(--text);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: var(--panel);
+            border-bottom: 1px solid var(--border);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--muted);
+            margin: 8px 0 0;
+            font-size: 16px;
+        }
+        
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 16px;
+            color: var(--accent);
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .stat {
+            text-align: center;
+            padding: 16px;
+            background: var(--panel);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+        
+        .stat-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--success);
+            margin: 0;
+        }
+        
+        .stat-label {
+            color: var(--muted);
+            font-size: 14px;
+            margin: 4px 0 0;
+        }
+        
+        .chart-container {
+            margin: 16px 0;
+            position: relative;
+        }
+        
+        .bar-chart {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            height: 120px;
+            gap: 2px;
+        }
+        
+        .bar {
+            background: linear-gradient(to top, var(--accent), var(--success));
+            border-radius: 2px 2px 0 0;
+            min-width: 8px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .bar:hover {
+            filter: brightness(1.2);
+        }
+        
+        .bar-label {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            color: var(--muted);
+        }
+        
+        .account-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .account-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: var(--panel);
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+        
+        .account-item:hover {
+            border-color: var(--accent);
+        }
+        
+        .account-name {
+            font-weight: 500;
+            color: var(--text);
+            direction: ltr;
+            text-align: left;
+        }
+        
+        .account-stats {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .badge {
+            background: var(--accent);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .timeline-info {
+            color: var(--muted);
+            font-size: 14px;
+            text-align: center;
+            margin-top: 16px;
+        }
+        
+        .pie-chart {
+            width: 120px;
+            height: 120px;
+            margin: 16px auto;
+            position: relative;
+        }
+        
+        .wide-card {
+            grid-column: 1 / -1;
+        }
+        
+        .flow-diagram {
+            background: var(--panel);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 16px 0;
+            overflow-x: auto;
+        }
+        
+        .flow-step {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            color: white;
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin: 0 8px;
+            font-weight: 500;
+            position: relative;
+            min-width: 120px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .flow-step::after {
+            content: '←';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--accent);
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-step.success {
+            background: linear-gradient(135deg, var(--success), #059669);
+        }
+        
+        .flow-step.warning {
+            background: linear-gradient(135deg, var(--warning), #d97706);
+        }
+        
+        .flow-step.ai {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+        
+        .network-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .central-node {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent), var(--success));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .target-node {
+            width: 60px;
+            height: 60px;
+            background: var(--card);
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            font-size: 10px;
+            font-weight: 500;
+            position: absolute;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .target-node:hover {
+            transform: scale(1.1);
+            border-color: var(--success);
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            z-index: 1;
+        }
+        
+        .timeline-graph {
+            height: 100px;
+            background: var(--panel);
+            border-radius: 8px;
+            position: relative;
+            margin: 16px 0;
+            overflow: hidden;
+        }
+        
+        .timeline-point {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 XAgent Analytics Dashboard</h1>
+        <div class="subtitle">דשבורד ביצועים ואנליטיקה מתקדמת</div>
+    </div>
+
+    <div class="dashboard">
+        <!-- Overview Stats -->
+        <div class="card">
+            <h2 class="card-title">📊 סטטיסטיקות כלליות</h2>
+            <div class="stat-grid">
+                <div class="stat">
+                    <div class="stat-value">19</div>
+                    <div class="stat-label">סה"כ תגובות</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">חשבונות ממוקדים</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">196</div>
+                    <div class="stat-label">אורך תגובה ממוצע</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10.3</div>
+                    <div class="stat-label">תגובות לשעה</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hourly Activity -->
+        <div class="card">
+            <h2 class="card-title">⏰ פעילות לפי שעות</h2>
+            <div class="chart-container">
+                <div class="bar-chart">
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 0:00">
+                            <div class="bar-label">0</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 1:00">
+                            <div class="bar-label">1</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 2:00">
+                            <div class="bar-label">2</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 3:00">
+                            <div class="bar-label">3</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 4:00">
+                            <div class="bar-label">4</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 5:00">
+                            <div class="bar-label">5</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 6:00">
+                            <div class="bar-label">6</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 7:00">
+                            <div class="bar-label">7</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 8:00">
+                            <div class="bar-label">8</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 9:00">
+                            <div class="bar-label">9</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 10:00">
+                            <div class="bar-label">10</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 11:00">
+                            <div class="bar-label">11</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 12:00">
+                            <div class="bar-label">12</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 13:00">
+                            <div class="bar-label">13</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 14:00">
+                            <div class="bar-label">14</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 15:00">
+                            <div class="bar-label">15</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 16:00">
+                            <div class="bar-label">16</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 17:00">
+                            <div class="bar-label">17</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 18:00">
+                            <div class="bar-label">18</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 75%" title="6 תגובות בשעה 19:00">
+                            <div class="bar-label">19</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 100%" title="8 תגובות בשעה 20:00">
+                            <div class="bar-label">20</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 62.5%" title="5 תגובות בשעה 21:00">
+                            <div class="bar-label">21</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 22:00">
+                            <div class="bar-label">22</div>
+                        </div>
+                    
+                        <div class="bar" style="height: 0%" title="0 תגובות בשעה 23:00">
+                            <div class="bar-label">23</div>
+                        </div>
+                    
+                </div>
+            </div>
+            <div class="timeline-info">
+                שעות שיא: 20:00 (8 תגובות)
+            </div>
+        </div>
+
+        <!-- Top Accounts -->
+        <div class="card">
+            <h2 class="card-title">🎯 חשבונות מובילים</h2>
+            <ul class="account-list">
+                
+                    <li class="account-item">
+                        <div class="account-name">@maxblumenthal</div>
+                        <div class="account-stats">
+                            <span class="badge">4</span>
+                            <span style="color: var(--muted); font-size: 12px;">198 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@jacksonhinklle</div>
+                        <div class="account-stats">
+                            <span class="badge">3</span>
+                            <span style="color: var(--muted); font-size: 12px;">195 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@abujomaagaza</div>
+                        <div class="account-stats">
+                            <span class="badge">3</span>
+                            <span style="color: var(--muted); font-size: 12px;">222 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@suppressednws</div>
+                        <div class="account-stats">
+                            <span class="badge">2</span>
+                            <span style="color: var(--muted); font-size: 12px;">240 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@yousef_ki1</div>
+                        <div class="account-stats">
+                            <span class="badge">2</span>
+                            <span style="color: var(--muted); font-size: 12px;">185 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@qxj9epixyt9sd0o</div>
+                        <div class="account-stats">
+                            <span class="badge">1</span>
+                            <span style="color: var(--muted); font-size: 12px;">109 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@kennardmatt</div>
+                        <div class="account-stats">
+                            <span class="badge">1</span>
+                            <span style="color: var(--muted); font-size: 12px;">179 תווים</span>
+                        </div>
+                    </li>
+                
+                    <li class="account-item">
+                        <div class="account-name">@khameneinews</div>
+                        <div class="account-stats">
+                            <span class="badge">1</span>
+                            <span style="color: var(--muted); font-size: 12px;">212 תווים</span>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+
+        <!-- Response Length Distribution -->
+        <div class="card">
+            <h2 class="card-title">📏 התפלגות אורך תגובות</h2>
+            <div class="stat-grid">
+                <div class="stat">
+                    <div class="stat-value">0</div>
+                    <div class="stat-label">קצרות (&lt;100)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">11</div>
+                    <div class="stat-label">בינוניות (100-200)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">8</div>
+                    <div class="stat-label">ארוכות (&gt;200)</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">58%</div>
+                    <div class="stat-label">אחוז אופטימלי</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- XAgent Flow Diagram -->
+        <div class="card wide-card">
+            <h2 class="card-title">🔄 דיאגרמת תהליך XAgent</h2>
+            <div class="flow-diagram">
+                <div class="flow-step">🔍 זיהוי ציוץ</div>
+                <div class="flow-step">🎯 בדיקת רלוונטיות</div>
+                <div class="flow-step">🌐 פתיחת דפדפן</div>
+                <div class="flow-step ai">🤖 ניתוח AI</div>
+                <div class="flow-step ai">✍️ יצירת תגובה</div>
+                <div class="flow-step warning">🛡️ בדיקות בטיחות</div>
+                <div class="flow-step">⏱️ תזמון אנושי</div>
+                <div class="flow-step success">📤 פרסום</div>
+                <div class="flow-step">💾 עדכון זיכרון</div>
+            </div>
+            <div style="text-align: center; color: var(--muted); margin-top: 16px;">
+                התהליך הכולל לוקח בממוצע 6 דקות לתגובה
+            </div>
+        </div>
+
+        <!-- Target Network Diagram -->
+        <div class="card wide-card">
+            <h2 class="card-title">🕸️ רשת חשבונות ממוקדים</h2>
+            <div class="network-diagram">
+                <div class="central-node">XAgent<br/>🤖</div>
+                
+                        <div class="target-node" style="left: calc(50% + 120px); top: calc(50% + 0px);" title="4 תגובות">
+                            @maxblume
+                        </div>
+                        <div class="connection-line" style="
+                            left: 50%; 
+                            top: calc(50% + 0px); 
+                            width: 120px; 
+                            transform: rotate(0deg) translateY(-50%);
+                            transform-origin: left center;
+                        "></div>
+                    
+                        <div class="target-node" style="left: calc(50% + 60.000000000000014px); top: calc(50% + 103.92304845413263px);" title="3 תגובות">
+                            @jacksonh
+                        </div>
+                        <div class="connection-line" style="
+                            left: 50%; 
+                            top: calc(50% + 51.96152422706631px); 
+                            width: 60.000000000000014px; 
+                            transform: rotate(59.99999999999999deg) translateY(-50%);
+                            transform-origin: left center;
+                        "></div>
+                    
+                        <div class="target-node" style="left: calc(50% + -59.99999999999997px); top: calc(50% + 103.92304845413264px);" title="3 תגובות">
+                            @abujomaa
+                        </div>
+                        <div class="connection-line" style="
+                            left: 50%; 
+                            top: calc(50% + 51.96152422706632px); 
+                            width: 59.99999999999997px; 
+                            transform: rotate(120.00000000000001deg) translateY(-50%);
+                            transform-origin: left center;
+                        "></div>
+                    
+                        <div class="target-node" style="left: calc(50% + -120px); top: calc(50% + 1.469576158976824e-14px);" title="2 תגובות">
+                            @suppress
+                        </div>
+                        <div class="connection-line" style="
+                            left: 50%; 
+                            top: calc(50% + 7.34788079488412e-15px); 
+                            width: 120px; 
+                            transform: rotate(180deg) translateY(-50%);
+                            transform-origin: left center;
+                        "></div>
+                    
+                        <div class="target-node" style="left: calc(50% + -60.00000000000006px); top: calc(50% + -103.92304845413261px);" title="2 תגובות">
+                            @yousef_k
+                        </div>
+                        <div class="connection-line" style="
+                            left: 50%; 
+                            top: calc(50% + -51.961524227066306px); 
+                            width: 60.00000000000006px; 
+                            transform: rotate(-120.00000000000004deg) translateY(-50%);
+                            transform-origin: left center;
+                        "></div>
+                    
+                        <div class="target-node" style="left: calc(50% + 60.000000000000014px); top: calc(50% + -103.92304845413263px);" title="1 תגובות">
+                            @qxj9epix
+                        </div>
+                        <div class="connection-line" style="
+                            left: 50%; 
+                            top: calc(50% + -51.96152422706631px); 
+                            width: 60.000000000000014px; 
+                            transform: rotate(-59.99999999999999deg) translateY(-50%);
+                            transform-origin: left center;
+                        "></div>
+                    
+            </div>
+            <div style="text-align: center; color: var(--muted); margin-top: 16px;">
+                רשת של 10 חשבונות ממוקדים עם 19 תגובות מוצלחות
+            </div>
+        </div>
+
+        <!-- Recent Activity Timeline -->
+        <div class="card wide-card">
+            <h2 class="card-title">🕒 ציר זמן של פעילות אחרונה</h2>
+            
+            <!-- Timeline Graph -->
+            <div class="timeline-graph">
+                <div class="timeline-point" style="left: 5%; animation-delay: 0s;" title="29.7.2025, 20:03:52"></div><div class="timeline-point" style="left: 15%; animation-delay: 0.2s;" title="29.7.2025, 20:04:32"></div><div class="timeline-point" style="left: 25%; animation-delay: 0.4s;" title="29.7.2025, 20:05:11"></div><div class="timeline-point" style="left: 35%; animation-delay: 0.6000000000000001s;" title="29.7.2025, 21:12:34"></div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent);"></div>
+            </div>
+            
+            <div style="background: var(--panel); border-radius: 8px; padding: 16px; margin: 16px 0;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="color: var(--muted);">תחילת פעילות:</span>
+                    <span>29.7.2025, 19:30:08</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                    <span style="color: var(--muted);">פעילות אחרונה:</span>
+                    <span>29.7.2025, 21:20:25</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="color: var(--muted);">משך זמן כולל:</span>
+                    <span>2 שעות</span>
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <h3 style="color: var(--accent); margin-bottom: 12px;">תגובות אחרונות:</h3>
+                
+                    <div style="background: var(--panel); border-radius: 8px; padding: 12px; margin: 8px 0; border-left: 3px solid var(--success);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: var(--accent); font-weight: 500;">@maxblumenthal</span>
+                            <span style="color: var(--muted); font-size: 12px;">29.7.2025, 21:12:34</span>
+                        </div>
+                        <div style="color: var(--muted); font-size: 14px; line-height: 1.4;">
+                            "Nice try, Max, but if Gaza were facing a "Holocaust," the population wouldn't have more than doubled since 1990—sounds l..."
+                        </div>
+                        <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">
+                            184 תווים
+                        </div>
+                    </div>
+                
+                    <div style="background: var(--panel); border-radius: 8px; padding: 12px; margin: 8px 0; border-left: 3px solid var(--success);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: var(--accent); font-weight: 500;">@maxblumenthal</span>
+                            <span style="color: var(--muted); font-size: 12px;">29.7.2025, 20:05:11</span>
+                        </div>
+                        <div style="color: var(--muted); font-size: 14px; line-height: 1.4;">
+                            "Your selective amnesia about Hamas using civilians as shields is as laughable as labeling their self-inflicted crisis a ..."
+                        </div>
+                        <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">
+                            231 תווים
+                        </div>
+                    </div>
+                
+                    <div style="background: var(--panel); border-radius: 8px; padding: 12px; margin: 8px 0; border-left: 3px solid var(--success);">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span style="color: var(--accent); font-weight: 500;">@maxblumenthal</span>
+                            <span style="color: var(--muted); font-size: 12px;">29.7.2025, 20:04:32</span>
+                        </div>
+                        <div style="color: var(--muted); font-size: 14px; line-height: 1.4;">
+                            "Congrats, Andrew, on achieving peak 'unbiased journalism' by ignoring 20% of Israel's population with full rights and pr..."
+                        </div>
+                        <div style="margin-top: 8px; color: var(--muted); font-size: 12px;">
+                            177 תווים
+                        </div>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add some interactivity
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate counters
+            const counters = document.querySelectorAll('.stat-value');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent);
+                let current = 0;
+                const increment = target / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 30);
+            });
+
+            // Add hover effects to bars
+            const bars = document.querySelectorAll('.bar');
+            bars.forEach(bar => {
+                bar.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                bar.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>

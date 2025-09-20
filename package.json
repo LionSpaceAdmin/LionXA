@@ -1,0 +1,55 @@
+{
+  "name": "gemini_agent_browser",
+  "version": "1.2.0",
+  "private": true,
+  "description": "A Playwright and Google Gemini-based agent to monitor and respond to posts on a specific X.com list.",
+  "main": "src/watchList.ts",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "start:agent": "ts-node src/watchList.ts",
+    "dashboard": "ts-node -e \"import('./src/dashboard').then(m => m.dashboard.start())\"",
+    "test": "echo 'Error: no test specified' && exit 1",
+    "setup": "chmod +x src/setup/setup.sh && ./src/setup/setup.sh",
+    "validate": "ts-node src/setup/validatePlaywright.ts"
+  },
+  "keywords": [
+    "playwright",
+    "gemini",
+    "google-ai",
+    "typescript",
+    "automation",
+    "twitter",
+    "agent"
+  ],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.13.1",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.1",
+    "@playwright/test": "^1.54.2",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.1.0",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "chart.js": "^4.4.3",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "lucide-react": "0.544.0",
+    "next": "15.5.3",
+    "playwright": "^1.54.2",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "socket.io": "^4.8.1",
+    "socket.io-client": "^4.7.5"
+  }
+}
