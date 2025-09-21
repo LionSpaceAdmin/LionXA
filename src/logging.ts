@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import { config } from "./config.ts";
+import { config } from "./config";
 
 const LOG_FILE_PATH = config.data.handledTweets;
 

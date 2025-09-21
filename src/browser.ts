@@ -1,8 +1,13 @@
 // src/browser.ts
-import { chromium, type Browser, type BrowserContext, type Page } from 'playwright';
-import * as fs from 'fs/promises';
-import * as fssync from 'fs';
-import { config } from './config';
+import {
+  chromium,
+  type Browser,
+  type BrowserContext,
+  type Page,
+} from "playwright";
+import * as fs from "fs/promises";
+import * as fssync from "fs";
+import { config } from "./config";
 
 // --- Types ---
 export interface BrowserSession {
@@ -12,7 +17,13 @@ export interface BrowserSession {
 }
 
 // --- Singleton State ---
-let singleton: { context: BrowserContext; page: Page; browser: Browser | null; startUrl: string; pid?: number } | null = null;
+let singleton: {
+  context: BrowserContext;
+  page: Page;
+  browser: Browser | null;
+  startUrl: string;
+  pid?: number;
+} | null = null;
 let recovering = false;
 let contextClosed = false;
 
@@ -24,25 +35,31 @@ function ensureDirSync(dir: string) {
 }
 
 function logSessionInit(startUrl: string, userDataDir: string, pid?: number) {
-  const mode = config.browser.headless ? 'headless' : 'interactive';
-  const channel = config.browser.executablePath ? 'custom-executable' : config.browser.channel;
+  const mode = config.browser.headless ? "headless" : "interactive";
+  const channel = config.browser.executablePath
+    ? "custom-executable"
+    : config.browser.channel;
   console.log(`🧭 Session init: url=${startUrl}`);
   console.log(`👤 Profile: ${userDataDir}`);
   console.log(`🧩 Mode: ${mode}`);
   console.log(`🛠️ Browser: ${config.browser.executablePath || channel}`);
   if (pid) console.log(`🆔 Chromium PID: ${pid}`);
   // Single-line proof log for validators
-  console.log(`Session init: url=${startUrl}, profile=${userDataDir}, Engine=Chromium, PID=${pid ?? 'n/a'}, mode=${mode}`);
+  console.log(
+    `Session init: url=${startUrl}, profile=${userDataDir}, Engine=Chromium, PID=${pid ?? "n/a"}, mode=${mode}`,
+  );
 }
 
-async function createPersistentContext(startUrl: string): Promise<BrowserSession> {
+async function createPersistentContext(
+  startUrl: string,
+): Promise<BrowserSession> {
   ensureDirSync(config.browser.userDataDir);
 
   // Build launch options with Chrome-first preference and rich communication options
   const args = [
-    '--disable-infobars',
-    '--no-default-browser-check',
-    '--no-first-run',
+    "--disable-infobars",
+    "--no-default-browser-check",
+    "--no-first-run",
     ...config.browser.extraArgs,
   ];
   if (config.browser.debugPort && config.browser.debugPort > 0) {
@@ -60,7 +77,8 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
 
   // If a specific executable is provided, use it; otherwise, prefer a channel (defaults to 'chrome')
   if (config.browser.executablePath) {
-    (launchOpts as { executablePath?: string }).executablePath = config.browser.executablePath;
+    (launchOpts as { executablePath?: string }).executablePath =
+      config.browser.executablePath;
   } else if (config.browser.channel) {
     (launchOpts as { channel?: string }).channel = config.browser.channel;
   }
@@ -79,13 +97,18 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
     const msg = err instanceof Error ? err.message : String(err);
     // If profile is locked, try an alternate persistent dir
     if (/ProcessSingleton|SingletonLock|profile directory.*in use/i.test(msg)) {
-      const altDir = userDataDirUsed + '_codex';
-      console.warn(`⚠️ Profile is locked. Trying alternate profile at: ${altDir}`);
+      const altDir = userDataDirUsed + "_codex";
+      console.warn(
+        `⚠️ Profile is locked. Trying alternate profile at: ${altDir}`,
+      );
       try {
         context = await tryLaunch(altDir, launchOpts);
         userDataDirUsed = altDir;
       } catch (err2: unknown) {
-        console.warn('⚠️ Alternate profile failed. Retrying with bundled Chromium...', err2);
+        console.warn(
+          "⚠️ Alternate profile failed. Retrying with bundled Chromium...",
+          err2,
+        );
         const fallbackOpts: PersistentOpts = {
           headless: config.browser.headless,
           args,
@@ -102,7 +125,10 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
         }
       }
     } else {
-      console.warn('⚠️ Failed to launch with preferred browser settings. Retrying with bundled Chromium...', err);
+      console.warn(
+        "⚠️ Failed to launch with preferred browser settings. Retrying with bundled Chromium...",
+        err,
+      );
       const fallbackOpts: PersistentOpts = {
         headless: config.browser.headless,
         args,
@@ -115,7 +141,8 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
   }
 
   const browser = context.browser();
-  const pid = (browser as { process?: () => { pid: number } })?.process?.()?.pid as number | undefined;
+  const pid = (browser as { process?: () => { pid: number } })?.process?.()
+    ?.pid as number | undefined;
 
   let page = context.pages()[0];
   if (!page) {
@@ -126,26 +153,31 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
   try {
     const legacyCookiesPath = config.data.cookies;
     if (fssync.existsSync(legacyCookiesPath)) {
-      const raw = await fs.readFile(legacyCookiesPath, 'utf-8');
+      const raw = await fs.readFile(legacyCookiesPath, "utf-8");
       const legacy = JSON.parse(raw);
       if (Array.isArray(legacy) && legacy.length > 0) {
         await context.addCookies(legacy);
-        console.log(`🍪 Imported ${legacy.length} legacy cookies from cookies.json`);
+        console.log(
+          `🍪 Imported ${legacy.length} legacy cookies from cookies.json`,
+        );
       }
     }
   } catch (e) {
-    console.warn('⚠️ Failed to import legacy cookies.json (continuing):', e);
+    console.warn("⚠️ Failed to import legacy cookies.json (continuing):", e);
   }
 
   logSessionInit(startUrl, userDataDirUsed, pid);
 
   // Only navigate once on brand-new session
   try {
-    if (page.url() === 'about:blank') {
-      await page.goto(startUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    if (page.url() === "about:blank") {
+      await page.goto(startUrl, {
+        waitUntil: "domcontentloaded",
+        timeout: 60000,
+      });
     }
   } catch (err) {
-    console.warn('Navigation on init failed, user may navigate manually:', err);
+    console.warn("Navigation on init failed, user may navigate manually:", err);
   }
 
   // Guard against extra windows/tabs created by our code
@@ -153,27 +185,29 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
   if (pages.length > 1) {
     // Keep the first page only; close any extra pages we may have opened
     for (let i = 1; i < pages.length; i++) {
-      try { await pages[i].close({ runBeforeUnload: true }); } catch {}
+      try {
+        await pages[i].close({ runBeforeUnload: true });
+      } catch {}
     }
   }
 
   // Pipe page console logs and errors for maximum observability
-  page.on('console', (msg) => {
+  page.on("console", (msg) => {
     try {
       const txt = msg.text();
       console.log(`🖥️ [page:${msg.type()}] ${txt}`);
     } catch {}
   });
-  page.on('pageerror', (err) => {
-    console.error('🌋 Page error:', err);
+  page.on("pageerror", (err) => {
+    console.error("🌋 Page error:", err);
   });
 
   // Resilience: if the page is closed or crashes, we will recreate on next ensureSession()
-  page.on('close', () => {
-    console.log('📕 Page closed. Will recreate on next cycle.');
+  page.on("close", () => {
+    console.log("📕 Page closed. Will recreate on next cycle.");
   });
-  context.on('close', () => {
-    console.log('🧯 Context closed. Will recreate on next cycle.');
+  context.on("close", () => {
+    console.log("🧯 Context closed. Will recreate on next cycle.");
     contextClosed = true;
   });
 
@@ -186,21 +220,43 @@ export async function ensureSession(startUrl?: string): Promise<BrowserSession> 
   const targetUrl = startUrl || config.twitter.listUrl;
 
   // If already have a healthy session, reuse it
-  if (singleton && !contextClosed && singleton.page && !singleton.page.isClosed()) {
-    return { browser: singleton.browser, context: singleton.context, page: singleton.page };
+  if (
+    singleton &&
+    !contextClosed &&
+    singleton.page &&
+    !singleton.page.isClosed()
+  ) {
+    return {
+      browser: singleton.browser,
+      context: singleton.context,
+      page: singleton.page,
+    };
   }
 
   if (recovering) {
     // Avoid concurrent recoveries
-    await new Promise(res => setTimeout(res, 1000));
-    if (singleton && !contextClosed && singleton.page && !singleton.page.isClosed()) {
-      return { browser: singleton.browser, context: singleton.context, page: singleton.page };
+    await new Promise((res) => setTimeout(res, 1000));
+    if (
+      singleton &&
+      !contextClosed &&
+      singleton.page &&
+      !singleton.page.isClosed()
+    ) {
+      return {
+        browser: singleton.browser,
+        context: singleton.context,
+        page: singleton.page,
+      };
     }
   }
 
   recovering = true;
   try {
-    if (singleton?.context) { try { await singleton.context.close(); } catch {} }
+    if (singleton?.context) {
+      try {
+        await singleton.context.close();
+      } catch {}
+    }
     contextClosed = false;
     return await createPersistentContext(targetUrl);
   } finally {
@@ -209,8 +265,17 @@ export async function ensureSession(startUrl?: string): Promise<BrowserSession> 
 }
 
 export function getSingleton(): BrowserSession | null {
-  if (singleton && !contextClosed && singleton.page && !singleton.page.isClosed()) {
-    return { browser: singleton.browser, context: singleton.context, page: singleton.page };
+  if (
+    singleton &&
+    !contextClosed &&
+    singleton.page &&
+    !singleton.page.isClosed()
+  ) {
+    return {
+      browser: singleton.browser,
+      context: singleton.context,
+      page: singleton.page,
+    };
   }
   return null;
 }

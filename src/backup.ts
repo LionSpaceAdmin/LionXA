@@ -1,8 +1,7 @@
-import { promises as fs } from 'fs';
-import path from 'path';
-import { config } from './config';
-import { getSingleton } from './browser';
-import { getMemory } from './memory';
+// src/backup.ts
+import * as fs from "fs/promises";
+import * as path from "path";
+import { config } from "./config";
 
 interface BackupData {
   timestamp: string;

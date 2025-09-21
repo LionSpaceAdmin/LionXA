@@ -1,16 +1,16 @@
 // src/profiles/index.ts
-import AyatollahKhamenei from "./AyatollahKhamenei.ts";
-import IlhanMN from "./IlhanMN.ts";
-import JacksonHinklle from "./JacksonHinklle.ts";
-import MaxBlumenthal from "./MaxBlumenthal.ts";
-import RashidaTlaib from "./RashidaTlaib.ts";
-import SuppressedNws from "./SuppressedNws.ts";
-import { FuckIsrEveryHr } from "./FuckIsrEveryHr.ts";
-import { Vikingwarrior20 } from "./Vikingwarrior20.ts";
-import { AdameMedia } from "./AdameMedia.ts";
-import { AbujomaaGaza } from "./AbujomaaGaza.ts";
+import AyatollahKhamenei from "./AyatollahKhamenei";
+import IlhanMN from "./IlhanMN";
+import JacksonHinklle from "./JacksonHinklle";
+import MaxBlumenthal from "./MaxBlumenthal";
+import RashidaTlaib from "./RashidaTlaib";
+import SuppressedNws from "./SuppressedNws";
+import { FuckIsrEveryHr } from "./FuckIsrEveryHr";
+import { Vikingwarrior20 } from "./Vikingwarrior20";
+import { AdameMedia } from "./AdameMedia";
+import { AbujomaaGaza } from "./AbujomaaGaza";
 
-import { Profile } from "./types.ts";
+import { Profile } from "./types";
 
 // Export the Profile type for external use
 export type { Profile };
@@ -31,7 +31,7 @@ addProfile(AdameMedia);
 addProfile(AbujomaaGaza);
 
 // --- Helper Function to add profiles ---
-function addProfile(profile: Profile) {
+function addProfile(profile: Profile & { handles?: string[] }) {
   profiles.set(profile.username.toLowerCase(), profile);
   if (profile.handles && Array.isArray(profile.handles)) {
     for (const handle of profile.handles) {

@@ -1,10 +1,6 @@
 // src/dashboard.ts - Real-time XAgent Dashboard
-import express from 'express';
 import { Server } from 'socket.io';
 import { io, Socket } from 'socket.io-client';
-import { createServer } from 'http';
-import path from 'path';
-import fs from 'fs';
 import { EventEmitter } from 'events';
 import { getSingleton, ensureSession } from './browser';
 

@@ -1,3 +1,2 @@
-2025/09/21-15:10:00.797 22c990 Reusing MANIFEST /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/GCM Store/MANIFEST-000001
-2025/09/21-15:10:00.798 22c990 Recovering log #3
-2025/09/21-15:10:00.798 22c990 Reusing old log /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/GCM Store/000003.log 
+2025/09/21-15:31:43.729 23863d Creating DB /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/GCM Store since it was missing.
+2025/09/21-15:31:43.732 23863d Reusing MANIFEST /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/GCM Store/MANIFEST-000001

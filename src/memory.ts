@@ -1,5 +1,5 @@
 import fs from "fs";
-import { config } from "./config.ts";
+import { config } from "./config";
 
 // --- Constants ---
 const MEMORY_PATH = config.data.memory;
