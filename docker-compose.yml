@@ -1,0 +1,55 @@
+
+
+networks:
+  agent-network:
+    driver: bridge
+
+services:
+  browser-agent:
+    build:
+      context: ./services/browser-agent
+    networks:
+      - agent-network
+    # Port 5900 is for VNC, exposed only to the internal network
+
+  backend:
+    build:
+      context: ./services/backend
+    ports:
+      - "8000:8000"
+    networks:
+      - agent-network
+    depends_on:
+      - browser-agent
+
+  frontend:
+    build:
+      context: ./services/frontend
+    ports:
+      - "8080:80"
+    networks:
+      - agent-network
+    depends_on:
+      - backend
+      - guacamole
+
+  guacd:
+    image: guacamole/guacd
+    networks:
+      - agent-network
+    restart: always
+
+  guacamole:
+    image: guacamole/guacamole
+    ports:
+      - "8081:8080"
+    networks:
+      - agent-network
+    depends_on:
+      - guacd
+    environment:
+      GUACD_HOSTNAME: guacd
+      GUACAMOLE_HOME: /etc/guacamole
+    volumes:
+      - ./infra/guacamole:/etc/guacamole
+    restart: always

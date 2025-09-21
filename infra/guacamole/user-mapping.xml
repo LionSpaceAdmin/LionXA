@@ -1,0 +1,15 @@
+<!-- infra/guacamole/user-mapping.xml -->
+<user-mapping>
+    <!--
+      This user can log in to Guacamole with the specified credentials.
+      The password should be changed to something more secure in a real production environment.
+    -->
+    <authorize username="xagent-admin" password="password">
+        <connection name="Browser Agent Desktop">
+            <protocol>vnc</protocol>
+            <param name="hostname">browser-agent</param>
+            <param name="port">5900</param>
+            <param name="password">password</param> <!-- This should match the VNC server password -->
+        </connection>
+    </authorize>
+</user-mapping>
