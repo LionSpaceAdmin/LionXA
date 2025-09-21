@@ -2,11 +2,8 @@
 FROM mcr.microsoft.com/playwright/python:v1.40.0-jammy
 USER root
 
-# Set a non-interactive frontend for package installations
-ENV DEBIAN_FRONTEND=noninteractive
-
 # System dependencies (many are included in base image, but we ensure xvfb/x11vnc)
-RUN apt-get update && apt-get install -y --no-install-recommends xvfb x11vnc && apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y --no-install-recommends xvfb x11vnc curl
 
 # Application setup
 WORKDIR /app
