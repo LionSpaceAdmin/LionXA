@@ -16,8 +16,12 @@ elif [ -f "yarn.lock" ]; then
   corepack enable yarn || true
   yarn install --frozen-lockfile
 elif [ -f "package-lock.json" ]; then
-  echo "📦 Found package-lock.json, using npm ci"
-  npm ci
+  echo "📦 Found package-lock.json, trying npm ci"
+  if ! npm ci; then
+    echo "⚠️  npm ci failed, trying npm install after cleanup"
+    rm -rf node_modules package-lock.json
+    npm install
+  fi
 elif [ -f "package.json" ]; then
   echo "📦 Found package.json, using npm install"
   npm install
