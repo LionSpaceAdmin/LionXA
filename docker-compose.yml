@@ -10,6 +10,9 @@ services:
       context: ./services/browser-agent
     networks:
       - agent-network
+    depends_on:
+      backend:
+        condition: service_healthy
     # Port 5900 is for VNC, exposed only to the internal network
 
   backend:
@@ -19,8 +22,11 @@ services:
       - "8000:8000"
     networks:
       - agent-network
-    depends_on:
-      - browser-agent
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   frontend:
     build:

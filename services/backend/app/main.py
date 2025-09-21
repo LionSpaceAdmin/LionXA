@@ -66,6 +66,11 @@ manager = ConnectionManager()
 # Must be imported after manager is created
 from .agent_graph import compiled_graph
 
+@app.get("/health")
+def health_check():
+    """Simple health check endpoint."""
+    return {"status": "ok"}
+
 @app.websocket("/ws/agent")
 async def websocket_endpoint(websocket: WebSocket):
     await manager.connect(websocket)
