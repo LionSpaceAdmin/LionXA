@@ -1,6 +1,6 @@
 // src/gemini.ts
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { config } from "./config.ts"; // Import the central config
+import { config } from './config.ts';
 
 // --- Constants & Types ---
 const DEFAULT_MODEL = "gemini-1.5-flash"; // Fast and efficient Gemini model

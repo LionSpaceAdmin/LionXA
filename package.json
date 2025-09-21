@@ -6,10 +6,10 @@
   "main": "src/watchList.ts",
   "scripts": {
     "postinstall": "playwright install chromium",
-    "dev": "ts-node src/server.ts",
-    "dev:all": "ts-node -O '{\"module\":\"commonjs\",\"moduleResolution\":\"node\"}' src/setup/devAll.ts",
-    "build": "next build",
-    "start": "node .next/server.js",
+    "dev": "ts-node -O '{\"module\":\"commonjs\"}' src/server.ts",
+    "dev:all": "pnpm dev",
+    "build": "tsc --project tsconfig.server.json && next build",
+    "start": "node dist/src/server.js",
     "start:all": "node scripts/start-all.js",
     "lint": "eslint .",
     "test": "jest",
@@ -19,7 +19,6 @@
     "test:e2e:ui": "playwright test --ui",
     "start:agent": "ts-node -O '{\"module\":\"commonjs\",\"moduleResolution\":\"node\"}' src/watchList.ts",
     "start:agent:prod": "INTERACTIVE=0 HEADLESS_BROWSER=true BROWSER_ARGS=--no-sandbox,--disable-dev-shm-usage ts-node -O '{\"module\":\"commonjs\",\"moduleResolution\":\"node\"}' src/watchList.ts",
-    
     "arch:snapshot": "node scripts/generate-architecture.mjs",
     "arch:watch": "node scripts/generate-architecture.mjs --watch",
     "archd": "node scripts/archd.mjs",

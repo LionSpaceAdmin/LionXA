@@ -31,7 +31,7 @@ addProfile(AdameMedia);
 addProfile(AbujomaaGaza);
 
 // --- Helper Function to add profiles ---
-function addProfile(profile: Profile & { handles?: string[] }) {
+function addProfile(profile: Profile) {
   profiles.set(profile.username.toLowerCase(), profile);
   if (profile.handles && Array.isArray(profile.handles)) {
     for (const handle of profile.handles) {

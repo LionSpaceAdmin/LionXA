@@ -24,21 +24,6 @@ export const config = {
   // Twitter/X settings
   twitter: {
     listUrl: process.env.TWITTER_LIST_URL || 'https://x.com/i/lists/1950005227715014919',
-    // The precise list of usernames to target
-    targetUsernames: new Set([
-        'FuckIsrEveryHr',
-        'vikingwarrior20',
-        'Khamenei_m',
-        'AdameMedia',
-        'jacksonhinklle',
-        'Khamenei_fa',
-        'IlhanMN',
-        'SuppressedNws',
-        'AbujomaaGaza',
-        'RashidaTlaib',
-        'MaxBlumenthal',
-        'khamenei_ir'
-    ]),
   },
 
   // Browser automation settings
@@ -60,8 +45,6 @@ export const config = {
     debugPort: process.env.BROWSER_DEBUG_PORT ? Number(process.env.BROWSER_DEBUG_PORT) : 0,
     // Extra CLI args (comma-separated) to pass to the browser process
     extraArgs: (process.env.BROWSER_ARGS || '').split(',').map(s => s.trim()).filter(Boolean),
-    // Initial navigation target (list/notifications)
-    startUrl: process.env.START_URL || (process.env.TWITTER_LIST_URL || 'https://x.com/i/lists/1950005227715014919')
   },
 
   // Agent operational parameters

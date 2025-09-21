@@ -9,7 +9,7 @@ import { startBackupScheduler } from './backup';
 import { dashboard, logTweetProcessed, logReplyPosted, logGeminiCall, logError, logSessionInit, sendScreencap, control, logPageConsole, logException, logAgentLog } from './dashboard';
 
 // --- Constants from Central Config ---
-const LIST_URL = config.browser.startUrl || config.twitter.listUrl;
+const LIST_URL = config.twitter.listUrl;
 const POLLING_INTERVAL_MS = config.agent.pollingIntervalMs;
 const INITIAL_REPLY_DELAY_MS = config.agent.initialReplyDelayMs;
 const INITIAL_POST_LIMIT = config.agent.initialPostLimit;
@@ -185,13 +185,8 @@ async function main() {
     console.log('--- Starting Single Chrome Agent (Interactive) ---');
     console.log(`Mode: ${config.browser.headless ? 'headless' : 'interactive'}`);
 
-    // Start the dashboard
-    try {
-        await dashboard.start();
-        logSessionInit();
-    } catch (error) {
-        console.log('⚠️ Dashboard failed to start, continuing without it:', error);
-    }
+    // Connect to the dashboard server for IPC
+    dashboard.initAsAgentClient();
 
     // Initialize backup system
     await startBackupScheduler().catch(console.error);
@@ -349,7 +344,7 @@ async function main() {
             
             const profile = getProfile(tweet.username) as ProfileWithFacts;
             if (profile) {
-                let prompt = `${profile.customPrompt}\n\nTweet: ${tweet.text}`;
+                let prompt = profile.customPrompt.replace('{{TWEET_TEXT}}', tweet.text);
                 if (tweet.images && tweet.images.length > 0) {
                     prompt += `\nAttached images: ${tweet.images.join(', ')}`;
                 }
@@ -500,7 +495,7 @@ async function main() {
 
                         const profile = getProfile(tweet.username) as ProfileWithFacts;
                         if (profile) {
-                            let prompt = `${profile.customPrompt}\n\nTweet: ${tweet.text}`;
+                            let prompt = profile.customPrompt.replace('{{TWEET_TEXT}}', tweet.text);
                             if (profile.facts?.length) {
                                 const randomFact = profile.facts[Math.floor(Math.random() * profile.facts.length)];
                                 prompt = prompt.replace('{{FACT}}', randomFact);

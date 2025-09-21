@@ -1,6 +1,7 @@
 // src/dashboard.ts - Real-time XAgent Dashboard
 import express from 'express';
 import { Server } from 'socket.io';
+import { io, Socket } from 'socket.io-client';
 import { createServer } from 'http';
 import path from 'path';
 import fs from 'fs';
@@ -33,6 +34,7 @@ export interface DashboardMetrics {
 
 class XAgentDashboard {
   private io: Server | null = null;
+  private agentSocket: Socket | null = null;
   
   private metrics: DashboardMetrics[] = [];
   private activeConnections = 0;
@@ -44,7 +46,21 @@ class XAgentDashboard {
     // Routes and server are now managed externally
   }
 
-
+  public initAsAgentClient(serverUrl = 'http://localhost:3000'): void {
+    if (this.agentSocket) return;
+    this.agentSocket = io(serverUrl, {
+      transports: ['websocket'],
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionAttempts: Infinity,
+    });
+    this.agentSocket.on('connect', () => {
+      console.log('📈 Agent connected to dashboard server');
+    });
+    this.agentSocket.on('disconnect', () => {
+      console.log('📉 Agent disconnected from dashboard server');
+    });
+  }
 
   public start(io: Server): void {
     this.io = io;
@@ -153,28 +169,35 @@ class XAgentDashboard {
   }
 
   public logEvent(event: DashboardMetrics) {
-    this.metrics.push(event);
-    
-    // Keep only last 1000 events in memory
-    if (this.metrics.length > 1000) {
-      this.metrics = this.metrics.slice(-1000);
-    }
-
-    // Broadcast to all connected clients
+    // If running as server, store and broadcast
     if (this.io) {
+      this.metrics.push(event);
+      if (this.metrics.length > 1000) {
+        this.metrics = this.metrics.slice(-1000);
+      }
       this.io.emit('new-event', event);
+    } 
+    // If running as agent client, just send to server
+    else if (this.agentSocket) {
+      this.agentSocket.emit('agent:event', event);
     }
     
-    // Console log for debugging
+    // Console log for debugging in both modes
     console.log(`📊 [${event.event}] ${event.data.username || 'System'}: ${event.data.content || event.data.error || 'Event logged'}`);
   }
   
   // Broadcast a live browser image to all clients
   public broadcastScreencap(payload: { image: string; url?: string; ts?: number }) {
     const msg = { image: payload.image, url: payload.url, ts: payload.ts ?? Date.now() };
-    this.lastScreencap = msg;
+    
+    // If running as server, store and broadcast
     if (this.io) {
+      this.lastScreencap = msg;
       this.io.emit('screencap', msg);
+    }
+    // If running as agent client, just send to server
+    else if (this.agentSocket) {
+      this.agentSocket.emit('agent:screencap', msg);
     }
   }
 

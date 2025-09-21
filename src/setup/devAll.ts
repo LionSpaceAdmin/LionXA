@@ -1,12 +1,10 @@
 /*
-  Dev orchestrator: runs Next.js UI and the real Agent concurrently.
+  Dev orchestrator: runs the main server which handles the UI and Agent.
   Usage:
-    pnpm dev -> UI + agent (dashboard started by agent on :3001)
+    pnpm dev:all
 */
 
 import { spawn } from "node:child_process";
-
-const mode = "agent" as const;
 
 function run(cmd: string, args: string[], name: string) {
   const child = spawn(cmd, args, {
@@ -21,24 +19,16 @@ function run(cmd: string, args: string[], name: string) {
   return child;
 }
 
-console.log(`Starting dev orchestrator (mode: ${mode})...`);
+console.log(`Starting unified dev server...`);
 
-const children: ReturnType<typeof run>[] = [];
-
-// Start Next.js dev UI (do not recurse via pnpm dev)
-children.push(run("next", ["dev"], "ui"));
-
-// Start the data source
-// Start the real agent (which starts the dashboard internally)
-children.push(run("pnpm", ["start:agent:prod"], "agent"));
+// Start the main server, which will handle Next.js and the agent
+const serverProcess = run("ts-node", ["-O", "'{\\\"module\\\":\\\"commonjs\\\"}'", "src/server.ts"], "server");
 
 // Cleanup on exit/signals
 const shutdown = () => {
-  for (const c of children) {
-    try {
-      c.kill("SIGINT");
-    } catch {}
-  }
+  try {
+    serverProcess.kill("SIGINT");
+  } catch {}
 };
 
 process.on("SIGINT", shutdown);

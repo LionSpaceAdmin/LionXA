@@ -183,7 +183,7 @@ async function createPersistentContext(startUrl: string): Promise<BrowserSession
 
 // --- Public API ---
 export async function ensureSession(startUrl?: string): Promise<BrowserSession> {
-  const targetUrl = startUrl || config.browser.startUrl;
+  const targetUrl = startUrl || config.twitter.listUrl;
 
   // If already have a healthy session, reuse it
   if (singleton && !contextClosed && singleton.page && !singleton.page.isClosed()) {

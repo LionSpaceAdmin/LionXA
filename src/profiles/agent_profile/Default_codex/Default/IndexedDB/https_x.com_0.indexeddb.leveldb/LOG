@@ -1,2 +1,3 @@
-2025/09/21-07:12:37.693 142922 Creating DB /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/IndexedDB/https_x.com_0.indexeddb.leveldb since it was missing.
-2025/09/21-07:12:37.696 142922 Reusing MANIFEST /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/IndexedDB/https_x.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/21-15:09:59.454 22c991 Reusing MANIFEST /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/IndexedDB/https_x.com_0.indexeddb.leveldb/MANIFEST-000001
+2025/09/21-15:09:59.455 22c991 Recovering log #3
+2025/09/21-15:09:59.455 22c991 Reusing old log /Users/danielions/Downloads/Xagent/src/profiles/agent_profile/Default_codex/Default/IndexedDB/https_x.com_0.indexeddb.leveldb/000003.log 

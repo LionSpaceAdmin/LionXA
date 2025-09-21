@@ -1,6 +1,6 @@
 import { Profile } from "./types";
 
-const khameneiProfile: Profile & { facts: string[]; handles: string[] } = {
+const khameneiProfile: Profile = {
   username: "ayatollahkhamenei",
   handles: [
     "khamenei",
@@ -17,7 +17,7 @@ const khameneiProfile: Profile & { facts: string[]; handles: string[] } = {
     "khamenei.ir",
     "khamenei1", // וריאציות ושגיאות
   ],
-  customPrompt: `{{TWEET_TEXT}}\n\nYour regime's hypocrisy is legendary. Facts just crushed your propaganda. ☪️💀\nFact: {{FACT}}`,
+  customPrompt: `Tweet: "{{TWEET_TEXT}}"\n\nYour regime's hypocrisy is legendary. Facts just crushed your propaganda. ☪️💀\nFact: {{FACT}}`,
   facts: [
     "Iran executes protesters and dissidents—fact.",
     "Women's rights are crushed by your regime.",
