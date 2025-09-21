@@ -29,7 +29,8 @@
     "open:chrome": "ts-node -O '{\"module\":\"commonjs\"}' src/setup/openChrome.ts",
     "lh:prod": "node scripts/run-lighthouse.mjs --preset=desktop",
     "lh:mobile": "node scripts/run-lighthouse.mjs --preset=mobile",
-    "shot:home": "ts-node -O '{\"module\":\"commonjs\"}' scripts/screenshot-home.ts"
+    "shot:home": "ts-node -O '{\"module\":\"commonjs\"}' scripts/screenshot-home.ts",
+    "verify:browser": "ts-node -O '{\"module\":\"commonjs\"}' scripts/verifyBrowser.ts"
   },
   "keywords": [
     "playwright",

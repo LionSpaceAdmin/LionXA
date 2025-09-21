@@ -22,7 +22,11 @@ function run(cmd: string, args: string[], name: string) {
 console.log(`Starting unified dev server...`);
 
 // Start the main server, which will handle Next.js and the agent
-const serverProcess = run("ts-node", ["-O", "'{\\\"module\\\":\\\"commonjs\\\"}'", "src/server.ts"], "server");
+const serverProcess = run(
+  "ts-node",
+  ["-O", '\'{\\"module\\":\\"commonjs\\"}\'', "src/server.ts"],
+  "server",
+);
 
 // Cleanup on exit/signals
 const shutdown = () => {

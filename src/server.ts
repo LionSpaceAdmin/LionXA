@@ -1,12 +1,11 @@
+import { createServer } from "http";
+import { parse } from "url";
+import next from "next";
+import { Server } from "socket.io";
+import { dashboard } from "./dashboard"; // Assuming dashboard setup is here
+import { spawn } from "child_process";
 
-import { createServer } from 'http';
-import { parse } from 'url';
-import next from 'next';
-import { Server } from 'socket.io';
-import { dashboard } from './dashboard'; // Assuming dashboard setup is here
-import { spawn } from 'child_process';
-
-const dev = process.env.NODE_ENV !== 'production';
+const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
@@ -24,20 +23,23 @@ app.prepare().then(() => {
   dashboard.start(io);
 
   // Listen for events from the agent process and broadcast them to all UI clients
-  io.on('connection', (socket) => {
-    socket.on('agent:event', (event) => {
+  io.on("connection", (socket) => {
+    socket.on("agent:event", (event) => {
       // Re-broadcast the agent's event to all UI clients
-      io.emit('new-event', event);
+      io.emit("new-event", event);
     });
-    socket.on('agent:screencap', (payload) => {
+    socket.on("agent:screencap", (payload) => {
       // Re-broadcast the agent's screencap to all UI clients
       dashboard.broadcastScreencap(payload); // Use the dashboard method to also store the last screencap
     });
   });
 
   // Start the agent as a child process in all environments, always using the prod (headless) config
-  const agent = spawn('pnpm', ['start:agent:prod'], { stdio: 'inherit', shell: true });
-  agent.on('exit', (code) => {
+  const agent = spawn("pnpm", ["start:agent:prod"], {
+    stdio: "inherit",
+    shell: true,
+  });
+  agent.on("exit", (code) => {
     console.log(`Agent process exited with code ${code}`);
     // Optionally, you might want to handle agent restarts here
   });

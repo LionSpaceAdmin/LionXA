@@ -1,6 +1,6 @@
 // src/watchList.ts
 import { Page, Locator } from "playwright";
-import { ensureSession, getSingleton } from "./browser";
+import browserService from "./browser";
 import { isSeen, markSeen } from "./memory";
 import { askGPT } from "./gemini";
 import { getProfile, type Profile } from "./profiles/index";
@@ -247,9 +247,12 @@ async function main() {
   await startBackupScheduler().catch(console.error);
 
   // Ensure singleton, persistent session
-  const { page } = await ensureSession(LIST_URL);
+  await browserService.initialize();
+  const page = await browserService.getPage();
   let attachedPage: Page | null = null;
-  function isLevel(x: string): x is "log" | "info" | "warn" | "error" | "debug" {
+  function isLevel(
+    x: string,
+  ): x is "log" | "info" | "warn" | "error" | "debug" {
     return (
       x === "log" ||
       x === "info" ||
@@ -281,8 +284,7 @@ async function main() {
   let scTimer: NodeJS.Timeout | null = null;
   async function doScreencapOnce() {
     try {
-      const sess = await ensureSession(LIST_URL);
-      const p = sess.page;
+      const p = await browserService.getPage();
       attachPageEvents(p);
       const buf = await p.screenshot({
         type: "jpeg",
@@ -509,7 +511,8 @@ async function main() {
   });
   control.on("reset", async () => {
     try {
-      await ensureSession(LIST_URL);
+      await browserService.close();
+      await browserService.initialize();
       logAgentLog("Session reset completed");
     } catch (e) {
       logError(`Reset failed: ${e instanceof Error ? e.message : String(e)}`);
@@ -518,9 +521,8 @@ async function main() {
 
   async function handleLogin(creds: { user: string; pass: string }) {
     try {
-      const sess = getSingleton();
-      if (!sess) return;
-      const page = sess.page;
+      const page = await browserService.getPage();
+      if (!page) return;
       logAgentLog(`Attempting login for ${creds.user}...`);
       await page.fill('input[name="text"]', creds.user);
       await page.locator("span", { hasText: "Next" }).click();
@@ -560,8 +562,7 @@ async function main() {
     scanning = true;
     try {
       // Ensure session is alive (recover if closed). This will recreate at most one window.
-      const sess = await ensureSession(LIST_URL);
-      const p = sess.page;
+      const p = await browserService.getPage();
 
       console.log(`\n--- Scan start [${new Date().toLocaleTimeString()}] ---`);
       let repliesThisScan = 0;
@@ -662,5 +663,3 @@ main().catch((e) => {
   logException(`main() failed: ${e instanceof Error ? e.message : String(e)}`);
   console.error(e);
 });
-
-
