@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+Note: For production deployment instructions and infrastructure, see `PRODUCTION.md`. For running the agent locally in an interactive “Agent Mode”, see `AGENT_MODE.md`. A general overview is in `README.md`.
+
 ## מבנה הפרויקט וארגון מודולים
 - `src/app` — אפליקציית Next.js (UI): דפים, layout ו־`globals.css`.
 - `src/components/dashboard` — רכיבי UI (למשל `MetricCard.tsx`, `Header.tsx`).
@@ -13,13 +15,14 @@
 
 ## פקודות Build, Test ו־Development
 - `pnpm install` — התקנת חבילות (להשתמש ב־pnpm כפי שמוגדר ב־`package.json`).
-- `pnpm dev` — הרצת ה־UI של Next.js ב־`http://localhost:3000`.
+- `pnpm dev` — מריץ UI של Next.js בלבד ב־`http://localhost:3000` (ללא סוכן וללא פתיחת Chromium).
+- `pnpm dev:all` — UI + סוכן אמיתי (מפעיל את הדאשבורד על פורט 3001 ומזין תצוגת "דפדפן חי").
 - `pnpm start:agent` — מפעיל את הסוכן ואת שרת הדאשבורד (3001).
-- `pnpm start:mock` — מזין אירועים מדומים לדאשבורד (ללא Playwright/Gemini).
+- `pnpm start:all` — הרצה מקומית "כמו פרודקשן": UI, סוכן ו־Edge Proxy על `$PORT`.
 - `pnpm build` / `pnpm start` — Build לפרודקשן והרצת ה־UI.
 - `pnpm lint` — הרצת ESLint.
 - `pnpm test` / `pnpm test:watch` / `pnpm test:coverage` — בדיקות יחידה (Jest).
-- `pnpm test:e2e` / `pnpm test:e2e:ui` — בדיקות Playwright.
+- `pnpm test:e2e` / `pnpm test:e2e:ui` — בדיקות Playwright (משתמשות ב־`pnpm dev` שמריץ UI בלבד).
 
 ## סגנון קוד ושמות
 - TypeScript + React (Next.js), הזחה של 2 רווחים.
@@ -48,3 +51,7 @@
   - `TWITTER_LIST_URL=https://x.com/i/lists/123...`
   - `DRY_RUN=1`
 - אין להתחייב cookies, טוקנים או מידע אישי.
+
+---
+
+הערה: להרצה בפרודקשן והקשחות נוספות ראו `PRODUCTION.md`.

@@ -1,6 +1,5 @@
-
-import fs from 'fs';
-import { config } from './config';
+import fs from "fs";
+import { config } from "./config.ts";
 
 // --- Constants ---
 const MEMORY_PATH = config.data.memory;
@@ -29,18 +28,21 @@ function loadMemory(): void {
   ensureDataDirectoryExists();
   if (fs.existsSync(MEMORY_PATH)) {
     try {
-      const fileContent = fs.readFileSync(MEMORY_PATH, 'utf-8');
+      const fileContent = fs.readFileSync(MEMORY_PATH, "utf-8");
       const ids = JSON.parse(fileContent);
       if (Array.isArray(ids)) {
         seenTweetIds = new Set(ids);
         console.log(`🧠 Loaded ${seenTweetIds.size} tweet IDs from memory.`);
       }
     } catch (error) {
-      console.error('Failed to load memory file. Starting with an empty set.', error);
+      console.error(
+        "Failed to load memory file. Starting with an empty set.",
+        error,
+      );
       seenTweetIds = new Set();
     }
   } else {
-    console.log('No memory file found. Starting with an empty set.');
+    console.log("No memory file found. Starting with an empty set.");
   }
 }
 
@@ -52,7 +54,7 @@ function saveMemory(): void {
   if (!hasUnsavedChanges) {
     return; // No need to write if nothing has changed
   }
-  console.log('💾 Saving memory to disk...');
+  console.log("💾 Saving memory to disk...");
   try {
     ensureDataDirectoryExists();
     const data = JSON.stringify(Array.from(seenTweetIds), null, 2);
@@ -60,7 +62,7 @@ function saveMemory(): void {
     hasUnsavedChanges = false; // Reset flag after saving
     console.log(`✅ Saved ${seenTweetIds.size} tweet IDs.`);
   } catch (error) {
-    console.error('❌ Failed to save memory file:', error);
+    console.error("❌ Failed to save memory file:", error);
   }
 }
 
@@ -80,7 +82,7 @@ export function isSeen(tweetId: string): boolean {
  * and flags that there are changes to be saved.
  * @param tweetId The ID of the tweet to mark as seen.
  */
-export function markSeen(tweetId:string): void {
+export function markSeen(tweetId: string): void {
   if (!seenTweetIds.has(tweetId)) {
     seenTweetIds.add(tweetId);
     hasUnsavedChanges = true;
@@ -93,13 +95,13 @@ export function markSeen(tweetId:string): void {
 loadMemory();
 
 // Register a shutdown hook to save memory gracefully
-process.on('exit', saveMemory);
-process.on('SIGINT', () => {
+process.on("exit", saveMemory);
+process.on("SIGINT", () => {
   saveMemory();
   process.exit(0);
 });
-process.on('uncaughtException', (err) => {
-  console.error('An uncaught exception occurred!', err);
+process.on("uncaughtException", (err) => {
+  console.error("An uncaught exception occurred!", err);
   saveMemory();
   process.exit(1);
 });

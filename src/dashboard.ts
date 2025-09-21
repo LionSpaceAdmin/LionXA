@@ -4,10 +4,22 @@ import { Server } from 'socket.io';
 import { createServer } from 'http';
 import path from 'path';
 import fs from 'fs';
+import { EventEmitter } from 'events';
+import { getSingleton, ensureSession } from './browser';
 
 export interface DashboardMetrics {
   timestamp: Date;
-  event: 'tweet_processed' | 'reply_posted' | 'error' | 'session_init' | 'gemini_call';
+  event:
+    | 'tweet_processed'
+    | 'reply_posted'
+    | 'error'
+    | 'session_init'
+    | 'gemini_call'
+    | 'page_console'
+    | 'exception'
+    | 'backup_error'
+    | 'browser_crash'
+    | 'agent_log';
   data: {
     username?: string;
     content?: string;
@@ -15,54 +27,27 @@ export interface DashboardMetrics {
     error?: string;
     model?: string;
     responseTime?: number;
+    level?: 'log' | 'info' | 'warn' | 'error' | 'debug';
   };
 }
 
 class XAgentDashboard {
-  private app = express();
-  private server = createServer(this.app);
-  private io = new Server(this.server, {
-    cors: {
-      origin: "*",
-      methods: ["GET", "POST"]
-    }
-  });
+  private io: Server | null = null;
   
   private metrics: DashboardMetrics[] = [];
   private activeConnections = 0;
   private startTime = new Date();
+  private lastScreencap: { image: string; url?: string; ts: number } | null = null;
+  private controlState = { paused: false, screencapMs: 3000 };
 
-  constructor(private port: number = Number(process.env.DASHBOARD_PORT) || 3001) {
-    this.setupRoutes();
-    this.setupSocketIO();
+  constructor() {
+    // Routes and server are now managed externally
   }
 
-  private setupRoutes() {
-    // Serve static dashboard files (optional; Next.js UI is primary)
-    const uiDir = path.join(__dirname, '../dashboard-ui');
-    if (fs.existsSync(uiDir)) {
-      this.app.use(express.static(uiDir));
-      // Main dashboard page
-      this.app.get('/', (req, res) => {
-        res.sendFile(path.join(uiDir, 'index.html'));
-      });
-    }
 
-    // (no architecture viewer served here; archd handles it)
-    
-    // API endpoints
-    this.app.get('/api/metrics', (req, res) => {
-      res.json({
-        totalEvents: this.metrics.length,
-        uptime: Date.now() - this.startTime.getTime(),
-        activeConnections: this.activeConnections,
-        recentEvents: this.metrics.slice(-50)
-      });
-    });
-    // (no architecture snapshot endpoint; archd handles it)
-  }
 
-  private setupSocketIO() {
+  public start(io: Server): void {
+    this.io = io;
     this.io.on('connection', (socket) => {
       this.activeConnections++;
       console.log(`📊 Dashboard client connected (${this.activeConnections} active)`);
@@ -71,17 +56,102 @@ class XAgentDashboard {
       socket.emit('initial-data', {
         uptime: Date.now() - this.startTime.getTime(),
         totalEvents: this.metrics.length,
-        recentEvents: this.metrics.slice(-20)
+        recentEvents: this.metrics.slice(-20),
+        paused: this.controlState.paused,
+        screencapMs: this.controlState.screencapMs,
       });
+
+      // Send last screencap on connect to warm the UI
+      if (this.lastScreencap) {
+        socket.emit('screencap', this.lastScreencap);
+      }
 
       socket.on('disconnect', () => {
         this.activeConnections--;
         console.log(`📊 Dashboard client disconnected (${this.activeConnections} active)`);
       });
+
+      // Basic interactive control events (best-effort)
+      socket.on('browser-click', async (payload: { x: number; y: number; button?: 'left'|'right'|'middle' }) => {
+        try {
+          const sess = getSingleton();
+          if (!sess) return;
+          const page = sess.page;
+          const vp = page.viewportSize();
+          if (!vp) return;
+          const px = Math.max(0, Math.min(vp.width - 1, Math.round(payload.x * vp.width)));
+          const py = Math.max(0, Math.min(vp.height - 1, Math.round(payload.y * vp.height)));
+          await page.bringToFront().catch(() => {});
+          await page.mouse.click(px, py, { button: payload.button || 'left' });
+        } catch {}
+      });
+
+      socket.on('browser-type', async (payload: { text: string }) => {
+        try {
+          const sess = getSingleton();
+          if (!sess) return;
+          const page = sess.page;
+          await page.keyboard.type(payload.text, { delay: 20 });
+        } catch {}
+      });
+
+      socket.on('browser-keypress', async (payload: { key: string }) => {
+        try {
+          const sess = getSingleton();
+          if (!sess) return;
+          const page = sess.page;
+          await page.bringToFront().catch(() => {});
+          await page.keyboard.press(payload.key);
+        } catch {}
+      });
+
+      socket.on('browser-wheel', async (payload: { deltaY: number }) => {
+        try {
+          const sess = getSingleton();
+          if (!sess) return;
+          const page = sess.page;
+          const dy = Math.max(-2000, Math.min(2000, Math.round(payload.deltaY)));
+          await page.mouse.wheel(0, dy);
+        } catch {}
+      });
+
+      // Agent controls
+      socket.on('agent-pause', (payload: { paused: boolean }) => {
+        const prev = this.controlState.paused;
+        this.controlState.paused = !!payload?.paused;
+        control.emit('pause', this.controlState.paused);
+        if (prev !== this.controlState.paused) {
+          logAgentLog(`Agent ${this.controlState.paused ? 'paused' : 'resumed'}`);
+        }
+        socket.emit('status', { paused: this.controlState.paused, screencapMs: this.controlState.screencapMs });
+      });
+      socket.on('agent-reset', async () => {
+        control.emit('reset');
+        try { await ensureSession(); } catch {}
+        logAgentLog('Agent session reset requested');
+      });
+      socket.on('get-status', () => {
+        socket.emit('status', { paused: this.controlState.paused, screencapMs: this.controlState.screencapMs });
+      });
+      socket.on('set-screencap-interval', (payload: { ms: number }) => {
+        const v = Number(payload?.ms);
+        if (!Number.isFinite(v)) return;
+        const clamped = Math.max(500, Math.min(15000, Math.round(v)));
+        this.controlState.screencapMs = clamped;
+        control.emit('screencapMs', clamped);
+        logAgentLog(`Screencap interval set to ${clamped}ms`);
+        socket.emit('status', { paused: this.controlState.paused, screencapMs: this.controlState.screencapMs });
+      });
+
+      socket.on('submit-credentials', (payload: { user: string; pass: string }) => {
+        if (payload && typeof payload.user === 'string' && typeof payload.pass === 'string') {
+          control.emit('credentials', payload);
+          logAgentLog(`Credentials submitted for user: ${payload.user}`);
+        }
+      });
     });
   }
 
-  // Public method to log events from XAgent
   public logEvent(event: DashboardMetrics) {
     this.metrics.push(event);
     
@@ -91,19 +161,21 @@ class XAgentDashboard {
     }
 
     // Broadcast to all connected clients
-    this.io.emit('new-event', event);
+    if (this.io) {
+      this.io.emit('new-event', event);
+    }
     
     // Console log for debugging
     console.log(`📊 [${event.event}] ${event.data.username || 'System'}: ${event.data.content || event.data.error || 'Event logged'}`);
   }
-
-  public start(): Promise<void> {
-    return new Promise((resolve) => {
-      this.server.listen(this.port, () => {
-        console.log(`📊 XAgent Dashboard running at http://localhost:${this.port}`);
-        resolve();
-      });
-    });
+  
+  // Broadcast a live browser image to all clients
+  public broadcastScreencap(payload: { image: string; url?: string; ts?: number }) {
+    const msg = { image: payload.image, url: payload.url, ts: payload.ts ?? Date.now() };
+    this.lastScreencap = msg;
+    if (this.io) {
+      this.io.emit('screencap', msg);
+    }
   }
 
   public getStats() {
@@ -130,6 +202,7 @@ class XAgentDashboard {
 
 // Singleton instance
 export const dashboard = new XAgentDashboard();
+export const control = new EventEmitter();
 
 // Helper functions for easy integration
 export function logTweetProcessed(username: string, content: string) {
@@ -169,5 +242,34 @@ export function logSessionInit() {
     timestamp: new Date(),
     event: 'session_init',
     data: {}
+  });
+}
+
+// Helper to send a screencap from the agent/browser
+export function sendScreencap(base64DataUrl: string, url?: string) {
+  dashboard.broadcastScreencap({ image: base64DataUrl, url });
+}
+
+export function logPageConsole(level: 'log'|'info'|'warn'|'error'|'debug', content: string) {
+  dashboard.logEvent({
+    timestamp: new Date(),
+    event: 'page_console',
+    data: { level, content }
+  });
+}
+
+export function logException(error: string) {
+  dashboard.logEvent({
+    timestamp: new Date(),
+    event: 'exception',
+    data: { error }
+  });
+}
+
+export function logAgentLog(content: string, level: 'log'|'info'|'warn'|'error'|'debug' = 'info') {
+  dashboard.logEvent({
+    timestamp: new Date(),
+    event: 'agent_log',
+    data: { content, level }
   });
 }

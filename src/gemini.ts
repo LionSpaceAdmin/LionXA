@@ -1,6 +1,6 @@
 // src/gemini.ts
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { config } from "./config"; // Import the central config
+import { config } from "./config.ts"; // Import the central config
 
 // --- Constants & Types ---
 const DEFAULT_MODEL = "gemini-1.5-flash"; // Fast and efficient Gemini model
@@ -17,9 +17,9 @@ Aim for very short, impactful replies (1-2 sentences). Vary your tone and phrasi
 `;
 
 // --- API Initialization ---
-const DRY_RUN = process.env.DRY_RUN === '1';
+const DRY_RUN = process.env.DRY_RUN === "1";
 if (!config.gemini.apiKey && !DRY_RUN) {
-    throw new Error('Gemini API key is not configured');
+  throw new Error("Gemini API key is not configured");
 }
 
 const genAI: GoogleGenerativeAI | null = config.gemini.apiKey
@@ -28,11 +28,11 @@ const genAI: GoogleGenerativeAI | null = config.gemini.apiKey
 
 // --- Response Validation ---
 function validateResponse(text: string): string {
-    // Enforce character limit only; no emojis/hashtags decoration per policy
-    if (text.length > 280) {
-        text = text.slice(0, 277) + "...";
-    }
-    return text;
+  // Enforce character limit only; no emojis/hashtags decoration per policy
+  if (text.length > 280) {
+    text = text.slice(0, 277) + "...";
+  }
+  return text;
 }
 
 // --- Public API ---
@@ -44,7 +44,10 @@ function validateResponse(text: string): string {
  * @param modelName The model to use for the completion (defaults to gemini-1.5-flash).
  * @returns The text content of the AI's response, or null if an error occurred.
  */
-export async function askGemini(prompt: string, modelName: string = DEFAULT_MODEL): Promise<string | null> {
+export async function askGemini(
+  prompt: string,
+  modelName: string = DEFAULT_MODEL,
+): Promise<string | null> {
   if (DRY_RUN || !config.gemini.apiKey) {
     const text = `Simulated reply: ${prompt.slice(0, 80)}`;
     return validateResponse(text);
@@ -54,9 +57,11 @@ export async function askGemini(prompt: string, modelName: string = DEFAULT_MODE
 
   while (retries < MAX_RETRIES) {
     try {
-      console.log(`[Gemini] Attempting with model: ${currentModel} (attempt ${retries + 1}/${MAX_RETRIES})`);
-      
-      const model = genAI!.getGenerativeModel({ 
+      console.log(
+        `[Gemini] Attempting with model: ${currentModel} (attempt ${retries + 1}/${MAX_RETRIES})`,
+      );
+
+      const model = genAI!.getGenerativeModel({
         model: currentModel,
         generationConfig: {
           temperature: 0.5, // More consistent responses
@@ -68,7 +73,7 @@ export async function askGemini(prompt: string, modelName: string = DEFAULT_MODE
 
       // Create the full prompt with system instructions
       const fullPrompt = `${SYSTEM_PROMPT}\n\nUser's tweet: ${prompt}\n\nYour response:`;
-      
+
       const result = await model.generateContent(fullPrompt);
       const response = result.response;
       const text = response.text();
@@ -77,24 +82,32 @@ export async function askGemini(prompt: string, modelName: string = DEFAULT_MODE
         throw new Error("Empty response from Gemini");
       }
 
-      console.log(`[Gemini] Successfully generated response with ${currentModel}`);
+      console.log(
+        `[Gemini] Successfully generated response with ${currentModel}`,
+      );
       return validateResponse(text.trim());
-
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : String(error);
-      console.error(`[Gemini] Error with ${currentModel} (attempt ${retries + 1}):`, errorMessage);
-      
+      const errorMessage =
+        error instanceof Error ? error.message : String(error);
+      console.error(
+        `[Gemini] Error with ${currentModel} (attempt ${retries + 1}):`,
+        errorMessage,
+      );
+
       // If model not available or quota exceeded, try fallback model
-      if ((errorMessage?.includes("model") || errorMessage?.includes("quota")) && currentModel === DEFAULT_MODEL) {
+      if (
+        (errorMessage?.includes("model") || errorMessage?.includes("quota")) &&
+        currentModel === DEFAULT_MODEL
+      ) {
         console.log(`[Gemini] Falling back to ${FALLBACK_MODEL}`);
         currentModel = FALLBACK_MODEL;
       }
-      
+
       retries++;
-      
+
       if (retries < MAX_RETRIES) {
         console.log(`[Gemini] Retrying in ${RETRY_DELAY}ms...`);
-        await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+        await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY));
       }
     }
   }

@@ -1,58 +1,54 @@
-# GEMINI.md
+# Gemini Code Assistant Context
+
+This document provides context for the Gemini Code Assistant to understand the Xagent project.
 
 ## Project Overview
 
-This is a TypeScript-based Next.js project that uses Playwright to automate interactions with X.com (formerly Twitter). It functions as an "agent" that monitors a specific X.com list, and when it finds new tweets from users with pre-defined profiles, it uses the Google Gemini API to generate and post replies. The project also includes a real-time dashboard to monitor the agent's activity.
+Xagent is a production-ready, full-stack application designed for AI-powered social media management. It features a Next.js 15 user interface, a headless agent powered by Playwright and Google Gemini, and a unified Edge Proxy. The application is designed to be deployed on Google Cloud Platform using Terraform.
 
-**Key Technologies:**
+The core functionality of the application is to monitor a specific X.com list, and use Gemini to generate and post replies to tweets. The UI provides a live view of the agent's browser, interactive controls, and a diagnostics panel.
 
-*   Next.js and React
-*   Playwright for browser automation
-*   Google Gemini API for AI-powered replies
-*   TypeScript
-*   Express and Socket.IO for the real-time dashboard
+### Key Technologies
 
-**Core Functionality:**
+*   **Frontend:** Next.js 15, React, TypeScript, Tailwind CSS
+*   **Backend:** Node.js, Express, Socket.IO
+*   **Agent:** Playwright, Google Gemini
+*   **Infrastructure:** Google Cloud Platform, Cloud Run, Global HTTP(S) Load Balancer, AppHub, Vertex AI, Terraform
+*   **Database:** The agent uses a persistent Chromium profile to maintain session data.
+*   **Testing:** Jest for unit tests, Playwright for end-to-end tests.
 
-*   **`src/watchList.ts`**: The main entry point for the agent. It logs into X.com, navigates to a specified list, scrapes tweets, and for new tweets from profiled users, it generates and posts a reply using Gemini.
-*   **`src/dashboard.ts`**: Sets up an Express server with Socket.IO to provide a real-time dashboard of the agent's activities.
-*   **`src/profiles/`**: Contains profiles of X.com users that the agent should interact with. Each profile likely contains a custom prompt for the Gemini API.
-*   **`src/config.ts`**: Central configuration file.
+### Architecture
+
+The application is composed of several key components:
+
+*   **Next.js UI:** The user interface for the application, providing a dashboard for monitoring and controlling the agent.
+*   **Dashboard Server:** An Express server with Socket.IO that streams real-time data from the agent to the UI.
+*   **Agent:** A Playwright-based agent that interacts with X.com, using Gemini to generate replies.
+*   **Edge Proxy:** A proxy that unifies the UI and the dashboard server.
+*   **Terraform:** Infrastructure as code for provisioning the necessary Google Cloud resources.
 
 ## Building and Running
 
-1.  **Install Dependencies:**
-    ```bash
-    pnpm install
-    ```
+### Development
 
-2.  **Set up the environment:**
-    ```bash
-    pnpm run setup
-    ```
+*   **Install dependencies:** `pnpm install`
+*   **Run the UI only:** `pnpm dev`
+*   **Run the UI and the agent:** `pnpm dev:all`
 
-3.  **Run the agent:**
-    ```bash
-    pnpm run start:agent
-    ```
+### Production
 
-4.  **Run the dashboard:**
-    ```bash
-    pnpm run dashboard
-    ```
+*   **Build the UI:** `pnpm build`
+*   **Start all services (UI, agent, and proxy):** `pnpm start:all`
 
-**Other Commands:**
+### Testing
 
-*   `pnpm run dev`: Start the Next.js development server.
-*   `pnpm run build`: Build the Next.js application for production.
-*   `pnpm run start`: Start the production Next.js server.
-*   `pnpm run lint`: Lint the code.
-*   `pnpm run validate`: Validate the Playwright installation.
+*   **Run unit tests:** `pnpm test`
+*   **Run end-to-end tests:** `pnpm test:e2e`
 
 ## Development Conventions
 
-*   The code is structured into modules with clear responsibilities (e.g., `browser.ts`, `gemini.ts`, `memory.ts`).
-*   It uses a central configuration file (`src/config.ts`).
-*   It uses a singleton pattern for the browser instance.
-*   It has a dashboard for monitoring.
-*   It has a setup script for environment validation.
+*   **Code Style:** TypeScript with 2-space indentation. Components are in PascalCase, and modules are in camelCase or kebab-case.
+*   **Linting:** ESLint is used for linting. Run `pnpm lint` to check for issues.
+*   **Testing:** Unit tests are written with Jest and Testing Library. End-to-end tests are written with Playwright.
+*   **Commits and Pull Requests:** Commit messages should be in the imperative mood. Pull requests should include a summary, justification, and testing plan.
+*   **Secrets:** Secrets are managed using a `.env` file. The only required secret is `GEMINI_API_KEY`.

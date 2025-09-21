@@ -1,0 +1,2 @@
+# Ignore the agent profile directory which contains socket files
+src/profiles/agent_profile/

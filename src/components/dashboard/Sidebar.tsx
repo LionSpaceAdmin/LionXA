@@ -1,7 +1,7 @@
-'use client';
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { Activity, Settings, CircleHelp } from 'lucide-react';
+"use client";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { Activity, Settings, CircleHelp } from "lucide-react";
 
 interface DashboardEvent {
   timestamp: string;
@@ -24,28 +24,28 @@ interface FormattedEvent extends DashboardEvent {
 
 const getEventStyling = (eventType: string) => {
   switch (eventType) {
-    case 'tweet_processed':
-      return { icon: '🔍', color: 'text-blue-400' };
-    case 'reply_posted':
-      return { icon: '✅', color: 'text-green-400' };
-    case 'error':
-      return { icon: '❌', color: 'text-red-400' };
-    case 'gemini_call':
-      return { icon: '✨', color: 'text-purple-400' };
+    case "tweet_processed":
+      return { icon: "🔍", color: "text-blue-400" };
+    case "reply_posted":
+      return { icon: "✅", color: "text-green-400" };
+    case "error":
+      return { icon: "❌", color: "text-red-400" };
+    case "gemini_call":
+      return { icon: "✨", color: "text-purple-400" };
     default:
-      return { icon: '🔹', color: 'text-gray-400' };
+      return { icon: "🔹", color: "text-gray-400" };
   }
 };
 
 const formatEventText = (event: DashboardEvent) => {
   switch (event.event) {
-    case 'tweet_processed':
+    case "tweet_processed":
       return `עיבוד ציוץ מ-@${event.data.username}`;
-    case 'reply_posted':
+    case "reply_posted":
       return `תגובה נשלחה ל-@${event.data.username}`;
-    case 'error':
+    case "error":
       return `שגיאה: ${event.data.error?.substring(0, 40)}...`;
-    case 'gemini_call':
+    case "gemini_call":
       return `קריאה ל-Gemini...`;
     default:
       return `אירוע לא ידוע: ${event.event}`;
@@ -57,17 +57,16 @@ export default function Sidebar({ recentEvents }: SidebarProps) {
 
   useEffect(() => {
     // This effect runs only on the client, preventing hydration mismatch.
-    const clientSideFormattedEvents = recentEvents.map(event => ({
+    const clientSideFormattedEvents = recentEvents.map((event) => ({
       ...event,
-      formattedTime: new Date(event.timestamp).toLocaleTimeString('he-IL', {
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
+      formattedTime: new Date(event.timestamp).toLocaleTimeString("he-IL", {
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
       }),
     }));
     setFormattedEvents(clientSideFormattedEvents);
   }, [recentEvents]);
-
 
   return (
     <aside className="hidden w-80 flex-col border-l border-border bg-card sm:flex">
@@ -92,7 +91,9 @@ export default function Sidebar({ recentEvents }: SidebarProps) {
                   {icon}
                 </span>
                 <div className="grid gap-1">
-                  <p className="font-semibold text-foreground">{formatEventText(event)}</p>
+                  <p className="font-semibold text-foreground">
+                    {formatEventText(event)}
+                  </p>
                   <p className="text-xs text-muted-foreground">
                     {event.formattedTime}
                   </p>

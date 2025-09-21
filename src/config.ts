@@ -46,12 +46,12 @@ export const config = {
     // Persistent Chromium user-data-dir to keep session/cookies across runs
     userDataDir: process.env.BROWSER_USER_DATA_DIR || DEFAULT_PROFILE_DIR,
     // INTERACTIVE=1 (default) -> headful, INTERACTIVE=0 -> headless
-    headless: process.env.INTERACTIVE === '0' || process.env.HEADLESS_BROWSER === 'true',
+    headless: process.env.INTERACTIVE !== '1' && process.env.HEADLESS_BROWSER !== 'false',
     // Prefer a stable, system-installed browser for reliability on macOS
     // Options: 'chrome' | 'chromium' | 'msedge' | 'chrome-beta' | 'chrome-canary'
-    channel: process.env.BROWSER_CHANNEL || 'chrome',
+    channel: 'chromium',
     // Optional absolute path to a specific browser executable; if set, overrides channel
-    executablePath: process.env.BROWSER_EXECUTABLE_PATH,
+    executablePath: undefined,
     // Open DevTools on start (only effective in headful mode)
     devtools: process.env.BROWSER_DEVTOOLS === 'true',
     // Slow down operations (ms) for debugging/demo purposes
@@ -95,7 +95,9 @@ export const config = {
 };
 
 // Validate that the essential API key is present
-if (!config.gemini.apiKey && process.env.DRY_RUN !== '1') {
+// Allow skipping the API key check during build steps (e.g., Cloud Build/Next build)
+const isBuildPhase = process.env.NEXT_PHASE === 'phase-production-build' || process.env.SKIP_GEMINI_CHECK === '1';
+if (!config.gemini.apiKey && process.env.DRY_RUN !== '1' && !isBuildPhase) {
   console.error("❌ FATAL: GEMINI_API_KEY is not defined. Set it in .env or run with DRY_RUN=1 for a stubbed local mode.");
   process.exit(1);
 }

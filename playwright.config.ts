@@ -1,13 +1,12 @@
-
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig, devices } from "@playwright/test";
 
 /**
  * See https://playwright.dev/docs/test-configuration.
  */
-const disableWebServer = process.env.PW_DISABLE_WEBSERVER === '1';
-const reporter = process.env.PW_REPORTER ?? 'html';
+const disableWebServer = process.env.PW_DISABLE_WEBSERVER === "1";
+const reporter = process.env.PW_REPORTER ?? "html";
 export default defineConfig({
-  testDir: './e2e',
+  testDir: "./e2e",
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -21,27 +20,29 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'http://localhost:3000',
+    baseURL: "http://localhost:3000",
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
-    trace: 'on-first-retry',
+    trace: "on-first-retry",
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chromium',
-      use: { 
-        ...devices['Desktop Chrome'],
-        channel: process.env.BROWSER_CHANNEL || 'chrome'
+      name: "chromium",
+      use: {
+        ...devices["Desktop Chrome"],
+        channel: process.env.BROWSER_CHANNEL || "chrome",
       },
     },
   ],
 
   /* Run your local dev server before starting the tests */
-  webServer: disableWebServer ? undefined : {
-    command: 'pnpm run dev',
-    url: 'http://localhost:3000',
-    reuseExistingServer: !process.env.CI,
-  },
+  webServer: disableWebServer
+    ? undefined
+    : {
+        command: "pnpm run dev",
+        url: "http://localhost:3000",
+        reuseExistingServer: !process.env.CI,
+      },
 });

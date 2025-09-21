@@ -1,15 +1,15 @@
-import { Profile } from './index';
+import { Profile } from "./types";
 
 const profile: Profile & { handles: string[]; facts: string[] } = {
   username: "maxblumenthal",
   handles: [
-    'maxblumenthal',
-    'max_blumenthal',
-    'thegrayzonenews',
-    'maxb',
-    'maxblum',
-    'maxblumental', // טעות נפוצה
-    'blumenthal',
+    "maxblumenthal",
+    "max_blumenthal",
+    "thegrayzonenews",
+    "maxb",
+    "maxblum",
+    "maxblumental", // טעות נפוצה
+    "blumenthal",
   ],
   customPrompt: `{{TWEET_TEXT}}\n\nYour "investigation" is a clown show. Facts just wiped your spin. 🕵️‍♂️💩\nFact: {{FACT}}`,
   facts: [
@@ -18,7 +18,7 @@ const profile: Profile & { handles: string[]; facts: string[] } = {
     "Propaganda isn't investigation.",
     "Real journalists welcome scrutiny.",
     "Bias isn't a substitute for evidence.",
-  ]
+  ],
 };
 
 export default profile;

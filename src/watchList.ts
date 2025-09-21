@@ -1,12 +1,12 @@
 // src/watchList.ts
 import { Page, Locator } from 'playwright';
-import { ensureSession } from './browser';
+import { ensureSession, getSingleton } from './browser';
 import { isSeen, markSeen } from './memory';
 import { askGPT } from './gemini';
 import { getProfile, Profile } from './profiles';
 import { config } from './config';
 import { startBackupScheduler } from './backup';
-import { dashboard, logTweetProcessed, logReplyPosted, logGeminiCall, logError, logSessionInit } from './dashboard';
+import { dashboard, logTweetProcessed, logReplyPosted, logGeminiCall, logError, logSessionInit, sendScreencap, control, logPageConsole, logException, logAgentLog } from './dashboard';
 
 // --- Constants from Central Config ---
 const LIST_URL = config.browser.startUrl || config.twitter.listUrl;
@@ -198,6 +198,51 @@ async function main() {
 
     // Ensure singleton, persistent session
     const { page } = await ensureSession(LIST_URL);
+    let attachedPage: Page | null = null;
+    function isLevel(x: string): x is 'log'|'info'|'warn'|'error'|'debug' {
+        return x === 'log' || x === 'info' || x === 'warn' || x === 'error' || x === 'debug';
+    }
+    function attachPageEvents(p: Page) {
+        if (attachedPage === p) return;
+        attachedPage = p;
+        p.on('console', (msg) => {
+            const type = msg.type();
+            const txt = msg.text();
+            // forward to dashboard
+            const lvl: 'log'|'info'|'warn'|'error'|'debug' = isLevel(type) ? type : 'log';
+            logPageConsole(lvl, txt);
+        });
+        p.on('pageerror', (err) => {
+            logException(err?.message || String(err));
+        });
+    }
+    attachPageEvents(page);
+
+    // Start lightweight screencap loop (configurable)
+    let screencapIntervalMs = 3000;
+    let scTimer: NodeJS.Timeout | null = null;
+    async function doScreencapOnce() {
+        try {
+            const sess = await ensureSession(LIST_URL);
+            const p = sess.page;
+            attachPageEvents(p);
+            const buf = await p.screenshot({ type: 'jpeg', quality: 60, fullPage: false });
+            const dataUrl = `data:image/jpeg;base64,${buf.toString('base64')}`;
+            sendScreencap(dataUrl, p.url());
+        } catch {}
+    }
+    function scheduleScreencap() {
+        if (scTimer) clearInterval(scTimer);
+        scTimer = setInterval(doScreencapOnce, screencapIntervalMs);
+    }
+    control.on('screencapMs', (ms: unknown) => {
+        const v = Number(ms);
+        if (Number.isFinite(v) && v >= 200 && v <= 60000) {
+            screencapIntervalMs = Math.round(v);
+            scheduleScreencap();
+        }
+    });
+    scheduleScreencap();
 
     async function navigateToList(): Promise<void> {
         const maxRetries = 3;
@@ -375,7 +420,44 @@ async function main() {
         repliesToday += 1;
     }
 
+    let paused = false;
+    control.on('pause', (val: unknown) => { paused = !!val; });
+    control.on('reset', async () => {
+        try {
+            await ensureSession(LIST_URL);
+            logAgentLog('Session reset completed');
+        } catch (e) {
+            logError(`Reset failed: ${e instanceof Error ? e.message : String(e)}`);
+        }
+    });
+
+    async function handleLogin(creds: { user: string; pass: string }) {
+      try {
+        const sess = getSingleton();
+        if (!sess) return;
+        const page = sess.page;
+        logAgentLog(`Attempting login for ${creds.user}...`);
+        await page.fill('input[name="text"]', creds.user);
+        await page.locator('span', { hasText: 'Next' }).click();
+        await page.fill('input[name="password"]', creds.pass);
+        await page.locator('[data-testid="LoginForm_Login_Button"]').click();
+        await page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 20000 });
+        logAgentLog('Login submitted successfully.');
+      } catch (e) {
+        logError(`Login failed: ${e instanceof Error ? e.message : String(e)}`);
+      }
+    }
+    control.on('credentials', (creds: unknown) => {
+      if (creds && typeof creds === 'object' && 'user' in creds && 'pass' in creds) {
+        handleLogin(creds as { user: string; pass: string });
+      }
+    });
+
     while (true) {
+        if (paused) {
+            await new Promise(res => setTimeout(res, POLLING_INTERVAL_MS));
+            continue;
+        }
         if (scanning) {
             console.log('⏳ Scan already in progress; skipping this tick.');
             await new Promise(res => setTimeout(res, POLLING_INTERVAL_MS));
@@ -456,4 +538,14 @@ async function main() {
     }
 }
 
-main().catch(console.error);
+process.on('uncaughtException', (err) => {
+    logException(`uncaughtException: ${err?.message || String(err)}`);
+});
+process.on('unhandledRejection', (reason) => {
+    logException(`unhandledRejection: ${reason instanceof Error ? reason.message : String(reason)}`);
+});
+
+main().catch((e) => {
+    logException(`main() failed: ${e instanceof Error ? e.message : String(e)}`);
+    console.error(e);
+});

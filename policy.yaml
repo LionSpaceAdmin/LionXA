@@ -1,0 +1,40 @@
+constraint: constraints/gcp.restrictServiceUsage
+etag: CKnikcUGEODE6pQB
+listPolicy:
+  allowedValues:
+  - analyticshub.googleapis.com
+  - apphub.googleapis.com
+  - appoptimize.googleapis.com
+  - artifactregistry.googleapis.com
+  - bigquery.googleapis.com
+  - bigqueryconnection.googleapis.com
+  - bigquerydatapolicy.googleapis.com
+  - bigquerymigration.googleapis.com
+  - bigqueryreservation.googleapis.com
+  - bigquerystorage.googleapis.com
+  - cloudaicompanion.googleapis.com
+  - cloudasset.googleapis.com
+  - cloudbuild.googleapis.com
+  - cloudfunctions.googleapis.com
+  - cloudquotas.googleapis.com
+  - cloudresourcemanager.googleapis.com
+  - cloudtrace.googleapis.com
+  - config.googleapis.com
+  - containerregistry.googleapis.com
+  - dataform.googleapis.com
+  - dataplex.googleapis.com
+  - designcenter.googleapis.com
+  - geminicloudassist.googleapis.com
+  - iam.googleapis.com
+  - iamcredentials.googleapis.com
+  - logging.googleapis.com
+  - monitoring.googleapis.com
+  - observability.googleapis.com
+  - pubsub.googleapis.com
+  - recommender.googleapis.com
+  - servicehealth.googleapis.com
+  - storage-api.googleapis.com
+  - storage-component.googleapis.com
+  - storage.googleapis.com
+  - run.googleapis.com
+updateTime: '2025-08-19T12:42:17.312124Z'

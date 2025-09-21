@@ -7,17 +7,17 @@
  *   Environment:
  *     CHROME_PATH  Optional absolute path to Chrome/Chromium binary
  */
-import { spawn } from 'node:child_process';
-import { mkdir, stat } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
-import path from 'node:path';
+import { spawn } from "node:child_process";
+import { mkdir, stat } from "node:fs/promises";
+import { existsSync } from "node:fs";
+import path from "node:path";
 
 // Parse CLI args: supports --key=value and --key value
 const argv = new Map();
 for (let i = 2; i < process.argv.length; i++) {
   const token = process.argv[i];
-  if (!token?.startsWith('--')) continue;
-  const eq = token.indexOf('=');
+  if (!token?.startsWith("--")) continue;
+  const eq = token.indexOf("=");
   if (eq !== -1) {
     const key = token.slice(2, eq);
     const val = token.slice(eq + 1);
@@ -25,7 +25,7 @@ for (let i = 2; i < process.argv.length; i++) {
   } else {
     const key = token.slice(2);
     const next = process.argv[i + 1];
-    if (next && !next.startsWith('--')) {
+    if (next && !next.startsWith("--")) {
       argv.set(key, next);
       i += 1;
     } else {
@@ -34,17 +34,21 @@ for (let i = 2; i < process.argv.length; i++) {
   }
 }
 
-const url = (argv.get('url') || 'http://localhost:3000/').toString();
-const preset = (argv.get('preset') || 'desktop').toString();
-const chromePath = process.env.CHROME_PATH || '';
+const url = (argv.get("url") || "http://localhost:3000/").toString();
+const preset = (argv.get("preset") || "desktop").toString();
+const chromePath = process.env.CHROME_PATH || "";
 
-const reportsDir = path.join(process.cwd(), 'reports', 'lighthouse');
+const reportsDir = path.join(process.cwd(), "reports", "lighthouse");
 
 function run(cmd, args, opts = {}) {
   return new Promise((resolve, reject) => {
-    const ps = spawn(cmd, args, { stdio: 'inherit', shell: false, ...opts });
-    ps.on('error', reject);
-    ps.on('exit', (code) => (code === 0 ? resolve(undefined) : reject(new Error(`${cmd} ${args.join(' ')} exited with ${code}`))));
+    const ps = spawn(cmd, args, { stdio: "inherit", shell: false, ...opts });
+    ps.on("error", reject);
+    ps.on("exit", (code) =>
+      code === 0
+        ? resolve(undefined)
+        : reject(new Error(`${cmd} ${args.join(" ")} exited with ${code}`)),
+    );
   });
 }
 
@@ -53,7 +57,7 @@ async function waitForUrl(targetUrl, timeoutMs = 60_000) {
   // Node 18+ has global fetch
   while (Date.now() - started < timeoutMs) {
     try {
-      const res = await fetch(targetUrl, { method: 'GET' });
+      const res = await fetch(targetUrl, { method: "GET" });
       if (res.ok) return;
     } catch {}
     await new Promise((r) => setTimeout(r, 500));
@@ -68,7 +72,7 @@ async function main() {
   }
 
   // Always build to ensure production assets
-  await run('pnpm', ['build']);
+  await run("pnpm", ["build"]);
 
   // If server not up, start it
   let serverStarted = false;
@@ -76,43 +80,48 @@ async function main() {
   try {
     await waitForUrl(url, 2_000);
   } catch {
-    const server = spawn('pnpm', ['start', '-p', new URL(url).port || '3000'], { stdio: 'inherit' });
+    const server = spawn("pnpm", ["start", "-p", new URL(url).port || "3000"], {
+      stdio: "inherit",
+    });
     serverStarted = true;
-    server.on('exit', () => { serverExited = true; });
+    server.on("exit", () => {
+      serverExited = true;
+    });
     await waitForUrl(url, 90_000);
   }
 
   try {
-
-    const ts = new Date().toISOString().replace(/[:.]/g, '-');
+    const ts = new Date().toISOString().replace(/[:.]/g, "-");
     const outBase = path.join(reportsDir, `lighthouse-${preset}-${ts}`);
     const lighthouseArgs = [
       url,
       `--preset=${preset}`,
-      '--output=json',
-      '--output=html',
+      "--output=json",
+      "--output=html",
       `--output-path=${outBase}.report`,
-      '--chrome-flags=--headless=new',
+      "--chrome-flags=--headless=new",
     ];
     if (chromePath) {
       lighthouseArgs.push(`--chrome-path=${chromePath}`);
     }
 
     // Prefer local install if available; otherwise npx
-    const cmd = 'pnpm';
-    const args = ['exec', 'lighthouse', ...lighthouseArgs];
+    const cmd = "pnpm";
+    const args = ["exec", "lighthouse", ...lighthouseArgs];
     await run(cmd, args);
 
     console.log(`\n✅ Lighthouse reports saved to: ${outBase}.{html,json}\n`);
   } finally {
     if (serverStarted && !serverExited) {
       // best-effort shutdown
-      try { process.kill(-1, 'SIGINT'); } catch {}
+      try {
+        process.kill(-1, "SIGINT");
+      } catch {}
     }
   }
 }
 
 main().catch((err) => {
-  console.error('Lighthouse run failed:', err?.message || err);
+  console.error("Lighthouse run failed:", err?.message || err);
   process.exit(1);
 });

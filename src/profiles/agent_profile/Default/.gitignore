@@ -1,0 +1,35 @@
+# Keep only essential session artifacts locally
+# Allow: Cookies, Local Storage contents
+
+# Ignore heavy/volatile caches
+*/
+!Cookies
+!Cookies-journal
+!Local Storage/
+!Local Storage/**
+Local Storage/leveldb/LOCK
+Local Storage/leveldb/LOG*
+Local Storage/leveldb/LOG.old*
+Local Storage/leveldb/*.log
+Local Storage/leveldb/*.ldb
+Local Storage/leveldb/*.sst
+
+# Chromium caches we never want committed
+GPUCache/
+Code Cache/
+ShaderCache/
+GraphiteDawnCache/
+GrShaderCache/
+BrowserMetrics/
+Safe Browsing/
+Session Storage/
+Service Worker/
+Shared Dictionary/
+Network Action Predictor/
+TransportSecurity
+Visited Links
+OptimizationGuide/
+Media Cache/
+Blob Storage/
+IndexedDB/
+Cache/
