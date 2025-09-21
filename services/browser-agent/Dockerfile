@@ -1,5 +1,5 @@
 # Base image and user setup
-FROM mcr.microsoft.com/playwright/python:v1.40.0-jammy
+FROM mcr.microsoft.com/playwright/python:v1.44.0
 USER root
 
 # System dependencies (many are included in base image, but we ensure xvfb/x11vnc)
