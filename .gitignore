@@ -49,3 +49,13 @@ personal/
 
 .gemini/
 gha-creds-*.json
+
+# Terraform state files
+infra/terraform/*.tfstate
+infra/terraform/*.tfstate.backup
+
+# Browser profiles and runtime data
+src/profiles/agent_profile/
+
+# Test artifacts
+e2e/screenshots/

@@ -40,7 +40,7 @@ async function main() {
     try {
       const ver = await fetchCDPVersion(config.browser.debugPort);
       console.log("🔌 CDP /json/version:", ver);
-    } catch (e) => {
+    } catch (e) {
       console.warn(
         "⚠️ Could not reach CDP endpoint on port",
         config.browser.debugPort,
