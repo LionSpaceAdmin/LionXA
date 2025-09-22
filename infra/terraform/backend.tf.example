@@ -1,0 +1,11 @@
+terraform {
+  cloud {
+    # Replace with your HCP/Terraform Cloud org slug
+    organization = "YOUR_ORG_SLUG"
+    workspaces {
+      # Suggested default workspace name
+      name = "lionxa-prod"
+    }
+  }
+}
+

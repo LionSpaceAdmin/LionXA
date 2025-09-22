@@ -65,5 +65,17 @@ e2e/screenshots/
 !.mcp/servers.json
 !.mcp/servers.local.json
 !.mcp/servers.docker.json
+
+# Terraform local cache and state (prevent large provider binaries >100MB)
+infra/terraform/.terraform/
+infra/terraform/terraform.tfstate
+infra/terraform/terraform.tfstate.*
+
+# Large archives / local artifacts
+*.zip
+bundle.zip
+Xagent/
+cookies.json
+roots.pem
 .tmp/
 .jestcache/

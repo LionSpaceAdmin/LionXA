@@ -6,9 +6,11 @@ provider "google" {
   default_labels = {
     goog-adc-tf-deployment = "export"
   }
+  project = var.project_id
 }
 provider "google-beta" {
   default_labels = {
     goog-adc-tf-deployment = "export"
   }
+  project = var.project_id
 }
