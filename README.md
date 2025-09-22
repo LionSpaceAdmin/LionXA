@@ -13,25 +13,24 @@ Note: An optional FastAPI backend scaffold exists under `services/backend/`, but
 
 ## Quick Start
 
-1) Copy env: `cp .env.example .env`, then set `GEMINI_API_KEY` (or keep `DRY_RUN=1`).
+1. Copy env: `cp .env.example .env`, then set `GEMINI_API_KEY` (or keep `DRY_RUN=1`).
 
-2) Build and run:
+2. Build and run:
 
 ```bash
 docker compose build --no-cache
 docker compose up -d
 ```
 
-3) Open the dashboard at http://localhost:3000
+3. Open the dashboard at http://localhost:3000
 
-4) Open Guacamole at http://localhost:8080/guacamole
-
+4. Open Guacamole at http://localhost:8080/guacamole
    - Default mapping (edit in `infra/guacamole/user-mapping.xml`):
      - Username: `xagent-admin`
      - Password: `password`
      - Connection: “Agent Desktop (VNC)” → connects to `lionxa_agent:5901`
 
-5) Verify agent → frontend reporting: watch `docker compose logs -f frontend` for lines like:
+5. Verify agent → frontend reporting: watch `docker compose logs -f frontend` for lines like:
 
 ```
 Received data from agent: { ... }

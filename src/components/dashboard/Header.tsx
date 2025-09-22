@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { Bot, Wifi, WifiOff } from "lucide-react";
 
 interface HeaderProps {
@@ -24,10 +25,10 @@ export default function Header({ uptime, isConnected }: HeaderProps) {
       </div>
       <nav className="mr-6">
         <ul className="flex gap-4 text-sm text-neutral-300">
-          <li><a href="/" className="hover:text-white">דשבורד</a></li>
-          <li><a href="/health" className="hover:text-white">בריאות פרויקט</a></li>
-          <li><a href="/vision" className="hover:text-white">חזון</a></li>
-          <li><a href="/tools" className="hover:text-white">כלים</a></li>
+          <li><Link href="/" className="hover:text-white">דשבורד</Link></li>
+          <li><Link href="/health" className="hover:text-white">בריאות פרויקט</Link></li>
+          <li><Link href="/vision" className="hover:text-white">חזון</Link></li>
+          <li><Link href="/tools" className="hover:text-white">כלים</Link></li>
         </ul>
       </nav>
       <div className="mr-auto flex items-center gap-4">
