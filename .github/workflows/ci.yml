@@ -41,7 +41,7 @@ jobs:
       - name: Install pnpm
         run: |
           corepack enable || true
-          npm install -g pnpm@10.13.1
+          npm install -g pnpm@10.13.1 --force
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
