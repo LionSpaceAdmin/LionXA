@@ -38,10 +38,10 @@ jobs:
         with:
           node-version-file: .nvmrc
 
-      - name: Enable Corepack
+      - name: Install pnpm
         run: |
-          corepack enable
-          corepack prepare pnpm@10.13.1 --activate
+          corepack enable || true
+          npm install -g pnpm@10.13.1
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
