@@ -16,6 +16,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "mcp:use:local": "bash scripts/setup/mcp_use.sh local",
     "mcp:use:docker": "bash scripts/setup/mcp_use.sh docker",
+    "jules:setup": "bash setup-jules.sh",
     "prepare": "husky install || true"
   },
   "dependencies": {
