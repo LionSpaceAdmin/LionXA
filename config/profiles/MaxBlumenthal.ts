@@ -1,4 +1,4 @@
-import { Profile } from "./types";
+import { Profile } from "../../src/profiles/types";
 
 const profile: Profile & { handles: string[]; facts: string[] } = {
   username: "maxblumenthal",

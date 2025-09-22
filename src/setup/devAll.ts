@@ -9,7 +9,6 @@ import { spawn } from "node:child_process";
 function run(cmd: string, args: string[], name: string) {
   const child = spawn(cmd, args, {
     stdio: "inherit",
-    shell: true,
     env: process.env,
   });
   child.on("exit", (code, signal) => {
@@ -24,7 +23,7 @@ console.log(`Starting unified dev server...`);
 // Start the main server, which will handle Next.js and the agent
 const serverProcess = run(
   "ts-node",
-  ["-O", '\'{\\"module\\":\\"commonjs\\"}\'', "src/server.ts"],
+  ["-O", '{"module":"commonjs"}', "src/server.ts"],
   "server",
 );
 

@@ -1,5 +1,5 @@
 // src/profiles/AdameMedia.ts
-import { Profile } from "./types";
+import { Profile } from "../../src/profiles/types";
 
 export const AdameMedia: Profile & { handles: string[] } = {
   username: "adamemedia",

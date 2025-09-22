@@ -2,7 +2,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Activity, Settings, CircleHelp, Globe } from "lucide-react";
+import { Activity, Settings, CircleHelp } from "lucide-react";
 
 interface DashboardEvent {
   timestamp: string;

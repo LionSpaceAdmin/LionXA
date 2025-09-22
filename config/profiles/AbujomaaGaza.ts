@@ -1,5 +1,5 @@
 // src/profiles/AbujomaaGaza.ts
-import { Profile } from "./types";
+import { Profile } from "../../src/profiles/types";
 
 export const AbujomaaGaza: Profile & { handles: string[] } = {
   username: "abujomaagaza",

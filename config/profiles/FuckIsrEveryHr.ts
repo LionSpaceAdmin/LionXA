@@ -1,5 +1,5 @@
 // src/profiles/FuckIsrEveryHr.ts
-import { Profile } from "./types";
+import { Profile } from "../../src/profiles/types";
 
 export const FuckIsrEveryHr: Profile & { handles: string[] } = {
   username: "fuckisreveryhr",

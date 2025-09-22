@@ -35,7 +35,7 @@ app.prepare().then(() => {
   });
 
   // Start the agent as a child process in all environments, always using the prod (headless) config
-  const agent = spawn("pnpm", ["start:agent:prod"], {
+  const agent = spawn("pnpm", ["start:agent"], {
     stdio: "inherit",
     shell: true,
   });

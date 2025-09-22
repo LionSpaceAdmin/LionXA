@@ -1,5 +1,5 @@
 // src/profiles/Vikingwarrior20.ts
-import { Profile } from "./types";
+import { Profile } from "../../src/profiles/types";
 
 export const Vikingwarrior20: Profile & { handles: string[] } = {
   username: "vikingwarrior20",
