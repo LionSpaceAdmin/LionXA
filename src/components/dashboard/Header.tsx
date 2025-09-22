@@ -22,6 +22,14 @@ export default function Header({ uptime, isConnected }: HeaderProps) {
         <Bot className="h-6 w-6 text-primary" />
         <span className="text-lg font-semibold">XAgent Control</span>
       </div>
+      <nav className="mr-6">
+        <ul className="flex gap-4 text-sm text-neutral-300">
+          <li><a href="/" className="hover:text-white">דשבורד</a></li>
+          <li><a href="/health" className="hover:text-white">בריאות פרויקט</a></li>
+          <li><a href="/vision" className="hover:text-white">חזון</a></li>
+          <li><a href="/tools" className="hover:text-white">כלים</a></li>
+        </ul>
+      </nav>
       <div className="mr-auto flex items-center gap-4">
         <div className="flex items-center gap-2 text-sm text-muted-foreground">
           {isConnected ? (

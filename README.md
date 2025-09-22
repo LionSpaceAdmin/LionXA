@@ -1,36 +1,49 @@
-# AI Browser Agent Infrastructure
+# LionXA — AI Browser Agent (Next.js + Playwright)
 
-This project contains a multi-container AI browser agent infrastructure, orchestrated with Docker Compose.
+This repository provides a containerized AI browser agent with a Next.js dashboard and a VNC-friendly desktop for visual inspection via Guacamole.
 
-## How to Run
+## Services (Docker Compose)
 
-To start the entire stack, run the following command from the root of the project:
+- Frontend (Next.js dev): http://localhost:3000
+- Agent (Playwright + XFCE + VNC): exposes VNC on 5901 (internal); reports to Frontend API
+- Guacamole UI: http://localhost:8080/guacamole (configured via `infra/guacamole`)
+- Guacd (Guacamole daemon): internal service
+
+Note: An optional FastAPI backend scaffold exists under `services/backend/`, but is not enabled in `docker-compose.yml` by default.
+
+## Quick Start
+
+1) Copy env: `cp .env.example .env`, then set `GEMINI_API_KEY` (or keep `DRY_RUN=1`).
+
+2) Build and run:
 
 ```bash
-docker-compose up --build
+docker compose build --no-cache
+docker compose up -d
 ```
 
-## Services
+3) Open the dashboard at http://localhost:3000
 
-- **Frontend:** A React application served by Nginx, available at `http://localhost:8080`.
-- **Backend:** A FastAPI application, available at `http://localhost:8000`.
-- **Browser Agent:** A Playwright-based agent running in a virtual framebuffer.
-- **Guacamole:** A remote desktop gateway, available at `http://localhost:8081`. Use `guacadmin` for both username and password.
+4) Open Guacamole at http://localhost:8080/guacamole
 
-## How to Test the Agent Communication
+   - Default mapping (edit in `infra/guacamole/user-mapping.xml`):
+     - Username: `xagent-admin`
+     - Password: `password`
+     - Connection: “Agent Desktop (VNC)” → connects to `lionxa_agent:5901`
 
-1. Start all services by running `docker-compose up --build` in your terminal.
+5) Verify agent → frontend reporting: watch `docker compose logs -f frontend` for lines like:
 
-2. Wait for the logs to show that the `browser-agent` has successfully connected to the `backend` WebSocket.
+```
+Received data from agent: { ... }
+```
 
-3. Open a new terminal.
+## Development commands
 
-4. Send a command to the agent by running the following `curl` command:
+- `pnpm dev` — Next.js dev server (local)
+- `pnpm start:agent` — run agent entry (local)
+- `pnpm test` / `pnpm test:e2e` — unit and Playwright tests
+- `pnpm build` — Next.js production build (uses `SKIP_GEMINI_CHECK=1` in CI)
 
-   ```bash
-   curl -X POST -H "Content-Type: application/json" -d '{"prompt": "Navigate to https://www.wikipedia.org"}' http://localhost:8000/api/agent/command
-   ```
+## CI
 
-5. **Verify the result visually:** Open your web browser and navigate to the Guacamole interface at `http://localhost:8081`. You should see the browser inside the agent's container navigate to Wikipedia.
-
-6. Check the terminal logs for both the `backend` and `browser-agent` services to see the command being sent, executed, and the status being reported back.
+GitHub Actions run lint, unit tests, and build on push/PR. Optional Playwright E2E workflow is provided and can be triggered manually.

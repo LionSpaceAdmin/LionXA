@@ -1,11 +1,11 @@
 # Repository Guidelines
 
-Note: For production deployment instructions and infrastructure, see `PRODUCTION.md`. For running the agent locally in an interactive “Agent Mode”, see `AGENT_MODE.md`. A general overview is in `README.md`.
+המסמך מתאר את מבנה הפרויקט והפקודות להתפתחות מקומית. להרצה מלאה בסביבת Docker ראו `README.md` ו־`docker-compose.yml`.
 
 ## מבנה הפרויקט וארגון מודולים
 - `src/app` — אפליקציית Next.js (UI): דפים, layout ו־`globals.css`.
 - `src/components/dashboard` — רכיבי UI (למשל `MetricCard.tsx`, `Header.tsx`).
-- `src/dashboard.ts` — שרת Express + Socket.IO (פורט 3001) המשדר נתונים בזמן אמת ל־UI.
+- `src/dashboard.ts` — שכבת Socket.IO/דאשבורד (בשימוש כשמריצים `src/server.ts` מקומית). במצב Docker נעשה דיווח דרך `/api/report`.
 - `src/watchList.ts` — לולאת הסוכן (Playwright) לסריקת רשימת X.com ותגובה דרך Gemini.
 - `src/browser.ts` — ניהול סשן Chromium מתמיד.
 - `src/gemini.ts` — לקוח Google Generative AI ומעטפת עזר.
@@ -15,11 +15,10 @@ Note: For production deployment instructions and infrastructure, see `PRODUCTION
 
 ## פקודות Build, Test ו־Development
 - `pnpm install` — התקנת חבילות (להשתמש ב־pnpm כפי שמוגדר ב־`package.json`).
-- `pnpm dev` — מריץ UI של Next.js בלבד ב־`http://localhost:3000` (ללא סוכן וללא פתיחת Chromium).
-- `pnpm dev:all` — UI + סוכן אמיתי (מפעיל את הדאשבורד על פורט 3001 ומזין תצוגת "דפדפן חי").
-- `pnpm start:agent` — מפעיל את הסוכן ואת שרת הדאשבורד (3001).
-- `pnpm start:all` — הרצה מקומית "כמו פרודקשן": UI, סוכן ו־Edge Proxy על `$PORT`.
-- `pnpm build` / `pnpm start` — Build לפרודקשן והרצת ה־UI.
+- `pnpm dev` — UI של Next.js ב־`http://localhost:3000`.
+- `pnpm start` — שרת Next מותאם אישית (`src/server.ts`) כולל Socket.IO (לשימוש מקומי בלבד).
+- `pnpm start:agent` — מפעיל את הסוכן (ללא Socket.IO ב־Docker).
+- `pnpm build` — Build לפרודקשן.
 - `pnpm lint` — הרצת ESLint.
 - `pnpm test` / `pnpm test:watch` / `pnpm test:coverage` — בדיקות יחידה (Jest).
 - `pnpm test:e2e` / `pnpm test:e2e:ui` — בדיקות Playwright (משתמשות ב־`pnpm dev` שמריץ UI בלבד).
@@ -36,7 +35,7 @@ Note: For production deployment instructions and infrastructure, see `PRODUCTION
 
 ## קווים מנחים לבדיקות
 - יחידה: Jest (`testEnvironment: jsdom`) + Testing Library. למקם בדיקות תחת `src/**/__tests__/` או כ־`*.test.ts(x)`.
-- E2E: Playwright בתיקיית `e2e/`. הקונפיג מפעיל `pnpm dev` אוטומטית; להריץ במקביל `pnpm start:agent` כדי לקבל אירועים חיים.
+- E2E: Playwright בתיקיית `e2e/`. הקונפיג מפעיל `pnpm dev` אוטומטית. לצפייה חיה בדוקר — שימוש ב־Guacamole.
 - שאפו לכיסוי משמעותי (`pnpm test:coverage`). צילומי מסך תחת `e2e/screenshots/` בעת הצורך.
 
 ## Commits ו־Pull Requests
@@ -45,7 +44,7 @@ Note: For production deployment instructions and infrastructure, see `PRODUCTION
 - לפני פתיחת PR: ודאו מעבר מקומי של `pnpm lint`, `pnpm test` ואם רלוונטי `pnpm test:e2e`.
 
 ## אבטחה והגדרות
-- סודות רק ב־`.env`. חובה: `GEMINI_API_KEY` (או `DRY_RUN=1` למצב סימולציה ללא קריאות API). רשות: `TWITTER_LIST_URL`, `START_URL`, `HEADLESS_BROWSER=true` או `INTERACTIVE=0`, `BROWSER_USER_DATA_DIR`.
+- סודות רק ב־`.env`. חובה: `GEMINI_API_KEY` (או `DRY_RUN=1`). רשות: `TWITTER_LIST_URL`, `START_URL`, `INTERACTIVE/HEADLESS_BROWSER`, `BROWSER_USER_DATA_DIR`.
 - דוגמה ל־`.env`:
   - `GEMINI_API_KEY=your-key`
   - `TWITTER_LIST_URL=https://x.com/i/lists/123...`
@@ -54,4 +53,4 @@ Note: For production deployment instructions and infrastructure, see `PRODUCTION
 
 ---
 
-הערה: להרצה בפרודקשן והקשחות נוספות ראו `PRODUCTION.md`.
+הערה: Guacamole מאזין על פורט 8080 וממופה עם `infra/guacamole/*`. פרטי חיבור ברירת מחדל מוגדרים ב־`user-mapping.xml`.

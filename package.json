@@ -4,19 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:all": "ts-node src/setup/devAll.ts",
+    "start": "ts-node src/server.ts",
+    "start:agent": "ts-node src/agent.ts",
     "build": "next build",
-    "start": "next start",
-    "start:agent": "ts-node -O '{\"module\":\"commonjs\"}' src/watchList.ts",
-    "start:agent:prod": "node -r ts-node/register/transpile-only src/watchList.js",
-    "start:all": "node scripts/start-all.js",
-    "lint": "next lint",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:e2e": "playwright test",
-    "test:e2e:ui": "playwright test --ui",
-    "postinstall": "npm exec -- playwright install chromium"
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "jest -c config/jest.config.js"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",

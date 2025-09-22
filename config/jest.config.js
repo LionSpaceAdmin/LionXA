@@ -1,5 +1,6 @@
 /** @type {import('jest').Config} */
 const config = {
+  rootDir: '..',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.ts'],
   testMatch: [
@@ -21,7 +22,8 @@ const config = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testTimeout: 10000,
   testPathIgnorePatterns: [
-    '<rootDir>/src/__tests__/setup.ts'
+    '<rootDir>/src/__tests__/setup.ts',
+    '<rootDir>/e2e'
   ],
 };
 

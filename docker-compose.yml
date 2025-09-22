@@ -1,63 +1,41 @@
+services:
+  frontend:
+    container_name: lionxa_frontend
+    build:
+      context: .
+      dockerfile: ./services/frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app:cached
+      - /app/node_modules
+    working_dir: /app
+    command: pnpm dev
+    networks:
+      - lionxa-net
+    environment:
+      - NODE_ENV=development
+
+  agent:
+    container_name: lionxa_agent
+    build:
+      context: .
+      dockerfile: ./services/agent/Dockerfile
+    ports:
+      - "5901:5901" # VNC Port
+    volumes:
+      - .:/home/agentuser/app:cached
+      - /dev/shm:/dev/shm
+    env_file:
+      - .env
+    networks:
+      - lionxa-net
+    depends_on:
+      frontend:
+        condition: service_started
+
 
 
 networks:
-  agent-network:
+  lionxa-net:
     driver: bridge
-
-services:
-  browser-agent:
-    build:
-      context: ./services/browser-agent
-    networks:
-      - agent-network
-    depends_on:
-      backend:
-        condition: service_healthy
-    volumes:
-      - ./logs:/home/agentuser
-    # Port 5900 is for VNC, exposed only to the internal network
-
-  backend:
-    build:
-      context: ./services/backend
-    ports:
-      - "8000:8000"
-    networks:
-      - agent-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-
-  frontend:
-    build:
-      context: ./services/frontend
-    ports:
-      - "8080:80"
-    networks:
-      - agent-network
-    depends_on:
-      - backend
-      - guacamole
-
-  guacd:
-    image: guacamole/guacd
-    networks:
-      - agent-network
-    restart: always
-
-  guacamole:
-    image: guacamole/guacamole
-    ports:
-      - "8081:8080"
-    networks:
-      - agent-network
-    depends_on:
-      - guacd
-    environment:
-      GUACD_HOSTNAME: guacd
-      GUACAMOLE_HOME: /etc/guacamole
-    volumes:
-      - ./infra/guacamole:/etc/guacamole
-    restart: always

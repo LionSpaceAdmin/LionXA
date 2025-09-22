@@ -38,7 +38,7 @@ export const config = {
       process.env.HEADLESS_BROWSER !== "false",
     // Prefer a stable, system-installed browser for reliability on macOS
     // Options: 'chrome' | 'chromium' | 'msedge' | 'chrome-beta' | 'chrome-canary'
-    channel: "chromium",
+    channel: process.env.BROWSER_CHANNEL || "chromium",
     // Optional absolute path to a specific browser executable; if set, overrides channel
     executablePath: undefined,
     // Open DevTools on start (only effective in headful mode)

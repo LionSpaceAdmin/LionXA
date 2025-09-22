@@ -3,7 +3,6 @@ import { parse } from "url";
 import next from "next";
 import { Server } from "socket.io";
 import { dashboard } from "./dashboard"; // Assuming dashboard setup is here
-import { spawn } from "child_process";
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -34,15 +33,7 @@ app.prepare().then(() => {
     });
   });
 
-  // Start the agent as a child process in all environments, always using the prod (headless) config
-  const agent = spawn("pnpm", ["start:agent"], {
-    stdio: "inherit",
-    shell: true,
-  });
-  agent.on("exit", (code) => {
-    console.log(`Agent process exited with code ${code}`);
-    // Optionally, you might want to handle agent restarts here
-  });
+  // Agent is now decoupled. Run it separately via `pnpm start:agent` or the Docker `agent` service.
 
   server.listen(port, () => {
     console.log(`> Ready on http://localhost:${port}`);
