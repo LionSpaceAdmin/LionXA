@@ -1,39 +1,36 @@
 # Repository Guidelines
 
-This document is the concise contributor guide for LionXA.
+This guide orients new contributors to LionXA so you can ship agent updates quickly and safely.
 
-## Project Structure & Modules
-- `src/app/` — Next.js App Router UI (pages, layout, API routes).
-- `src/components/` — Reusable UI.
-- `src/agent.ts` — Agent entrypoint (uses `src/watchList.ts`).
-- `src/server.ts` — Custom Next server + Socket.IO for local dev.
-- `src/tools/` — Internal analysis utilities (e.g., `conductArchitecturalReview`).
-- `e2e/` — Playwright tests; `src/__tests__/` — Jest unit tests.
-- `services/` — Dockerfiles for `frontend` and `agent`; `infra/guacamole/` — Guacamole config.
+## Project Structure & Module Organization
 
-## Build, Test, and Development
-- `pnpm install` — install deps.
-- `pnpm dev` — Next.js dev at `http://localhost:3000`.
-- `pnpm start:agent` — run agent locally.
-- `pnpm test` / `pnpm test:watch` / `pnpm test:coverage` — Jest.
-- `pnpm test:e2e` — Playwright (spawns `pnpm dev`).
-- Docker: `docker compose build --no-cache && docker compose up -d`.
+Application code lives in `src/`, with feature modules such as `src/app` (Next.js routes), `src/components` (shared UI), and `src/tools` (agent utilities). Browser automation lives in `services/agent/`, while optional backend scaffolding resides in `services/backend/`. E2E assets are under `e2e/`, infrastructure templates in `infra/`, utility scripts in `scripts/`, and audit artefacts in `_reports/`. Treat files in `data/` and `cookies.json` as local-only seed material.
 
-## Coding Style & Naming
-- TypeScript + React; 2 spaces.
-- Components PascalCase (`MyWidget.tsx`); modules camelCase.
-- Prefer named exports; add `"use client"` for client components.
-- Lint: `pnpm lint` before PR.
+## Build, Test, and Development Commands
+
+- `pnpm dev` launches the Next.js dashboard locally.
+- `pnpm start:agent` runs the Playwright-driven agent loop.
+- `pnpm build` creates a deterministic production bundle (`.next/`), forcing `DRY_RUN=1` and `SKIP_GEMINI_CHECK=1`.
+- `pnpm clean` removes `.next/`, `.tmp/`, and cached outputs.
+
+## Coding Style & Naming Conventions
+
+Use TypeScript with two-space indentation and ESLint/Prettier defaults. Components stay PascalCase, hooks camelCase, and config files snake_case only when matching upstream APIs. Keep JSX lean, and prefer module-scoped `logger` helpers in `src/logging.ts` for observability. Run `pnpm lint` and `pnpm format:check` before pushing; CI enforces both.
 
 ## Testing Guidelines
-- Jest config: `config/jest.config.js` (jsdom + Testing Library).
-- Tests in `src/**/__tests__` or `*.test.ts(x)`.
-- Playwright baseURL `http://localhost:3000`; screenshots under `e2e/screenshots/`.
 
-## Commits & Pull Requests
-- Conventional style preferred (`feat:`, `fix:`, `refactor:`, `chore:`).
-- PRs include description, rationale, test plan, linked issues, and screenshots when UI changes.
+Jest unit tests live beside sources in `src/__tests__/` or next to the file under test with the `.test.ts` suffix. Execute `pnpm test` for the full suite (`--ci --runInBand`). Playwright journeys live in `e2e/` and run via `pnpm test:e2e`; they require Docker or local browsers, so gate them behind feature flags when possible. Aim for coverage on critical agent flows (task ingestion, browsing, result reporting).
 
-## Security & Config
-- `.env` holds secrets. Required: `GEMINI_API_KEY` (or `DRY_RUN=1`). Optional: `VNC_PASSWORD`, `TWITTER_LIST_URL`, `BROWSER_USER_DATA_DIR`.
-- Do not commit cookies/tokens or browser caches.
+## Commit & Pull Request Guidelines
+
+Adopt Conventional Commits (`feat:`, `fix:`, `chore:`) and keep subjects under 72 characters. Every PR should call out linked issues, list the commands you ran (build/lint/typecheck/test), and include screenshots or logs for UI or agent behavior changes. Request review from the CODEOWNERS-specified team when touching core agent logic or infra.
+
+## Security & Configuration Tips
+
+Never commit secrets or browser state. Keep `.env` derived from `.env.example`, retaining `DRY_RUN=1` unless you explicitly hold a `GEMINI_API_KEY`. Store VNC credentials and service-account JSON outside the repo and inject them via GitHub environments or local shell exports.
+
+## Don’ts
+
+- אל תריצו שרתי dev ממושכים במהלך אוטומציה; הסתפקו בפקודות headless (build/test/lint/typecheck).
+- אל תשריינו Secrets בקבצים; הסתמכו על GitHub Secrets/Environments והחזיקו ערכי דמה בלבד ב־`.env.example`.
+- אל תדחו בדיקות או lint — PRs חייבים לעבור `pnpm build`, `pnpm lint`, `pnpm typecheck`, `pnpm format:check`, ו־`pnpm test` לפני מיזוג.

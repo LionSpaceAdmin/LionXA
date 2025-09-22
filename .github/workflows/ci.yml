@@ -2,30 +2,53 @@ name: CI
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - main
+      - master
   pull_request:
+  workflow_dispatch:
+
+env:
+  DRY_RUN: '1'
+  SKIP_GEMINI_CHECK: '1'
 
 jobs:
-  build-test:
+  checks:
+    name: ${{ matrix.display }}
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - display: Build
+            task: build
+          - display: Lint
+            task: lint
+          - display: Format
+            task: format:check
+          - display: Typecheck
+            task: typecheck
+          - display: Test
+            task: test
     steps:
       - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
-          version: 9
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: 'pnpm'
+          node-version-file: .nvmrc
+          cache: pnpm
+
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.13.1 --activate
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-      - name: Lint
-        run: pnpm lint
-      - name: Unit tests
-        run: pnpm test
-      - name: Build
-        env:
-          SKIP_GEMINI_CHECK: '1'
-          DRY_RUN: '1'
-        run: pnpm build
 
+      - name: Clean workspace
+        run: pnpm clean
+
+      - name: Run ${{ matrix.display }}
+        run: pnpm ${{ matrix.task }}
