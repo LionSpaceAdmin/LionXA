@@ -56,6 +56,13 @@ export const config = {
       .filter(Boolean),
   },
 
+  // Steel Browser API settings
+  steel: {
+    apiUrl: process.env.STEEL_API_URL || "http://localhost:3001",
+    apiKey: process.env.STEEL_API_KEY,
+    enabled: process.env.USE_STEEL_BROWSER === "true",
+  },
+
   // Agent operational parameters
   agent: {
     pollingIntervalMs: 60 * 1000, // 60 seconds

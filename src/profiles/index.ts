@@ -1,34 +1,23 @@
 // src/profiles/index.ts
-import AyatollahKhamenei from "./AyatollahKhamenei";
-import IlhanMN from "./IlhanMN";
-import JacksonHinklle from "./JacksonHinklle";
-import MaxBlumenthal from "./MaxBlumenthal";
-import RashidaTlaib from "./RashidaTlaib";
-import SuppressedNws from "./SuppressedNws";
-import { FuckIsrEveryHr } from "./FuckIsrEveryHr";
-import { Vikingwarrior20 } from "./Vikingwarrior20";
-import { AdameMedia } from "./AdameMedia";
-import { AbujomaaGaza } from "./AbujomaaGaza";
-
 import { Profile } from "./types";
 
 // Export the Profile type for external use
 export type { Profile };
 
+// Default profile for testing
+const defaultProfile: Profile = {
+  username: "test_user",
+  customPrompt: "A helpful assistant for testing Steel Browser integration. Focus on testing browser functionality.",
+  facts: ["Testing automation", "Browser integration"],
+  handles: ["test_user"]
+};
+
 // A map to hold all the profile configurations, using the username as the key.
 const profiles: Map<string, Profile> = new Map();
+profiles.set("test_user", defaultProfile);
 
-// Add all individual profiles to the map
-addProfile(AyatollahKhamenei);
-addProfile(IlhanMN);
-addProfile(JacksonHinklle);
-addProfile(MaxBlumenthal);
-addProfile(RashidaTlaib);
-addProfile(SuppressedNws);
-addProfile(FuckIsrEveryHr);
-addProfile(Vikingwarrior20);
-addProfile(AdameMedia);
-addProfile(AbujomaaGaza);
+// Add the default profile
+addProfile(defaultProfile);
 
 // --- Helper Function to add profiles ---
 function addProfile(profile: Profile & { handles?: string[] }) {
@@ -42,12 +31,25 @@ function addProfile(profile: Profile & { handles?: string[] }) {
 
 /**
  * Retrieves a profile configuration for a given username.
- * This function is case-insensitive. It also handles mapping multiple
- * Khamenei accounts to a single profile.
+ * This function is case-insensitive.
  * @param username The username to look up.
- * @returns The corresponding profile, or undefined if not found.
+ * @returns The corresponding profile, or the default profile if not found.
  */
 export function getProfile(username: string): Profile | undefined {
   const lowerCaseUsername = username.toLowerCase();
-  return profiles.get(lowerCaseUsername);
+  return profiles.get(lowerCaseUsername) || defaultProfile;
+}
+
+/**
+ * Export a function to get all profiles
+ */
+export function getAllProfiles(): Profile[] {
+  return Array.from(profiles.values());
+}
+
+/**
+ * Export the default profile
+ */
+export function getDefaultProfile(): Profile | undefined {
+  return defaultProfile;
 }

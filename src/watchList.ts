@@ -548,98 +548,159 @@ async function main() {
     }
   });
 
+  // =================================================================
+  // =========== REPLACEMENT CODE FOR THE MAIN LOOP ==================
+  // =================================================================
+
+  let browserInitialized = false; // אתחול משתנה מעקב מחוץ ללולאה
+
+  // פונקציית עזר לאתחול מבוקר
+  async function initializeBrowserIfNeeded() {
+    if (browserInitialized && browserService.getBrowser()) {
+      console.log("✅ Browser is already initialized and active.");
+      return;
+    }
+    try {
+      console.log("🚀 Initializing new browser...");
+      await browserService.initialize(); // שימוש בפונקציית האתחול הקיימת
+      browserInitialized = true;
+      console.log("✅ Browser initialized successfully.");
+      consecutiveErrors = 0; // אפס מונה שגיאות לאחר אתחול מוצלח
+    } catch (initError) {
+      console.error("❌ Failed to initialize browser:", initError);
+      logError(`Failed to initialize browser: ${initError}`);
+      browserInitialized = false; // ודא שההקשר נשאר ריק במקרה של כישלון
+      consecutiveErrors++;
+    }
+  }
+
+  // הלולאה הראשית החדשה
   while (true) {
     if (paused) {
       await new Promise((res) => setTimeout(res, POLLING_INTERVAL_MS));
       continue;
     }
-    if (scanning) {
-      console.log("⏳ Scan already in progress; skipping this tick.");
-      await new Promise((res) => setTimeout(res, POLLING_INTERVAL_MS));
-      continue;
-    }
 
-    scanning = true;
     try {
-      // Ensure session is alive (recover if closed). This will recreate at most one window.
-      const p = await browserService.getPage();
+      // שלב האתחול: הרץ רק אם הדפדפן לא קיים או נסגר
+      await initializeBrowserIfNeeded();
 
-      console.log(`\n--- Scan start [${new Date().toLocaleTimeString()}] ---`);
-      let repliesThisScan = 0;
+      // אם האתחול נכשל, הדפדפן יהיה null, והלולאה תדלג ל-finally ותמתין
+      if (!browserInitialized || !browserService.getBrowser()) {
+        console.log("Browser not available, skipping scan cycle.");
+        throw new Error("Browser initialization failed, retrying after backoff.");
+      }
 
-      // If user navigated elsewhere, do not steal focus or navigate; just skip this cycle.
-      const url = p.url();
-      if (
-        !url.includes("x.com") ||
-        (!url.includes("/lists/") && !url.includes("/notifications"))
-      ) {
-        console.log(
-          "🟡 User is interacting elsewhere; skipping scan to remain non-intrusive.",
-        );
+      // שלב העבודה: השתמש בדפדפן הקיים
+      if (scanning) {
+        console.log("⏳ Scan already in progress; skipping this tick.");
       } else {
-        // Light refresh only if still on list/notifications
-        try {
-          await p.reload({ waitUntil: "domcontentloaded", timeout: 60000 });
-          console.log("🔁 Page reloaded.");
-        } catch (err) {
-          console.error("Reload failed:", err);
-          throw err;
+        scanning = true;
+        console.log(`\n--- Scan start [${new Date().toLocaleTimeString()}] ---`);
+
+        // קבלת עמוד קיים או יצירת חדש ללא אתחול מחדש של הדפדפן
+        const browser = browserService.getBrowser();
+        if (!browser) {
+          throw new Error("Browser became null during scan");
         }
 
-        const currentTweets = await scrapeTweetsFromList(p);
-        console.log(`📋 Tweets scraped: ${currentTweets.length}`);
+        let page: Page;
+        const existingPages = browser.contexts()[0]?.pages() || [];
+        if (existingPages.length > 0) {
+          page = existingPages[0];
+        } else {
+          page = await browser.newPage();
+        }
 
-        for (const tweet of currentTweets) {
-          if (!isSeen(tweet.id)) {
-            console.log(
-              `[NEW] @${tweet.username}: "${tweet.text.slice(0, 60)}..."`,
-            );
-            if (!(await canReply())) {
+        let repliesThisScan = 0;
+
+        // If user navigated elsewhere, do not steal focus or navigate; just skip this cycle.
+        const url = page.url();
+        if (
+          !url.includes("x.com") ||
+          (!url.includes("/lists/") && !url.includes("/notifications"))
+        ) {
+          console.log(
+            "🟡 User is interacting elsewhere; skipping scan to remain non-intrusive.",
+          );
+        } else {
+          // Light refresh only if still on list/notifications
+          try {
+            await page.reload({ waitUntil: "domcontentloaded", timeout: 60000 });
+            console.log("🔁 Page reloaded.");
+          } catch (err) {
+            console.error("Reload failed:", err);
+            throw err;
+          }
+
+          const currentTweets = await scrapeTweetsFromList(page);
+          console.log(`📋 Tweets scraped: ${currentTweets.length}`);
+
+          for (const tweet of currentTweets) {
+            if (!isSeen(tweet.id)) {
               console.log(
-                "⛔ Rate limit reached for this window; skipping replies.",
+                `[NEW] @${tweet.username}: "${tweet.text.slice(0, 60)}..."`,
               );
-              break;
-            }
-
-            const profile = getProfile(tweet.username) as ProfileWithFacts;
-            if (profile) {
-              let prompt = profile.customPrompt.replace(
-                "{{TWEET_TEXT}}",
-                tweet.text,
-              );
-              if (profile.facts?.length) {
-                const randomFact =
-                  profile.facts[
-                    Math.floor(Math.random() * profile.facts.length)
-                  ];
-                prompt = prompt.replace("{{FACT}}", randomFact);
+              if (!(await canReply())) {
+                console.log(
+                  "⛔ Rate limit reached for this window; skipping replies.",
+                );
+                break;
               }
 
-              const reply = await askGPT(prompt);
-              if (reply) {
-                if (await postReply(tweet, reply)) {
-                  markSeen(tweet.id);
-                  noteReply();
-                  repliesThisScan += 1;
-                  break; // one reply per scan cycle
+              const profile = getProfile(tweet.username) as ProfileWithFacts;
+              if (profile) {
+                let prompt = profile.customPrompt.replace(
+                  "{{TWEET_TEXT}}",
+                  tweet.text,
+                );
+                if (profile.facts?.length) {
+                  const randomFact =
+                    profile.facts[
+                      Math.floor(Math.random() * profile.facts.length)
+                    ];
+                  prompt = prompt.replace("{{FACT}}", randomFact);
+                }
+
+                const reply = await askGPT(prompt);
+                if (reply) {
+                  if (await postReply(tweet, reply)) {
+                    markSeen(tweet.id);
+                    noteReply();
+                    repliesThisScan += 1;
+                    break; // one reply per scan cycle
+                  }
                 }
               }
             }
           }
         }
-      }
 
-      consecutiveErrors = 0;
-      console.log(`Replies posted: ${repliesThisScan}`);
-      console.log("--- Scan end.");
+        console.log(`Replies posted: ${repliesThisScan}`);
+        console.log("--- Scan end.");
+        consecutiveErrors = 0;
+      }
     } catch (error) {
-      consecutiveErrors += 1;
+      consecutiveErrors++;
       console.error("❌ Error in scan loop:", error);
       logError(`Scan loop error: ${error}`);
+
+      // התאוששות: אם השגיאה קשורה לדפדפן, נסמן אותו לאתחול מחדש
+      if (error instanceof Error && (error.message.includes("closed") || error.message.includes("crashed") || error.message.includes("Target closed"))) {
+        console.log("Browser seems to have crashed. Marking for re-initialization.");
+        try {
+          await browserService.close();
+        } catch (closeError) {
+          console.warn("Error closing browser:", closeError);
+        }
+        browserInitialized = false;
+      }
+
     } finally {
       scanning = false;
     }
 
+    // המתנה מבוקרת (Backoff)
     const backoff = Math.min(
       POLLING_INTERVAL_MS * Math.pow(2, Math.max(0, consecutiveErrors - 1)),
       5 * 60 * 1000,
