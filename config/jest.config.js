@@ -3,6 +3,8 @@ const config = {
   rootDir: '..',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/src/__tests__/setup.ts'],
+  // Store Jest cache inside the repo to avoid /tmp pressure
+  cacheDirectory: '<rootDir>/.jestcache',
   testMatch: [
     '<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}',
     '<rootDir>/src/**/*.{test,spec}.{js,jsx,ts,tsx}'

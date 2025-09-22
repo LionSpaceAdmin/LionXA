@@ -1,0 +1,36 @@
+ # General
+ .git
+ .github
+ .mcp
+ .idea
+ .vscode
+ .DS_Store
+ *.log
+ 
+ # Env and local state
+ .env
+ .env.*
+ .tmp/
+ .jestcache/
+ 
+ # Node/Next artifacts
+ node_modules/
+ **/node_modules/
+ .next/
+ out/
+ dist/
+ coverage/
+ 
+ # Test artifacts
+ e2e/
+ playwright-report/
+ test-results/
+ reports/
+ 
+ # Misc project data/cache
+ data/
+ backups/
+ personal/
+ 
+ # Build cache and TypeScript state
+ tsconfig.tsbuildinfo

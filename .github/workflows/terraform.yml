@@ -1,0 +1,58 @@
+name: Terraform
+
+on:
+  pull_request:
+    paths:
+      - 'infra/terraform/**'
+  workflow_dispatch:
+    inputs:
+      apply:
+        description: "Run terraform apply"
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: infra/terraform
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure backend
+        run: |
+          bash ../../scripts/setup/configure_tfc_backend.sh "${{ secrets.TFC_ORG }}" "${{ secrets.TFC_WORKSPACE }}"
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.8
+          cli_config_credentials_hostname: app.terraform.io
+          cli_config_credentials_token: ${{ secrets.TFC_TOKEN }}
+
+      - name: Terraform Init
+        run: terraform init -input=false
+
+      - name: Terraform Fmt
+        run: terraform fmt -check
+
+      - name: Terraform Validate
+        run: terraform validate
+
+      - name: Terraform Plan (remote)
+        env:
+          TF_WORKSPACE: ${{ secrets.TFC_WORKSPACE }}
+          TF_CLOUD_ORGANIZATION: ${{ secrets.TFC_ORG }}
+        run: |
+          terraform plan -input=false -no-color
+
+      - name: Terraform Apply (remote)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.apply }}
+        env:
+          TF_WORKSPACE: ${{ secrets.TFC_WORKSPACE }}
+          TF_CLOUD_ORGANIZATION: ${{ secrets.TFC_ORG }}
+        run: |
+          terraform apply -auto-approve -input=false

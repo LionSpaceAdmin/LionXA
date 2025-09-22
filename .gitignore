@@ -62,3 +62,8 @@ e2e/screenshots/
 
 # Tool-specific directories
 .mcp/
+!.mcp/servers.json
+!.mcp/servers.local.json
+!.mcp/servers.docker.json
+.tmp/
+.jestcache/

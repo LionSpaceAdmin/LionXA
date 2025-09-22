@@ -2,23 +2,17 @@
   "$schema": "https://modelcontextprotocol.dev/schemas/servers.json",
   "mcpServers": {
     "filesystem": {
-      "command": "node",
-      "args": ["./node_modules/@modelcontextprotocol/server-filesystem/dist/index.js"],
-      "env": {
-        "ROOT": "."
-      }
+      "command": "bash",
+      "args": ["-lc", "set -a; [ -f .env ] && . ./.env; node ./node_modules/@modelcontextprotocol/server-filesystem/dist/index.js"],
+      "env": { "ROOT": "." }
     },
     "fetch": {
-      "command": "node",
-      "args": ["./node_modules/@modelcontextprotocol/server-fetch/dist/index.js"]
+      "command": "bash",
+      "args": ["-lc", "set -a; [ -f .env ] && . ./.env; node ./node_modules/@modelcontextprotocol/server-fetch/dist/index.js"]
     },
     "shell": {
-      "command": "node",
-      "args": ["./node_modules/@modelcontextprotocol/server-shell/dist/index.js"],
-      "env": {
-        "ALLOW_UNSAFE": "0"
-      }
+      "command": "bash",
+      "args": ["-lc", "set -a; [ -f .env ] && . ./.env; ALLOW_UNSAFE=0 node ./node_modules/@modelcontextprotocol/server-shell/dist/index.js"]
     }
   }
 }
-

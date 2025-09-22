@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>סיכום טכני — הקשחת אבטחה P5 ל‑MCP Gateway</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.5;margin:2rem;}
+    code,pre{background:#f6f8fa;border-radius:6px;padding:.5rem;direction:ltr;}
+    h1,h2,h3{margin-top:1.8rem}
+    .grid{display:grid;gap:1.2rem}
+    .box{border:1px solid #ddd;border-radius:8px;padding:1rem}
+    .small{font-size:.9rem;color:#555}
+    .tag{display:inline-block;background:#eef6ff;color:#0550ae;border:1px solid #cce0ff;border-radius:999px;padding:.12rem .6rem;margin-left:.3rem}
+    summary{cursor:pointer}
+  </style>
+</head>
+<body>
+  <h1>סיכום P5 — הקשחת שירות ה‑MCP Gateway המרוחק</h1>
+  <p class="small">מסמך זה מסכם באופן יסודי את כל הצעדים, השינויים והארכיטקטורה שביצענו במהלך הסשן, כולל דיאגרמות ותרחישי אימות.</p>
+
+  <h2>רקע ובעיות ראשוניות</h2>
+  <ul>
+    <li>כשלי Docker: <code>no space left on device</code> בזמן build עקב קונטקסט גדול.</li>
+    <li>כשלי Jest: <code>ENOSPC</code> ב‑<code>/tmp</code> בזמן יצירת cache.</li>
+  </ul>
+
+  <h3>פתרונות ביצועים ונפח</h3>
+  <ul>
+    <li>הוספת <code>.dockerignore</code> לצמצום קונטקסט ה‑build.</li>
+    <li>העברת cache של Jest לתיקייה מקומית: <code>config/jest.config.js</code> → <code>cacheDirectory</code>.</li>
+    <li>הרצת טסטים עם <code>TMPDIR=.tmp</code> + יצירת התיקייה אוטומטית.</li>
+  </ul>
+
+  <h2>HCP Terraform (TFC) — אינטגרציה מלאה</h2>
+  <ul>
+    <li>Workflow ל‑Terraform ב‑GitHub Actions: <code>.github/workflows/terraform.yml</code>.</li>
+    <li>סקריפטים:
+      <ul>
+        <li><code>scripts/setup/create_tfc_workspace.sh</code> — יצירת Workspace.</li>
+        <li><code>scripts/setup/configure_tfc_backend.sh</code> — יצירת <code>backend.tf</code>.</li>
+        <li><code>scripts/setup/list_tfc_oauth_tokens.sh</code> — איתור <code>oauth-token-id</code>.</li>
+        <li><code>scripts/setup/connect_tfc_workspace_vcs.sh</code> — חיבור Workspace ל‑GitHub.</li>
+        <li><code>scripts/setup/tfc_set_workspace_var.sh</code> — יצירה/עדכון משתנים רגישים ב‑TFC.</li>
+      </ul>
+    </li>
+    <li>תיעוד: <code>infra/terraform/README.md</code> — הוראות מלאות (Build/Push/Deploy, Remote Backend, חיבור VCS).</li>
+  </ul>
+
+  <h2>MCP — מקומי, Docker, ושער מרוחק</h2>
+  <ul>
+    <li>פרופילי MCP: <code>.mcp/servers.json</code> (לוקלי), <code>.mcp/servers.docker.json</code>, <code>.mcp/servers.remote.json</code>.</li>
+    <li>מחליף פרופילים: <code>scripts/setup/mcp_use.sh</code> — <code>local</code> / <code>docker</code> / <code>remote</code>.</li>
+    <li>Proxy ל‑VS Code: <code>scripts/mcp/ws-proxy.js</code> — גישור stdio ↔︎ WebSocket עם טוקנים.</li>
+  </ul>
+
+  <h2>שער מרוחק (Remote MCP Gateway) — ארכיטקטורה</h2>
+  <div class="grid">
+    <div class="box">
+      <h3>תיאור</h3>
+      <ul>
+        <li>שירות Node.js: <code>services/mcp-gateway/index.js</code> — מאזין ל‑<code>/ws</code> (WebSocket) ומריץ שרת MCP מתאים (filesystem/fetch/shell).</li>
+        <li>Dockerfile: <code>services/mcp-gateway/Dockerfile</code>.</li>
+        <li>פריסה ל‑Cloud Run דרך Terraform: <code>infra/terraform/mcp_gateway.tf</code>.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>דיאגרמת רכיבים (ASCII)</h3>
+      <pre>
+┌─────────────┐      WS (wss) + Auth      ┌────────────────────┐
+│ VS Code MCP │ ─────────────────────────▶│  MCP Gateway (CR)  │
+│  Client     │◀──────────────────────────│  /ws?server=...     │
+└─────────────┘         frames            └─────────┬──────────┘
+        │                                          spawn
+        │ stdio                                     │
+        ▼                                          ▼
+   ws-proxy.js                       @mcp/server-(filesystem|fetch|shell)
+      </pre>
+    </div>
+  </div>
+
+  <h2>P5 — הקשחת אבטחה (Bearer Token + Cloud Run IAM)</h2>
+  <ul>
+    <li>Gateway:
+      <ul>
+        <li>בדיקת <code>Authorization: Bearer &lt;TOKEN&gt;</code> או <code>?token=&lt;TOKEN&gt;</code> ב‑upgrade.</li>
+        <li>השוואה ל‑<code>process.env.AUTH_TOKEN</code>; אחרת 401.</li>
+      </ul>
+    </li>
+    <li>Proxy:
+      <ul>
+        <li>קורא <code>MCP_AUTH_TOKEN</code> ו‑<code>MCP_ID_TOKEN</code>.</li>
+        <li>שולח את ה‑ID Token בכותרת Authorization לטובת Cloud Run, ואת ה‑App Token בפרמטר/כותרת.</li>
+      </ul>
+    </li>
+    <li>Terraform:
+      <ul>
+        <li>העברת <code>AUTH_TOKEN</code> לקונטיינר מתוך משתנה רגיש: <code>mcp_auth_token</code>.</li>
+        <li>IAM: הסרת <code>allUsers</code>, הענקת <code>roles/run.invoker</code> ל‑<code>allAuthenticatedUsers</code>.</li>
+      </ul>
+    </li>
+    <li>Onboarding:
+      <ul>
+        <li>הוספת <code>MCP_AUTH_TOKEN</code>, <code>MCP_ID_TOKEN</code> ל‑<code>.env.example</code>.</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3>Sequence (Mermaid)</h3>
+  <pre>
+sequenceDiagram
+  participant VSCode as VS Code (MCP)
+  participant Proxy as ws-proxy.js
+  participant Gateway as MCP Gateway (Cloud Run)
+  participant MCP as MCP Server (node)
+
+  VSCode->>Proxy: stdio
+  Proxy->>Gateway: WS Upgrade /ws?server=filesystem, Authorization: Bearer &lt;ID Token&gt;, token=&lt;App Token&gt;
+  Gateway->>Gateway: Validate ID Token (Cloud Run) + Bearer App Token
+  Gateway->>MCP: spawn server-filesystem
+  Proxy-->>VSCode: frames (responses)
+  MCP-->>Gateway: stdout/stderr
+  Gateway-->>Proxy: WS frames
+  Proxy-->>VSCode: stdio
+  </pre>
+
+  <h2>בדיקות והטמעה</h2>
+  <details open>
+    <summary>Terraform / TFC</summary>
+    <ul>
+      <li>הגדרת משתנה Workspace רגיש: <code>mcp_auth_token</code>.</li>
+      <li><code>terraform plan/apply</code> — פריסת Cloud Run עם IAM מצומצם.</li>
+    </ul>
+  </details>
+  <details open>
+    <summary>Client (VS Code)</summary>
+    <ul>
+      <li><code>export MCP_GATEWAY_URL=wss://&lt;domain&gt;/ws</code></li>
+      <li><code>export MCP_AUTH_TOKEN=&lt;secret&gt;</code></li>
+      <li><code>export MCP_ID_TOKEN=$(gcloud auth print-identity-token --audiences https://&lt;domain&gt;)</code></li>
+      <li><code>pnpm mcp:use:remote</code></li>
+    </ul>
+  </details>
+
+  <h2>שינויים עיקריים (רפרנס)</h2>
+  <ul>
+    <li>אבטחה: <span class="tag">services/mcp-gateway/index.js</span> <span class="tag">scripts/mcp/ws-proxy.js</span> <span class="tag">infra/terraform/mcp_gateway.tf</span></li>
+    <li>TFC: <span class="tag">.github/workflows/terraform.yml</span> <span class="tag">scripts/setup/*.sh</span></li>
+    <li>פונקציונלי: <span class="tag">.mcp/servers.*.json</span> <span class="tag">services/mcp-gateway/**</span></li>
+    <li>Dev UX: <span class="tag">.dockerignore</span> <span class="tag">config/jest.config.js</span> <span class="tag">package.json</span></li>
+  </ul>
+
+  <hr/>
+  <p class="small">נכתב אוטומטית, מעודכן לשלב P5. ניתן להרחיב לדיאגרמות מפורטות יותר (Mermaid/PlantUML) לפי הצורך.</p>
+</body>
+</html>
+

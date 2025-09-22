@@ -4,14 +4,16 @@
 # =========================
 set -euo pipefail
 
-PROJECT="lionspace"
-REGION="us-central1"
-SA_NAME="xagent-superadmin"
-SA_DISPLAY="XAgent Super Admin (MAX)"
+# Allow overrides via environment variables
+PROJECT="${PROJECT:-google-mpf-172983073065}"
+REGION="${REGION:-us-central1}"
+SA_NAME="${SA_NAME:-xagent-superadmin}"
+SA_DISPLAY="${SA_DISPLAY:-XAgent Super Admin (MAX)}"
 SA_EMAIL="${SA_NAME}@${PROJECT}.iam.gserviceaccount.com"
-KEY_PATH="${HOME}/Downloads/${SA_NAME}-key.json"
+# Avoid collisions with old keys by including project in filename
+KEY_PATH="${HOME}/Downloads/${SA_NAME}-${PROJECT}-key.json"
 
-echo ">>> Set gcloud project"
+echo ">>> Set gcloud project: ${PROJECT}"
 gcloud config set project "${PROJECT}" >/dev/null
 
 echo ">>> Enable core APIs (idempotent)"
@@ -65,13 +67,10 @@ done
 echo ">>> Roles granted to ${SA_EMAIL}"
 
 echo ">>> Create & download key (JSON)"
-if [ ! -f "${KEY_PATH}" ]; then
-  gcloud iam service-accounts keys create "${KEY_PATH}" \
-    --iam-account "${SA_EMAIL}" \
-    --project "${PROJECT}"
-else
-  echo "Key already exists at: ${KEY_PATH}"
-fi
+rm -f "${KEY_PATH}" 2>/dev/null || true
+gcloud iam service-accounts keys create "${KEY_PATH}" \
+  --iam-account "${SA_EMAIL}" \
+  --project "${PROJECT}"
 
 echo ">>> Activate key for gcloud"
 gcloud auth activate-service-account --key-file "${KEY_PATH}"
@@ -80,9 +79,11 @@ gcloud config set project "${PROJECT}"
 echo ">>> Configure Docker for Artifact Registry"
 gcloud auth configure-docker "${REGION}-docker.pkg.dev" --quiet
 
-echo ">>> Activate Application Default Credentials (ADC)"
-gcloud auth application-default login --key-file="${KEY_PATH}"
-gcloud auth application-default set-quota-project "${PROJECT}"
+echo ">>> Configure Application Default Credentials (ADC)"
+echo "To use ADC in this shell/session, run:"
+echo "  export GOOGLE_APPLICATION_CREDENTIALS=\"${KEY_PATH}\""
+echo "Then set quota project:"
+echo "  gcloud auth application-default set-quota-project \"${PROJECT}\" --quiet"
 
 echo ">>> Sanity checks"
 gcloud services list --enabled --project "${PROJECT}" | head -n 20 || true

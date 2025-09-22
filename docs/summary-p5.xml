@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectSummary version="1.0" lang="he">
+  <phase id="P5" name="Security Hardening – MCP Gateway">
+    <context>
+      <issue>Docker build ENOSPC; Jest ENOSPC in /tmp</issue>
+      <issue>New remote MCP Gateway publicly accessible (allUsers)</issue>
+    </context>
+    <changes>
+      <change area="docker">
+        <file>.dockerignore</file>
+        <effect>Reduce build context and disk usage</effect>
+      </change>
+      <change area="jest">
+        <file>config/jest.config.js</file>
+        <effect>Cache under repo, avoid /tmp pressure</effect>
+      </change>
+      <change area="jest">
+        <file>package.json</file>
+        <effect>TMPDIR=.tmp for tests</effect>
+      </change>
+      <change area="tfc">
+        <file>.github/workflows/terraform.yml</file>
+        <effect>Remote plan/apply via TFC</effect>
+      </change>
+      <change area="tfc">
+        <file>scripts/setup/create_tfc_workspace.sh</file>
+        <file>scripts/setup/configure_tfc_backend.sh</file>
+        <file>scripts/setup/list_tfc_oauth_tokens.sh</file>
+        <file>scripts/setup/connect_tfc_workspace_vcs.sh</file>
+        <file>scripts/setup/tfc_set_workspace_var.sh</file>
+        <effect>Automate workspace, backend, VCS and variables</effect>
+      </change>
+      <change area="mcp">
+        <file>.mcp/servers.json</file>
+        <file>.mcp/servers.local.json</file>
+        <file>.mcp/servers.docker.json</file>
+        <file>.mcp/servers.remote.json</file>
+        <file>scripts/setup/mcp_use.sh</file>
+        <effect>Selectable local/docker/remote MCP profiles</effect>
+      </change>
+      <change area="gateway">
+        <file>services/mcp-gateway/index.js</file>
+        <file>services/mcp-gateway/Dockerfile</file>
+        <effect>Node WebSocket gateway bridging to MCP servers</effect>
+      </change>
+      <change area="infra">
+        <file>infra/terraform/mcp_gateway.tf</file>
+        <file>infra/terraform/variables.tf</file>
+        <effect>Cloud Run deploy + AUTH_TOKEN + restricted IAM</effect>
+      </change>
+      <change area="client">
+        <file>scripts/mcp/ws-proxy.js</file>
+        <effect>Forward MCP_AUTH_TOKEN and MCP_ID_TOKEN to gateway</effect>
+      </change>
+      <change area="onboarding">
+        <file>.env.example</file>
+        <effect>Add MCP_AUTH_TOKEN and MCP_ID_TOKEN placeholders</effect>
+      </change>
+    </changes>
+    <security>
+      <auth>
+        <appToken env="AUTH_TOKEN" source="TFC variable mcp_auth_token"/>
+        <idToken provider="GCP" usage="Cloud Run run.invoker"/>
+      </auth>
+      <iam>
+        <before>allUsers had run.invoker</before>
+        <after>allAuthenticatedUsers only</after>
+      </iam>
+    </security>
+    <verification>
+      <step>Unauthorized WS upgrade → 401</step>
+      <step>Authorized WS upgrade with ID token + app token → success</step>
+      <step>gcloud run get-iam-policy shows no allUsers</step>
+    </verification>
+  </phase>
+  <artifacts>
+    <html>docs/summary-p5.html</html>
+    <xml>docs/summary-p5.xml</xml>
+  </artifacts>
+</projectSummary>
+
