@@ -49,7 +49,7 @@ run_step() {
   fi
 }
 
-run_step "Enable Corepack" "corepack enable >/dev/null 2>&1 || true"
+run_step "Enable Corepack" "corepack enable >/dev/null 2>&1"
 run_step "Activate pnpm@$PNPM_VERSION" "corepack prepare pnpm@$PNPM_VERSION --activate"
 run_step "Install dependencies" "pnpm install --frozen-lockfile"
 run_step "Clean workspace" "pnpm clean"
