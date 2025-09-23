@@ -11,8 +11,12 @@ const path = require('path');
 const { chromium } = require('playwright');
 
 (async () => {
-  const CANVAS_URL = process.env.CANVAS_URL || 'http://35.224.11.43:3000';
-  const GATEWAY_HEALTH = process.env.GATEWAY_HEALTH || 'https://mcp-gateway-232368778929.us-central1.run.app/healthz';
+  const CANVAS_URL = process.env.CANVAS_URL;
+  const GATEWAY_HEALTH = process.env.GATEWAY_HEALTH;
+  if (!CANVAS_URL || !GATEWAY_HEALTH) {
+    console.error('Error: Both CANVAS_URL and GATEWAY_HEALTH environment variables must be set.');
+    process.exit(1);
+  }
   const outDir = path.join('docs', 'screenshots');
   fs.mkdirSync(outDir, { recursive: true });
   const ts = new Date().toISOString().replace(/[:.]/g, '-');
