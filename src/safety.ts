@@ -9,6 +9,5 @@ const PROFANITY_FILTER = [
 
 export function containsProfanity(text: string): boolean {
   const lowerCaseText = text.toLowerCase();
-  const regex = new RegExp(`\\b(${PROFANITY_FILTER.join('|')})\\b`, 'i');
-  return regex.test(lowerCaseText);
+  return PROFANITY_FILTER.some((word) => lowerCaseText.includes(word));
 }
