@@ -10,7 +10,7 @@
     "build": "cross-env SKIP_GEMINI_CHECK=1 DRY_RUN=1 next build",
     "lint": "eslint . --ext .ts,.tsx,.js",
     "pretest": "node -e \"require('fs').mkdirSync('.tmp',{ recursive: true })\"",
-    "test": "cross-env TMPDIR=.tmp jest --config config/jest.config.js --ci --runInBand",
+    "test": "cross-env-shell \"TMPDIR=${TMPDIR:-.tmp} jest --config config/jest.config.js --ci --runInBand\"",
     "clean": "rimraf .next dist .turbo .cache coverage .tmp tsconfig.tsbuildinfo || true",
     "format:check": "prettier --check AGENTS.md README.md README.recon.md .github/pull_request_template.md .github/ISSUE_TEMPLATE/bug_report.md .github/ISSUE_TEMPLATE/feature_request.md",
     "typecheck": "tsc --project tsconfig.json --noEmit",
