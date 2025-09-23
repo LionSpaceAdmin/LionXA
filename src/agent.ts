@@ -4,8 +4,6 @@ import browserService from "./browser";
 import { isSeen, markSeen } from "./memory";
 import { askGPT } from "./gemini";
 import { getProfile, type Profile } from "./profiles/index";
-import { isProfileQuarantined } from "./safety";
-import { logger } from "./logging";
 import { config } from "./config";
 import { startBackupScheduler } from "./backup";
 import {
@@ -104,7 +102,7 @@ function _isTweetRelevant(text: string): boolean {
  * Scrapes all tweets from the list page (no filtering by target users).
  * Includes validation and cross-checking of tweets.
  */
-export async function scrapeTweetsFromList(page: Page): Promise<Tweet[]> {
+async function scrapeTweetsFromList(page: Page): Promise<Tweet[]> {
   const tweets: Tweet[] = [];
   // const seenIdsThisSession = new Set<string>();
 
@@ -441,10 +439,6 @@ async function main() {
 
       const profile = getProfile(tweet.username) as ProfileWithFacts;
       if (profile) {
-        if (isProfileQuarantined(profile.username)) {
-          logger.warn(`Skipping quarantined profile: ${profile.username}`);
-          continue;
-        }
         let prompt = profile.customPrompt.replace("{{TWEET_TEXT}}", tweet.text);
         if (tweet.images && tweet.images.length > 0) {
           prompt += `\nAttached images: ${tweet.images.join(", ")}`;
@@ -679,10 +673,6 @@ async function main() {
 
               const profile = getProfile(tweet.username) as ProfileWithFacts;
               if (profile) {
-                if (isProfileQuarantined(profile.username)) {
-                  logger.warn(`Skipping quarantined profile: ${profile.username}`);
-                  continue;
-                }
                 let prompt = profile.customPrompt.replace(
                   "{{TWEET_TEXT}}",
                   tweet.text,
@@ -763,11 +753,7 @@ process.on("unhandledRejection", (reason) => {
   );
 });
 
-export { main };
-
-if (require.main === module) {
-  main().catch((e) => {
-    logException(`main() failed: ${e instanceof Error ? e.message : String(e)}`);
-    console.error(e);
-  });
-}
+main().catch((e) => {
+  logException(`main() failed: ${e instanceof Error ? e.message : String(e)}`);
+  console.error(e);
+});
