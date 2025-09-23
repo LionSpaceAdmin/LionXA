@@ -1,0 +1,18 @@
+# Generated and legacy assets excluded from format checks
+node_modules/
+.next/
+dist/
+_reports/
+docs/
+services/
+infra/
+config/
+architecture_analysis_report.json
+fix_and_enhance_report.json
+p1_investigation_report.json
+p3_rebuild_report.json
+project_map.json
+bundle.zip
+src/
+TASK_TEMPLATE.md
+GEMINI.md

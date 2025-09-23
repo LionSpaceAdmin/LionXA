@@ -1,0 +1,21 @@
+# Jules "Hello" Dry Run (Plan Only)
+Date: 2025-09-22
+Requested by: LionSpaceAdmin
+Repository: danielions/LionXA
+
+## Requested Task
+Propose a minor documentation refinement in README (no code changes). Run in plan-only mode to verify Jules can authenticate, clone, and outline steps without modifying the repo.
+
+## Expected Plan (from automation run)
+1. Clone repo with `pnpm` workspace support and respect `.nvmrc`.
+2. Execute `bash scripts/setup.sh` to mirror CI (install → clean → build → lint → typecheck → test).
+3. Inspect README for outdated setup instructions; draft update suggestion.
+4. Report status with zero file diffs and highlight required next steps for a full task.
+
+## Status
+- ❌ Not yet executed: Jules access pending final authorization & branch protection verification.
+- ✅ Pre-checks available: setup script + CI workflow already green locally (see `_reports/setup-summary.txt`).
+
+## Next Steps
+- Once Jules app authorization is confirmed, trigger a plan-only run via Google Jules console using the above prompt.
+- Archive the resulting JSON/markdown plan here to close this checklist item.

@@ -1,0 +1,34 @@
+{
+  "task_name": "P1 - Docker VNC Investigation",
+  "status": "SUCCESS",
+  "summary": "The VNC server is effectively disabled not by an intentional code block, but because its required dependency, an X virtual framebuffer server (Xvfb), is never installed or started.",
+  "findings": [
+    {
+      "file_path": "services/agent/entrypoint.sh",
+      "line_number": 11,
+      "code_snippet": "x11vnc -display :0 -bg -forever -usepw -shared -rfbport 5901",
+      "analysis": "This line attempts to start the x11vnc server and share an existing X server session on DISPLAY :0. However, the Dockerfile and entrypoint script never start an X server (like Xvfb). Therefore, the x11vnc command fails silently in the background, making the VNC connection unavailable. The problem is a missing runtime dependency, not an explicit disabling of the feature."
+    },
+    {
+      "file_path": "services/agent/Dockerfile",
+      "line_number": 4,
+      "code_snippet": "RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl sudo git wget unzip xfce4 xfce4-goodies x11vnc dbus-x11 \",
+      "analysis": "The Dockerfile for the agent service installs x11vnc and the xfce4 desktop environment, but it is missing the 'xvfb' package, which is necessary to create the virtual display that x11vnc needs to connect to."
+    }
+  ],
+  "proposed_solution": {
+    "explanation": "The solution involves two steps: 1) Install the 'xvfb' package in the Dockerfile. 2) Modify the entrypoint script to start the Xvfb server on a virtual display (e.g., :99) before attempting to start x11vnc, and then point x11vnc to that same virtual display.",
+    "code_diff": [
+      {
+        "file_path": "services/agent/Dockerfile",
+        "diff": "--- a/services/agent/Dockerfile\n+++ b/services/agent/Dockerfile\n@@ -2,7 +2,7 @@\n ENV DEBIAN_FRONTEND=noninteractive\n # Playwright system dependencies are included in the list below\n RUN apt-get update && apt-get install -y --no-install-recommends \n-    curl sudo git wget unzip xfce4 xfce4-goodies x11vnc dbus-x11 \n+    curl sudo git wget unzip xfce4 xfce4-goodies x11vnc dbus-x11 xvfb \n     libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libdrm2 libgbm1 libasound2 \n     && rm -rf /var/lib/apt/lists/*\n"
+      },
+      {
+        "file_path": "services/agent/entrypoint.sh",
+        "diff": "--- a/services/agent/entrypoint.sh\n+++ b/services/agent/entrypoint.sh\n@@ -1,15 +1,20 @@\n #!/bin/bash\n set -e\n \n+# Start Xvfb in the background\n+export DISPLAY=:99\n+Xvfb :99 -screen 0 1280x720x16 &\n+sleep 2 # Give Xvfb a moment to start\n+\n # Setup VNC password and start VNC server in the background\n if [ -z \"${VNC_PASSWORD}\" ]; then\n   echo \"Warning: VNC_PASSWORD not set. Using default 'password'.\"\n   export VNC_PASSWORD=password\n fi\n mkdir -p /home/agentuser/.vnc\n x11vnc -storepasswd \"${VNC_PASSWORD}\" /home/agentuser/.vnc/passwd\n-x11vnc -display :0 -bg -forever -usepw -shared -rfbport 5901\n+x11vnc -display :99 -bg -forever -usepw -shared -rfbport 5901\n sleep 2 # Give VNC a moment to start\n \n echo \">>> Starting the Agent process...\"\n"
+      }
+    ]
+  },
+  "error_message": null
+}

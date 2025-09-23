@@ -1,0 +1,149 @@
+{
+  "nodes": [
+    {
+      "id": "@google/generative-ai",
+      "version": "^0.24.1"
+    },
+    {
+      "id": "@tailwindcss/postcss",
+      "version": "^4.1.13"
+    },
+    {
+      "id": "chart.js",
+      "version": "^4.5.0"
+    },
+    {
+      "id": "dotenv",
+      "version": "^17.2.2"
+    },
+    {
+      "id": "express",
+      "version": "^5.1.0"
+    },
+    {
+      "id": "lucide-react",
+      "version": "^0.544.0"
+    },
+    {
+      "id": "next",
+      "version": "^15.5.3"
+    },
+    {
+      "id": "playwright",
+      "version": "^1.55.0"
+    },
+    {
+      "id": "react",
+      "version": "^19.1.1"
+    },
+    {
+      "id": "react-dom",
+      "version": "^19.1.1"
+    },
+    {
+      "id": "socket.io",
+      "version": "^4.8.1"
+    },
+    {
+      "id": "socket.io-client",
+      "version": "^4.8.1"
+    },
+    {
+      "id": "ws",
+      "version": "^8.18.0"
+    },
+    {
+      "id": "@babel/preset-env",
+      "version": "^7.28.3"
+    },
+    {
+      "id": "@babel/preset-react",
+      "version": "^7.27.1"
+    },
+    {
+      "id": "@babel/preset-typescript",
+      "version": "^7.27.1"
+    },
+    {
+      "id": "@eslint/eslintrc",
+      "version": "^3.3.1"
+    },
+    {
+      "id": "@playwright/test",
+      "version": "^1.55.0"
+    },
+    {
+      "id": "@testing-library/jest-dom",
+      "version": "^6.8.0"
+    },
+    {
+      "id": "@testing-library/react",
+      "version": "^16.3.0"
+    },
+    {
+      "id": "@types/express",
+      "version": "^5.0.3"
+    },
+    {
+      "id": "@types/jest",
+      "version": "^30.0.0"
+    },
+    {
+      "id": "@types/node",
+      "version": "^24.5.2"
+    },
+    {
+      "id": "@types/react",
+      "version": "^19.1.13"
+    },
+    {
+      "id": "@types/react-dom",
+      "version": "^19.1.9"
+    },
+    {
+      "id": "autoprefixer",
+      "version": "^10.4.21"
+    },
+    {
+      "id": "babel-jest",
+      "version": "^30.1.2"
+    },
+    {
+      "id": "concurrently",
+      "version": "^9.2.1"
+    },
+    {
+      "id": "eslint",
+      "version": "^9.36.0"
+    },
+    {
+      "id": "eslint-config-next",
+      "version": "15.5.3"
+    },
+    {
+      "id": "jest",
+      "version": "^30.1.3"
+    },
+    {
+      "id": "jest-environment-jsdom",
+      "version": "^30.1.2"
+    },
+    {
+      "id": "postcss",
+      "version": "^8.5.6"
+    },
+    {
+      "id": "tailwindcss",
+      "version": "^4.1.13"
+    },
+    {
+      "id": "ts-node",
+      "version": "^10.9.2"
+    },
+    {
+      "id": "typescript",
+      "version": "^5.9.2"
+    }
+  ],
+  "links": []
+}

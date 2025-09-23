@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המחשת תוצאות מחקר</title>
+    
+    <!-- Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
+    <script src="https://unpkg.com/dagre@0.8.5/dist/dagre.min.js"></script>
+    <script src="https://unpkg.com/cytoscape-dagre@2.5.0/cytoscape-dagre.js"></script>
+    <script src="https://unpkg.com/cytoscape-node-html-label@1.2.2/dist/cytoscape-node-html-label.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --surface-color: #2c2c2c;
+            --primary-color: #4a90e2;
+            --text-color: #f0f0f0;
+            --text-secondary-color: #a0a0a0;
+            --border-color: #444;
+            --yellow-accent: #f5a623;
+        }
+
+        html, body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+
+        #app-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* Toolbar */
+        #toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 16px;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--border-color);
+            flex-shrink: 0;
+            z-index: 10;
+        }
+
+        #toolbar .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        #toolbar button, #toolbar select, #toolbar label {
+            background-color: #3a3a3a;
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .start-from-label {
+            margin-left: 8px;
+        }
+        .speed-slider {
+            direction: ltr;
+        }
+
+        #toolbar button:hover, #toolbar select:hover {
+            background-color: #4a4a4a;
+        }
+        
+        #toolbar button.icon-button {
+            font-size: 18px;
+            padding: 6px 8px;
+        }
+
+        #toolbar input[type="range"] {
+            cursor: pointer;
+        }
+
+        /* Main Content Area */
+        #main-content {
+            flex-grow: 1;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Side Panels */
+        .side-panel {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 280px;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease-in-out;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            padding: 16px;
+            overflow-y: auto;
+        }
+
+        #outline-panel {
+            right: 0;
+            transform: translateX(100%);
+            border-right: none;
+        }
+        
+        #info-panel {
+            left: 0;
+            transform: translateX(-100%);
+            border-left: none;
+        }
+
+        #outline-panel.open { transform: translateX(0); }
+        #info-panel.open { transform: translateX(0); }
+
+        .side-panel h3 {
+            margin-top: 0;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            color: var(--primary-color);
+        }
+        
+        #outline-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #outline-list li {
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-bottom: 4px;
+        }
+        #outline-list li:hover {
+            background-color: #3a3a3a;
+        }
+        #outline-list .group-title {
+            font-weight: bold;
+            color: var(--yellow-accent);
+            margin-top: 10px;
+        }
+
+        #info-panel p, #info-panel li {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-secondary-color);
+        }
+
+        /* Cytoscape Container */
+        #cy-container {
+            flex-grow: 1;
+            position: relative;
+            height: 100%;
+        }
+
+        #cy {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        #pyramid-decoration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 350px solid var(--yellow-accent);
+            opacity: 0.1;
+            pointer-events: none;
+            z-index: 0;
+            display: none; /* Hidden by default */
+        }
+        #pyramid-decoration::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: -198px;
+            width: 0;
+            height: 0;
+            border-left: 198px solid transparent;
+            border-right: 198px solid transparent;
+            border-bottom: 346px solid var(--bg-color);
+        }
+
+
+        /* Cytoscape HTML Node Labels */
+        .cy-node-html-label {
+            padding: 10px;
+            background-color: #34495E;
+            border: 2px solid #BDC3C7;
+            border-radius: 10px;
+            color: white;
+            font-family: inherit;
+            text-align: center;
+            width: 150px;
+            height: 60px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .cy-node-html-label.highlighted {
+             box-shadow: 0 0 15px var(--primary-color);
+             border-color: var(--primary-color);
+        }
+
+        .node-title {
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .node-tag {
+            font-size: 11px;
+            color: #bdc3c7;
+            margin-top: 4px;
+        }
+
+        /* Tooltip */
+        #tooltip {
+            position: absolute;
+            display: none;
+            padding: 8px 12px;
+            background-color: black;
+            color: white;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 12px;
+            z-index: 20;
+            pointer-events: none;
+        }
+        
+        #file-importer {
+            display: none;
+        }
+
+        /* Loading indicator */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 1000;
+            font-size: 18px;
+        }
+        
+        .loading.hidden {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="loading" id="loading">טוען...</div>
+
+    <div id="app-container">
+        <!-- Toolbar -->
+        <div id="toolbar">
+            <div class="toolbar-group">
+                <button id="toggle-info-btn" class="icon-button" title="מידע על המחקר">ℹ</button>
+                <button id="toggle-outline-btn" class="icon-button" title="מתווה">☰</button>
+            </div>
+            <div class="toolbar-group">
+                <label>פריסה:</label>
+                <button id="layout-free">חופשי</button>
+                <button id="layout-pyramid">פירמידה</button>
+                <button id="layout-paths">שבילים</button>
+            </div>
+            <div class="toolbar-group">
+                <label>זרימת התהליך:</label>
+                <button id="play-btn" title="הפעל אנימציה">▶</button>
+                <button id="pause-btn" title="השהה אנימציה">⏸</button>
+                <button id="step-btn" title="צעד אחד">⏭</button>
+                <label for="start-from-select" class="start-from-label">התחל מ:</label>
+                <select id="start-from-select" title="בחר שלב התחלה">
+                    <option value="0">מההתחלה</option>
+                </select>
+                <label for="speed-slider">מהירות:</label>
+                <input type="range" id="speed-slider" min="100" max="1000" value="500" step="50" class="speed-slider">
+            </div>
+            <div class="toolbar-group">
+                <label>כלי עזר:</label>
+                <button id="seed-btn">טען דוגמה</button>
+                <button id="fit-btn">Fit</button>
+                <button id="reset-btn">Reset</button>
+                <button id="export-btn">Export</button>
+                <button id="import-btn">Import</button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content">
+            <!-- Left Panel: Info -->
+            <div id="info-panel" class="side-panel">
+                <h3>אודות המחקר (דוגמה)</h3>
+                <p>דיאגרמה זו ממחישה את תוצאות המחקר הבוחן את הקשר בין פעילות שיווקית במדיה חברתית לבין תוצאות עסקיות באתר מסחר אלקטרוני.</p>
+                <strong>ממצאים עיקריים:</strong>
+                <ul>
+                    <li>קמפיין ממומן באינסטגרם הוביל לעלייה ישירה במעורבות הגולשים ובתנועה לאתר.</li>
+                    <li>מעורבות גולשים גבוהה יותר תרמה לעלייה ביחס ההמרה.</li>
+                    <li>העלייה בהמרות הובילה ישירות לגידול בהכנסות.</li>
+                </ul>
+            </div>
+
+            <!-- Cytoscape -->
+            <div id="cy-container">
+                <div id="pyramid-decoration"></div>
+                <div id="cy"></div>
+            </div>
+            
+            <!-- Right Panel: Outline -->
+            <div id="outline-panel" class="side-panel">
+                <h3>מתווה המחקר</h3>
+                <div id="outline-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="tooltip"></div>
+    <input type="file" id="file-importer" accept=".json">
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        // Check if libraries loaded
+        if (typeof cytoscape === 'undefined') {
+            alert('שגיאה: לא ניתן לטעון את ספריית Cytoscape. ודא שהאינטרנט מחובר.');
+            return;
+        }
+        
+        console.log('Cytoscape loaded successfully');
+
+        // --- 1. SEED DATA (תוצאות המחקר) ---
+        let SEED = {
+  "groups": [
+    {
+      "id": "g1",
+      "title": "Code"
+    },
+    {
+      "id": "g2",
+      "title": "Config"
+    },
+    {
+      "id": "g3",
+      "title": "Runtime"
+    }
+  ],
+  "components": [
+    {
+      "id": "c1",
+      "group": "g1",
+      "title": "src/app/page.tsx",
+      "tag": "UI Entrypoint",
+      "coords": {
+        "x": 100,
+        "y": 200
+      }
+    },
+    {
+      "id": "c2",
+      "group": "g1",
+      "title": "src/agent.ts",
+      "tag": "Agent Logic",
+      "coords": {
+        "x": 300,
+        "y": 200
+      }
+    },
+    {
+      "id": "c3",
+      "group": "g1",
+      "title": "src/dashboard.ts",
+      "tag": "Dashboard Backend",
+      "coords": {
+        "x": 500,
+        "y": 200
+      }
+    },
+    {
+      "id": "c4",
+      "group": "g1",
+      "title": "services/mcp-gateway/index.js",
+      "tag": "MCP Gateway",
+      "coords": {
+        "x": 700,
+        "y": 200
+      }
+    },
+    {
+      "id": "c5",
+      "group": "g3",
+      "title": "infra/terraform/main.tf",
+      "tag": "Infrastructure",
+      "coords": {
+        "x": 900,
+        "y": 200
+      }
+    },
+    {
+      "id": "c6",
+      "group": "g2",
+      "title": "docker-compose.yml",
+      "tag": "Local Runtime",
+      "coords": {
+        "x": 300,
+        "y": 400
+      }
+    },
+    {
+      "id": "c7",
+      "group": "g2",
+      "title": ".env.example",
+      "tag": "Environment Config",
+      "coords": {
+        "x": 500,
+        "y": 400
+      }
+    }
+  ],
+  "connections": [
+    {
+      "source": "c1",
+      "target": "c3"
+    },
+    {
+      "source": "c3",
+      "target": "c2"
+    },
+    {
+      "source": "c2",
+      "target": "c4"
+    },
+    {
+      "source": "c4",
+      "target": "c5"
+    },
+    {
+      "source": "c6",
+      "target": "c1"
+    },
+    {
+      "source": "c6",
+      "target": "c2"
+    },
+    {
+      "source": "c6",
+      "target": "c4"
+    },
+    {
+      "source": "c7",
+      "target": "c2"
+    },
+    {
+      "source": "c7",
+      "target": "c3"
+    },
+    {
+      "source": "c7",
+      "target": "c4"
+    }
+  ],
+  "flowSteps": [
+    {
+      "element": "c1",
+      "note": "User interacts with the UI"
+    },
+    {
+      "element": "c3",
+      "note": "Dashboard backend handles UI events"
+    },
+    {
+      "element": "c2",
+      "note": "Agent logic is triggered"
+    },
+    {
+      "element": "c4",
+      "note": "Agent communicates through MCP Gateway"
+    },
+    {
+      "element": "c5",
+      "note": "Infrastructure is managed by Terraform"
+    }
+  ]
+};
+        const initialSEED = JSON.parse(JSON.stringify(SEED)); // Deep copy for reset functionality
+
+        // --- 2. CYTOSCAPE INITIALIZATION ---
+        const cy = cytoscape({
+            container: document.getElementById('cy'),
+            style: [
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 2,
+                        'line-color': '#95A5A6',
+                        'target-arrow-color': '#95A5A6',
+                        'target-arrow-shape': 'triangle',
+                        'curve-style': 'bezier',
+                    }
+                },
+                {
+                    selector: 'edge.highlighted',
+                    style: {
+                        'line-color': 'var(--primary-color)',
+                        'target-arrow-color': 'var(--primary-color)',
+                        'width': 4,
+                        'z-index': 100
+                    }
+                },
+                 {
+                    selector: 'edge.animated',
+                    style: {
+                        'line-color': 'var(--yellow-accent)',
+                        'target-arrow-color': 'var(--yellow-accent)',
+                        'width': 4,
+                        'line-style': 'dashed',
+                        'line-dash-pattern': [10, 5],
+                        'line-dash-offset': 0
+                    }
+                }
+            ],
+            layout: { name: 'preset' } 
+        });
+
+        cy.nodeHtmlLabel([
+            {
+                query: 'node',
+                valign: 'center',
+                halign: 'center',
+                tpl: (data) => `
+                    <div class="cy-node-html-label ${data.classes || ''}">
+                        <div class="node-title">${data.label}</div>
+                        <div class="node-tag">${data.tag}</div>
+                    </div>
+                `
+            }
+        ]);
+        
+        // --- 3. DATA TRANSFORMATION & LOADING ---
+        function transformSeedToCyElements(seedData) {
+            const nodes = seedData.components.map(comp => ({
+                data: {
+                    id: comp.id,
+                    label: comp.title,
+                    tag: comp.tag,
+                    group: comp.group
+                },
+                position: { ...comp.coords }
+            }));
+
+            const edges = seedData.connections.map((conn, i) => ({
+                data: {
+                    id: `e${i}`,
+                    source: conn.source,
+                    target: conn.target
+                }
+            }));
+
+            return [...nodes, ...edges];
+        }
+
+        function loadData(data) {
+            SEED = JSON.parse(JSON.stringify(data));
+            const elements = transformSeedToCyElements(SEED);
+            cy.elements().remove();
+            cy.add(elements);
+            runLayout('free');
+            populateOutline();
+            populateFlowSteps();
+        }
+
+        // --- 4. UI AND INTERACTIVITY ---
+        const toggleInfoBtn = document.getElementById('toggle-info-btn');
+        const toggleOutlineBtn = document.getElementById('toggle-outline-btn');
+        const infoPanel = document.getElementById('info-panel');
+        const outlinePanel = document.getElementById('outline-panel');
+        const outlineList = document.getElementById('outline-list');
+        const pyramidDecoration = document.getElementById('pyramid-decoration');
+        const tooltip = document.getElementById('tooltip');
+        
+        toggleInfoBtn.addEventListener('click', () => {
+             infoPanel.classList.toggle('open');
+             setTimeout(() => cy.resize(), 300);
+        });
+        toggleOutlineBtn.addEventListener('click', () => {
+             outlinePanel.classList.toggle('open');
+             setTimeout(() => cy.resize(), 300);
+        });
+
+        function populateOutline() {
+            outlineList.innerHTML = '';
+            SEED.groups.forEach(group => {
+                const groupTitle = document.createElement('div');
+                groupTitle.className = 'group-title';
+                groupTitle.textContent = group.title;
+                outlineList.appendChild(groupTitle);
+
+                const groupList = document.createElement('ul');
+                const componentsInGroup = SEED.components.filter(c => c.group === group.id);
+                
+                componentsInGroup.forEach(comp => {
+                    const item = document.createElement('li');
+                    item.textContent = comp.title;
+                    item.dataset.nodeId = comp.id;
+                    item.addEventListener('click', () => {
+                        const node = cy.getElementById(item.dataset.nodeId);
+                        cy.animate({
+                            center: { eles: node },
+                            zoom: 1.5
+                        }, { duration: 500 });
+                    });
+                    groupList.appendChild(item);
+                });
+                outlineList.appendChild(groupList);
+            });
+        }
+
+        cy.on('mouseover', 'node', (event) => {
+            const node = event.target;
+            const data = node.data();
+            tooltip.innerHTML = `<strong>${data.label}</strong><br>${data.tag}`;
+            tooltip.style.display = 'block';
+        });
+
+        cy.on('mousemove', (event) => {
+            if (tooltip.style.display === 'block') {
+                tooltip.style.right = (document.body.clientWidth - event.originalEvent.clientX + 10) + 'px';
+                tooltip.style.top = (event.originalEvent.clientY + 10) + 'px';
+            }
+        });
+        
+        cy.on('mouseout', 'node', () => {
+            tooltip.style.display = 'none';
+        });
+
+        cy.on('dragfree', 'node', (event) => {
+            const node = event.target;
+            const newPos = node.position();
+            const component = SEED.components.find(c => c.id === node.id());
+            if (component) {
+                component.coords.x = newPos.x;
+                component.coords.y = newPos.y;
+            }
+        });
+
+        // --- 5. LAYOUTS ---
+        const layouts = {
+            free: { name: 'preset', animate: true, animationDuration: 500 },
+            pyramid: { name: 'dagre', rankDir: 'TB', animate: true, animationDuration: 500, fit: true, padding: 30 },
+            paths: { name: 'dagre', rankDir: 'LR', animate: true, animationDuration: 500, fit: true, padding: 30 }
+        };
+        
+        function runLayout(layoutName) {
+            cy.layout(layouts[layoutName]).run();
+            pyramidDecoration.style.display = (layoutName === 'pyramid') ? 'block' : 'none';
+        }
+        
+        document.getElementById('layout-free').addEventListener('click', () => runLayout('free'));
+        document.getElementById('layout-pyramid').addEventListener('click', () => runLayout('pyramid'));
+        document.getElementById('layout-paths').addEventListener('click', () => runLayout('paths'));
+
+        // --- 6. LIVE FLOW ANIMATION ---
+        let flowInterval = null;
+        let flowAnimationRequest;
+        let currentStep = 0;
+        const startFromSelect = document.getElementById('start-from-select');
+        const speedSlider = document.getElementById('speed-slider');
+
+        // Add error handling for missing elements
+        if (!startFromSelect || !speedSlider) {
+            console.error('Missing required elements for flow animation');
+            return;
+        }
+
+        function populateFlowSteps() {
+            startFromSelect.innerHTML = '';
+            SEED.flowSteps.forEach((step, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = `שלב ${index + 1}: ${step.note}`;
+                startFromSelect.appendChild(option);
+            });
+        }
+        
+        startFromSelect.addEventListener('change', (e) => {
+            currentStep = parseInt(e.target.value, 10);
+            resetFlowAnimation();
+        });
+
+        function resetFlowAnimation() {
+            if (flowInterval) clearInterval(flowInterval);
+            flowInterval = null;
+            if(flowAnimationRequest) cancelAnimationFrame(flowAnimationRequest);
+            
+            const highlightedLabels = document.querySelectorAll('.cy-node-html-label.highlighted');
+            highlightedLabels.forEach(label => label.classList.remove('highlighted'));
+            
+            cy.edges('.animated').style('line-dash-offset', 0).removeClass('animated highlighted');
+        }
+
+        function animateEdge(edge) {
+            let offset = 0;
+            function dashAnimation() {
+                offset++;
+                edge.style('line-dash-offset', offset);
+                if (flowInterval !== null) { 
+                    flowAnimationRequest = requestAnimationFrame(dashAnimation);
+                }
+            }
+            dashAnimation();
+        }
+
+        function executeStep(stepIndex) {
+            resetFlowAnimation();
+
+            if (stepIndex >= SEED.flowSteps.length) {
+                currentStep = 0;
+                return;
+            }
+
+            const step = SEED.flowSteps[stepIndex];
+            const currentNode = cy.getElementById(step.element);
+
+            const nodeLabel = document.querySelector(`[data-id="${step.element}"] .cy-node-html-label`);
+            if (nodeLabel) {
+                 nodeLabel.classList.add('highlighted');
+            }
+            
+            if (stepIndex > 0) {
+                 const prevStep = SEED.flowSteps[stepIndex - 1];
+                 const incomingEdge = currentNode.connectedEdges(`[source = "${prevStep.element}"]`);
+                 if(incomingEdge.length > 0) {
+                    incomingEdge.addClass('highlighted animated');
+                    animateEdge(incomingEdge);
+                 } else { 
+                    const anyIncoming = currentNode.incomers('edge').first();
+                    if(anyIncoming.length > 0) {
+                        anyIncoming.addClass('highlighted animated');
+                        animateEdge(anyIncoming);
+                    }
+                 }
+            }
+        }
+        
+        const playBtn = document.getElementById('play-btn');
+        const pauseBtn = document.getElementById('pause-btn');
+        const stepBtn = document.getElementById('step-btn');
+
+        if (playBtn) {
+            playBtn.addEventListener('click', () => {
+                if (flowInterval) return;
+                
+                resetFlowAnimation();
+                executeStep(currentStep);
+
+                flowInterval = setInterval(() => {
+                    currentStep++;
+                    if (currentStep >= SEED.flowSteps.length) {
+                        currentStep = 0;
+                    }
+                    startFromSelect.value = currentStep;
+                    executeStep(currentStep);
+                }, 2100 - parseInt(speedSlider.value));
+            });
+        }
+
+        if (pauseBtn) {
+            pauseBtn.addEventListener('click', () => {
+                clearInterval(flowInterval);
+                flowInterval = null;
+                cancelAnimationFrame(flowAnimationRequest);
+            });
+        }
+
+        if (stepBtn) {
+            stepBtn.addEventListener('click', () => {
+                clearInterval(flowInterval);
+                flowInterval = null;
+                cancelAnimationFrame(flowAnimationRequest);
+
+                executeStep(currentStep);
+                currentStep = (currentStep + 1) % SEED.flowSteps.length;
+                startFromSelect.value = currentStep;
+            });
+        }
+
+        // --- 7. UTILITY TOOLS ---
+        const seedBtn = document.getElementById('seed-btn');
+        const fitBtn = document.getElementById('fit-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const exportBtn = document.getElementById('export-btn');
+        const importBtn = document.getElementById('import-btn');
+
+        if (seedBtn) seedBtn.addEventListener('click', () => loadData(initialSEED));
+        if (fitBtn) fitBtn.addEventListener('click', () => cy.animate({ fit: { padding: 50 } }, { duration: 500 }));
+        if (resetBtn) resetBtn.addEventListener('click', () => cy.animate({ zoom: 1, pan: { x: 0, y: 0 } }, { duration: 500 }));
+
+        if (exportBtn) {
+            exportBtn.addEventListener('click', () => {
+                const dataToExport = JSON.stringify(SEED, null, 2);
+                const blob = new Blob([dataToExport], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'research-data.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            });
+        }
+
+        const fileImporter = document.getElementById('file-importer');
+        if (importBtn && fileImporter) {
+            importBtn.addEventListener('click', function() { fileImporter.click(); });
+            fileImporter.addEventListener('change', (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    try {
+                        const importedData = JSON.parse(e.target.result);
+                        loadData(importedData);
+                    } catch (err) {
+                        console.error("Error parsing imported file:", err);
+                        alert("קובץ לא תקין או פגום.");
+                    }
+                };
+                reader.readAsText(file);
+                fileImporter.value = '';
+            });
+        }
+
+        // --- 8. INITIAL LOAD ---
+        loadData(SEED);
+        
+        // Ensure initial view is properly fitted
+        setTimeout(() => {
+            cy.fit(null, 50);
+            // Hide loading indicator
+            const loading = document.getElementById('loading');
+            if (loading) loading.classList.add('hidden');
+        }, 1000);
+    });
+    </script>
+</body>
+</html>
+

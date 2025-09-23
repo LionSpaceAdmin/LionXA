@@ -1,0 +1,37 @@
+{
+  "mixed_js_ts": [
+    "/Users/danielions/LionXA",
+    "/Users/danielions/LionXA/scripts"
+  ],
+  "orphaned_files": [
+    "/Users/danielions/LionXA/src/components/dashboard/Sidebar.tsx",
+    "/Users/danielions/LionXA/src/app/api/tools/create-jira-ticket/route.ts",
+    "/Users/danielions/LionXA/src/tools/conductArchitecturalReview.ts",
+    "/Users/danielions/LionXA/src/app/page.tsx",
+    "/Users/danielions/LionXA/src/__tests__/Header.test.tsx",
+    "/Users/danielions/LionXA/src/setup/openChrome.ts",
+    "/Users/danielions/LionXA/src/app/vision/page.tsx",
+    "/Users/danielions/LionXA/src/safety.ts",
+    "/Users/danielions/LionXA/src/components/dashboard/Header.tsx",
+    "/Users/danielions/LionXA/src/__tests__/MetricCard.test.tsx",
+    "/Users/danielions/LionXA/src/app/api/tools/create-github-issue/route.ts",
+    "/Users/danielions/LionXA/src/app/api/generate/route.ts",
+    "/Users/danielions/LionXA/src/server.ts",
+    "/Users/danielions/LionXA/src/accounts.ts",
+    "/Users/danielions/LionXA/src/app/tools/page.tsx",
+    "/Users/danielions/LionXA/src/setup/validatePlaywright.ts",
+    "/Users/danielions/LionXA/src/app/api/tools/generate-feature/route.ts",
+    "/Users/danielions/LionXA/src/app/api/report/route.ts",
+    "/Users/danielions/LionXA/src/app/api/tools/generate-component/route.ts",
+    "/Users/danielions/LionXA/src/app/api/tools/generate-cicd/route.ts",
+    "/Users/danielions/LionXA/src/app/health/page.tsx",
+    "/Users/danielions/LionXA/src/knowledge.ts",
+    "/Users/danielions/LionXA/src/__tests__/Sidebar.test.tsx",
+    "/Users/danielions/LionXA/src/app/layout.tsx",
+    "/Users/danielions/LionXA/src/agent.ts",
+    "/Users/danielions/LionXA/src/app/api/health/route.ts",
+    "/Users/danielions/LionXA/src/logging.ts",
+    "/Users/danielions/LionXA/src/__tests__/setup.ts",
+    "/Users/danielions/LionXA/src/setup/devAll.ts"
+  ]
+}

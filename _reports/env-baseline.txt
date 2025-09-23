@@ -1,0 +1,17 @@
+# LionXA Environment Baseline
+Generated: 2025-09-22T22:13:45Z
+
+node -v
+v22.11.0
+
+corepack enable || true
+corepack status: enabled (pnpm@10.13.1 active)
+
+pnpm -v || npm -v
+10.13.1
+
+nvm current
+v22.11.0
+
+git --version
+git version 2.50.1 (Apple Git-155)

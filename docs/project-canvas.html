@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LionXA Project - Flowrise Canvas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 25%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: #ffffff;
+        }
+
+        .canvas-container {
+            position: relative;
+            width: 100vw;
+            min-height: 100vh;
+            overflow-y: auto;
+            /* Canvas-like grid */
+            background-image:
+              repeating-linear-gradient(0deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 24px),
+              repeating-linear-gradient(90deg, rgba(255,255,255,0.04) 0, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 24px);
+            background-size: 100% 100%, 100% 100%;
+        }
+
+        .layer {
+            position: relative;
+            width: calc(100% - 40px);
+            margin: 20px;
+            padding: 20px;
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+        }
+
+        .layer-1 {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(33, 150, 243, 0.1) 100%);
+        }
+
+        .layer-2 {
+            background: linear-gradient(135deg, rgba(255, 152, 0, 0.2) 0%, rgba(158, 158, 158, 0.1) 100%);
+        }
+
+        .layer-3 {
+            background: linear-gradient(135deg, rgba(156, 39, 176, 0.2) 0%, rgba(103, 58, 183, 0.1) 100%);
+        }
+
+        .layer-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(100, 181, 246, 0.3);
+            grid-column: 1 / -1;
+        }
+
+        .component {
+            position: relative;
+            min-width: 140px;
+            min-height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .component:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(100, 181, 246, 0.3);
+            border-color: #64b5f6;
+        }
+
+        .component-name {
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .component-status {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-bottom: 3px;
+        }
+
+        .status-pass { background: rgba(76, 175, 80, 0.8); }
+        .status-fail { background: rgba(244, 67, 54, 0.8); }
+        .status-warning { background: rgba(255, 193, 7, 0.8); color: #000; }
+        .status-pending { background: rgba(156, 39, 176, 0.8); }
+
+        .component-info {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        /* Components laid out by grid; dragging will set absolute positioning on the fly if needed. */
+
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: linear-gradient(90deg, #64b5f6, #42a5f5);
+            border-radius: 1px;
+            opacity: 0.7;
+            z-index: 2;
+            transform-origin: 0 0;
+            pointer-events: none;
+            animation: flow 3s ease-in-out infinite;
+        }
+
+        @keyframes flow {
+            0%, 100% { opacity: 0.7; transform: scaleX(1); }
+            50% { opacity: 1; transform: scaleX(1.1); }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            -webkit-backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.95) 0%, rgba(15, 52, 96, 0.95) 100%);
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #64b5f6, #42a5f5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #64b5f6;
+        }
+
+        .stats-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 300px;
+            background: rgba(26, 26, 46, 0.9);
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .stats-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #64b5f6;
+        }
+
+        .stat-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .terminal {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 400px;
+            height: 200px;
+            background: rgba(0, 0, 0, 0.9);
+            border: 2px solid #64b5f6;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #00ff00;
+            overflow-y: auto;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.4);
+            z-index: 10;
+        }
+
+        .terminal-line {
+            margin-bottom: 5px;
+            animation: typewriter 0.5s ease-in;
+        }
+
+        @keyframes typewriter {
+            from { opacity: 0; transform: translateX(-10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .legend {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(26, 26, 46, 0.9);
+            border: 2px solid rgba(100, 181, 246, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+        }
+
+        .legend-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #64b5f6;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .legend-color {
+            width: 20px;
+            height: 12px;
+            border-radius: 6px;
+            margin-left: 10px;
+        }
+
+        .floating-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -2;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #64b5f6;
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+            50% { transform: translateY(-20px) rotate(180deg); opacity: 1; }
+    /* Inline style replacements */
+    .stat-error {
+      color: #ff5722;
+    }
+    .stat-url {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 240px;
+      display: inline-block;
+      direction: ltr;
+    }
+    .stat-drift {
+      font-weight: bold;
+      color: #ffc107;
+    }
+    .diag-hr {
+      border-color: rgba(100,181,246,0.2);
+      margin: 10px 0;
+    }
+    .diag-desc {
+      font-size: 12px;
+      opacity: .9;
+      line-height: 1.5;
+    }
+    .gw-label {
+      font-size: 12px;
+      color: #74c0fc;
+    }
+    .diag-out {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #a7ffeb;
+    }
+    /* Static connection lines positions */
+    .static-conn-1 { top: 190px; left: 190px; width: 60px; transform: rotate(0deg); position: absolute; }
+    .static-conn-2 { top: 190px; left: 360px; width: 60px; transform: rotate(0deg); position: absolute; }
+    .static-conn-3 { top: 270px; left: 145px; width: 60px; transform: rotate(90deg); position: absolute; }
+    .static-conn-4 { top: 270px; left: 295px; width: 60px; transform: rotate(90deg); position: absolute; }
+    .static-conn-5 { top: 270px; left: 445px; width: 60px; transform: rotate(90deg); position: absolute; }
+    </style>
+    </style>
+</head>
+<body>
+                <span class="stat-error">4</span>
+        <!-- Dynamic connection lines -->
+        <div id="connections" aria-hidden="true" class="connections-host"></div>
+        <!-- Floating Particles -->
+        <div class="floating-particles" id="particles"></div>
+
+        <!-- Legend -->
+        <div class="legend">
+            <div class="legend-title">מצב רכיבים</div>
+            <div class="legend-item">✅ PASS <div class="legend-color status-pass"></div></div>
+            <div class="legend-item">❌ FAIL <div class="legend-color status-fail"></div></div>
+            <div class="legend-item">⚠️ WARNING <div class="legend-color status-warning"></div></div>
+            <div class="legend-item">🔄 PENDING <div class="legend-color status-pending"></div></div>
+        </div>
+            <div class="stat-item"><span>Gateway URL</span><span class="stat-url">https://mcp-gateway-232368778929.us-central1.run.app/healthz</span></div>
+        <!-- Stats Panel -->
+            <div class="stat-item"><span>Terraform</span><span id="tfDrift" class="stat-drift">DRIFT?</span></div>
+            <hr class="diag-hr">
+            <div class="diag-desc">
+                <span>שורות קוד כולל:</span>
+                <span>2,847</span>
+            </div>
+            <div class="stat-item">
+                <span>קבצים מרכזיים:</span>
+                <span>23</span>
+            </div>
+            <div class="stat-item">
+                <span>Docker Containers:</span>
+                <span>3</span>
+            </div>
+            <div class="stat-item">
+                <span>Terraform Resources:</span>
+                <label for="gwUrl" class="gw-label">Gateway URL:</label>
+            </div>
+            <div class="stat-item">
+                <span>React Components:</span>
+            <div id="diagOut" class="diag-out"></div>
+            </div>
+            <div class="stat-item">
+                <span>בעיות זוהו:</span>
+                <span style="color: #ff5722;">4</span>
+            </div>
+        </div>
+
+        <!-- Minimal live terminal (prevents JS errors and shows activity) -->
+        <div id="terminal" class="terminal" aria-live="polite" aria-label="יומן מערכת">
+            <div class="terminal-line">[init] Initializing Flowrise canvas…</div>
+            <div class="terminal-line">[sys ] Loading components and layers…</div>
+            <div class="terminal-line">[ok  ] Ready. Click components for details.</div>
+        </div>
+
+        <!-- Project Snapshot / Diagnostics -->
+        <div class="diag-panel">
+            <div class="stats-title">צילום מצב — תיקייה ושרותים</div>
+            <div class="stat-item"><span>Gateway URL</span><span style="overflow:hidden;text-overflow:ellipsis;max-width:240px;display:inline-block;direction:ltr">https://mcp-gateway-232368778929.us-central1.run.app/healthz</span></div>
+            <div class="stat-item"><span>VM (port 3000)</span><span>http://35.224.11.43:3000</span></div>
+            <div class="stat-item"><span>Terraform</span><span id="tfDrift" style="font-weight:bold;color:#ffc107">DRIFT?</span></div>
+            <hr style="border-color:rgba(100,181,246,0.2);margin:10px 0">
+            <div style="font-size:12px;opacity:.9;line-height:1.5">
+                • src/app/ (Next.js 15 App Router) — root מציג 404 ב‑dev אם אין page.tsx<br>
+                • services/mcp-gateway/ — שער WS + /healthz (AUTH_TOKEN ב‑WS בלבד)<br>
+                • infra/terraform/ — VM+VPC; השער שוחזר ידנית → יתכן DRIFT<br>
+                • .github/workflows/terraform.yml — CI ל‑TFC<br>
+                • .mcp/servers.* — פרופילים ללקוח MCP (VS Code)
+            </div>
+            <div class="row-actions">
+                <button id="btnCheck" class="btn">בדיקת בריאות</button>
+                <a href="https://mcp-gateway-232368778929.us-central1.run.app/healthz" target="_blank" rel="noopener" class="btn">פתח /healthz</a>
+                <a href="http://35.224.11.43:3000/" target="_blank" rel="noopener" class="btn">פתח VM:3000</a>
+                <button id="btnResetLayout" class="btn">איפוס פריסה</button>
+            </div>
+            <div class="row-input">
+                <label for="gwUrl" style="font-size:12px;color:#74c0fc">Gateway URL:</label>
+                <input id="gwUrl" type="text" class="input" value="https://mcp-gateway-232368778929.us-central1.run.app/healthz"/>
+                <button id="btnSaveGw" class="btn">שמור</button>
+            </div>
+            <div id="diagOut" style="margin-top:8px;font-size:12px;color:#a7ffeb"></div>
+        </div>
+
+        <!-- Layer 1: Application Logic -->
+        <div class="layer layer-1">
+            <div class="layer-title">שכבה 1: לוגיקת יישום</div>
+
+            <div class="component ui-component" data-component="ui">
+                <div class="component-name">רכיבי ממשק</div>
+                <div class="component-status status-pass">✅ PASS</div>
+                <div class="component-info">537 שורות | React 19</div>
+            </div>
+
+            <div class="component agent-component" data-component="agent">
+                <div class="component-name">ליבת הסוכן</div>
+                <div class="component-status status-warning">⚠️ WARNING</div>
+                <div class="component-info">759 שורות | Duplication</div>
+            </div>
+
+            <div class="component dashboard-component" data-component="dashboard">
+                <div class="component-name">לוח בקרת סטטוס</div>
+                <div class="component-status status-pass">✅ PASS</div>
+                <div class="component-info">324 שורות | Next.js 15</div>
+            </div>
+
+            <div class="component proxy-component" data-component="proxy">
+                <div class="component-name">שכבת Proxy/שער</div>
+                <div class="component-status status-pending">🔄 PENDING</div>
+                <div class="component-info">156 שורות | WebSocket</div>
+            </div>
+        </div>
+
+        <!-- Layer 2: Infrastructure -->
+        <div class="layer layer-2">
+            <div class="layer-title">שכבה 2: פלטפורמה ותשתית</div>
+
+            <div class="component terraform-component" data-component="terraform">
+                <div class="component-name">Terraform</div>
+                <div class="component-status status-fail">❌ FAIL</div>
+        <div class="connection-line static-conn-1"></div>
+        <div class="connection-line static-conn-2"></div>
+        <div class="connection-line static-conn-3"></div>
+        <div class="connection-line static-conn-4"></div>
+        <div class="connection-line static-conn-5"></div>
+                <div class="component-status status-pass">✅ PASS</div>
+                <div class="component-info">3 Services</div>
+            </div>
+
+            <div class="component gcp-component" data-component="gcp">
+                <div class="component-name">GCP</div>
+                <div class="component-status status-warning">⚠️ WARNING</div>
+                <div class="component-info">Cloud Run, SA | Policy open</div>
+            </div>
+        </div>
+
+        <!-- Layer 3: Development Tools -->
+        <div class="layer layer-3">
+            <div class="layer-title">שכבה 3: בדיקות והגדרות</div>
+
+            <div class="component jest-component" data-component="jest">
+                <div class="component-name">Jest Testing</div>
+                <div class="component-status status-pass">✅ PASS</div>
+                <div class="component-info">Config OK</div>
+            </div>
+
+            <div class="component playwright-component" data-component="playwright">
+                <div class="component-name">Playwright E2E</div>
+                <div class="component-status status-pass">✅ PASS</div>
+                <div class="component-info">Browser Tests</div>
+            </div>
+
+            <div class="component config-component" data-component="config">
+                <div class="component-name">קונפיגורציה</div>
+                <div class="component-status status-warning">⚠️ WARNING</div>
+                <div class="component-info">.env | MCP profiles</div>
+            </div>
+        </div>
+
+        <!-- Connection Lines -->
+        <div class="connection-line" style="top: 190px; left: 190px; width: 60px; transform: rotate(0deg);"></div>
+        <div class="connection-line" style="top: 190px; left: 360px; width: 60px; transform: rotate(0deg);"></div>
+        <div class="connection-line" style="top: 270px; left: 145px; width: 60px; transform: rotate(90deg);"></div>
+        <div class="connection-line" style="top: 270px; left: 295px; width: 60px; transform: rotate(90deg);"></div>
+        <div class="connection-line" style="top: 270px; left: 445px; width: 60px; transform: rotate(90deg);"></div>
+
+        <!-- Terminal -->
+        <div class="terminal" id="terminal">
+            <div class="terminal-line">$ npm run dev</div>
+            <div class="terminal-line">⚡ LionXA Development Server</div>
+            <div class="terminal-line">🔍 Agent monitoring: ACTIVE</div>
+            <div class="terminal-line">🐳 Docker services: 3/3 UP</div>
+            <div class="terminal-line">⚠️ Warning: watchList.ts duplication detected</div>
+            <div class="terminal-line">❌ Terraform validation failed</div>
+            <div class="terminal-line">✅ React components loaded successfully</div>
+            <div class="terminal-line">🔄 WebSocket proxy initializing...</div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeModal">&times;</span>
+            <div class="modal-title" id="modalTitle">Component Details</div>
+            <div id="modalBody">
+                <!-- Content will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Component Data
+        const componentData = {
+            ui: {
+                title: "UI Components - React 19",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • src/app/ (App Router), src/components/<br>
+                    • Next.js 15 App Router<br><br>
+
+                    <strong>מצב:</strong> ⚠️ WARNING<br>
+                    <strong>בעיות:</strong> root (/) מציג 404 ב‑dev אם אין page.tsx<br>
+                    <strong>תלויות:</strong> React 19, Next.js 15
+                `
+            },
+            agent: {
+                title: "Agent Core - AI Logic",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • src/agent.ts (759 שורות)<br>
+                    • src/types/agent.ts<br>
+                    • Xagent/ directory<br><br>
+
+                    <strong>מצב:</strong> ⚠️ WARNING<br>
+                    <strong>בעיות:</strong> כפילות ב-watchList.ts<br>
+                    <strong>פונקציות:</strong> AI orchestration, task management
+                `
+            },
+            dashboard: {
+                title: "Dashboard - Management UI",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • src/app/dashboard/ (324 שורות)<br>
+                    • Real-time monitoring<br>
+                    • Agent status display<br><br>
+
+                    <strong>מצב:</strong> ✅ PASS<br>
+                    <strong>תכונות:</strong> Live updates, metrics visualization
+                `
+            },
+            proxy: {
+                title: "Proxy Service - Communication Layer",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • services/mcp-gateway/<br>
+                    • WebSocket handlers<br>
+                    • API routing<br><br>
+
+                    <strong>מצב:</strong> 🔄 PENDING (יעודכן מבדיקת /healthz)<br>
+                    <strong>סטטוס:</strong> פרוס ב‑Cloud Run; /healthz ציבורי, WS דורש AUTH_TOKEN<br>
+                    <strong>פרוטוקולים:</strong> HTTP, WebSocket, MCP
+                `
+            },
+            terraform: {
+                title: "Terraform Infrastructure",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • infra/terraform/ (VPC/Firewall/VM, ספקים)<br>
+                    • Cloud Run gateway הושב ידנית (drift)<br><br>
+
+                    <strong>מצב:</strong> ⚠️ WARNING (drift אפשרי)<br>
+                    <strong>בעיות:</strong> Gateway לא מנוהל כרגע ב‑Terraform; לשקול import/השבה למודול
+                    <strong>משאבים:</strong> VM, VPC/Firewall, (LB אופציונלי)
+                `
+            },
+            docker: {
+                title: "Docker Containerization",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • docker-compose.yml<br>
+                    • Dockerfile configurations<br>
+                    • 3 services defined<br><br>
+
+                    <strong>מצב:</strong> ✅ PASS (compose רץ על ה‑VM)<br>
+                    <strong>שירותים:</strong> frontend (Next dev), agent, (gateway נפרד ב‑Cloud Run)
+                    <strong>רשתות:</strong> Internal communication configured
+                `
+            },
+            gcp: {
+                title: "Google Cloud Platform",
+                details: `
+                    <strong>שירותים:</strong><br>
+                    • Cloud Run deployment<br>
+                    • Load Balancer configuration<br>
+                    • Service Account setup<br><br>
+
+                    <strong>מצב:</strong> ⚠️ WARNING<br>
+                    <strong>בעיות:</strong> External IP policy פתוחה (allowAll); Gateway פועל ציבורית ל‑/healthz<br>
+                    <strong>אזורים:</strong> us-central1 (Cloud Run, VM)
+                `
+            },
+            jest: {
+                title: "Jest Testing Framework",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • config/jest.config.js<br>
+                    • Test specifications<br>
+                    • Coverage reporting<br><br>
+
+                    <strong>מצב:</strong> ✅ PASS<br>
+                    <strong>כיסוי:</strong> Unit tests configured<br>
+                    <strong>סביבה:</strong> Node.js testing
+                `
+            },
+            playwright: {
+                title: "Playwright E2E Testing",
+                details: `
+                    <strong>תכונות:</strong><br>
+                    • Browser automation<br>
+                    • Cross-browser testing<br>
+                    • Visual regression tests<br><br>
+
+                    <strong>מצב:</strong> ✅ PASS<br>
+                    <strong>דפדפנים:</strong> Chromium, Firefox, Safari<br>
+                    <strong>תרחישים:</strong> User flow validation
+                `
+            },
+            config: {
+                title: "Configuration Management",
+                details: `
+                    <strong>קבצים מרכזיים:</strong><br>
+                    • .env.example<br>
+                    • .mcp/servers.json<br>
+                    • Various config files<br><br>
+
+                    <strong>מצב:</strong> ⚠️ WARNING<br>
+                    <strong>בעיות:</strong> Missing environment variables<br>
+                    <strong>הגדרות:</strong> Development & production configs
+                `
+            }
+        };
+
+        // Initialize particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Modal functionality
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+
+        // Component click handlers
+        document.querySelectorAll('.component').forEach(component => {
+            component.addEventListener('click', () => {
+                const componentType = component.getAttribute('data-component');
+                const data = componentData[componentType];
+
+                modalTitle.textContent = data.title;
+                modalBody.innerHTML = data.details;
+                modal.style.display = 'flex';
+            });
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+
+        // Terminal animation (guarded if terminal not present)
+        function animateTerminal() {
+            const terminal = document.getElementById('terminal');
+            if (!terminal) return;
+            const lines = terminal.querySelectorAll('.terminal-line');
+            if (!lines || !lines.length) return;
+
+            lines.forEach((line, index) => {
+                setTimeout(() => {
+                    line.style.opacity = '0.6';
+                    setTimeout(() => {
+                        line.style.opacity = '1';
+                    }, 120);
+                }, index * 420);
+            });
+        }
+
+        // --- Config ---
+        const CONFIG = {
+            // ניתן לשנות כאן לכתובת ה-Gateway בסביבה שלך
+            gatewayHealth: 'https://mcp-gateway-232368778929.us-central1.run.app/healthz',
+            healthIntervalMs: 8000
+        };
+
+        // Initialize visuals
+        createParticles();
+
+        // Animate terminal every 10 seconds
+        setInterval(animateTerminal, 10000);
+
+        // Initial terminal animation after 2 seconds
+        setTimeout(animateTerminal, 2000);
+
+        // Add dynamic connection flow effects
+        function animateConnections() {
+            const connections = document.querySelectorAll('.connection-line');
+            connections.forEach((line, index) => {
+                setTimeout(() => {
+                    line.style.boxShadow = '0 0 10px #64b5f6';
+                    setTimeout(() => {
+                        line.style.boxShadow = 'none';
+                    }, 1000);
+                }, index * 300);
+            });
+        }
+
+        // Connection lines
+        const connectionsHost = document.getElementById('connections');
+
+        function getCenter(el) {
+            const r = el.getBoundingClientRect();
+            const host = document.querySelector('.canvas-container').getBoundingClientRect();
+            return {
+                x: r.left - host.left + r.width / 2,
+                y: r.top - host.top + r.height / 2,
+            };
+        }
+
+        function drawLine(fromEl, toEl) {
+            if (!fromEl || !toEl) return null;
+            const a = getCenter(fromEl);
+            const b = getCenter(toEl);
+            const dx = b.x - a.x;
+            const dy = b.y - a.y;
+            const len = Math.sqrt(dx*dx + dy*dy);
+            const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+            const line = document.createElement('div');
+            line.className = 'connection-line';
+            line.style.width = `${len}px`;
+            line.style.left = `${a.x}px`;
+            line.style.top = `${a.y}px`;
+            line.style.transform = `rotate(${angle}deg)`;
+            return line;
+        }
+
+        const connectionPairs = [
+            ['.ui-component', '.proxy-component'],
+            ['.agent-component', '.proxy-component'],
+            ['.proxy-component', '.gcp-component'],
+            ['.docker-component', '.gcp-component'],
+        ];
+
+        function renderConnections() {
+            if (!connectionsHost) return;
+            connectionsHost.innerHTML = '';
+            connectionPairs.forEach(([aSel, bSel]) => {
+                const a = document.querySelector(aSel);
+                const b = document.querySelector(bSel);
+                const line = drawLine(a, b);
+                if (line) connectionsHost.appendChild(line);
+            });
+            animateConnections();
+        }
+
+        // Run connection animation every 5 seconds
+        setInterval(() => { renderConnections(); }, 5000);
+        setTimeout(renderConnections, 600);
+        window.addEventListener('resize', renderConnections);
+
+        // Layer hover effects
+        document.querySelectorAll('.layer').forEach(layer => {
+            layer.addEventListener('mouseenter', () => {
+                layer.style.transform = 'translateX(10px)';
+                layer.style.borderColor = 'rgba(100, 181, 246, 0.5)';
+            });
+
+            layer.addEventListener('mouseleave', () => {
+                layer.style.transform = 'translateX(0)';
+                layer.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+            });
+        });
+
+        // Drag & Drop for components (with localStorage persistence)
+        function restorePositions() {
+            document.querySelectorAll('.component').forEach(el => {
+                const key = `canvasPos:${el.dataset.component}`;
+                const saved = localStorage.getItem(key);
+                if (saved) {
+                    try {
+                        const { left, top } = JSON.parse(saved);
+                        if (typeof left === 'number') el.style.left = `${left}px`;
+                        if (typeof top === 'number') el.style.top = `${top}px`;
+                    } catch {}
+                }
+            });
+        }
+
+        function makeDraggable(el) {
+            let dragging = false; let startX=0, startY=0, baseLeft=0, baseTop=0;
+            const parent = el.closest('.layer');
+            el.addEventListener('mousedown', (e) => {
+                dragging = true;
+                startX = e.clientX; startY = e.clientY;
+                const rect = el.getBoundingClientRect();
+                const host = parent.getBoundingClientRect();
+                baseLeft = rect.left - host.left;
+                baseTop  = rect.top - host.top;
+                document.body.style.userSelect = 'none';
+            });
+            window.addEventListener('mousemove', (e) => {
+                if (!dragging) return;
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                const newLeft = Math.max(0, baseLeft + dx);
+                const newTop  = Math.max(0, baseTop + dy);
+                el.style.left = `${newLeft}px`;
+                el.style.top  = `${newTop}px`;
+                renderConnections();
+            });
+            window.addEventListener('mouseup', () => {
+                if (!dragging) return;
+                dragging = false;
+                document.body.style.userSelect = '';
+                const key = `canvasPos:${el.dataset.component}`;
+                const left = parseInt(el.style.left||'0',10);
+                const top  = parseInt(el.style.top||'0',10);
+                localStorage.setItem(key, JSON.stringify({left, top}));
+            });
+        }
+
+        restorePositions();
+        document.querySelectorAll('.component').forEach(makeDraggable);
+        renderConnections();
+
+        // Live Gateway health check → update Proxy component + stats
+        const proxyCard = document.querySelector('.proxy-component');
+        const proxyStatus = proxyCard?.querySelector('.component-status');
+        const gatewayStat = (() => {
+            // add a stat row for gateway health if missing
+            const panel = document.querySelector('.stats-panel');
+            const row = document.createElement('div');
+            row.className = 'stat-item';
+            row.innerHTML = `<span>Gateway Health:</span><span id="gatewayStatus" style="font-weight:bold;color:#ffc107">PENDING</span>`;
+            panel?.appendChild(row);
+            return document.getElementById('gatewayStatus');
+        })();
+
+        async function checkGateway() {
+            try {
+                const resp = await fetch(CONFIG.gatewayHealth, { cache:'no-store' });
+                const ok = resp.ok;
+                // Try to parse JSON; if CORS blocks, this will throw -> fall to catch
+                let parsed = false;
+                if (ok) {
+                    const data = await resp.json().catch(()=>({}));
+                    parsed = !!data && (data.ok === true || Array.isArray(data.allowed));
+                }
+                if (ok && parsed) {
+                    updateProxyStatus('ok');
+                    diagAppend(`[healthz] HTTP ${resp.status}; parsed OK`);
+                } else if (ok && !parsed) {
+                    updateProxyStatus('warn');
+                    diagAppend(`[healthz] HTTP ${resp.status}; CORS/format prevents parse → WARN`);
+                } else {
+                    updateProxyStatus('fail');
+                    diagAppend(`[healthz] HTTP ${resp.status}; FAIL`);
+                }
+            } catch (e) {
+                // Likely CORS/network from file:// or different origin → warn, not hard fail
+                updateProxyStatus('warn');
+                diagAppend('[healthz] fetch failed (CORS/Network) → WARN');
+            }
+        }
+
+        function updateProxyStatus(level) {
+            if (!proxyCard || !proxyStatus) return;
+            const map = { ok: ['OK', '#4caf50', 'status-pass', '✅ PASS'], warn: ['WARN', '#ffc107', 'status-warning', '⚠️ WARNING'], fail: ['FAIL', '#f44336', 'status-fail', '❌ FAIL'] };
+            const m = map[level] || map.warn;
+            if (gatewayStat) { gatewayStat.textContent = m[0]; gatewayStat.style.color = m[1]; }
+            proxyStatus.classList.remove('status-pass','status-fail','status-warning','status-pending');
+            proxyStatus.classList.add(m[2]);
+            proxyStatus.textContent = m[3];
+        }
+
+        // periodic health checks
+        checkGateway();
+        setInterval(checkGateway, CONFIG.healthIntervalMs);
+
+        // Diagnostics UI
+        const diagOut = document.getElementById('diagOut');
+        function diagAppend(t){ if(diagOut){ const d=document.createElement('div'); d.textContent=t; diagOut.appendChild(d);} }
+        document.getElementById('btnCheck')?.addEventListener('click', () => {
+            renderConnections();
+            checkGateway();
+            diagAppend('[diag] Manual check triggered');
+        });
+
+        // Save/Load Gateway URL
+        const gwInput = document.getElementById('gwUrl');
+        const savedGw = localStorage.getItem('canvas:gwHealth');
+        if (savedGw && gwInput) {
+            gwInput.value = savedGw;
+            CONFIG.gatewayHealth = savedGw;
+        }
+        document.getElementById('btnSaveGw')?.addEventListener('click', () => {
+            const v = gwInput?.value?.trim();
+            if (v) {
+                CONFIG.gatewayHealth = v;
+                localStorage.setItem('canvas:gwHealth', v);
+                diagAppend(`[cfg ] Saved gatewayHealth = ${v}`);
+                checkGateway();
+            }
+        });
+
+        // Reset layout (clear positions)
+        document.getElementById('btnResetLayout')?.addEventListener('click', () => {
+            document.querySelectorAll('.component').forEach(el => {
+                const key = `canvasPos:${el.dataset.component}`;
+                localStorage.removeItem(key);
+            });
+            diagAppend('[layout] Cleared saved positions');
+            location.reload();
+        });
+
+        // Accessibility: close modal on Escape
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

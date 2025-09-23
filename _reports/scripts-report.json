@@ -1,0 +1,98 @@
+{
+  "scripts": [
+    {
+      "name": "dev",
+      "command": "next dev",
+      "validation": []
+    },
+    {
+      "name": "start",
+      "command": "ts-node --project tsconfig.node.json src/server.ts",
+      "validation": [
+        {
+          "part": "tsconfig.node.json",
+          "status": "found"
+        },
+        {
+          "part": "src/server.ts",
+          "status": "found"
+        }
+      ]
+    },
+    {
+      "name": "start:agent",
+      "command": "ts-node --project tsconfig.node.json src/agent.ts",
+      "validation": [
+        {
+          "part": "tsconfig.node.json",
+          "status": "found"
+        },
+        {
+          "part": "src/agent.ts",
+          "status": "found"
+        }
+      ]
+    },
+    {
+      "name": "dev:all",
+      "command": "concurrently \"pnpm:start\" \"pnpm:start:agent\"",
+      "validation": []
+    },
+    {
+      "name": "build",
+      "command": "next build",
+      "validation": []
+    },
+    {
+      "name": "lint",
+      "command": "eslint . --ext .ts,.tsx",
+      "validation": [
+        {
+          "part": ".",
+          "status": "found"
+        }
+      ]
+    },
+    {
+      "name": "pretest",
+      "command": "mkdir -p .tmp",
+      "validation": [
+        {
+          "part": ".tmp",
+          "status": "found"
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "command": "TMPDIR=.tmp jest --config config/jest.config.js",
+      "validation": [
+        {
+          "part": "config/jest.config.js",
+          "status": "found"
+        }
+      ]
+    },
+    {
+      "name": "mcp:use:local",
+      "command": "bash scripts/setup/mcp_use.sh local",
+      "validation": [
+        {
+          "part": "scripts/setup/mcp_use.sh",
+          "status": "found"
+        }
+      ]
+    },
+    {
+      "name": "mcp:use:docker",
+      "command": "bash scripts/setup/mcp_use.sh docker",
+      "validation": [
+        {
+          "part": "scripts/setup/mcp_use.sh",
+          "status": "found"
+        }
+      ]
+    }
+  ],
+  "hooks": {}
+}

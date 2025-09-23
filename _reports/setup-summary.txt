@@ -1,0 +1,14 @@
+# Setup Summary
+Generated: 2025-09-22T22:54:17Z
+Target Node (from .nvmrc): v22.11.0
+Detected node -v: v22.11.0
+Detected pnpm -v: 10.13.1
+
+- ✔ Enable Corepack
+- ✔ Activate pnpm@10.13.1
+- ✔ Install dependencies
+- ✔ Clean workspace
+- ✔ Build project
+- ✔ Lint source
+- ✔ Typecheck
+- ✔ Run unit tests

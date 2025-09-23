@@ -1,0 +1,61 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+
+export default function Home() {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+      <header className="md:col-span-3">
+        <h1 className="text-2xl font-bold">XAgent Control</h1>
+      </header>
+
+      <div className="md:col-span-2 space-y-4">
+        <Card>
+          <CardHeader><CardTitle>פיד דפדפן</CardTitle></CardHeader>
+          <CardContent>פיד הדפדפן של הסוכן (לא פעיל)</CardContent>
+        </Card>
+        <Card>
+          <CardHeader><CardTitle>שליטה ידנית</CardTitle></CardHeader>
+          <CardContent className="flex gap-2">
+            <Input placeholder="הזן פקודה לסוכן..." />
+            <Button>שלח פקודה</Button>
+          </CardContent>
+        </Card>
+      </div>
+
+      <aside className="space-y-4">
+        <Card>
+          <CardHeader><CardTitle>מדדים</CardTitle></CardHeader>
+          <CardContent>
+            <p>מצב רוח: 75%</p>
+            <p>עוקבים: 1,234</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader><CardTitle>יומן פעולות</CardTitle></CardHeader>
+          <CardContent>
+              <Table>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead>פעולה</TableHead>
+                    <TableHead>זמן</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody>
+                  <TableRow>
+                    <TableCell>צייץ מחדש</TableCell>
+                    <TableCell>לפני 5 דקות</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell>עקוב</TableCell>
+                    <TableCell>לפני 10 דקות</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+          </CardContent>
+        </Card>
+      </aside>
+    </div>
+  );
+}

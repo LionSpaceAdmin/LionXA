@@ -1,0 +1,32 @@
+{
+  "groups": [
+    { "id": "g1", "title": "שירותי ליבה" },
+    { "id": "g2", "title": "חסמים מזוהים (בעיות)" },
+    { "id": "g3", "title": "ארכיטקטורת יעד" }
+  ],
+  "nodes": [
+    { "id": "c1", "group": "g1", "title": "ממשק משתמש", "tag": "Next.js Frontend" },
+    { "id": "c2", "group": "g1", "title": "תהליך סוכן", "tag": "Playwright Agent" },
+    { "id": "c3", "group": "g1", "title": "שער MCP", "tag": "MCP Gateway" },
+    { "id": "c4", "group": "g1", "title": "גישה מרחוק", "tag": "Guacamole VNC" },
+    { "id": "b1", "group": "g2", "title": "UI שבור", "tag": "Visual Layout Collapsed" },
+    { "id": "b2", "group": "g2", "title": "פיד VNC לא פעיל", "tag": "No Live Browser View" },
+    { "id": "b3", "group": "g2", "title": "גשר WebSocket מנותק", "tag": "No Real-time Communication" },
+    { "id": "t1", "group": "g3", "title": "UI יציב ומקצועי", "tag": "Rebuilt with Shadcn/UI" },
+    { "id": "t2", "group": "g3", "title": "פיד דפדפן חי ואינטראקטיבי", "tag": "Live & Interactive Browser Feed" },
+    { "id": "t3", "group": "g3", "title": "תקשורת דו-כיוונית בזמן אמת", "tag": "Fully Functional Real-time Communication" },
+    { "id": "ultimate_goal", "group": "g3", "title": "סוכן פרוקסי מוכן לפרודקשן", "tag": "Final Objective" }
+  ],
+  "edges": [
+    { "source": "c1", "target": "b1" },
+    { "source": "c2", "target": "b2" },
+    { "source": "c4", "target": "b2" },
+    { "source": "c3", "target": "b3" },
+    { "source": "b1", "target": "t1" },
+    { "source": "b2", "target": "t2" },
+    { "source": "b3", "target": "t3" },
+    { "source": "t1", "target": "ultimate_goal" },
+    { "source": "t2", "target": "ultimate_goal" },
+    { "source": "t3", "target": "ultimate_goal" }
+  ]
+}
